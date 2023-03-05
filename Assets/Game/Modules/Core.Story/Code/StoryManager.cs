@@ -1,22 +1,36 @@
-﻿using UnityEngine;
+﻿using Self.Architecture.IOC;
+using UnityEngine;
 
-public class StoryManager
+namespace Self.Story
 {
-	private Chapter _chapter;
-
-	private string _currentNode;
-
-	public void SetChapter(Chapter chapter)
+	public class StoryManager : SharedObject
 	{
-		
-	}
+		private Chapter _chapter;
 
-	public void SetNode(string nodeId)
-	{
-		if (!_chapter.nodes.TryGetValue(nodeId, out var node))
+		private string _currentNode;
+
+		public override void Init()
 		{
-			Debug.Log("AAA!!!");
-			return;
+			Debug.Log("[TEST] StoryManager.Init()");
+		}
+
+		public override void Dispose()
+		{
+			Debug.Log("[TEST] StoryManager.Dispose()");
+		}
+		
+		public void SetChapter(Chapter chapter)
+		{
+		
+		}
+
+		public void SetNode(string nodeId)
+		{
+			if (!_chapter.nodes.TryGetValue(nodeId, out var node))
+			{
+				Debug.Log("AAA!!!");
+				return;
+			}
 		}
 	}
 }

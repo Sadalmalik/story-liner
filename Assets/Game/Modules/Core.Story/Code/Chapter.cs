@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
 
-public class Chapter
+namespace Self.Story
 {
-	public string startNode;
+	public class Chapter
+	{
+		public string startNode;
 
-	public Dictionary<string, Node> nodes;
+		public Dictionary<string, Node> nodes;
+	}
 }

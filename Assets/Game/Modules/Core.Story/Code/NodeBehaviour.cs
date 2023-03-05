@@ -1,14 +1,18 @@
-﻿public class NodeBehaviour
+﻿
+namespace Self.Story
 {
-	public virtual void OnFirstEnter()
+	public class NodeBehaviour
 	{
-	}
+		public virtual void OnFirstEnter()
+		{
+		}
 
-	public virtual void OnEnter()
-	{
-	}
+		public virtual void OnEnter()
+		{
+		}
 
-	public virtual void OnExit()
-	{
+		public virtual void OnExit()
+		{
+		}
 	}
 }

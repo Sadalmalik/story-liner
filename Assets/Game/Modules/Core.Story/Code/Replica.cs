@@ -1,18 +1,23 @@
-﻿public class Replica : NodeBehaviour
+﻿
+
+namespace Self.Story
 {
-	public string characterId;
-	public string characterEmotion;
-	public string localizationTerm;
-
-	public override void OnFirstEnter()
+	public class Replica : NodeBehaviour
 	{
-	}
+		public string characterId;
+		public string characterEmotion;
+		public string localizationTerm;
 
-	public override void OnEnter()
-	{
-	}
+		public override void OnFirstEnter()
+		{
+		}
 
-	public override void OnExit()
-	{
+		public override void OnEnter()
+		{
+		}
+
+		public override void OnExit()
+		{
+		}
 	}
 }
