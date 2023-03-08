@@ -5,3 +5,15 @@ GridBackground {
     --thick-line-color: rgba(193, 196, 192, 0.1);
     --spacing: 15;
 }
+
+.inspector-view {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.main-view {
+    flex-shrink: 0;
+    flex-grow: 1;
+}
