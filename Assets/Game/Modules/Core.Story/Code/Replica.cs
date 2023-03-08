@@ -1,10 +1,8 @@
-﻿
-
-namespace Self.Story
+﻿namespace Self.Story
 {
 	public class Replica : NodeBehaviour
 	{
-		public string characterId;
+        public CharacterReference characterId;
 		public string characterEmotion;
 		public string localizationTerm;
 

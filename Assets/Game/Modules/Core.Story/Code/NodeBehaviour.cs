@@ -1,7 +1,9 @@
 ﻿
+using UnityEngine;
+
 namespace Self.Story
 {
-	public class NodeBehaviour
+	public class NodeBehaviour : ScriptableObject
 	{
 		public virtual void OnFirstEnter()
 		{

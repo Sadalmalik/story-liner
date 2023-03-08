@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6647855100356191870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0efd602be4a1404284e35451263638ec, type: 3}
+  m_Name: node.372161.sub.0.Replica
+  m_EditorClassIdentifier: 
+  characterId:
+    character: {fileID: 0}
+  characterEmotion: 
+  localizationTerm: 
+--- !u!114 &-1569025706170502312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0efd602be4a1404284e35451263638ec, type: 3}
+  m_Name: node.372161.sub.1.Replica
+  m_EditorClassIdentifier: 
+  characterId:
+    character: {fileID: 0}
+  characterEmotion: 
+  localizationTerm: 
+--- !u!114 &-254157991974820475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9400a88c484e0c14e92e110410592684, type: 3}
+  m_Name: Node
+  m_EditorClassIdentifier: 
+  id: 372161c4ff131fe42b8df9c120819742
+  nextNodes:
+  - 
+  mainBehaviour: {fileID: 5063215757737185784}
+  behaviours:
+  - {fileID: -6647855100356191870}
+  - {fileID: -1569025706170502312}
+  position: {x: 379.45944, y: -271.05405}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f50c4d280cda4e2c990b7e49a963b452, type: 3}
+  m_Name: asd
+  m_EditorClassIdentifier: 
+  chapterName: 
+  startNode: 
+  _serializedNodes:
+  - id: 372161c4ff131fe42b8df9c120819742
+    node: {fileID: -254157991974820475}
+--- !u!114 &5063215757737185784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0efd602be4a1404284e35451263638ec, type: 3}
+  m_Name: node.372161.main.Replica
+  m_EditorClassIdentifier: 
+  characterId:
+    character: {fileID: 0}
+  characterEmotion: 
+  localizationTerm: 
