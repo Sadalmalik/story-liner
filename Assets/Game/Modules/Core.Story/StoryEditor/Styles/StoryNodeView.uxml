@@ -19,4 +19,5 @@
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="selection-border" picking-mode="Ignore" />
+    <ui:Label name="debug-info" text="debug-text" class="debug-info" />
 </ui:UXML>

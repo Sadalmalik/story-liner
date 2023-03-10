@@ -1,8 +1,11 @@
+using System;
+using System.Collections.Generic;
+
 namespace Self.Story
 {
     public class Choice : NodeBehaviour
 	{
-		public string[] choices;
+		public List<string> choices = new List<string> { string.Empty };
 
 		public override void OnFirstEnter()
 		{

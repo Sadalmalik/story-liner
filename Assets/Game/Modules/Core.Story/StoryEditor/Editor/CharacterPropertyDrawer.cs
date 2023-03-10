@@ -2,12 +2,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using Self.Story;
-using Self.Story.Utility;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 using System.Linq;
 
-namespace Self.Editors
+namespace Self.Story.Editors
 {
     [CustomPropertyDrawer(typeof(CharacterReference))]
     public class CharacterPropertyDrawer : PropertyDrawer
@@ -63,7 +62,7 @@ namespace Self.Editors
                 });
             }
 
-            var characterNames = choices.Select(ch => ch.character.name).ToList();
+            var characterNames = choices.Select(ch => ch.character.characterName).ToList();
             var characterDropDown = new DropdownField("Main Behaviour", characterNames, 0, OnCharacterSelected);
 
             return characterDropDown;

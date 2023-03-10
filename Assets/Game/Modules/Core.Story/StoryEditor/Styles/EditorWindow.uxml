@@ -4,6 +4,7 @@
         <uie:ToolbarButton text="Import From Articy (json)" display-tooltip-when-elided="true" name="ImportFromArticy" />
         <uie:ToolbarMenu display-tooltip-when-elided="true" />
         <uie:ToolbarSearchField focusable="true" />
+        <uie:ToolbarToggle focusable="false" label="Debug Visible" name="debug-info-toggle" />
     </uie:Toolbar>
     <Self.Story.Editors.SplitView fixed-pane-initial-dimension="300" fixed-pane-index="1" focusable="false" orientation="Horizontal">
         <Self.Story.Editors.NodeEditorView focusable="true" class="main-view" />
