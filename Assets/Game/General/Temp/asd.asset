@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8132591782881449638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9400a88c484e0c14e92e110410592684, type: 3}
+  m_Name: Node
+  m_EditorClassIdentifier: 
+  id: 31fe2b66332ffab4699cf06fb8586101
+  nextNodes:
+  - 
+  mainBehaviour: {fileID: 3638333645970186331}
+  behaviours: []
+  position: {x: 515.2, y: -308.8}
 --- !u!114 &-6647855100356191870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 372161c4ff131fe42b8df9c120819742
   nextNodes:
-  - 
+  - 31fe2b66332ffab4699cf06fb8586101
   mainBehaviour: {fileID: 5063215757737185784}
   behaviours:
   - {fileID: -6647855100356191870}
@@ -69,6 +87,21 @@ MonoBehaviour:
   _serializedNodes:
   - id: 372161c4ff131fe42b8df9c120819742
     node: {fileID: -254157991974820475}
+  - id: 31fe2b66332ffab4699cf06fb8586101
+    node: {fileID: -8132591782881449638}
+--- !u!114 &3638333645970186331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c95977ff84d39ec449d9ef39d75f7399, type: 3}
+  m_Name: node.31fe2b.main.Choice
+  m_EditorClassIdentifier: 
+  choices: []
 --- !u!114 &5063215757737185784
 MonoBehaviour:
   m_ObjectHideFlags: 0
