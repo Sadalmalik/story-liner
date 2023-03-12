@@ -1,4 +1,3 @@
-using Self.Articy;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +5,6 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 using System.Linq;
-using System.Collections;
 
 namespace Self.Story.Editors
 {
@@ -20,13 +18,12 @@ namespace Self.Story.Editors
         public StoryEditorWindow EditorWindow { get; set; }
 
         private Chapter m_CurrentChapter;
-        private List<Node> m_ChildNodes;
 
         private List<Node> m_NodesToCopy = new List<Node>();
 
 
 
-        #region CONSTRUCTOS
+        #region CONSTRUCTORS
 
         public NodeEditorView()
         {
@@ -66,11 +63,11 @@ namespace Self.Story.Editors
             if (m_CurrentChapter.nodes == null)
                 m_CurrentChapter.nodes = new Dictionary<string, Node>();
 
-            m_ChildNodes = m_CurrentChapter.nodes.Values.ToList();
+            var chapterNodes = m_CurrentChapter.nodes.Values.ToList();
 
-            m_ChildNodes.ForEach(CreateNodeView);
+            chapterNodes.ForEach(CreateNodeView);
 
-            m_ChildNodes.ForEach(n =>
+            chapterNodes.ForEach(n =>
             {
                 var parentView = FindNodeView(n.id);
 
@@ -82,6 +79,16 @@ namespace Self.Story.Editors
                             continue;
 
                         var outputNode = FindNodeView(n.nextNodes[i]);
+
+                        if(outputNode == null)
+                        {
+                            var brokenOutput = n.nextNodes[i].Clone();
+
+                            n.nextNodes[i] = string.Empty;
+
+                            Debug.LogWarning($"[{nameof(NodeEditorView)}.{nameof(Create)}] Found broken output from node '{n.id}' to {brokenOutput}");
+                        }
+
                         var outputPort = parentView.OutputPorts[i];
                         var inputPort = outputNode.InputPort;
                         var edge = outputPort.ConnectTo(inputPort);
@@ -123,21 +130,20 @@ namespace Self.Story.Editors
 
         private void OnGraphElementRemoved(GraphElement elem)
         {
-            var nodeView = elem as NodeView;
-
-            if (nodeView != null)
+            if (elem is NodeView nodeView)
             {
                 StoryEditorWindow.DeleteNode(nodeView.Node, m_CurrentChapter);
             }
 
-            Edge edge = elem as Edge;
-
-            if (edge != null && edge.output != null && edge.input != null)
+            if (elem is Edge edge)
             {
-                var parentView = edge.output.node as NodeView;
+                if(edge.output != null && edge.input != null)
+                {
+                    var parentView = edge.output.node as NodeView;
 
-                var outputPortIndex = parentView.OutputPorts.IndexOf(edge.output);
-                parentView.Node.nextNodes[outputPortIndex] = string.Empty;
+                    var outputPortIndex = parentView.OutputPorts.IndexOf(edge.output);
+                    parentView.Node.nextNodes[outputPortIndex] = string.Empty;
+                }
             }
         }
 
@@ -147,6 +153,12 @@ namespace Self.Story.Editors
             {
                 var view = new NodeView(node);
                 view.OnNodeSelected += OnNodeSelected;
+                view.OnNodePortDisconnected += HandleNodePortsDisconnected;
+
+                var displayFlag = (DisplayStyle)(EditorWindow.m_DebugInfoToggle.value ? 0 : 1);
+                var debugInfoText = view.Q<Label>("debug-info");
+                var style = debugInfoText.style;
+                style.display = new StyleEnum<DisplayStyle>(displayFlag);
 
                 AddElement(view);
             }
@@ -154,6 +166,14 @@ namespace Self.Story.Editors
             {
                 throw;
             }
+        }
+
+        private void HandleNodePortsDisconnected(NodeView view, int index)
+        {
+            var port = view.OutputPorts[index];
+            var edges = port.connections.ToArray();
+
+            DeleteElements(edges);
         }
 
         private void CreateNode(Type a, Vector2 position)
@@ -344,6 +364,9 @@ namespace Self.Story.Editors
             var type = src.GetType();
             var fields = type.GetFields(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
 
+            var croppedIdSrc = src.id.Substring(0, 6);
+            var croppedIdDst = dst.id.Substring(0, 6);
+
             foreach (var f in fields)
             {
                 if (f.Name.Equals("id"))
@@ -355,6 +378,14 @@ namespace Self.Story.Editors
                 {
                     var cloneMethod = value.GetType().GetMethod(nameof(ICloneable.Clone));
                     var clonedValue = cloneMethod.Invoke(value, null);
+
+                    if(clonedValue is NodeBehaviour beh)
+                    {
+                        beh.name = beh.name.Replace(croppedIdSrc, croppedIdDst);
+
+                        AssetDatabase.AddObjectToAsset(beh, dst);
+                        AssetDatabase.SaveAssets();
+                    }
 
                     f.SetValue(dst, clonedValue);
                 }

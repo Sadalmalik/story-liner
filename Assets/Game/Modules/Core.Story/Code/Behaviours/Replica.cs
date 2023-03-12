@@ -2,9 +2,9 @@
 {
 	public class Replica : NodeBehaviour
 	{
-        public CharacterReference characterId;
-		public string characterEmotion;
-		public string localizationTerm;
+        [DisplayOnNode] public CharacterReference characterId;
+		[DisplayOnNode] public string characterEmotion;
+		[DisplayOnNode] public string localizationTerm;
 
 		public override void OnFirstEnter()
 		{
