@@ -26,11 +26,11 @@ namespace Self.Story
 
 		public void SetNode(string nodeId)
 		{
-			if (!_chapter.nodes.TryGetValue(nodeId, out var node))
-			{
-				Debug.Log("AAA!!!");
-				return;
-			}
+			//if (!_chapter.nodesByID.TryGetValue(nodeId, out var node))
+			//{
+			//	Debug.Log("AAA!!!");
+			//	return;
+			//}
 		}
 	}
 }

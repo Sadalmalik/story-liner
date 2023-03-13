@@ -40,7 +40,7 @@ namespace Self.Story.Editors
             this.AddManipulator(new SelectionDragger());
             this.AddManipulator(new RectangleSelector());
 
-            var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Game/Modules/Core.Story/StoryEditor/Styles/EditorStyle.uss");
+            var styleSheet = Resources.Load<StyleSheet>("Styles/EditorStyle");
             styleSheets.Add(styleSheet);
 
             Undo.undoRedoPerformed += OnUndoRedo;
@@ -54,6 +54,9 @@ namespace Self.Story.Editors
         {
             m_CurrentChapter = chapter;
 
+            if(m_CurrentChapter != null)
+                this.Q<Label>("current-chapter-name").text = m_CurrentChapter.chapterName;
+
             graphViewChanged -= OnGraphViewChanged;
 
             DeleteElements(graphElements.ToList());
@@ -61,9 +64,9 @@ namespace Self.Story.Editors
             graphViewChanged += OnGraphViewChanged;
 
             if (m_CurrentChapter.nodes == null)
-                m_CurrentChapter.nodes = new Dictionary<string, Node>();
+                m_CurrentChapter.nodes = new List<Node>();
 
-            var chapterNodes = m_CurrentChapter.nodes.Values.ToList();
+            var chapterNodes = m_CurrentChapter.nodes;
 
             chapterNodes.ForEach(CreateNodeView);
 
@@ -151,7 +154,7 @@ namespace Self.Story.Editors
         {
             try
             {
-                var view = new NodeView(node);
+                var view = NodeView.Create(node);
                 view.OnNodeSelected += OnNodeSelected;
                 view.OnNodePortDisconnected += HandleNodePortsDisconnected;
 
@@ -322,9 +325,9 @@ namespace Self.Story.Editors
             foreach (var node in duplicatedNodes)
             {
                 var originalId = clonedGuidToOldGuid[node.id];
-                var originalNode = m_CurrentChapter.nodes[originalId];
+                var originalNode = m_CurrentChapter.nodes.FirstOrDefault(n => n.id.Equals(originalId));
 
-                if (originalNode.nextNodes != null && node.nextNodes != null)
+                if (originalNode != null && originalNode.nextNodes != null && node.nextNodes != null)
                 {
                     int portCountDiff = originalNode.nextNodes.Count - node.nextNodes.Count;
 

@@ -25,123 +25,42 @@ namespace Self.Story.Editors
 
 
 
-        public NodeView(Node node) : base("Assets/Game/Modules/Core.Story/StoryEditor/Styles/StoryNodeView.uxml")
+        public static NodeView Create(Node node)
         {
-            this.Node = node;
-            this.viewDataKey = node.id;
-            this.Guid = node.id;
+            var uiFileAsset = Resources.Load("Styles/StoryNodeView");
+            var uiFilePath = AssetDatabase.GetAssetPath(uiFileAsset);
+
+            var newNode = new NodeView(uiFilePath);
+
+            newNode.Node = node;
+            newNode.viewDataKey = node.id;
+            newNode.Guid = node.id;
+
+            var style = newNode.style;
 
             style.left = node.position.x;
             style.top = node.position.y;
 
-            m_VariablesContainer = this.Q<VisualElement>("variables-container");
+            newNode.m_VariablesContainer = newNode.Q<VisualElement>("variables-container");
 
-            var debugInfo = this.Q<Label>("debug-info");
+            var debugInfo = newNode.Q<Label>("debug-info");
             debugInfo.text = $"id:{node.id}";
 
-            CreateVariableContainer();
+            newNode.CreateVariableContainer();
 
-            CreateInputPorts();
-            CreateOutputPorts();
-            SetupStyleClasses();
-            UpdateTitle();
+            newNode.CreateInputPorts();
+            newNode.CreateOutputPorts();
+            newNode.SetupStyleClasses();
+            newNode.UpdateTitle();
+
+            return newNode;
         }
 
-        public void UpdateMainBehaviour(NodeBehaviour newBehaviour)
-        {
-            for (int i = 0; i < OutputPorts.Count; i++)
-            {
-                OnNodePortDisconnected?.Invoke(this, i);
-            }
-
-            if (newBehaviour is Choice choice)
-            {
-                ChoiceEditor.OnChoiceAdded -= HandleChoiceAdded;
-                ChoiceEditor.OnChoiceAdded += HandleChoiceAdded;
-
-                ChoiceEditor.OnChoiceChanged -= HandleChoiceChanged;
-                ChoiceEditor.OnChoiceChanged += HandleChoiceChanged;
-
-                ChoiceEditor.OnChoiceRemoved -= HandleChoiceRemoved;
-                ChoiceEditor.OnChoiceRemoved += HandleChoiceRemoved;
-
-                if (Node.nextNodes.Count != 1)
-                {
-                    Node.nextNodes = new List<string>()
-                    {
-                        string.Empty
-                    };
-                }
-            }
-
-            if(newBehaviour is Replica)
-            {
-                if (Node.nextNodes.Count != 1)
-                {
-                    Node.nextNodes = new List<string>()
-                    {
-                        string.Empty
-                    };
-                }
-            }
-
-            if (newBehaviour is ConditionBehaviour condition)
-            {
-                if (Node.nextNodes.Count != 2)
-                {
-                    Node.nextNodes = new List<string>
-                    {
-                        string.Empty,
-                        string.Empty
-                    };
-                }
-            }
-
-            CreateOutputPorts();
-            CreateVariableContainer();
-        }
+        public NodeView(string uiFile) : base(uiFile) { }
 
         public void UpdatePortName(int index, string name)
         {
             OutputPorts[index].portName = name;
-        }
-
-        private void HandleChoiceAdded(Choice choiceBehaviour)
-        {
-            if (Node.mainBehaviour != choiceBehaviour)
-                return;
-
-            Node.nextNodes.Add(string.Empty);
-
-            var outputPort = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, null);
-
-            outputPort.portName = "out";
-            outputPort.portColor = Color.cyan;
-
-            OutputPorts.Add(outputPort);
-            outputContainer.Add(outputPort);
-        }
-
-        private void HandleChoiceRemoved(Choice choiceBehaviour)
-        {
-            if (Node.mainBehaviour != choiceBehaviour)
-                return;
-
-            Node.nextNodes.RemoveAt(Node.nextNodes.Count - 1);
-            var port = OutputPorts[choiceBehaviour.choices.Count];
-
-            OnNodePortDisconnected?.Invoke(this, choiceBehaviour.choices.Count);
-
-            if(port != null)
-            {
-                outputContainer.Remove(port);
-                OutputPorts.Remove(port);
-            }
-        }
-
-        private void HandleChoiceChanged(int index, string choiceText)
-        {
-            UpdatePortName(index, choiceText);
         }
 
         public void UpdateTitle(string title = null)
@@ -187,23 +106,6 @@ namespace Self.Story.Editors
                 Node.nextNodes = ports;
             }
 
-            if(Node.mainBehaviour is Choice choice)
-            {
-                foreach (var ch in choice.choices)
-                {
-                    var outputPort = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, null);
-
-                    outputPort.portName = ch;
-                    outputPort.portColor = Color.cyan;
-
-                    OutputPorts.Add(outputPort);
-
-                    outputContainer.Add(outputPort);
-                }
-
-                return;
-            }
-
             foreach (var port in ports)
             {
                 var outputPort = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, null);
@@ -219,31 +121,31 @@ namespace Self.Story.Editors
 
         private void CreateVariableContainer()
         {
-            if (Node.mainBehaviour == null)
-                return;
+            //if (Node.mainBehaviour == null)
+            //    return;
 
-            m_VariablesContainer.Clear();
+            //m_VariablesContainer.Clear();
 
-            var type = Node.mainBehaviour.GetType();
-            var displayFields = type.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-                                    .Where(f => f.GetCustomAttribute<DisplayOnNodeAttribute>() != null);
+            //var type = Node.mainBehaviour.GetType();
+            //var displayFields = type.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+            //                        .Where(f => f.GetCustomAttribute<DisplayOnNodeAttribute>() != null);
 
-            if (displayFields != null && displayFields.Count() > 0)
-            {
-                var serializedObject = new SerializedObject(Node.mainBehaviour);
+            //if (displayFields != null && displayFields.Count() > 0)
+            //{
+            //    var serializedObject = new SerializedObject(Node.mainBehaviour);
 
-                foreach (var f in displayFields)
-                {
-                    var serializedProp = serializedObject.FindProperty(f.Name);
-                    var propertyField = new PropertyField(serializedProp, serializedProp.displayName);
-                    propertyField.BindProperty(serializedObject);
-                    propertyField.label = serializedProp.displayName;
-                    m_VariablesContainer.Add(propertyField);
-                }
+            //    foreach (var f in displayFields)
+            //    {
+            //        var serializedProp = serializedObject.FindProperty(f.Name);
+            //        var propertyField = new PropertyField(serializedProp, serializedProp.displayName);
+            //        propertyField.BindProperty(serializedObject);
+            //        propertyField.label = serializedProp.displayName;
+            //        m_VariablesContainer.Add(propertyField);
+            //    }
 
-                var style = m_VariablesContainer.style;
-                style.display = new StyleEnum<DisplayStyle>(DisplayStyle.Flex);
-            }
+            //    var style = m_VariablesContainer.style;
+            //    style.display = new StyleEnum<DisplayStyle>(DisplayStyle.Flex);
+            //}
         }
 
         private void SetupStyleClasses()
@@ -264,18 +166,6 @@ namespace Self.Story.Editors
         public override void OnSelected()
         {
             base.OnSelected();
-
-            if(Node.mainBehaviour is Choice choice)
-            {
-                ChoiceEditor.OnChoiceAdded -= HandleChoiceAdded;
-                ChoiceEditor.OnChoiceAdded += HandleChoiceAdded;
-
-                ChoiceEditor.OnChoiceRemoved -= HandleChoiceRemoved;
-                ChoiceEditor.OnChoiceRemoved += HandleChoiceRemoved;
-
-                ChoiceEditor.OnChoiceChanged -= HandleChoiceChanged;
-                ChoiceEditor.OnChoiceChanged += HandleChoiceChanged;
-            }
 
             OnNodeSelected?.Invoke(this);
         }

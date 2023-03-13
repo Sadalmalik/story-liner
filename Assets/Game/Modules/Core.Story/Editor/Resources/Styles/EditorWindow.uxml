@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/EditorStyle.uss?fileID=7433441132597879392&amp;guid=6ab67264563942243a4c8a60c7a0053a&amp;type=3#EditorStyle" />
+    <uie:Toolbar>
+        <uie:ToolbarButton text="Import From Articy (json)" display-tooltip-when-elided="true" name="ImportFromArticy" />
+        <uie:ToolbarMenu display-tooltip-when-elided="true" />
+        <uie:ToolbarSearchField focusable="true" style="width: 143px;" />
+        <uie:ToolbarToggle focusable="false" name="debug-info-toggle" text="Debug Node Ids" />
+    </uie:Toolbar>
+    <Self.Story.Editors.NodeEditorView focusable="true" class="main-view">
+        <ui:Label text="Current Chapter Name Here" display-tooltip-when-elided="true" name="current-chapter-name" style="position: absolute; top: 15px; left: 15px;" />
+    </Self.Story.Editors.NodeEditorView>
+</ui:UXML>

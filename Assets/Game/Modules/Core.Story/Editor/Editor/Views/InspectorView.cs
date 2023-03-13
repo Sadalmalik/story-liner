@@ -116,7 +116,6 @@ namespace Self.Story.Editors
                 UpdateSelection(m_SelectedNodeView);
 
                 m_SelectedNodeView.UpdateTitle();
-                m_SelectedNodeView.UpdateMainBehaviour(behaviourInstance);
             }
 
             return selectedBehaviourClassName;

@@ -1,4 +1,3 @@
-using Self.Articy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +16,7 @@ namespace Self.Story.Editors
         private ToolbarMenu m_ToolbarMenu;
         private static StoryEditorWindow m_CachedWindow;
         private NodeEditorView m_EditorView;
-        private InspectorView m_InspectorView;
+        //private InspectorView m_InspectorView;
         public ToolbarToggle m_DebugInfoToggle { get; set; }
 
         [SerializeField] private Chapter m_CurrentChapter; // to prevent editor window flushing after recompling
@@ -60,18 +59,15 @@ namespace Self.Story.Editors
         { 
             VisualElement root = rootVisualElement;
 
-            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Game/Modules/Core.Story/StoryEditor/Styles/EditorWindow.uxml");
+            var visualTree = Resources.Load<VisualTreeAsset>("Styles/EditorWindow");
             visualTree.CloneTree(root);
-
-            var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Game/Modules/Core.Story/StoryEditor/Styles/EditorStyle.uss");
-            root.styleSheets.Add(styleSheet);
 
             m_EditorView = root.Q<NodeEditorView>();
             m_EditorView.EditorWindow = this;
             m_EditorView.OnNodeSelected += HandleNodeSelected;
 
             m_Toolbar = root.Q<Toolbar>();
-            m_InspectorView = root.Q<InspectorView>();
+            //m_InspectorView = root.Q<InspectorView>();
 
             m_DebugInfoToggle = root.Q<ToolbarToggle>("debug-info-toggle");
             m_DebugInfoToggle.RegisterValueChangedCallback(HandleDebugInfoToggle);
@@ -94,27 +90,21 @@ namespace Self.Story.Editors
 
         #region NODE ACTIONS
 
-        public static Node CreateNode(System.Type type, Chapter chapter, Vector2 position)
+        public static Node CreateNode(Type type, Chapter chapter, Vector2 position)
         {
             var newNode = ScriptableObject.CreateInstance(type) as Node;
             newNode.id = GUID.Generate().ToString();
             newNode.position = position;
             newNode.nextNodes = new List<string>();
 
-            var croppedId = newNode.id.Substring(0, 6);
             newNode.name = GetNodeName(newNode, typeof(Replica));
-
-            var defaultMainBehaviour = (Replica)(ScriptableObject.CreateInstance(typeof(Replica)));
-            defaultMainBehaviour.name = GetNodeMainBehaviourName(newNode, typeof(Replica));
 
             Undo.RecordObject(chapter, $"Chapter '{chapter.chapterName}' (Add Node)");
 
-            chapter.nodes.Add(newNode.id, newNode);
+            chapter.nodes.Add(newNode);
+            EditorUtility.SetDirty(chapter);
 
             AssetDatabase.AddObjectToAsset(newNode, chapter);
-
-            Undo.RegisterCreatedObjectUndo(newNode, $"Chapter '{chapter.chapterName}' (Add Node)");
-
             AssetDatabase.SaveAssets();
 
             return newNode;
@@ -126,34 +116,35 @@ namespace Self.Story.Editors
 
             if(target != null)
             {
-                chapter.nodes.Remove(target.id);
-                AssetDatabase.RemoveObjectFromAsset(target);
-
-                if (target.mainBehaviour != null)
-                    AssetDatabase.RemoveObjectFromAsset(target.mainBehaviour);
-
-                if(target.behaviours != null && target.behaviours .Count > 0)
+                if(chapter.nodes.Any(n => n.id.Equals(target.id)))
                 {
-                    foreach (var behAsset in target.behaviours)
+                    var nodeToRemove = chapter.nodes.First(n => n.id.Equals(target.id));
+
+                    chapter.nodes.Remove(nodeToRemove);
+                    AssetDatabase.RemoveObjectFromAsset(nodeToRemove);
+
+                    if(nodeToRemove.behaviours != null && nodeToRemove.behaviours.Count > 0)
                     {
-                        AssetDatabase.RemoveObjectFromAsset(behAsset);
+                        var behavioursToRemove = nodeToRemove.behaviours
+                                                                .ToList();
+
+                        foreach (var nb in behavioursToRemove)
+                        {
+                            AssetDatabase.RemoveObjectFromAsset(nb);
+                        }
                     }
+
+                    Undo.DestroyObjectImmediate(target);
                 }
-
-                Undo.DestroyObjectImmediate(target);
             }
 
-            var brokenNodes = new List<string>();
-
-            foreach (var node in chapter.nodes)
+            for (int i = chapter.nodes.Count - 1; i >= 0; i--)
             {
-                if (node.Value == null)
-                    brokenNodes.Add(node.Key);
-            }
-
-            foreach (var node in brokenNodes)
-            {
-                chapter.nodes.Remove(node);
+                if (chapter.nodes[i] == null)
+                {
+                    chapter.nodes.RemoveAt(i);
+                    EditorUtility.SetDirty(chapter);
+                }
             }
 
             AssetDatabase.SaveAssets();
@@ -217,7 +208,7 @@ namespace Self.Story.Editors
 
         private void HandleNodeSelected(NodeView selectedNodeView)
         {
-            m_InspectorView.UpdateSelection(selectedNodeView);
+            //m_InspectorView.UpdateSelection(selectedNodeView);
         }
 
         private void HandleDebugInfoToggle(ChangeEvent<bool> newState)
@@ -244,139 +235,148 @@ namespace Self.Story.Editors
         [MenuItem("StoryEditor/Fix Null Nodes")]
         public static void FixNullNodes()
         {
-            if (Selection.activeObject is Chapter
-                || Selection.activeObject is Node
-                || Selection.activeObject is NodeBehaviour)
-            {
-                var assetPath = AssetDatabase.GetAssetPath(Selection.activeObject);
-                var chapterAsset = (Chapter)AssetDatabase.LoadAssetAtPath(assetPath, typeof(Chapter));
 
-                var assets = AssetDatabase.LoadAllAssetsAtPath(AssetDatabase.GetAssetPath(Selection.activeObject));
+            // TODO [Andrei]: Fix this after reworking the editor
+            // to be compatible with the new structure
 
-                var nodes = assets
-                                .Where(a => a is Node)
-                                .Select(a => a as Node)
-                                .ToList();
+            //if (Selection.activeObject is Chapter
+            //    || Selection.activeObject is StoryV2.Node
+            //    || Selection.activeObject is NodeAction)
+            //{
+            //    var assetPath = AssetDatabase.GetAssetPath(Selection.activeObject);
+            //    var chapterAsset = (Chapter)AssetDatabase.LoadAssetAtPath(assetPath, typeof(Chapter));
 
-                var nodeBehaviours = assets
-                                        .Where(a => a is NodeBehaviour)
-                                        .Select(a => a as NodeBehaviour)
-                                        .ToList();
+            //    var assets = AssetDatabase.LoadAllAssetsAtPath(AssetDatabase.GetAssetPath(Selection.activeObject));
 
-                var assetsToRemove = new List<UnityEngine.Object>();
+            //    var nodes = assets
+            //                    .Where(a => a is Node)
+            //                    .Select(a => a as Node)
+            //                    .ToList();
 
-                foreach (var node in nodes)
-                {
-                    if (!chapterAsset.nodes.ContainsKey(node.id))
-                    {
-                        assetsToRemove.Add(node);
-                    }
-                }
+            //    var nodeBehaviours = assets
+            //                            .Where(a => a is NodeAction)
+            //                            .Select(a => a as NodeAction)
+            //                            .ToList();
 
-                foreach (var nb in nodeBehaviours)
-                {
-                    var isMain = chapterAsset.nodes.Any(n => n.Value.mainBehaviour != null &&  n.Value.mainBehaviour == nb);
-                    var isSub = chapterAsset.nodes.Any(n => n.Value.behaviours != null && n.Value.behaviours.Contains(nb));
+            //    var assetsToRemove = new List<UnityEngine.Object>();
 
-                    if(!(isMain || isSub))
-                    {
-                        assetsToRemove.Add(nb);
-                    }
-                }
+            //    foreach (var node in nodes)
+            //    {
+            //        if (!chapterAsset.nodeById.Any(n => n.id.Equals(node.id)))
+            //        {
+            //            assetsToRemove.Add(node);
+            //        }
+            //    }
 
-                foreach (var asset in assetsToRemove)
-                {
-                    AssetDatabase.RemoveObjectFromAsset(asset);
-                }
+            //    foreach (var nb in nodeBehaviours)
+            //    {
+            //        var isSub = chapterAsset.nodeById.Any(n => (n as StoryV2.Node).behaviours.Contains(nb));
 
-                if (chapterAsset.nodes != null && chapterAsset.nodes.Any(n => n.Value == null))
-                {
-                    var nullNodes = chapterAsset.nodes
-                                                    .Where(n => n.Value == null)
-                                                    .ToList();
+            //        if(!isSub)
+            //        {
+            //            assetsToRemove.Add(nb);
+            //        }
+            //    }
 
-                    foreach (var nn in nullNodes)
-                    {
-                        chapterAsset.nodes.Remove(nn.Key);
-                    }
+            //    foreach (var asset in assetsToRemove)
+            //    {
+            //        AssetDatabase.RemoveObjectFromAsset(asset);
+            //    }
 
-                    EditorUtility.SetDirty(chapterAsset);
-                }
+            //    if (chapterAsset.nodeById != null && chapterAsset.nodeById.Any(n => n.Value == null))
+            //    {
+            //        var nullNodes = chapterAsset.nodeById
+            //                                        .Where(n => n.Value == null)
+            //                                        .ToList();
 
-                if (assetsToRemove.Count > 0)
-                    AssetDatabase.SaveAssets();
-            }
-            else
-            {
-                Debug.LogError($"[{nameof(StoryEditorWindow)}.{nameof(FixNullNodes)}] Not a Chapter, Node or NodeBehaviour asset selected!");
-            }
+            //        foreach (var nn in nullNodes)
+            //        {
+            //            chapterAsset.nodeById.Remove(nn.Key);
+            //        }
+
+            //        EditorUtility.SetDirty(chapterAsset);
+            //    }
+
+            //    if (assetsToRemove.Count > 0)
+            //        AssetDatabase.SaveAssets();
+            //}
+            //else
+            //{
+            //    Debug.LogError($"[{nameof(StoryEditorWindow)}.{nameof(FixNullNodes)}] Not a Chapter, Node or NodeBehaviour asset selected!");
+            //}
         }
 
         [MenuItem("StoryEditor/Fix Nodes Names")]
         public static void FixNodesNames()
         {
-            if (Selection.activeObject is Chapter
-                || Selection.activeObject is Node
-                || Selection.activeObject is NodeBehaviour)
-            {
-                var assetPath = AssetDatabase.GetAssetPath(Selection.activeObject);
-                var chapterAsset = (Chapter)AssetDatabase.LoadAssetAtPath(assetPath, typeof(Chapter));
+            // TODO [Andrei]: Fix this after reworking the editor
+            // to be compatible with the new structure
 
-                var assets = AssetDatabase.LoadAllAssetsAtPath(AssetDatabase.GetAssetPath(Selection.activeObject));
+            //if (Selection.activeObject is Chapter
+            //    || Selection.activeObject is Node
+            //    || Selection.activeObject is NodeAction)
+            //{
+            //    var assetPath = AssetDatabase.GetAssetPath(Selection.activeObject);
+            //    var chapterAsset = (Chapter)AssetDatabase.LoadAssetAtPath(assetPath, typeof(Chapter));
 
-                var nodes = assets
-                                .Where(a => a is Node)
-                                .Select(a => a as Node)
-                                .ToList();
+            //    var assets = AssetDatabase.LoadAllAssetsAtPath(AssetDatabase.GetAssetPath(Selection.activeObject));
 
-                var fixedNames = false;
+            //    var nodes = assets
+            //                    .Where(a => a is Node)
+            //                    .Select(a => a as Node)
+            //                    .ToList();
 
-                foreach (var node in nodes)
-                {
-                    if(node.mainBehaviour != null)
-                    {
-                        node.name = GetNodeName(node, node.mainBehaviour.GetType());
-                        EditorUtility.SetDirty(node);
-                        fixedNames = true;
-                    }
-                }
+            //    var fixedNames = false;
 
-                if (fixedNames)
-                {
-                    EditorUtility.SetDirty(chapterAsset);
-                    AssetDatabase.SaveAssets();
-                }
-            }
-            else
-            {
-                Debug.LogError($"[{nameof(StoryEditorWindow)}.{nameof(FixNullNodes)}] Not a Chapter, Node or NodeBehaviour asset selected!");
-            }
+            //    foreach (var node in nodes)
+            //    {
+            //        if(node.mainBehaviour != null)
+            //        {
+            //            node.name = GetNodeName(node, node.mainBehaviour.GetType());
+            //            EditorUtility.SetDirty(node);
+            //            fixedNames = true;
+            //        }
+            //    }
+
+            //    if (fixedNames)
+            //    {
+            //        EditorUtility.SetDirty(chapterAsset);
+            //        AssetDatabase.SaveAssets();
+            //    }
+            //}
+            //else
+            //{
+            //    Debug.LogError($"[{nameof(StoryEditorWindow)}.{nameof(FixNullNodes)}] Not a Chapter, Node or NodeBehaviour asset selected!");
+            //}
         }
 
         [MenuItem("StoryEditor/Check Asset Path")]
         private static void CheckAssetPath()
         {
-            if (Selection.activeObject is Chapter 
-                || Selection.activeObject is Node
-                || Selection.activeObject is NodeBehaviour)
-            {
-                Debug.Log($"[{nameof(StoryEditorWindow)}.{nameof(CheckAssetPath)}] {AssetDatabase.GetAssetPath(Selection.activeObject)}");
+            // TODO [Andrei]: Fix this after reworking the editor
+            // to be compatible with the new structure
 
-                var assets = AssetDatabase.LoadAllAssetsAtPath(AssetDatabase.GetAssetPath(Selection.activeObject));
-                var assetsList = new StringBuilder();
+            //if (Selection.activeObject is Chapter 
+            //    || Selection.activeObject is Node
+            //    || Selection.activeObject is NodeAction)
+            //{
+            //    Debug.Log($"[{nameof(StoryEditorWindow)}.{nameof(CheckAssetPath)}] {AssetDatabase.GetAssetPath(Selection.activeObject)}");
 
-                foreach (var asset in assets)
-                {
-                    assetsList.AppendLine(asset.name);
-                }
+            //    var assets = AssetDatabase.LoadAllAssetsAtPath(AssetDatabase.GetAssetPath(Selection.activeObject));
+            //    var assetsList = new StringBuilder();
 
-                Debug.Log(assetsList.ToString());
+            //    foreach (var asset in assets)
+            //    {
+            //        assetsList.AppendLine(asset.name);
+            //    }
 
-            }
-            else
-            {
-                Debug.LogError($"[{nameof(StoryEditorWindow)}.{nameof(CheckAssetPath)}] Not a Chapter, Node or NodeBehaviour asset selected!");
-            }
+            //    Debug.Log(assetsList.ToString());
+
+            //}
+            //else
+            //{
+            //    Debug.LogError($"[{nameof(StoryEditorWindow)}.{nameof(CheckAssetPath)}] Not a Chapter, Node or NodeBehaviour asset selected!");
+            //}
         }
 
         #endregion

@@ -8,6 +8,6 @@ namespace Self.StoryV2
 		public string id;
 		public string nextNode;
 		
-		public List<NodeBehaviour> behaviours;
+		public List<NodeAction> behaviours;
 	}
 }

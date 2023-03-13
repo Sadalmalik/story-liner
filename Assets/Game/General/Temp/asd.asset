@@ -24,6 +24,23 @@ MonoBehaviour:
   mainBehaviour: {fileID: 3638333645970186331}
   behaviours: []
   position: {x: 447.80975, y: -448.80005}
+--- !u!114 &-7958699914785569664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9400a88c484e0c14e92e110410592684, type: 3}
+  m_Name: node.97b31c.Replica
+  m_EditorClassIdentifier: 
+  id: 97b31cea8c4242f4a96754889e59eb04
+  nextNodes: []
+  mainBehaviour: {fileID: 0}
+  behaviours: []
+  position: {x: 404.90384, y: -110.38463}
 --- !u!114 &-7596439743354274044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,19 +133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50c4d280cda4e2c990b7e49a963b452, type: 3}
   m_Name: asd
   m_EditorClassIdentifier: 
-  chapterName: 
+  chapterName: Chapter Test
   startNode: 
-  variablesContainer:
-    variables: []
-  _serializedNodes:
-  - id: 372161c4ff131fe42b8df9c120819742
-    node: {fileID: -254157991974820475}
-  - id: 31fe2b66332ffab4699cf06fb8586101
-    node: {fileID: -8132591782881449638}
-  - id: b0bf5f3a156d059409143623a09ee95f
-    node: {fileID: 383992403535825495}
-  - id: 81ce4b60f21211347b6d92ef9600d16c
-    node: {fileID: 2456181373004597354}
+  variables: []
+  nodes:
+  - {fileID: -7958699914785569664}
 --- !u!114 &32652652217880046
 MonoBehaviour:
   m_ObjectHideFlags: 0
