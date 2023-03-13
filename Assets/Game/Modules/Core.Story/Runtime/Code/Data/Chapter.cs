@@ -11,6 +11,8 @@ namespace Self.StoryV2
 		public string startNode;
 
 		public List<Node> nodes;
+		//public List<ChapterSettings> settings;
+		public List<Variable> variables;
         
 		[NonSerialized]
 		public Dictionary<string, Node> nodesByID;

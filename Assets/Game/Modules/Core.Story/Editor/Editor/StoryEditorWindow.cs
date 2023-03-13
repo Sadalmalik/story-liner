@@ -19,7 +19,7 @@ namespace Self.Story.Editors
         //private InspectorView m_InspectorView;
         public ToolbarToggle m_DebugInfoToggle { get; set; }
 
-        [SerializeField] private Chapter m_CurrentChapter; // to prevent editor window flushing after recompling
+        [SerializeField] private StoryV2.Chapter m_CurrentChapter; // to prevent editor window flushing after recompling
 
 
 
@@ -42,7 +42,7 @@ namespace Self.Story.Editors
         [OnOpenAsset]
         public static bool OnOpenAsset(int instanceId, int line)
         {
-            if (Selection.activeObject is Chapter chapter)
+            if (Selection.activeObject is StoryV2.Chapter chapter)
             {
                 StoryEditorWindow wnd = OpenWindow();
 
@@ -90,14 +90,14 @@ namespace Self.Story.Editors
 
         #region NODE ACTIONS
 
-        public static Node CreateNode(Type type, Chapter chapter, Vector2 position)
+        public static StoryV2.Node CreateNode(Type type, StoryV2.Chapter chapter, Vector2 position)
         {
-            var newNode = ScriptableObject.CreateInstance(type) as Node;
+            var newNode = ScriptableObject.CreateInstance(type) as StoryV2.Node;
             newNode.id = GUID.Generate().ToString();
             newNode.position = position;
             newNode.nextNodes = new List<string>();
 
-            newNode.name = GetNodeName(newNode, typeof(Replica));
+            newNode.name = GetNodeName(newNode);
 
             Undo.RecordObject(chapter, $"Chapter '{chapter.chapterName}' (Add Node)");
 
@@ -110,7 +110,7 @@ namespace Self.Story.Editors
             return newNode;
         }
 
-        public static void DeleteNode(Node target, Chapter chapter)
+        public static void DeleteNode(StoryV2.Node target, StoryV2.Chapter chapter)
         {
             Undo.RecordObject(chapter, $"Chapter '{chapter.chapterName}' (Delete Node)");
 
@@ -151,32 +151,28 @@ namespace Self.Story.Editors
             AssetDatabase.Refresh();
         }
 
-        public static void ConnectNode(Node parent, int index, string nextNodeId)
+        public static void ConnectNode(StoryV2.Node parent, int index, string nextNodeId)
         {
             parent.nextNodes[index] = nextNodeId;
 
             AssetDatabase.SaveAssets();
         }
 
-        public static string GetNodeName(Node node, Type behaviourType)
+        public static string GetNodeName(StoryV2.Node node)
         {
             var croppedId = node.id.Substring(0, 6);
+            var nodeType = node.GetType().Name.Replace("Node", string.Empty);
 
-            return $"node.{croppedId}.{behaviourType.Name.Replace("Behaviour", string.Empty)}";
+            return $"node.{croppedId}.{nodeType}";
         }
 
-        public static string GetNodeMainBehaviourName(Node node, Type behaviourType)
+        public static string GetNodeActionName(StoryV2.Node node, Type actionType, int index)
         {
             var croppedId = node.id.Substring(0, 6);
+            var nodeType = node.GetType().Name.Replace("Node", string.Empty);
+            var nodeAction = actionType.Name.Replace("Action", string.Empty);
 
-            return $"node.{croppedId}.main.{behaviourType.Name.Replace("Behaviour", string.Empty)}";
-        }
-
-        public static string GetNodeSubBehaviourName(Node node, Type behaviourType, int index)
-        {
-            var croppedId = node.id.Substring(0, 6);
-
-            return $"node.{croppedId}.sub.{index}.{behaviourType.Name.Replace("Behaviour", string.Empty)}";
+            return $"node.{croppedId}.{nodeType}.{nodeAction}.{index}";
         }
 
         #endregion

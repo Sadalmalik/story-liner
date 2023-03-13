@@ -12,12 +12,12 @@ namespace Self.Story.Editors
         private string MAIN_BEHAVIOUR_NAME = nameof(Node.mainBehaviour);
         private string BEHAVIOURS_ARRAY_NAME = nameof(Node.behaviours);
 
-        public event Action<NodeBehaviour> OnMainBehaviourChanged;
+        public event Action<NodeAction> OnMainBehaviourChanged;
 
         public new class UxmlFactory : UxmlFactory<InspectorView, VisualElement.UxmlTraits> { }
 
         private NodeView m_SelectedNodeView;
-        private Node m_NodeData;
+        private StoryV2.Node m_NodeData;
         private VisualElement m_MainBehaviourEditor;
         private SerializedObject m_SerializedNode;
         private string m_CroppedGuid => m_NodeData.id.Substring(0, 6);
@@ -53,72 +53,74 @@ namespace Self.Story.Editors
 
         private void DisplayMainBehaviourSelector()
         {
-            var choices = TypeCache
-                            .GetTypesDerivedFrom(typeof(NodeBehaviour))
-                            .Where(t => !t.IsAbstract)
-                            .Select(t => t.Name)
-                            .ToList();
+            //var choices = TypeCache
+            //                .GetTypesDerivedFrom(typeof(NodeAction))
+            //                .Where(t => !t.IsAbstract)
+            //                .Select(t => t.Name)
+            //                .ToList();
 
-            var index = m_NodeData.mainBehaviour != null ? choices.IndexOf(m_NodeData.mainBehaviour.GetType().Name) : 0;
-            var mainBehSelector = new DropdownField("Main Behaviour", choices, index, HandleMainBehaviourSelected);
+            //var index = m_NodeData.mainBehaviour != null ? choices.IndexOf(m_NodeData.mainBehaviour.GetType().Name) : 0;
+            //var mainBehSelector = new DropdownField("Main Behaviour", choices, index, HandleMainBehaviourSelected);
 
-            m_ScrollView.contentContainer.Add(mainBehSelector);
+            //m_ScrollView.contentContainer.Add(mainBehSelector);
         }
 
         private void DisplayMainBehaviourProperties()
         {
-            if (m_NodeData.mainBehaviour == null)
-                return;
+            //if (m_NodeData.mainBehaviour == null)
+            //    return;
 
-            var mainBehaviour = m_SerializedNode.FindProperty(MAIN_BEHAVIOUR_NAME);
-            var propertyEditor = Editor.CreateEditor(mainBehaviour.objectReferenceValue);
+            //var mainBehaviour = m_SerializedNode.FindProperty(MAIN_BEHAVIOUR_NAME);
+            //var propertyEditor = Editor.CreateEditor(mainBehaviour.objectReferenceValue);
 
-            m_MainBehaviourEditor = new IMGUIContainer(() =>
-            {
-                if (propertyEditor.target != null)
-                    propertyEditor.OnInspectorGUI();
-            });
+            //m_MainBehaviourEditor = new IMGUIContainer(() =>
+            //{
+            //    if (propertyEditor.target != null)
+            //        propertyEditor.OnInspectorGUI();
+            //});
 
-            m_ScrollView.contentContainer.Add(m_MainBehaviourEditor);
+            //m_ScrollView.contentContainer.Add(m_MainBehaviourEditor);
         }
 
         private string HandleMainBehaviourSelected(string selectedBehaviourClassName)
         {
-            var selectedBehaviour = TypeCache
-                            .GetTypesDerivedFrom(typeof(NodeBehaviour))
-                            .Where(t => !t.IsAbstract)
-                            .First(t => t.Name == selectedBehaviourClassName);
+            //var selectedBehaviour = TypeCache
+            //                .GetTypesDerivedFrom(typeof(NodeAction))
+            //                .Where(t => !t.IsAbstract)
+            //                .First(t => t.Name == selectedBehaviourClassName);
 
-            var mainBehaviour = m_SerializedNode.FindProperty(MAIN_BEHAVIOUR_NAME);
+            //var mainBehaviour = m_SerializedNode.FindProperty(MAIN_BEHAVIOUR_NAME);
 
-            if (mainBehaviour.objectReferenceValue == null
-                || mainBehaviour.objectReferenceValue.GetType() != selectedBehaviour)
-            {
-                var behaviourInstance = NodeBehaviour.CreateInstance(selectedBehaviour) as NodeBehaviour;
-                behaviourInstance.name = StoryEditorWindow.GetNodeMainBehaviourName(m_NodeData, selectedBehaviour);
+            //if (mainBehaviour.objectReferenceValue == null
+            //    || mainBehaviour.objectReferenceValue.GetType() != selectedBehaviour)
+            //{
+            //    var behaviourInstance = NodeAction.CreateInstance(selectedBehaviour) as NodeAction;
+            //    behaviourInstance.name = StoryEditorWindow.GetNodeMainBehaviourName(m_NodeData, selectedBehaviour);
 
-                if (mainBehaviour.objectReferenceValue != null)
-                {
-                    AssetDatabase.RemoveObjectFromAsset(mainBehaviour.objectReferenceValue);
-                }
+            //    if (mainBehaviour.objectReferenceValue != null)
+            //    {
+            //        AssetDatabase.RemoveObjectFromAsset(mainBehaviour.objectReferenceValue);
+            //    }
 
-                AssetDatabase.AddObjectToAsset(behaviourInstance, m_NodeData);
+            //    AssetDatabase.AddObjectToAsset(behaviourInstance, m_NodeData);
 
-                mainBehaviour.objectReferenceValue = behaviourInstance;
+            //    mainBehaviour.objectReferenceValue = behaviourInstance;
 
-                var nameProp = m_SerializedNode.FindProperty(NAME_PROPERTY_NAME);
-                nameProp.stringValue = StoryEditorWindow.GetNodeName(m_NodeData, selectedBehaviour);
+            //    var nameProp = m_SerializedNode.FindProperty(NAME_PROPERTY_NAME);
+            //    nameProp.stringValue = StoryEditorWindow.GetNodeName(m_NodeData, selectedBehaviour);
 
-                m_SerializedNode.ApplyModifiedProperties();
+            //    m_SerializedNode.ApplyModifiedProperties();
 
-                AssetDatabase.SaveAssets();
+            //    AssetDatabase.SaveAssets();
 
-                UpdateSelection(m_SelectedNodeView);
+            //    UpdateSelection(m_SelectedNodeView);
 
-                m_SelectedNodeView.UpdateTitle();
-            }
+            //    m_SelectedNodeView.UpdateTitle();
+            //}
 
-            return selectedBehaviourClassName;
+            return null;
+
+            //return selectedBehaviourClassName;
         }
 
         #endregion
@@ -137,7 +139,7 @@ namespace Self.Story.Editors
             DisplayBehaviourArrayButtons();
 
             var choices = TypeCache
-                            .GetTypesDerivedFrom(typeof(NodeBehaviour))
+                            .GetTypesDerivedFrom(typeof(NodeAction))
                             .Where(t => !t.IsAbstract)
                             .Select(t => t.Name)
                             .ToList();
@@ -262,7 +264,7 @@ namespace Self.Story.Editors
 
             if (string.IsNullOrEmpty(targetBehaviourClassName))
                 targetBehaviourClassName = TypeCache
-                            .GetTypesDerivedFrom(typeof(NodeBehaviour))
+                            .GetTypesDerivedFrom(typeof(NodeAction))
                             .Where(t => !t.IsAbstract)
                             .ElementAt(0).Name;
 
@@ -270,15 +272,15 @@ namespace Self.Story.Editors
             var behaviourAtIndex = behaviourProperty.GetArrayElementAtIndex(arrayIndex);
 
             var selectedBehaviour = TypeCache
-                            .GetTypesDerivedFrom(typeof(NodeBehaviour))
+                            .GetTypesDerivedFrom(typeof(NodeAction))
                             .Where(t => !t.IsAbstract)
                             .First(t => t.Name == targetBehaviourClassName);
 
             if (behaviourAtIndex.objectReferenceValue == null
                 || behaviourAtIndex.objectReferenceValue.GetType() != selectedBehaviour)
             {
-                var behaviourInstance = NodeBehaviour.CreateInstance(selectedBehaviour) as NodeBehaviour;
-                behaviourInstance.name = StoryEditorWindow.GetNodeSubBehaviourName(m_NodeData, selectedBehaviour, arrayIndex);
+                var behaviourInstance = NodeAction.CreateInstance(selectedBehaviour) as NodeAction;
+                behaviourInstance.name = StoryEditorWindow.GetNodeActionName(m_NodeData, selectedBehaviour, arrayIndex);
 
                 if (behaviourAtIndex.objectReferenceValue != null)
                 {

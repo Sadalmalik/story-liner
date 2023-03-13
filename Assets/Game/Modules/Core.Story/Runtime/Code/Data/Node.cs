@@ -3,11 +3,8 @@ using UnityEngine;
 
 namespace Self.StoryV2
 {
-	public class Node : ScriptableObject
+	public class Node : BaseNode
 	{
-		public string id;
-		public string nextNode;
-		
 		public List<NodeAction> behaviours;
 	}
 }

@@ -4,19 +4,10 @@ using UnityEngine;
 
 namespace Self.Story
 {
-	public class NodeBehaviour : ScriptableObject, ICloneable
+	public abstract class NodeAction : ScriptableObject, ICloneable
 	{
-		public virtual void OnFirstEnter()
-		{
-		}
-
-		public virtual void OnEnter()
-		{
-		}
-
-		public virtual void OnExit()
-		{
-		}
+		public bool executeOnce;
+		public abstract void OnExecute();
 
         public object Clone()
         {

@@ -8,8 +8,8 @@ namespace Self.Story
 		public string              id;
 		[HideInInspector]
 		public List<string>        nextNodes;
-		public NodeBehaviour       mainBehaviour;
-		public List<NodeBehaviour> behaviours;
+		public NodeAction       mainBehaviour;
+		public List<NodeAction> behaviours;
 
 		#region EDITOR_PARAMETERS
 

@@ -15,7 +15,7 @@ namespace Self.Story.Editors
         public event Action<NodeView> OnNodeSelected;
         public event Action<NodeView, int> OnNodePortDisconnected;
 
-        public Node Node { get; private set; }
+        public StoryV2.Node Node { get; private set; }
         public string Guid { get; private set; }
 
         public Port InputPort;
@@ -25,7 +25,7 @@ namespace Self.Story.Editors
 
 
 
-        public static NodeView Create(Node node)
+        public static NodeView Create(StoryV2.Node node)
         {
             var uiFileAsset = Resources.Load("Styles/StoryNodeView");
             var uiFilePath = AssetDatabase.GetAssetPath(uiFileAsset);
@@ -67,12 +67,7 @@ namespace Self.Story.Editors
         {
             if (string.IsNullOrEmpty(title))
             {
-                var name = Node.mainBehaviour != null
-                                ? Node.mainBehaviour.GetType().Name
-                                : string.Empty;
-
-                if (name.Contains("Behaviour"))
-                    name = name.Split("Behaviour")[0];
+                var name = Node.GetType().Name.Replace("Node", string.Empty);
 
                 this.title = name;
             }
@@ -150,17 +145,7 @@ namespace Self.Story.Editors
 
         private void SetupStyleClasses()
         {
-            if (Node.mainBehaviour == null)
-                return;
 
-            switch (Node.mainBehaviour.GetType().Name)
-            {
-                case "Replica":
-                    this.titleContainer.AddToClassList("replica");
-                    break;
-                default:
-                    break;
-            }
         }
 
         public override void OnSelected()

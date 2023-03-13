@@ -17,9 +17,9 @@ namespace Self.Story.Editors
 
         public StoryEditorWindow EditorWindow { get; set; }
 
-        private Chapter m_CurrentChapter;
+        private StoryV2.Chapter m_CurrentChapter;
 
-        private List<Node> m_NodesToCopy = new List<Node>();
+        private List<StoryV2.Node> m_NodesToCopy = new List<StoryV2.Node>();
 
 
 
@@ -50,7 +50,7 @@ namespace Self.Story.Editors
             this.unserializeAndPaste += PasteOperation;
         }
 
-        public void Create(Chapter chapter)
+        public void Create(StoryV2.Chapter chapter)
         {
             m_CurrentChapter = chapter;
 
@@ -64,7 +64,7 @@ namespace Self.Story.Editors
             graphViewChanged += OnGraphViewChanged;
 
             if (m_CurrentChapter.nodes == null)
-                m_CurrentChapter.nodes = new List<Node>();
+                m_CurrentChapter.nodes = new List<StoryV2.Node>();
 
             var chapterNodes = m_CurrentChapter.nodes;
 
@@ -150,7 +150,7 @@ namespace Self.Story.Editors
             }
         }
 
-        private void CreateNodeView(Node node)
+        private void CreateNodeView(StoryV2.Node node)
         {
             try
             {
@@ -184,7 +184,7 @@ namespace Self.Story.Editors
             var worldMousePosition = EditorWindow.rootVisualElement.ChangeCoordinatesTo(EditorWindow.rootVisualElement.parent, position - EditorWindow.position.position);
             var localMousePosition = contentViewContainer.WorldToLocal(worldMousePosition) + new Vector2(150, 80);
 
-            Node node = StoryEditorWindow.CreateNode(a, m_CurrentChapter, localMousePosition);
+            StoryV2.Node node = StoryEditorWindow.CreateNode(a, m_CurrentChapter, localMousePosition);
 
             CreateNodeView(node);
         }
@@ -223,8 +223,7 @@ namespace Self.Story.Editors
 
         public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
         {
-            //var allTypes = TypeCache.GetTypesDerivedFrom<Node>();
-            var allTypes = new List<Type> { typeof(Node) };
+            var allTypes = TypeCache.GetTypesDerivedFrom<StoryV2.Node>();
             var concreteType = allTypes.Where(t => !t.IsAbstract);
 
             foreach (var t in concreteType)
@@ -262,7 +261,7 @@ namespace Self.Story.Editors
 
         private void DuplicateSelection(List<ISelectable> selection)
         {
-            List<Node> nodes = new List<Node>();
+            List<StoryV2.Node> nodes = new List<StoryV2.Node>();
 
             selection.ForEach(x =>
             {
@@ -296,18 +295,18 @@ namespace Self.Story.Editors
             PasteNodes(m_NodesToCopy);
         }
 
-        private void PasteNodes(List<Node> nodesToDuplicate)
+        private void PasteNodes(List<StoryV2.Node> nodesToDuplicate)
         {
             List<string> clonedGuids = new List<string>();
 
             Dictionary<string, string> clonedGuidToOldGuid = new Dictionary<string, string>();
             Dictionary<string, string> oldGuidToClonedGuid = new Dictionary<string, string>();
 
-            List<Node> duplicatedNodes = new List<Node>();
+            List<StoryV2.Node> duplicatedNodes = new List<StoryV2.Node>();
 
-            foreach (Node originalNode in nodesToDuplicate)
+            foreach (var originalNode in nodesToDuplicate)
             {
-                Node clone = StoryEditorWindow.CreateNode(originalNode.GetType(), m_CurrentChapter, originalNode.position);
+                var clone = StoryEditorWindow.CreateNode(originalNode.GetType(), m_CurrentChapter, originalNode.position);
 
                 CopyNodeFields(originalNode, clone);
 
@@ -359,7 +358,7 @@ namespace Self.Story.Editors
             m_NodesToCopy.Clear();
         }
 
-        private void CopyNodeFields(Node src, Node dst)
+        private void CopyNodeFields(StoryV2.Node src, StoryV2.Node dst)
         {
             if (!src.GetType().Equals(dst.GetType()))
                 return;
@@ -382,7 +381,7 @@ namespace Self.Story.Editors
                     var cloneMethod = value.GetType().GetMethod(nameof(ICloneable.Clone));
                     var clonedValue = cloneMethod.Invoke(value, null);
 
-                    if(clonedValue is NodeBehaviour beh)
+                    if(clonedValue is NodeAction beh)
                     {
                         beh.name = beh.name.Replace(croppedIdSrc, croppedIdDst);
 
