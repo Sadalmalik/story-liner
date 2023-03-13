@@ -12,8 +12,8 @@ namespace Self.StoryV2
 
 		private StoryNodeWidget _activeWidget;
 
-		public ReplicaNode  replicaWidget;
-		public ChoiceWidget choiceWidget;
+		public ReplicaWidget replicaWidget;
+		public ChoiceWidget  choiceWidget;
 
 		public event Action<string> OnStoryBroken;
 
@@ -46,6 +46,7 @@ namespace Self.StoryV2
 			{
 				
 			}
+			
 			if (node.GetType() == typeof(Node))
 			{
 				Debug.Log("Node");
