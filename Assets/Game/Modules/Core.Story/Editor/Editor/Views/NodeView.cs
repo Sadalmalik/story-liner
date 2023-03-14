@@ -1,3 +1,4 @@
+using Self.StoryV2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,15 +22,19 @@ namespace Self.Story.Editors
         public Port InputPort;
         public List<Port> OutputPorts = new List<Port>();
 
-        private VisualElement m_VariablesContainer;
+        private VisualElement m_NodeInspector;
 
 
 
         public static NodeView Create(StoryV2.Node node)
         {
+            // To avoid absolute paths
             var uiFileAsset = Resources.Load("Styles/StoryNodeView");
             var uiFilePath = AssetDatabase.GetAssetPath(uiFileAsset);
 
+            // we use the static method
+            // and instead feeding a found uiFilePath
+            // to the default constructor
             var newNode = new NodeView(uiFilePath);
 
             newNode.Node = node;
@@ -41,7 +46,7 @@ namespace Self.Story.Editors
             style.left = node.position.x;
             style.top = node.position.y;
 
-            newNode.m_VariablesContainer = newNode.Q<VisualElement>("variables-container");
+            newNode.m_NodeInspector = newNode.Q<VisualElement>("inspector-container");
 
             var debugInfo = newNode.Q<Label>("debug-info");
             debugInfo.text = $"id:{node.id}";
@@ -56,6 +61,7 @@ namespace Self.Story.Editors
             return newNode;
         }
 
+        // To avoid absolute paths
         public NodeView(string uiFile) : base(uiFile) { }
 
         public void UpdatePortName(int index, string name)
@@ -80,6 +86,7 @@ namespace Self.Story.Editors
             InputPort = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, null);
             InputPort.portColor = Color.cyan;
             InputPort.portName = "in";
+            InputPort.AddToClassList("left-port");
 
             inputContainer.Add(InputPort);
         }
@@ -107,6 +114,7 @@ namespace Self.Story.Editors
 
                 outputPort.portName = "out";
                 outputPort.portColor = Color.cyan;
+                outputPort.AddToClassList("right-port");
 
                 OutputPorts.Add(outputPort);
 
@@ -116,31 +124,33 @@ namespace Self.Story.Editors
 
         private void CreateVariableContainer()
         {
-            //if (Node.mainBehaviour == null)
-            //    return;
+            m_NodeInspector.Clear();
 
-            //m_VariablesContainer.Clear();
+            var editors = TypeCache.GetTypesDerivedFrom(typeof(NodeEditor))
+                                    .ToList();
 
-            //var type = Node.mainBehaviour.GetType();
-            //var displayFields = type.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-            //                        .Where(f => f.GetCustomAttribute<DisplayOnNodeAttribute>() != null);
+            try
+            {
+                var nodeEditorType = editors.First(t => 
+                {
+                    var typeAttrib = t.GetCustomAttribute<InspectedTypeAttribute>();
 
-            //if (displayFields != null && displayFields.Count() > 0)
-            //{
-            //    var serializedObject = new SerializedObject(Node.mainBehaviour);
+                    if (typeAttrib != null && typeAttrib.inspectedType == Node.GetType())
+                        return true;
 
-            //    foreach (var f in displayFields)
-            //    {
-            //        var serializedProp = serializedObject.FindProperty(f.Name);
-            //        var propertyField = new PropertyField(serializedProp, serializedProp.displayName);
-            //        propertyField.BindProperty(serializedObject);
-            //        propertyField.label = serializedProp.displayName;
-            //        m_VariablesContainer.Add(propertyField);
-            //    }
+                    return false;
+                });
 
-            //    var style = m_VariablesContainer.style;
-            //    style.display = new StyleEnum<DisplayStyle>(DisplayStyle.Flex);
-            //}
+                var nodeEditor = Editor.CreateEditor(Node, nodeEditorType);
+
+                m_NodeInspector.Add(nodeEditor.CreateInspectorGUI());
+            }
+            catch (Exception)
+            {
+                var nodeEditor = (NodeEditor)Editor.CreateEditor(Node, typeof(NodeEditor));
+
+                m_NodeInspector.Add(nodeEditor.CreateInspectorGUI());
+            }
         }
 
         private void SetupStyleClasses()
@@ -151,6 +161,8 @@ namespace Self.Story.Editors
         public override void OnSelected()
         {
             base.OnSelected();
+
+            Selection.activeObject = Node;
 
             OnNodeSelected?.Invoke(this);
         }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Self.Story;
+using System.Collections.Generic;
 
 namespace Self.StoryV2
 {
@@ -6,10 +7,14 @@ namespace Self.StoryV2
 	{
 		public List<Choice> choices;
 		
+		[System.Serializable]
 		public class Choice
 		{
 			public string localizedText;
-			public string nextNode;
+
+			// TODO [Andrei]: should just take nextNode
+			// from index
+			//public string nextNode;
 		}
 	}
 }

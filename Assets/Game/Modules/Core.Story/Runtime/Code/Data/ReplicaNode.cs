@@ -1,4 +1,6 @@
-﻿namespace Self.StoryV2
+﻿using Self.Story;
+
+namespace Self.StoryV2
 {
 	public class ReplicaNode : Node
 	{
