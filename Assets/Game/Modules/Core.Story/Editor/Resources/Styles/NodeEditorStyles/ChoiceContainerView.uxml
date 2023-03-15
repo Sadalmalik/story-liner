@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/NodeEditorStyles/ChoiceNodeStyle.uss?fileID=7433441132597879392&amp;guid=ca945a12090e03b418c14df3e53eeec7&amp;type=3#ChoiceNodeStyle" />
     <ui:VisualElement name="temporary-container" style="height: 26px;">
         <ui:VisualElement name="choice-container" class="choice-container" style="flex-grow: 1; flex-shrink: 0;">
-            <ui:TextField picking-mode="Ignore" value="filler text" text="filler text" name="choice-text-template" class="choice-text-container" style="overflow: visible;">
+            <ui:TextField picking-mode="Ignore" value="filler text" text="filler text" name="choice-text-template" label="choice-label" class="choice-text-container" style="overflow: visible;">
                 <ui:VisualElement name="connector" style="height: 2px; position: absolute; right: -16px; top: 12px; background-color: rgb(0, 255, 255); width: 12px;" />
             </ui:TextField>
             <ui:VisualElement name="port-placeholder" class="right-port port output" style="width: 24px; height: 24px; align-items: center; justify-content: center;">

@@ -12,12 +12,15 @@ namespace Self.Story.Editors
 {
     public class StoryEditorWindow : EditorWindow
     {
+        public static StoryEditorWindow Instance => m_CachedWindow;
+
         private Toolbar m_Toolbar;
         private ToolbarMenu m_ToolbarMenu;
         private static StoryEditorWindow m_CachedWindow;
-        private NodeEditorView m_EditorView;
+
+        public NodeEditorView EditorView { get; set; }
         //private InspectorView m_InspectorView;
-        public ToolbarToggle m_DebugInfoToggle { get; set; }
+        public ToolbarToggle DebugInfoToggle { get; set; }
 
         [SerializeField] private StoryV2.Chapter m_CurrentChapter; // to prevent editor window flushing after recompling
 
@@ -47,7 +50,7 @@ namespace Self.Story.Editors
                 StoryEditorWindow wnd = OpenWindow();
 
                 wnd.m_CurrentChapter = chapter; 
-                wnd.m_EditorView.Create(chapter);
+                wnd.EditorView.Create(chapter);
 
                 return true;
             }
@@ -56,21 +59,23 @@ namespace Self.Story.Editors
         }
 
         public void CreateGUI()
-        { 
+        {
+            m_CachedWindow = this;
+
             VisualElement root = rootVisualElement;
 
             var visualTree = Resources.Load<VisualTreeAsset>("Styles/EditorWindow");
             visualTree.CloneTree(root);
 
-            m_EditorView = root.Q<NodeEditorView>();
-            m_EditorView.EditorWindow = this;
-            m_EditorView.OnNodeSelected += HandleNodeSelected;
+            EditorView = root.Q<NodeEditorView>();
+            EditorView.EditorWindow = this;
+            EditorView.OnNodeSelected += HandleNodeSelected;
 
             m_Toolbar = root.Q<Toolbar>();
             //m_InspectorView = root.Q<InspectorView>();
 
-            m_DebugInfoToggle = root.Q<ToolbarToggle>("debug-info-toggle");
-            m_DebugInfoToggle.RegisterValueChangedCallback(HandleDebugInfoToggle);
+            DebugInfoToggle = root.Q<ToolbarToggle>("debug-info-toggle");
+            DebugInfoToggle.RegisterValueChangedCallback(HandleDebugInfoToggle);
 
             var openAssetButton = m_Toolbar.Q<ToolbarButton>("ImportFromArticy");
             openAssetButton.clicked += HandleImportFromArticyButtonClick;
@@ -78,11 +83,11 @@ namespace Self.Story.Editors
             m_ToolbarMenu = root.Q<ToolbarMenu>();
 
             if (m_CurrentChapter != null)
-                m_EditorView.Create(m_CurrentChapter);
+                EditorView.Create(m_CurrentChapter);
 
             EditorApplication.delayCall += () =>
             {
-                m_EditorView.FrameAll();
+                EditorView.FrameAll();
             };
         }
 
@@ -151,9 +156,19 @@ namespace Self.Story.Editors
             AssetDatabase.Refresh();
         }
 
-        public static void ConnectNode(StoryV2.Node parent, int index, string nextNodeId)
+        public static void ConnectNode(StoryV2.Node node, int index, string nextNodeId)
         {
-            parent.nextNodes[index] = nextNodeId;
+            node.nextNodes[index] = nextNodeId;
+
+            AssetDatabase.SaveAssets();
+        }
+
+        public static void DisconnectNode(StoryV2.Node node, int index)
+        {
+            if (index < 0 || index >= node.nextNodes.Count)
+                return;
+
+            node.nextNodes[index] = string.Empty;
 
             AssetDatabase.SaveAssets();
         }
@@ -209,7 +224,7 @@ namespace Self.Story.Editors
 
         private void HandleDebugInfoToggle(ChangeEvent<bool> newState)
         {
-            var nodes = m_EditorView
+            var nodes = EditorView
                             .graphElements
                             .ToList()
                             .Where(elem => elem is NodeView);

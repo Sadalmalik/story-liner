@@ -16,6 +16,7 @@ namespace Self.Story.Editors
         protected SerializedProperty m_NextNodesProperty;
         private SerializedProperty m_NodeActionsProperty;
         private VisualElement m_NodeActionsContainer;
+        private VisualElement m_NodeActionsEmptyContainer;
         protected VisualElement m_Root;
         protected VisualElement m_NodeGuiContainer;
         protected NodeView m_NodeView;
@@ -41,8 +42,9 @@ namespace Self.Story.Editors
             m_NodeView = nodeView;
 
             m_NodeGuiContainer = m_Root.Q(NODE_GUI_ROOT_NAME);
-            var buttonsRoot = m_Root.Q(BUTTONS_ROOT_NAME);
-            m_NodeActionsContainer = m_Root.Q(ACTIONS_CONTAINER_NAME);
+            var buttonsRoot = m_Root.Q(ACTIONS_CONTAINER_NAME).Q(BUTTONS_ROOT_NAME);
+            m_NodeActionsContainer = m_Root.Q(ACTIONS_CONTAINER_NAME).Q("data-container");
+            m_NodeActionsEmptyContainer = m_Root.Q(ACTIONS_CONTAINER_NAME).Q("empty-container");
 
             CreateNodeGUI(m_NodeGuiContainer);
             CreateButtons(buttonsRoot);
@@ -73,7 +75,7 @@ namespace Self.Story.Editors
 
         private void HandleAddButton()
         {
-            var actions = TypeCache.GetTypesDerivedFrom(typeof(NodeAction));
+            var actions = TypeCache.GetTypesDerivedFrom(typeof(StoryV2.NodeAction));
 
             // maybe show a drop down menu right away
             var dropDownMenu = new GenericMenu();
@@ -121,6 +123,23 @@ namespace Self.Story.Editors
             {
                 var nodeAction = m_NodeActionsProperty.GetArrayElementAtIndex(i);
                 m_NodeActionsContainer.Add(CreateNodeActionContainer(nodeAction));
+            }
+
+            if (arraySize > 0)
+            {
+                if (m_NodeActionsContainer.ClassListContains("hidden"))
+                    m_NodeActionsContainer.RemoveFromClassList("hidden");
+
+                if (!m_NodeActionsEmptyContainer.ClassListContains("hidden"))
+                    m_NodeActionsEmptyContainer.AddToClassList("hidden");
+            }
+            else
+            {
+                if (!m_NodeActionsContainer.ClassListContains("hidden"))
+                    m_NodeActionsContainer.AddToClassList("hidden");
+
+                if (m_NodeActionsEmptyContainer.ClassListContains("hidden"))
+                    m_NodeActionsEmptyContainer.RemoveFromClassList("hidden");
             }
         }
 

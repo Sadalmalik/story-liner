@@ -133,6 +133,13 @@ namespace Self.Story.Editors
 
         private void OnGraphElementRemoved(GraphElement elem)
         {
+            if(elem is Port port)
+            {
+                var edges = port.connections.ToList();
+
+                DeleteElements(edges);
+            }
+
             if (elem is NodeView nodeView)
             {
                 StoryEditorWindow.DeleteNode(nodeView.Node, m_CurrentChapter);
@@ -143,9 +150,9 @@ namespace Self.Story.Editors
                 if(edge.output != null && edge.input != null)
                 {
                     var parentView = edge.output.node as NodeView;
-
                     var outputPortIndex = parentView.OutputPorts.IndexOf(edge.output);
-                    parentView.Node.nextNodes[outputPortIndex] = string.Empty;
+
+                    StoryEditorWindow.DisconnectNode(parentView.Node, outputPortIndex);
                 }
             }
         }
@@ -158,7 +165,7 @@ namespace Self.Story.Editors
                 view.OnNodeSelected += OnNodeSelected;
                 view.OnNodePortDisconnected += HandleNodePortsDisconnected;
 
-                var displayFlag = (DisplayStyle)(EditorWindow.m_DebugInfoToggle.value ? 0 : 1);
+                var displayFlag = (DisplayStyle)(EditorWindow.DebugInfoToggle.value ? 0 : 1);
                 var debugInfoText = view.Q<Label>("debug-info");
                 var style = debugInfoText.style;
                 style.display = new StyleEnum<DisplayStyle>(displayFlag);

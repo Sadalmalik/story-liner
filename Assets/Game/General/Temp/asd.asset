@@ -1,45 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8624083616132449450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
-  m_Name: node.699cd3.Choice.SetVariable.0
-  m_EditorClassIdentifier: 
-  executeOnce: 0
-  variableName: 
-  variableValue: 
---- !u!114 &-2527534108625458842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2e71fad76354cc4b9340ec2a2558942, type: 3}
-  m_Name: node.699cd3.Choice
-  m_EditorClassIdentifier: 
-  id: 699cd31a83875b4439ff138e25514048
-  nextNodes:
-  - 905f06f7524d29e46a6af01bc793b7df
-  - 905f06f7524d29e46a6af01bc793b7df
-  position: {x: -17.999987, y: -131.32}
-  behaviours:
-  - {fileID: -8624083616132449450}
-  character: choice-character
-  emotion: emot.alucard.angry
-  localized: some localized text
-  choices:
-  - localizedText: choice 1
-  - localizedText: choice 2
 --- !u!114 &-460073391857600794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,11 +39,11 @@ MonoBehaviour:
   chapterName: Chapter Test
   startNode: 
   nodes:
-  - {fileID: -2527534108625458842}
   - {fileID: 1370955394336453981}
   - {fileID: -460073391857600794}
-  variables:
-  - {fileID: 0}
+  - {fileID: 5751900957681057799}
+  - {fileID: 8610283079855024542}
+  variables: []
 --- !u!114 &1370955394336453981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,11 +58,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 905f06f7524d29e46a6af01bc793b7df
   nextNodes:
-  - 699cd31a83875b4439ff138e25514048
+  - 
   position: {x: 551.0958, y: -234}
   behaviours: []
-  character: Alucard
+  character: character.emily
+  emotion: emot.emily.happy
+  localized: Alright!
+--- !u!114 &5751900957681057799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.3706cb.Replica
+  m_EditorClassIdentifier: 
+  id: 3706cb4fb4a7b834e8d3c717c4e7659e
+  nextNodes:
+  - 
+  position: {x: 551.0001, y: 40.214954}
+  behaviours: []
+  character: character.emily
+  emotion: emot.emily.sad
+  localized: Damn it!
+--- !u!114 &8610283079855024542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e71fad76354cc4b9340ec2a2558942, type: 3}
+  m_Name: node.6b78a8.Choice
+  m_EditorClassIdentifier: 
+  id: 6b78a87b04952f740879090518cc72a5
+  nextNodes:
+  - 
+  position: {x: -26.073818, y: -124.89719}
+  behaviours: []
+  character: character.alucard
   emotion: emot.alucard.angry
-  localized: asdasdasd asd asd as dasdasdasd asd asd as dasdasdasd asd asd as dasdasdasd
-    asd asd as dasdasdasd asd asd as dasdasdasd asd asd as dasdasdasd asd asd as
-    d
+  localized: 'chop chop, some text chop chop, some text chop chop, some text chop
+    chop, some text chop chop, some text chop chop, some text chop chop, some text
+    chop chop, some text chop chop, some text chop chop, some text '
+  choices:
+  - localizedText: 

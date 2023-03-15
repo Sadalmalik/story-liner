@@ -1,4 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:Template name="ArrayContainerView" src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/NodeEditorStyles/Arrays/ArrayContainerView.uxml?fileID=9197481963319205126&amp;guid=dc3e638255eb5734a84c63e36614d285&amp;type=3#ArrayContainerView" />
     <Style src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/StoryNodeStyle.uss?fileID=7433441132597879392&amp;guid=4d396d81dca0bc948a287889c80671f2&amp;type=3#StoryNodeStyle" />
     <ui:VisualElement name="node-state" class="node-state" />
     <ui:VisualElement name="node-body" class="node-body">
@@ -31,11 +32,7 @@
                 <ui:Label text="Contents" display-tooltip-when-elided="true" name="node-editor-label" class="centered-label" />
                 <ui:VisualElement name="node-editor-container" />
                 <ui:Label text="Actions" display-tooltip-when-elided="true" name="node-actions-label" class="centered-label" />
-                <ui:VisualElement name="buttons-container" class="action-buttons-container">
-                    <ui:Button text="Add Action" display-tooltip-when-elided="true" name="add-button" class="action-button" />
-                    <ui:Button text="Remove Action" display-tooltip-when-elided="true" name="remove-button" class="action-button" />
-                </ui:VisualElement>
-                <ui:VisualElement name="node-actions-container" />
+                <ui:Instance template="ArrayContainerView" name="node-actions-container" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

@@ -98,7 +98,10 @@ namespace Self.Story.Editors
             OutputPorts.Clear();
 
             if (Node.GetType() == typeof(ChoiceNode))
+            {
+                // Choices Ports are handled via ChoiceNodeEditor.cs
                 return;
+            }
 
             var ports = Node.nextNodes;
 

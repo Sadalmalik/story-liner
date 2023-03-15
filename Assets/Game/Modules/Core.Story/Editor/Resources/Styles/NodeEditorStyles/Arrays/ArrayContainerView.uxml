@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="ChoiceContainerView" src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/NodeEditorStyles/ChoiceContainerView.uxml?fileID=9197481963319205126&amp;guid=812d369ce2eb68d4e984d1890af98639&amp;type=3#ChoiceContainerView" />
+    <ui:Template name="ArrayButtonsView" src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/NodeEditorStyles/Arrays/ArrayButtonsView.uxml?fileID=9197481963319205126&amp;guid=2320bef346de57849b32ed09037a883b&amp;type=3#ArrayButtonsView" />
+    <Style src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/NodeEditorStyles/Arrays/ArrayContainerStyle.uss?fileID=7433441132597879392&amp;guid=e3b0606a7b1145540977f1787f50faf7&amp;type=3#ArrayContainerStyle" />
+    <Style src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/NodeEditorStyles/Arrays/ArrayButtonsStyle.uss?fileID=7433441132597879392&amp;guid=db8080196eaa90346bca8595bcec545c&amp;type=3#ArrayButtonsStyle" />
+    <ui:VisualElement name="array-container">
+        <ui:VisualElement name="data-container" class="array-container hidden">
+            <ui:Instance template="ChoiceContainerView" name="ChoiceContainerView" />
+        </ui:VisualElement>
+        <ui:VisualElement name="empty-container" class="empty-container">
+            <ui:Label text="Empty List" display-tooltip-when-elided="true" name="container-label" class="empty-container-label" />
+        </ui:VisualElement>
+        <ui:Instance template="ArrayButtonsView" name="ArrayButtonsView" />
+    </ui:VisualElement>
+</ui:UXML>
