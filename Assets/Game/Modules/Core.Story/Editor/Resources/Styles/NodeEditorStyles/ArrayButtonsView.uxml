@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/NodeEditorStyles/ArrayButtonsStyle.uss?fileID=7433441132597879392&amp;guid=db8080196eaa90346bca8595bcec545c&amp;type=3#ArrayButtonsStyle" />
+    <ui:VisualElement name="temporaryContainer">
+        <ui:VisualElement name="buttons-container" class="array-buttons-container">
+            <ui:VisualElement name="spacer" style="width: 50px;" />
+            <ui:Button text="-" display-tooltip-when-elided="true" name="remove-button" class="array-button array-button-right" />
+            <ui:Button text="+" display-tooltip-when-elided="true" name="add-button" class="array-button-left" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

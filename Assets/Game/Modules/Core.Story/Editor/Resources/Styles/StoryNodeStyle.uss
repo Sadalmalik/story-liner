@@ -145,3 +145,19 @@
 .right-port {
     right: -12px;
 }
+
+.centered-label {
+    -unity-text-align: upper-center;
+}
+
+.action-buttons-container {
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.action-button {
+    height: 25px;
+    flex-grow: 1;
+    flex-shrink: 0;
+    width: 49%;
+}

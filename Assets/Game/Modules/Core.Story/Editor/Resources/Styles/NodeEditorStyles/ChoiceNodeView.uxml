@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="ArrayButtonsView" src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/NodeEditorStyles/ArrayButtonsView.uxml?fileID=9197481963319205126&amp;guid=2320bef346de57849b32ed09037a883b&amp;type=3#ArrayButtonsView" />
+    <Style src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/NodeEditorStyles/ChoiceNodeStyle.uss?fileID=7433441132597879392&amp;guid=ca945a12090e03b418c14df3e53eeec7&amp;type=3#ChoiceNodeStyle" />
+    <Style src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/StoryNodeStyle.uss?fileID=7433441132597879392&amp;guid=4d396d81dca0bc948a287889c80671f2&amp;type=3#StoryNodeStyle" />
+    <Style src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/NodeEditorStyles/ArrayButtonsStyle.uss?fileID=7433441132597879392&amp;guid=db8080196eaa90346bca8595bcec545c&amp;type=3#ArrayButtonsStyle" />
+    <ui:VisualElement name="main-container" class="main-container">
+        <ui:Label text="Choices" display-tooltip-when-elided="true" name="container-label" style="-unity-text-align: upper-center;" />
+        <ui:VisualElement name="choices-container" class="choices-container" />
+        <ui:Instance template="ArrayButtonsView" name="ArrayButtonsView" />
+    </ui:VisualElement>
+</ui:UXML>

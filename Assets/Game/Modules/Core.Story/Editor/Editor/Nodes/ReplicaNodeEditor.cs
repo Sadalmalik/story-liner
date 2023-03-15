@@ -1,19 +1,22 @@
-using Self.Story.Editors;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Self.StoryV2;
 
-namespace Self.StoryV2
+namespace Self.Story.Editors
 {
     [InspectedType(typeof(ReplicaNode))]
-    [CustomEditor(typeof(ReplicaNode))]
     public class ReplicaNodeEditor : NodeEditor
     {
+        private const string REPLICA_NODEVIEW_PATH = "Styles/NodeEditorStyles/ReplicaNodeView";
+        private const string REPLICA_STYLE_PATH = "Styles/NodeEditorStyles/ReplicaNodeStyle";
+
         private SerializedProperty m_CharacterProperty;
         private SerializedProperty m_EmotionProperty;
         private SerializedProperty m_ReplyTextProperty;
 
         private TextField m_ReplyTextField;
+
 
 
 
@@ -26,61 +29,47 @@ namespace Self.StoryV2
             m_ReplyTextProperty = serializedObject.FindProperty(nameof(ReplicaNode.localized));
         }
 
-        protected override VisualElement CreateNodeGUI()
+        protected override void CreateNodeGUI(VisualElement nodeGuiRoot)
         {
-            var container = new VisualElement();
+            var nodeStyleSheet = Resources.Load<StyleSheet>(REPLICA_STYLE_PATH);
 
-            var upperContainer = new VisualElement();
-            var style = upperContainer.style;
-            style.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
-            style.justifyContent = new StyleEnum<Justify>(Justify.SpaceAround);
+            if (!nodeGuiRoot.styleSheets.Contains(nodeStyleSheet))
+                nodeGuiRoot.styleSheets.Add(nodeStyleSheet);
 
-            var lowerContainer = new VisualElement();
+            var replicaGuiTemplate = Resources.Load<VisualTreeAsset>(REPLICA_NODEVIEW_PATH);
+            var replicaGui = new VisualElement();
 
-            container.Add(upperContainer);
-            container.Add(lowerContainer);
+            replicaGuiTemplate.CloneTree(replicaGui);
 
-            upperContainer.Add(CreateCharacterContainer());
-            upperContainer.Add(CreateEmotionContainer());
+            replicaGui = replicaGui.Q("replica-container");
+            nodeGuiRoot.Add(replicaGui);
 
-            lowerContainer.Add(CreateReplyTextContainer());
+            CreateCharacterContainer(replicaGui);
+            CreateEmotionContainer(replicaGui);
 
-            return container;
+            CreateReplyTextContainer(replicaGui);
         }
 
-        private VisualElement CreateCharacterContainer()
+        private void CreateCharacterContainer(VisualElement guiRoot)
         {
-            var characterContainer = new TextField();
-            characterContainer.name = "character-container";
+            var characterContainer = guiRoot.Q<TextField>("character-name");
             characterContainer.RegisterValueChangedCallback(HandleCharacterChanged);
             characterContainer.SetValueWithoutNotify(m_CharacterProperty.stringValue);
-
-            return characterContainer;
         }
 
-        private VisualElement CreateEmotionContainer()
+        private void CreateEmotionContainer(VisualElement guiRoot)
         {
-            var emotionContainer = new TextField();
-            emotionContainer.name = "emotion-container";
+            var emotionContainer = guiRoot.Q<TextField>("character-emotion");
             emotionContainer.RegisterValueChangedCallback(HandleEmotionChanged);
             emotionContainer.SetValueWithoutNotify(m_EmotionProperty.stringValue);
-
-            return emotionContainer;
         }
 
-        private VisualElement CreateReplyTextContainer()
+        private void CreateReplyTextContainer(VisualElement guiRoot)
         {
-            m_ReplyTextField = new TextField();
-            m_ReplyTextField.multiline = true;
+            m_ReplyTextField = guiRoot.Q<TextField>("character-text");
 
             m_ReplyTextField.RegisterValueChangedCallback(HandleReplyTextChanged);
             m_ReplyTextField.SetValueWithoutNotify(m_ReplyTextProperty.stringValue);
-
-            var st = m_ReplyTextField.style;
-            st.whiteSpace = new StyleEnum<WhiteSpace>(WhiteSpace.Normal);
-            st.width = new StyleLength(new Length(350f, LengthUnit.Pixel));
-
-            return m_ReplyTextField;
         }
 
         private void HandleCharacterChanged(ChangeEvent<string> character)
@@ -99,13 +88,6 @@ namespace Self.StoryV2
         {
             m_ReplyTextProperty.stringValue = replyText.newValue;
             serializedObject.ApplyModifiedProperties();
-
-            var textLength = replyText.newValue.Length;
-
-            var linesAmount = Mathf.Max(1, textLength / 25);
-
-            var st = m_ReplyTextField.style;
-            st.height = new StyleLength(linesAmount * 20f);
         }
     }
 }

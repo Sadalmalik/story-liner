@@ -1,0 +1,24 @@
+.main-container {
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.upper-container {
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.lower-container {
+}
+
+.character-name-container {
+    width: 49%;
+}
+
+.character-emotion-container {
+    width: 49%;
+}
+
+.character-text-container {
+    width: 350px;
+}

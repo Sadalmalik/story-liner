@@ -5,17 +5,38 @@
         <ui:VisualElement name="contents">
             <ui:VisualElement name="top" class="top-container">
                 <ui:VisualElement name="title" class="title-text">
-                    <ui:Label name="title-label" class="unity-text-element unity-label" />
+                    <ui:Label name="title-label" text="Node Name Here" class="unity-text-element unity-label" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="divider" class="horizontal" />
             <ui:VisualElement name="bottom" class="bottom-container">
-                <ui:VisualElement name="input" style="align-items: flex-start; flex-direction: column;" />
+                <ui:VisualElement name="input" style="align-items: flex-start; flex-direction: column;">
+                    <ui:VisualElement name="port-placeholder" class="port left-port input" style="width: 24px; height: 24px; align-items: center; justify-content: center;">
+                        <ui:VisualElement name="connector" class="connectorBox" style="border-top-left-radius: 8px; border-bottom-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgb(0, 255, 255); border-right-color: rgb(0, 255, 255); border-top-color: rgb(0, 255, 255); border-bottom-color: rgb(0, 255, 255); height: 8px; width: 8px; margin-left: 4px; margin-right: 4px; margin-top: 4px; margin-bottom: 4px; justify-content: center; align-items: center;">
+                            <ui:VisualElement name="cap" class="connectorCap" style="width: 4px; height: 4px; border-top-left-radius: 4px; border-bottom-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; background-color: rgb(0, 255, 255);" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
                 <ui:VisualElement name="divider" class="vertical divider" style="min-width: 1px;" />
-                <ui:VisualElement name="output" style="align-items: flex-end; justify-content: flex-start; flex-direction: column;" />
+                <ui:VisualElement name="output" style="align-items: flex-end; justify-content: flex-start; flex-direction: column;">
+                    <ui:VisualElement name="port-placeholder" class="right-port port output" style="width: 24px; height: 24px; align-items: center; justify-content: center;">
+                        <ui:VisualElement name="connector" class="connectorBox" style="border-top-left-radius: 8px; border-bottom-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgb(0, 255, 255); border-right-color: rgb(0, 255, 255); border-top-color: rgb(0, 255, 255); border-bottom-color: rgb(0, 255, 255); height: 8px; width: 8px; margin-left: 4px; margin-right: 4px; margin-top: 4px; margin-bottom: 4px; justify-content: center; align-items: center;">
+                            <ui:VisualElement name="cap" class="connectorCap" style="width: 4px; height: 4px; border-top-left-radius: 4px; border-bottom-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; background-color: rgb(0, 255, 255);" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="divider" class="horizontal" />
-            <ui:VisualElement name="inspector-container" class="inspector-container" />
+            <ui:VisualElement name="inspector-container" class="inspector-container">
+                <ui:Label text="Contents" display-tooltip-when-elided="true" name="node-editor-label" class="centered-label" />
+                <ui:VisualElement name="node-editor-container" />
+                <ui:Label text="Actions" display-tooltip-when-elided="true" name="node-actions-label" class="centered-label" />
+                <ui:VisualElement name="buttons-container" class="action-buttons-container">
+                    <ui:Button text="Add Action" display-tooltip-when-elided="true" name="add-button" class="action-button" />
+                    <ui:Button text="Remove Action" display-tooltip-when-elided="true" name="remove-button" class="action-button" />
+                </ui:VisualElement>
+                <ui:VisualElement name="node-actions-container" />
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="selection-border" picking-mode="Ignore" />

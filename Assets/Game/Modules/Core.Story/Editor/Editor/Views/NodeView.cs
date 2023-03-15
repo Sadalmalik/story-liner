@@ -51,10 +51,9 @@ namespace Self.Story.Editors
             var debugInfo = newNode.Q<Label>("debug-info");
             debugInfo.text = $"id:{node.id}";
 
-            newNode.CreateVariableContainer();
-
             newNode.CreateInputPorts();
             newNode.CreateOutputPorts();
+            newNode.CreateVariableContainer();
             newNode.SetupStyleClasses();
             newNode.UpdateTitle();
 
@@ -83,6 +82,8 @@ namespace Self.Story.Editors
 
         private void CreateInputPorts()
         {
+            inputContainer.Clear();
+
             InputPort = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, null);
             InputPort.portColor = Color.cyan;
             InputPort.portName = "in";
@@ -95,6 +96,9 @@ namespace Self.Story.Editors
         {
             outputContainer.Clear();
             OutputPorts.Clear();
+
+            if (Node.GetType() == typeof(ChoiceNode))
+                return;
 
             var ports = Node.nextNodes;
 
@@ -124,8 +128,6 @@ namespace Self.Story.Editors
 
         private void CreateVariableContainer()
         {
-            m_NodeInspector.Clear();
-
             var editors = TypeCache.GetTypesDerivedFrom(typeof(NodeEditor))
                                     .ToList();
 
@@ -141,12 +143,14 @@ namespace Self.Story.Editors
                     return false;
                 });
 
-                var nodeEditor = Editor.CreateEditor(Node, nodeEditorType);
+                var nodeEditor = (NodeEditor)Editor.CreateEditor(Node, nodeEditorType);
 
-                m_NodeInspector.Add(nodeEditor.CreateInspectorGUI());
+                nodeEditor.CreateInspectorGUI(m_NodeInspector, this);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Debug.LogError(ex);
+
                 var nodeEditor = (NodeEditor)Editor.CreateEditor(Node, typeof(NodeEditor));
 
                 m_NodeInspector.Add(nodeEditor.CreateInspectorGUI());

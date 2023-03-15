@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/NodeEditorStyles/ReplicaNodeStyle.uss?fileID=7433441132597879392&amp;guid=c1db9e71484a9004ebc33e0ceb2d060a&amp;type=3#ReplicaNodeStyle" />
+    <ui:VisualElement name="replica-container" class="main-container">
+        <ui:VisualElement name="upper-container" class="upper-container">
+            <ui:TextField picking-mode="Ignore" value="filler text" text="filler text" name="character-name" class="character-name-container" />
+            <ui:TextField picking-mode="Ignore" value="filler text" text="filler text" name="character-emotion" class="character-emotion-container" />
+        </ui:VisualElement>
+        <ui:VisualElement name="lower-container" class="lower-container">
+            <ui:TextField picking-mode="Ignore" value="filler text" text="placeholder text placeholder text placeholder text placeholder text placeholder text  placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text  placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text  placeholder text placeholder text asd asd asd asd asd asd " name="character-text" multiline="true" class="character-text-container" style="white-space: normal;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

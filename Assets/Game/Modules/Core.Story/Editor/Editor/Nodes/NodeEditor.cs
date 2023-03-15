@@ -4,86 +4,58 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Self.StoryV2
+namespace Self.Story.Editors
 {
     [CustomEditor(typeof(Node))]
     public class NodeEditor : Editor
     {
+        private const string NODE_GUI_ROOT_NAME = "node-editor-container";
+        private const string BUTTONS_ROOT_NAME = "buttons-container";
+        private const string ACTIONS_CONTAINER_NAME = "node-actions-container";
+
+        protected SerializedProperty m_NextNodesProperty;
         private SerializedProperty m_NodeActionsProperty;
         private VisualElement m_NodeActionsContainer;
+        protected VisualElement m_Root;
+        protected VisualElement m_NodeGuiContainer;
+        protected NodeView m_NodeView;
 
 
 
         protected virtual void OnEnable()
         {
+            m_NextNodesProperty = serializedObject.FindProperty(nameof(Node.nextNodes));
             m_NodeActionsProperty = serializedObject.FindProperty(nameof(Node.behaviours));
         }
 
-        protected virtual VisualElement CreateNodeGUI()
+        protected virtual void CreateNodeGUI(VisualElement root)
         {
-            return new Label($"Implement NodeEditor.CreateNodeGUI for {serializedObject.targetObject.GetType().Name}");
+            root.Add(new Label($"Implement NodeEditor.CreateNodeGUI for {serializedObject.targetObject.GetType().Name}"));
         }
 
         // basically use this 
         // to display node actions
-        public override VisualElement CreateInspectorGUI()
+        public void CreateInspectorGUI(VisualElement root, NodeView nodeView)
         {
-            var container = new VisualElement();
+            m_Root = root;
+            m_NodeView = nodeView;
 
-            container.Add(CreateNodeGUI());
-            container.Add(CreateButtonsContainer());
-            container.Add(CreateNodeActionsContainer());
+            m_NodeGuiContainer = m_Root.Q(NODE_GUI_ROOT_NAME);
+            var buttonsRoot = m_Root.Q(BUTTONS_ROOT_NAME);
+            m_NodeActionsContainer = m_Root.Q(ACTIONS_CONTAINER_NAME);
+
+            CreateNodeGUI(m_NodeGuiContainer);
+            CreateButtons(buttonsRoot);
             UpdateNodeActionsContainer();
-
-            return container;
         }
 
-        private Button CreateButton(string text)
+        private void CreateButtons(VisualElement buttonsRoot)
         {
-            var button = new Button();
-            button.text = text;
-
-            return button;
-        }
-
-        private VisualElement CreateButtonsContainer()
-        {
-            var buttonsContainer = new VisualElement();
-            buttonsContainer.name = "buttons-container";
-            var buttonsContainerStyle = buttonsContainer.style;
-            buttonsContainerStyle.display = new StyleEnum<DisplayStyle>(DisplayStyle.Flex);
-            buttonsContainerStyle.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
-            buttonsContainerStyle.justifyContent = new StyleEnum<Justify>(Justify.SpaceAround);
-
-            var addButton = CreateButton("Add Action");
-            addButton.name = "add-button";
+            var addButton = buttonsRoot.Q<Button>("add-button");
             addButton.clicked += HandleAddButton;
 
-            var buttonStyle = addButton.style;
-            buttonStyle.width = new StyleLength(new Length(49f, LengthUnit.Percent));
-            buttonStyle.height = new StyleLength(25f);
-
-            var removeButton = CreateButton("Remove Action");
-            removeButton.name = "remove-button";
+            var removeButton = buttonsRoot.Q<Button>("remove-button");
             removeButton.clicked += HandleRemoveButton;
-
-            buttonStyle = removeButton.style;
-            buttonStyle.width = new StyleLength(new Length(49f, LengthUnit.Percent));
-            buttonStyle.height = new StyleLength(25f);
-
-            buttonsContainer.Add(addButton);
-            buttonsContainer.Add(removeButton);
-
-            return buttonsContainer;
-        }
-
-        private VisualElement CreateNodeActionsContainer()
-        {
-            var container = new VisualElement();
-            container.name = "node-actions";
-            m_NodeActionsContainer = container;
-
-            return container;
         }
 
         private VisualElement CreateNodeActionContainer(SerializedProperty actionProperty)
@@ -97,33 +69,25 @@ namespace Self.StoryV2
             });
 
             return imguiContainer;
-
-            var propertyField = new PropertyField(actionProperty);
-            propertyField.BindProperty(serializedObject);
-
-            return propertyField;
         }
 
         private void HandleAddButton()
         {
+            var actions = TypeCache.GetTypesDerivedFrom(typeof(NodeAction));
+
             // maybe show a drop down menu right away
+            var dropDownMenu = new GenericMenu();
 
-            var arraySize = m_NodeActionsProperty.arraySize;
+            foreach (var action in actions)
+            {
+                var label = new GUIContent(action.Name);
+                var isOn = false;
+                var selectedType = action;
 
-            m_NodeActionsProperty.InsertArrayElementAtIndex(arraySize);
+                dropDownMenu.AddItem(label, isOn, HandleActionSelected, selectedType);
+            }
 
-            var newActionProperty = m_NodeActionsProperty.GetArrayElementAtIndex(arraySize);
-            var newNodeAction = ScriptableObject.CreateInstance(typeof(SetVariableAction));
-            newNodeAction.name = Story.Editors.StoryEditorWindow.GetNodeActionName(serializedObject.targetObject as Node, typeof(SetVariableAction), arraySize);
-
-            AssetDatabase.AddObjectToAsset(newNodeAction, serializedObject.targetObject);
-            AssetDatabase.SaveAssets();
-
-            newActionProperty.objectReferenceValue = newNodeAction;
-
-            serializedObject.ApplyModifiedProperties();
-
-            UpdateNodeActionsContainer();
+            dropDownMenu.ShowAsContext();
         }
 
         private void HandleRemoveButton()
@@ -158,6 +122,50 @@ namespace Self.StoryV2
                 var nodeAction = m_NodeActionsProperty.GetArrayElementAtIndex(i);
                 m_NodeActionsContainer.Add(CreateNodeActionContainer(nodeAction));
             }
+        }
+
+        private void HandleActionSelected(object selectedType)
+        {
+            if(!(selectedType is Type))
+            {
+                throw new Exception($"[{typeof(NodeEditor).Name}.{nameof(HandleActionSelected)}] {selectedType} is not Type!");
+            }
+
+            var resultType = selectedType as Type;
+            var arraySize = m_NodeActionsProperty.arraySize;
+
+            m_NodeActionsProperty.InsertArrayElementAtIndex(arraySize);
+
+            var newActionProperty = m_NodeActionsProperty.GetArrayElementAtIndex(arraySize);
+            var newNodeAction = ScriptableObject.CreateInstance(resultType);
+            newNodeAction.name = StoryEditorWindow.GetNodeActionName(serializedObject.targetObject as StoryV2.Node, resultType, arraySize);
+
+            AssetDatabase.AddObjectToAsset(newNodeAction, serializedObject.targetObject);
+            AssetDatabase.SaveAssets();
+
+            newActionProperty.objectReferenceValue = newNodeAction;
+
+            serializedObject.ApplyModifiedProperties();
+
+            UpdateNodeActionsContainer();
+        }
+
+        protected VisualElement CreateContainerFromTemplate(string templatePath, string mainContainerName)
+        {
+            var template = Resources.Load<VisualTreeAsset>(templatePath);
+            var temporaryContainer = new VisualElement();
+
+            template.CloneTree(temporaryContainer);
+
+            return temporaryContainer.Q(mainContainerName);
+        }
+
+        protected void TryAddStyleSheet(string styleSheetPath)
+        {
+            var nodeStyleSheet = Resources.Load<StyleSheet>(styleSheetPath);
+
+            if (!m_NodeGuiContainer.styleSheets.Contains(nodeStyleSheet))
+                m_NodeGuiContainer.styleSheets.Add(nodeStyleSheet);
         }
     }
 }
