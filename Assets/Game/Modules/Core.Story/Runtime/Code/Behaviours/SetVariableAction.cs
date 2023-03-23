@@ -4,20 +4,19 @@ using UnityEngine;
 namespace Self.StoryV2
 {
     [System.Serializable]
-    public class ChopChop
+    public class VariableReference
     {
-        public string chop1;
-        public string chop2;
+        public Variable variable;
     }
 
     public class SetVariableAction : NodeAction
     {
-        [DisplayOnNode(1)] public string variableName;
+        [DisplayOnNode(1), SerializeReference] public VariableReference variableReference;
         [DisplayOnNode(2)] public string variableValue;
 
         public override void OnExecute()
         {
-            Debug.Log("Chop Chop!");
+
         }
     }
 }

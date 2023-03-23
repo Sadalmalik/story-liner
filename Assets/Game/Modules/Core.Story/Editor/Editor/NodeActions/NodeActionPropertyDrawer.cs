@@ -31,7 +31,6 @@ namespace Self.Story.Editors
         public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
             var serializedObject = new SerializedObject(property.objectReferenceValue);
-
             var container = new VisualElement() { name = property.displayName };
 
             var fields = property.objectReferenceValue

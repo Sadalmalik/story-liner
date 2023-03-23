@@ -16,8 +16,7 @@ MonoBehaviour:
   nextNodes:
   - 6e61c0f7031c70049bedf023425ec1b0
   position: {x: -797.31683, y: 244}
-  behaviours:
-  - {fileID: -3356195085567721791}
+  behaviours: []
   character:
     rid: 5074071876311187473
   emotion:
@@ -135,7 +134,7 @@ MonoBehaviour:
   id: b6381606bdb1c604ebec7807eed397cf
   nextNodes:
   - 
-  position: {x: 255.81952, y: 224}
+  position: {x: 235.99997, y: 633}
   behaviours: []
   character:
     rid: 5074071876311187491
@@ -154,21 +153,6 @@ MonoBehaviour:
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: emot.alucard.angry
---- !u!114 &-3356195085567721791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
-  m_Name: node.f271a8.Replica.SetVariable.0
-  m_EditorClassIdentifier: 
-  executeOnce: 0
-  variableName: 
-  variableValue: 
 --- !u!114 &-2215376416503312391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,8 +176,7 @@ MonoBehaviour:
     rid: 5074071876311187478
   emotion:
     rid: 5074071876311187480
-  localized: Before I deal with you as is right and proper, do me the courtesy of
-    telling me your name.
+  localized: "\u0444\u044B\u0432\u0444 \u044B"
   choices:
   - localizedText: I don't think so.
   - localizedText: Don't talk to me about courtesy.
@@ -268,8 +251,7 @@ MonoBehaviour:
   nextNodes:
   - 6e61c0f7031c70049bedf023425ec1b0
   position: {x: -797, y: -111.13058}
-  behaviours:
-  - {fileID: -3356195085567721791}
+  behaviours: []
   character:
     rid: 5074071876311187466
   emotion:
@@ -302,7 +284,7 @@ MonoBehaviour:
   id: 45e404ad2bf24914aaf58bcb82250adb
   nextNodes:
   - 
-  position: {x: 235.81952, y: 244}
+  position: {x: 236, y: 243.99998}
   behaviours: []
   character:
     rid: 5074071876311187487
@@ -321,6 +303,29 @@ MonoBehaviour:
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: emot.alucard.angry
+--- !u!114 &3800574330011510458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
+  m_Name: node.f58709.Replica.SetVariable.0
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  variableReference:
+    rid: 5074071876311187502
+  variableValue: qweqwe
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071876311187502
+      type: {class: VariableReference, ns: Self.StoryV2, asm: Self.Core.Story}
+      data:
+        variable: {fileID: 7522731810625360659}
 --- !u!114 &4849401045802377636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,8 +340,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 36b9ec349d6f5ff4ab15bc525ee26ec9
   nextNodes:
-  - 
-  position: {x: -1756.1982, y: -127.99993}
+  - b6381606bdb1c604ebec7807eed397cf
+  position: {x: -245.00024, y: 633}
   behaviours: []
   character:
     rid: 5074071876311187484
@@ -388,9 +393,9 @@ MonoBehaviour:
   id: f587092927eea784fb02bdfee08884b5
   nextNodes:
   - 36b9ec349d6f5ff4ab15bc525ee26ec9
-  position: {x: -797.31683, y: 584}
+  position: {x: -797.0001, y: 633}
   behaviours:
-  - {fileID: -3356195085567721791}
+  - {fileID: 3800574330011510458}
   character:
     rid: 5074071876311187476
   emotion:
