@@ -107,6 +107,9 @@ namespace Self.Story.Editors
 
         private void HandleCharacterSelected(object selectedCharacter)
         {
+            // update in case node has been moved
+            serializedObject.Update();
+
             m_CharacterProperty.managedReferenceValue = new CharacterReference() { character = selectedCharacter as Character};
 
             serializedObject.ApplyModifiedProperties();
@@ -132,12 +135,16 @@ namespace Self.Story.Editors
 
         private void HandleEmotionChanged(ChangeEvent<string> selectedEmotion)
         {
+            // update in case node has been moved
+            serializedObject.Update();
             m_EmotionProperty.managedReferenceValue = new EmotionReference() { emotion = selectedEmotion.newValue };
             serializedObject.ApplyModifiedProperties();
         }
 
         private void HandleReplyTextChanged(ChangeEvent<string> replyText)
         {
+            // update in case node has been moved
+            serializedObject.Update();
             m_ReplyTextProperty.stringValue = replyText.newValue;
             serializedObject.ApplyModifiedProperties();
         }

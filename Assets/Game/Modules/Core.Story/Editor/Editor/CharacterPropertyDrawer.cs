@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using Self.Story;
 using UnityEngine.UIElements;
-using UnityEditor.UIElements;
 using System.Linq;
 
 namespace Self.Story.Editors
