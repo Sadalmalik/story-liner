@@ -109,6 +109,9 @@ namespace Self.Story.Editors
 
         private void HandleRemoveButton()
         {
+            // update serializedObject in case the node moved
+            serializedObject.Update();
+
             var arraySize = m_NodeActionsProperty.arraySize;
 
             if(arraySize > 0)
@@ -160,7 +163,10 @@ namespace Self.Story.Editors
 
         private void HandleActionSelected(object selectedType)
         {
-            if(!(selectedType is Type))
+            // update serializedObject in case the node moved
+            serializedObject.Update();
+
+            if (!(selectedType is Type))
             {
                 throw new Exception($"[{typeof(NodeEditor).Name}.{nameof(HandleActionSelected)}] {selectedType} is not Type!");
             }
