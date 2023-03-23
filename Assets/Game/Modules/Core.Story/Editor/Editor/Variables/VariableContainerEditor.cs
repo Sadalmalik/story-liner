@@ -7,140 +7,6 @@ using UnityEngine;
 
 namespace Self.Story.Editors
 {
-    public class ComparerById : IComparer<SerializedProperty>
-    {
-        public static int CompareById(SerializedProperty x, SerializedProperty y)
-        {
-            var idPropX = x.objectReferenceValue as Variable;
-            var idpropY = y.objectReferenceValue as Variable;
-
-            return idPropX.id.CompareTo(idpropY.id);
-        }
-
-        public int Compare(SerializedProperty x, SerializedProperty y)
-        {
-            var idPropX = x.objectReferenceValue as Variable;
-            var idpropY = y.objectReferenceValue as Variable;
-
-            return idPropX.id.CompareTo(idpropY.id);
-        }
-    }
-
-    public class ComparerByValue : IComparer<SerializedProperty>
-    {
-        public int Compare(SerializedProperty x, SerializedProperty y)
-        {
-            int comparison = 0;
-
-            if (x.objectReferenceValue is IntVariable intVar1)
-            {
-                var value1 = intVar1.value;
-                var value2 = (y.objectReferenceValue as IntVariable).value;
-
-                comparison = value1.CompareTo(value2);
-            }
-            else if (x.objectReferenceValue is FloatVariable floatVar1)
-            {
-                var value1 = floatVar1.value;
-                var value2 = (y.objectReferenceValue as FloatVariable).value;
-
-                comparison = value1.CompareTo(value2);
-            }
-            else if (x.objectReferenceValue is BoolVariable boolVar1)
-            {
-                var value1 = boolVar1.value;
-                var value2 = (y.objectReferenceValue as BoolVariable).value;
-
-                comparison = value1.CompareTo(value2);
-            }
-            else if (x.objectReferenceValue is StringVariable stringVar1)
-            {
-                var value1 = stringVar1.value;
-                var value2 = (y.objectReferenceValue as StringVariable).value;
-
-                comparison = value1.CompareTo(value2);
-            }
-
-            if(comparison == 0)
-            {
-                return ((Variable)x.objectReferenceValue).id.CompareTo(((Variable)y.objectReferenceValue).id);
-            }
-
-            return comparison;
-        }
-    }
-
-    public class ComparerByMinValue : IComparer<SerializedProperty>
-    {
-        public int Compare(SerializedProperty x, SerializedProperty y)
-        {
-            var comparison = 0;
-
-            if (x.objectReferenceValue is IntVariable intVar1)
-            {
-                var value1 = intVar1.minValue;
-                var value2 = (y.objectReferenceValue as IntVariable).minValue;
-
-                comparison = value1.CompareTo(value2);
-            }
-            else if (x.objectReferenceValue is FloatVariable floatVar1)
-            {
-                var value1 = floatVar1.minValue;
-                var value2 = (y.objectReferenceValue as FloatVariable).minValue;
-
-                comparison = value1.CompareTo(value2);
-            }
-
-            if (comparison == 0)
-            {
-                return ((Variable)x.objectReferenceValue).id.CompareTo(((Variable)y.objectReferenceValue).id);
-            }
-
-            return comparison;
-        }
-    }
-
-    public class ComparerByMaxValue : IComparer<SerializedProperty>
-    {
-        public int Compare(SerializedProperty x, SerializedProperty y)
-        {
-            var comparison = 0;
-
-            if (x.objectReferenceValue is IntVariable intVar1)
-            {
-                var value1 = intVar1.maxValue;
-                var value2 = (y.objectReferenceValue as IntVariable).maxValue;
-
-                comparison = value1.CompareTo(value2);
-            }
-            else if (x.objectReferenceValue is FloatVariable floatVar1)
-            {
-                var value1 = floatVar1.maxValue;
-                var value2 = (y.objectReferenceValue as FloatVariable).maxValue;
-
-                comparison = value1.CompareTo(value2);
-            }
-
-            if (comparison == 0)
-            {
-                return ((Variable)x.objectReferenceValue).id.CompareTo(((Variable)y.objectReferenceValue).id);
-            }
-
-            return comparison;
-        }
-    }
-
-    public class ComparerByType : IComparer<SerializedProperty>
-    {
-        public int Compare(SerializedProperty x, SerializedProperty y)
-        {
-            var value1 = x.objectReferenceValue.GetType().ToString();
-            var value2 = y.objectReferenceValue.GetType().ToString();
-
-            return value1.CompareTo(value2);
-        }
-    }
-
     [CustomEditor(typeof(VariablesContainer))]
     public class VariableContainerEditor : Editor
     {
@@ -154,6 +20,7 @@ namespace Self.Story.Editors
         private Dictionary<string, Func<List<SerializedProperty>, List<SerializedProperty>>> m_SortingActions;
         private string m_CurrentSorting;
         private bool m_SortingDirection;
+        private int m_ElementForDeletion = -1;
 
 
 
@@ -166,7 +33,7 @@ namespace Self.Story.Editors
             var parentObject = AssetDatabase.LoadAssetAtPath(parentObjectPath, typeof(StoryV2.Chapter));
 
             m_ParentObject = new SerializedObject(parentObject);
-            m_VariablePropertyDrawer = new VariablePropertyDrawer();
+            m_VariablePropertyDrawer = new VariablePropertyDrawer(this);
             m_VariablesListProperty = serializedObject.FindProperty(nameof(VariablesContainer.variables));
             m_VariablesList = FillVariablesList(m_VariablesListProperty);
 
@@ -196,6 +63,8 @@ namespace Self.Story.Editors
 
         public override void OnInspectorGUI()
         {
+            serializedObject.Update();
+
             var arraySize = m_VariablesListProperty.arraySize;
 
             EditorGUI.BeginChangeCheck();
@@ -214,6 +83,9 @@ namespace Self.Story.Editors
             }
 
             DrawArrayButtons();
+
+            if (m_ElementForDeletion != -1)
+                RemoveVariable();
 
             EditorGUILayout.EndVertical();
 
@@ -264,10 +136,12 @@ namespace Self.Story.Editors
         {
             if(m_CurrentSorting != null)
             {
+                var variableCount = m_VariablesList.Count;
+
                 // draw array sorted
-                foreach (var elem in m_VariablesList)
+                for (int i = 0; i < variableCount; i++)
                 {
-                    DrawVariable(elem);
+                    DrawVariable(m_VariablesList[i], i);
                 }
             }
             else
@@ -277,13 +151,13 @@ namespace Self.Story.Editors
                 {
                     var variableElement = m_VariablesListProperty.GetArrayElementAtIndex(i);
 
-                    DrawVariable(variableElement);
+                    DrawVariable(variableElement, i);
                 }
             }
 
         }
 
-        private void DrawVariable(SerializedProperty variableProperty)
+        private void DrawVariable(SerializedProperty variableProperty, int index)
         {
             var startPosition = EditorGUILayout.BeginHorizontal();
 
@@ -292,7 +166,7 @@ namespace Self.Story.Editors
                 m_SerializedObjects.Add(variableProperty, new SerializedObject(variableProperty.objectReferenceValue));
             }
 
-            m_VariablePropertyDrawer.DrawProperty(variableProperty, startPosition, m_SerializedObjects[variableProperty]);
+            m_VariablePropertyDrawer.DrawProperty(variableProperty, startPosition, m_SerializedObjects[variableProperty], index);
 
             // force editor layout to new line
             GUILayout.Label(GUIContent.none);
@@ -323,13 +197,13 @@ namespace Self.Story.Editors
 
             foreach (var varType in m_VariableTypes)
             {
-                menu.AddItem(new GUIContent(varType.Value.Name), false, HandleVariableAdded, varType.Value.FullName);
+                menu.AddItem(new GUIContent(varType.Value.Name), false, AddVariable, varType.Value.FullName);
             }
 
             menu.ShowAsContext();
         }
 
-        private void HandleVariableAdded(object typeName)
+        private void AddVariable(object typeName)
         {
             var type = m_VariableTypes[(string)typeName];
             var newVariable = ScriptableObject.CreateInstance(type);
@@ -351,6 +225,28 @@ namespace Self.Story.Editors
             m_VariablesList.Add(m_VariablesListProperty.GetArrayElementAtIndex(newIndex));
 
             AssetDatabase.SaveAssets();
+        }
+
+        public void RemoveVariable(int index)
+        {
+            m_ElementForDeletion = index;
+        }
+
+        private void RemoveVariable()
+        {
+            var variable = m_VariablesListProperty.GetArrayElementAtIndex(m_ElementForDeletion);
+
+            AssetDatabase.RemoveObjectFromAsset(variable.objectReferenceValue);
+
+            m_VariablesListProperty.DeleteArrayElementAtIndex(m_ElementForDeletion);
+            m_VariablesList = FillVariablesList(m_VariablesListProperty);
+
+            serializedObject.ApplyModifiedProperties();
+            m_ParentObject.ApplyModifiedProperties();
+
+            AssetDatabase.SaveAssets();
+
+            m_ElementForDeletion = -1;
         }
 
         private Dictionary<string, Func<List<SerializedProperty>, List<SerializedProperty>>> CreateSortingActions()

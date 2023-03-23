@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8657362269871621032
+--- !u!114 &-8933930290540501948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,14 +9,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
-  m_Name: .variables.IntVariable.some-var
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.11a3bf.Replica
   m_EditorClassIdentifier: 
-  id: qweqw
-  value: 1
-  minValue: 0
-  maxValue: -1231
---- !u!114 &-7953898114192380334
+  id: 11a3bf960583f99478bb0fd7cf4f5ffb
+  nextNodes:
+  - 6e61c0f7031c70049bedf023425ec1b0
+  position: {x: -797.31683, y: 244}
+  behaviours:
+  - {fileID: -3356195085567721791}
+  character:
+    rid: 5074071876311187473
+  emotion:
+    rid: 5074071876311187475
+  localized: 'You are not deserving of any courtesy, Count Dracula. You have killed
+    my dear husband, and my most beloved friend.
+
+'
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071876311187473
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 901d2c8a4c007524894506962b21cc92, type: 2}
+    - rid: 5074071876311187475
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.alucard.angry
+--- !u!114 &-8152685559764439753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25,14 +46,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
-  m_Name: .variables.IntVariable.some-var
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.6e61c0.Replica
   m_EditorClassIdentifier: 
-  id: 
-  value: 0
-  minValue: 0
-  maxValue: 1234
---- !u!114 &-6769372596703966980
+  id: 6e61c0f7031c70049bedf023425ec1b0
+  nextNodes:
+  - 45e404ad2bf24914aaf58bcb82250adb
+  position: {x: -245.0643, y: 244.00006}
+  behaviours: []
+  character:
+    rid: 5074071876311187481
+  emotion:
+    rid: 5074071876311187483
+  localized: 'You have me at a disadvantage, Gentleman. I do not know you, and clearly
+    you must confuse me with someone else. I have never killed anyone.
+
+'
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071876311187481
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
+    - rid: 5074071876311187483
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.dracula.sad
+--- !u!114 &-6451538739170824353
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,12 +82,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
-  m_Name: .variables.BoolVariable.some-var
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.6ef293.Replica
+  m_EditorClassIdentifier: 
+  id: 6ef2935b63af3ea439612b3777495a0e
+  nextNodes:
+  - dcf11d6ed09b9b04d8e77c3fec9c6a02
+  position: {x: -1796.1982, y: -87.99993}
+  behaviours: []
+  character:
+    rid: 5074071876311187460
+  emotion:
+    rid: 5074071876311187462
+  localized: You have the nerve to creep in to my house like a common burglar?
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071876311187460
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
+    - rid: 5074071876311187462
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.dracula.normal
+--- !u!114 &-6429369090029268442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .variables.StringVariable.some-var
   m_EditorClassIdentifier: 
   id: qweqwe
-  value: 0
---- !u!114 &-6147065494389463790
+  value: chop chop
+--- !u!114 &-4338213197599957453
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,14 +129,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e027de692874cd54cacd221c8938f1d3, type: 3}
-  m_Name: .variables.FloatVariable.some-var
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.b63816.Replica
   m_EditorClassIdentifier: 
-  id: qweqweqwe
-  value: 44
-  minValue: 0
-  maxValue: 444
---- !u!114 &-5927911351394287987
+  id: b6381606bdb1c604ebec7807eed397cf
+  nextNodes:
+  - 
+  position: {x: 255.81952, y: 224}
+  behaviours: []
+  character:
+    rid: 5074071876311187491
+  emotion:
+    rid: 5074071876311187492
+  localized: "It's Alucard for the likes of you. Count Dracula, your hellish existence
+    will end tonight. \r\n"
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071876311187491
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 901d2c8a4c007524894506962b21cc92, type: 2}
+    - rid: 5074071876311187492
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.alucard.angry
+--- !u!114 &-3356195085567721791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,72 +163,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
-  m_Name: .variables.BoolVariable.some-var
+  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
+  m_Name: node.f271a8.Replica.SetVariable.0
   m_EditorClassIdentifier: 
-  id: qweqweahgdfjhadgf
-  value: 1
---- !u!114 &-4908327488758982504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
-  m_Name: .variables.StringVariable.some-var
-  m_EditorClassIdentifier: 
-  id: q
-  value: qwe
---- !u!114 &-3936632120404790293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e027de692874cd54cacd221c8938f1d3, type: 3}
-  m_Name: .variables.FloatVariable.some-var
-  m_EditorClassIdentifier: 
-  id: 
-  value: 22
-  minValue: 0
-  maxValue: 333
---- !u!114 &-1164764401700544577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
-  m_Name: .variables.StringVariable.some-var
-  m_EditorClassIdentifier: 
-  id: 
-  value: qwe
---- !u!114 &-914135384598718349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
-  m_Name: .variables.IntVariable.some-var
-  m_EditorClassIdentifier: 
-  id: qweqw
-  value: 5
-  minValue: 0
-  maxValue: 5
---- !u!114 &-460073391857600794
+  executeOnce: 0
+  variableName: 
+  variableValue: 
+--- !u!114 &-2215376416503312391
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,64 +179,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2e71fad76354cc4b9340ec2a2558942, type: 3}
-  m_Name: node.e82f16.Choice
+  m_Name: node.dcf11d.Choice
   m_EditorClassIdentifier: 
-  id: e82f1647bf610a94cb11645fd5e21d82
+  id: dcf11d6ed09b9b04d8e77c3fec9c6a02
   nextNodes:
-  - 905f06f7524d29e46a6af01bc793b7df
-  - 905f06f7524d29e46a6af01bc793b7df
-  position: {x: -18.000036, y: -467.00003}
-  behaviours:
-  - {fileID: 5160343534761019113}
+  - f271a89d4a23fa941b842be2aff48abd
+  - 11a3bf960583f99478bb0fd7cf4f5ffb
+  - f587092927eea784fb02bdfee08884b5
+  position: {x: -1384.3918, y: -88.000015}
+  behaviours: []
   character:
-    rid: 5074071859023577112
+    rid: 5074071876311187478
   emotion:
-    rid: 5074071859023577114
-  localized: qweqwe
+    rid: 5074071876311187480
+  localized: Before I deal with you as is right and proper, do me the courtesy of
+    telling me your name.
   choices:
-  - localizedText: choice 1
-  - localizedText: choice 2
+  - localizedText: I don't think so.
+  - localizedText: Don't talk to me about courtesy.
+  - localizedText: Do I not look familiar to you?
   references:
     version: 2
     RefIds:
-    - rid: 5074071859023577112
+    - rid: 5074071876311187478
       type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         character: {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
-    - rid: 5074071859023577114
+    - rid: 5074071876311187480
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: emot.dracula.angry
---- !u!114 &-429935131677310405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e027de692874cd54cacd221c8938f1d3, type: 3}
-  m_Name: .variables.FloatVariable.some-var
-  m_EditorClassIdentifier: 
-  id: asdasdasd
-  value: 33
-  minValue: 0
-  maxValue: 1111
---- !u!114 &-302915775798783780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
-  m_Name: .variables.StringVariable.some-var
-  m_EditorClassIdentifier: 
-  id: 
-  value: qwe
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,46 +224,19 @@ MonoBehaviour:
   chapterName: Chapter Test
   startNode: 
   nodes:
-  - {fileID: 1370955394336453981}
-  - {fileID: -460073391857600794}
-  - {fileID: 5751900957681057799}
-  - {fileID: 8610283079855024542}
+  - {fileID: -6451538739170824353}
+  - {fileID: 1541727951907265767}
+  - {fileID: -2215376416503312391}
+  - {fileID: -8933930290540501948}
+  - {fileID: 8176957369831085152}
+  - {fileID: -8152685559764439753}
+  - {fileID: 4849401045802377636}
+  - {fileID: 3496594616109006797}
+  - {fileID: -4338213197599957453}
   variables: {fileID: 1315758339406588307}
   characters:
   - {fileID: 11400000, guid: 901d2c8a4c007524894506962b21cc92, type: 2}
   - {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
---- !u!114 &377926160203106584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
-  m_Name: .variables.IntVariable.some-var
-  m_EditorClassIdentifier: 
-  id: qweqweqw
-  value: 44
-  minValue: 0
-  maxValue: 44
---- !u!114 &906401983121073163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
-  m_Name: .variables.IntVariable.some-var
-  m_EditorClassIdentifier: 
-  id: ajsdfjadsf
-  value: 2
-  minValue: 0
-  maxValue: 11
 --- !u!114 &1315758339406588307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,30 +250,9 @@ MonoBehaviour:
   m_Name: .settings.variables
   m_EditorClassIdentifier: 
   variables:
-  - {fileID: 5314306318798731325}
-  - {fileID: 9157751385603535818}
-  - {fileID: 6049108699184926505}
-  - {fileID: 8618035913356647136}
-  - {fileID: -914135384598718349}
-  - {fileID: -6769372596703966980}
-  - {fileID: 2863072708597096085}
-  - {fileID: -4908327488758982504}
-  - {fileID: -5927911351394287987}
-  - {fileID: -429935131677310405}
-  - {fileID: 2221464315883597984}
-  - {fileID: 377926160203106584}
-  - {fileID: -6147065494389463790}
-  - {fileID: 906401983121073163}
-  - {fileID: -3936632120404790293}
-  - {fileID: -7953898114192380334}
-  - {fileID: -1164764401700544577}
-  - {fileID: 3549159660709852161}
-  - {fileID: -302915775798783780}
-  - {fileID: 5423637450384372047}
-  - {fileID: -8657362269871621032}
-  - {fileID: 8485539905893226577}
-  - {fileID: 2680991999779202391}
---- !u!114 &1370955394336453981
+  - {fileID: -6429369090029268442}
+  - {fileID: 7522731810625360659}
+--- !u!114 &1541727951907265767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -305,240 +262,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
-  m_Name: node.905f06.Replica
+  m_Name: node.f271a8.Replica
   m_EditorClassIdentifier: 
-  id: 905f06f7524d29e46a6af01bc793b7df
+  id: f271a89d4a23fa941b842be2aff48abd
   nextNodes:
-  - 
-  position: {x: 551.0958, y: -234}
-  behaviours: []
-  character:
-    rid: 5074071859023577110
-  emotion:
-    rid: 5074071859023577115
-  localized: Alright!
-  references:
-    version: 2
-    RefIds:
-    - rid: 5074071859023577110
-      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
-      data:
-        character: {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
-    - rid: 5074071859023577115
-      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
-      data:
-        emotion: emot.dracula.angry
---- !u!114 &2221464315883597984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
-  m_Name: .variables.IntVariable.some-var
-  m_EditorClassIdentifier: 
-  id: qweqweq
-  value: 33
-  minValue: 0
-  maxValue: 100
---- !u!114 &2680991999779202391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e027de692874cd54cacd221c8938f1d3, type: 3}
-  m_Name: .variables.FloatVariable.some-var
-  m_EditorClassIdentifier: 
-  id: 
-  value: 11
-  minValue: 0
-  maxValue: 2222
---- !u!114 &2863072708597096085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
-  m_Name: .variables.IntVariable.some-var
-  m_EditorClassIdentifier: 
-  id: qw
-  value: 4
-  minValue: 0
-  maxValue: 4
---- !u!114 &3549159660709852161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
-  m_Name: .variables.BoolVariable.some-var
-  m_EditorClassIdentifier: 
-  id: 
-  value: 0
---- !u!114 &5160343534761019113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
-  m_Name: node.e82f16.Choice.SetVariable.0
-  m_EditorClassIdentifier: 
-  executeOnce: 0
-  variableName: 
-  variableValue: 
---- !u!114 &5314306318798731325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e027de692874cd54cacd221c8938f1d3, type: 3}
-  m_Name: .variables.FloatVariable.some-var
-  m_EditorClassIdentifier: 
-  id: qwea
-  value: 5
-  minValue: 1
-  maxValue: 5
---- !u!114 &5423637450384372047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
-  m_Name: .variables.IntVariable.some-var
-  m_EditorClassIdentifier: 
-  id: 
-  value: 3
-  minValue: 0
-  maxValue: 3213
---- !u!114 &5751900957681057799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
-  m_Name: node.3706cb.Replica
-  m_EditorClassIdentifier: 
-  id: 3706cb4fb4a7b834e8d3c717c4e7659e
-  nextNodes:
-  - 905f06f7524d29e46a6af01bc793b7df
-  position: {x: 535.736, y: 120.00003}
-  behaviours: []
-  character:
-    rid: 5074071859023577108
-  emotion:
-    rid: 5074071859023577116
-  localized: Damn it!
-  references:
-    version: 2
-    RefIds:
-    - rid: 5074071859023577108
-      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
-      data:
-        character: {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
-    - rid: 5074071859023577116
-      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
-      data:
-        emotion: emot.dracula.normal
---- !u!114 &6049108699184926505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
-  m_Name: .variables.BoolVariable.some-var
-  m_EditorClassIdentifier: 
-  id: qweq
-  value: 0
---- !u!114 &8485539905893226577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
-  m_Name: .variables.IntVariable.some-var
-  m_EditorClassIdentifier: 
-  id: 
-  value: 0
-  minValue: 0
-  maxValue: 22
---- !u!114 &8610283079855024542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2e71fad76354cc4b9340ec2a2558942, type: 3}
-  m_Name: node.6b78a8.Choice
-  m_EditorClassIdentifier: 
-  id: 6b78a87b04952f740879090518cc72a5
-  nextNodes:
-  - 3706cb4fb4a7b834e8d3c717c4e7659e
-  position: {x: -36.000004, y: -20.760439}
+  - 6e61c0f7031c70049bedf023425ec1b0
+  position: {x: -797, y: -111.13058}
   behaviours:
-  - {fileID: 9092781575026762685}
+  - {fileID: -3356195085567721791}
   character:
-    rid: 5074071859023577122
+    rid: 5074071876311187466
   emotion:
-    rid: 5074071859023577124
-  localized: qwerqwerqwegf yauksdf yaksdf aqwerqwerqwegf yauksdf asdasdasd asd  yaksdf
-    aqwerqwerqwegf yauksdf yaksdf aqwerqwerqwegf yauksdf yaksdf aqwerqwerqwegf yauksdf
-    yaksdf aqwerqwerqwegf yauksdf yaksdf a
-  choices:
-  - localizedText: adfkjasdfasdf adsf a
+    rid: 5074071876311187468
+  localized: Dracula speaking about courtesy? You are but a killer! You shall learn
+    of my name, though now is not the time.
   references:
     version: 2
     RefIds:
-    - rid: 5074071859023577122
+    - rid: 5074071876311187466
       type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         character: {fileID: 11400000, guid: 901d2c8a4c007524894506962b21cc92, type: 2}
-    - rid: 5074071859023577124
+    - rid: 5074071876311187468
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: emot.alucard.normal
---- !u!114 &8618035913356647136
+--- !u!114 &3496594616109006797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -547,12 +296,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
-  m_Name: .variables.StringVariable.some-var
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.45e404.Replica
   m_EditorClassIdentifier: 
-  id: qwe
-  value: -10
---- !u!114 &9092781575026762685
+  id: 45e404ad2bf24914aaf58bcb82250adb
+  nextNodes:
+  - 
+  position: {x: 235.81952, y: 244}
+  behaviours: []
+  character:
+    rid: 5074071876311187487
+  emotion:
+    rid: 5074071876311187490
+  localized: "Please spare me the charade. I know who - what you are. And I will
+    have my revenge on you!\r"
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071876311187487
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 901d2c8a4c007524894506962b21cc92, type: 2}
+    - rid: 5074071876311187490
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.alucard.angry
+--- !u!114 &4849401045802377636
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -561,13 +330,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
-  m_Name: node.6b78a8.Choice.SetVariable.0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.36b9ec.Replica
   m_EditorClassIdentifier: 
-  executeOnce: 0
-  variableName: 
-  variableValue: 
---- !u!114 &9157751385603535818
+  id: 36b9ec349d6f5ff4ab15bc525ee26ec9
+  nextNodes:
+  - 
+  position: {x: -1756.1982, y: -127.99993}
+  behaviours: []
+  character:
+    rid: 5074071876311187484
+  emotion:
+    rid: 5074071876311187486
+  localized: 'I remember now - she carried a picture of you near her heart. You are
+    Alucard.
+
+'
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071876311187484
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
+    - rid: 5074071876311187486
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.dracula.normal
+--- !u!114 &7522731810625360659
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -576,10 +366,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
-  m_Name: .variables.IntVariable.some-var
+  m_Script: {fileID: 11500000, guid: e027de692874cd54cacd221c8938f1d3, type: 3}
+  m_Name: .variables.FloatVariable.some-var
   m_EditorClassIdentifier: 
-  id: qwe
-  value: -5
-  minValue: -123123
-  maxValue: 3
+  id: dracula.anger
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &8176957369831085152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.f58709.Replica
+  m_EditorClassIdentifier: 
+  id: f587092927eea784fb02bdfee08884b5
+  nextNodes:
+  - 36b9ec349d6f5ff4ab15bc525ee26ec9
+  position: {x: -797.31683, y: 584}
+  behaviours:
+  - {fileID: -3356195085567721791}
+  character:
+    rid: 5074071876311187476
+  emotion:
+    rid: 5074071876311187477
+  localized: 'Look closely, Count. Is my face not familiar to you? If you were a
+    gentleman, I might be offended. But you are not.
+
+'
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071876311187476
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 901d2c8a4c007524894506962b21cc92, type: 2}
+    - rid: 5074071876311187477
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.alucard.angry

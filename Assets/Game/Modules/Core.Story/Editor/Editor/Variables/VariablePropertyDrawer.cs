@@ -13,11 +13,17 @@ namespace Self.Story.Editors
     {
         private const BindingFlags c_FieldsFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
 
+        private VariableContainerEditor m_ParentEditor;
 
 
+
+        public VariablePropertyDrawer(VariableContainerEditor parentEditor = null)
+        {
+            m_ParentEditor = parentEditor;
+        }
 
         // it's all drawn inside EditorGuiLayout.BeginHorizontal and EditorGuiLayout.EndHorizontal
-        public void DrawProperty(SerializedProperty property, Rect position, SerializedObject serializedObject)
+        public void DrawProperty(SerializedProperty property, Rect position, SerializedObject serializedObject, int variableIndex)
         {
             EditorGUI.BeginChangeCheck();
 
@@ -51,16 +57,40 @@ namespace Self.Story.Editors
             }
 
             var propertyType = fields.FirstOrDefault(f => f.Name == "value");
-
             var missingPropertyPositions = 4 - fields.Count();
 
             position.x += (missingPropertyPositions * position.width) + (missingPropertyPositions * 2f);
 
-            EditorGUI.LabelField(position, $"{serializedObject.FindProperty(propertyType.Name).propertyType}");
+            DrawTypeLabel(position, $"{serializedObject.FindProperty(propertyType.Name).propertyType}", variableIndex);
 
             if (EditorGUI.EndChangeCheck())
             {
                 serializedObject.ApplyModifiedProperties();
+            }
+        }
+
+        private void DrawTypeLabel(Rect position, string label, int variableIndex)
+        {
+            var labelPos = position;
+            labelPos.width = position.width / 2f;
+
+            EditorGUI.LabelField(labelPos, new GUIContent(label));
+
+            var deleteButtonPos = position;
+            deleteButtonPos.width = (position.width / 2f) - 2f;
+            deleteButtonPos.x = labelPos.x + labelPos.width + 2f;
+
+            var deleteStyle = new GUIStyle(EditorStyles.miniButton);
+            deleteStyle.normal.textColor = Color.red;
+
+            if(GUI.Button(deleteButtonPos, new GUIContent("X"), deleteStyle))
+            {
+                var deleteMenu = new GenericMenu();
+
+                deleteMenu.AddItem(new GUIContent("Delete?"), false, HandleElementSelectedForDeletion, variableIndex);
+                deleteMenu.AddItem(new GUIContent("Cancel"), false, HandleElementSelectedForDeletion, -1);
+
+                deleteMenu.ShowAsContext();
             }
         }
 
@@ -141,6 +171,16 @@ namespace Self.Story.Editors
             newPos.x += newPos.width + 2f;
 
             return newPos;
+        }
+
+        private void HandleElementSelectedForDeletion(object selectedElement)
+        {
+            var variableIndex = (int)selectedElement;
+
+            if (variableIndex == -1)
+                return;
+
+            m_ParentEditor.RemoveVariable(variableIndex);
         }
     }
 }
