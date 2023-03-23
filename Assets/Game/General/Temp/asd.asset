@@ -1,5 +1,141 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8657362269871621032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .variables.IntVariable.some-var
+  m_EditorClassIdentifier: 
+  id: qweqw
+  value: 1
+  minValue: 0
+  maxValue: -1231
+--- !u!114 &-7953898114192380334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .variables.IntVariable.some-var
+  m_EditorClassIdentifier: 
+  id: 
+  value: 0
+  minValue: 0
+  maxValue: 1234
+--- !u!114 &-6769372596703966980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .variables.BoolVariable.some-var
+  m_EditorClassIdentifier: 
+  id: qweqwe
+  value: 0
+--- !u!114 &-6147065494389463790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e027de692874cd54cacd221c8938f1d3, type: 3}
+  m_Name: .variables.FloatVariable.some-var
+  m_EditorClassIdentifier: 
+  id: qweqweqwe
+  value: 44
+  minValue: 0
+  maxValue: 444
+--- !u!114 &-5927911351394287987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .variables.BoolVariable.some-var
+  m_EditorClassIdentifier: 
+  id: qweqweahgdfjhadgf
+  value: 1
+--- !u!114 &-4908327488758982504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .variables.StringVariable.some-var
+  m_EditorClassIdentifier: 
+  id: q
+  value: qwe
+--- !u!114 &-3936632120404790293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e027de692874cd54cacd221c8938f1d3, type: 3}
+  m_Name: .variables.FloatVariable.some-var
+  m_EditorClassIdentifier: 
+  id: 
+  value: 22
+  minValue: 0
+  maxValue: 333
+--- !u!114 &-1164764401700544577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .variables.StringVariable.some-var
+  m_EditorClassIdentifier: 
+  id: 
+  value: qwe
+--- !u!114 &-914135384598718349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .variables.IntVariable.some-var
+  m_EditorClassIdentifier: 
+  id: qweqw
+  value: 5
+  minValue: 0
+  maxValue: 5
 --- !u!114 &-460073391857600794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,13 +153,57 @@ MonoBehaviour:
   - 905f06f7524d29e46a6af01bc793b7df
   - 905f06f7524d29e46a6af01bc793b7df
   position: {x: -18.000036, y: -467.00003}
-  behaviours: []
-  character: qwe
-  emotion: qwe
+  behaviours:
+  - {fileID: 5160343534761019113}
+  character:
+    rid: 5074071859023577112
+  emotion:
+    rid: 5074071859023577114
   localized: qweqwe
   choices:
   - localizedText: choice 1
   - localizedText: choice 2
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071859023577112
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
+    - rid: 5074071859023577114
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.dracula.angry
+--- !u!114 &-429935131677310405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e027de692874cd54cacd221c8938f1d3, type: 3}
+  m_Name: .variables.FloatVariable.some-var
+  m_EditorClassIdentifier: 
+  id: asdasdasd
+  value: 33
+  minValue: 0
+  maxValue: 1111
+--- !u!114 &-302915775798783780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .variables.StringVariable.some-var
+  m_EditorClassIdentifier: 
+  id: 
+  value: qwe
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,7 +223,78 @@ MonoBehaviour:
   - {fileID: -460073391857600794}
   - {fileID: 5751900957681057799}
   - {fileID: 8610283079855024542}
-  variables: []
+  variables: {fileID: 1315758339406588307}
+  characters:
+  - {fileID: 11400000, guid: 901d2c8a4c007524894506962b21cc92, type: 2}
+  - {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
+--- !u!114 &377926160203106584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .variables.IntVariable.some-var
+  m_EditorClassIdentifier: 
+  id: qweqweqw
+  value: 44
+  minValue: 0
+  maxValue: 44
+--- !u!114 &906401983121073163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .variables.IntVariable.some-var
+  m_EditorClassIdentifier: 
+  id: ajsdfjadsf
+  value: 2
+  minValue: 0
+  maxValue: 11
+--- !u!114 &1315758339406588307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e398ad67f4742bb4eb3fb78a9bfe31cb, type: 3}
+  m_Name: .settings.variables
+  m_EditorClassIdentifier: 
+  variables:
+  - {fileID: 5314306318798731325}
+  - {fileID: 9157751385603535818}
+  - {fileID: 6049108699184926505}
+  - {fileID: 8618035913356647136}
+  - {fileID: -914135384598718349}
+  - {fileID: -6769372596703966980}
+  - {fileID: 2863072708597096085}
+  - {fileID: -4908327488758982504}
+  - {fileID: -5927911351394287987}
+  - {fileID: -429935131677310405}
+  - {fileID: 2221464315883597984}
+  - {fileID: 377926160203106584}
+  - {fileID: -6147065494389463790}
+  - {fileID: 906401983121073163}
+  - {fileID: -3936632120404790293}
+  - {fileID: -7953898114192380334}
+  - {fileID: -1164764401700544577}
+  - {fileID: 3549159660709852161}
+  - {fileID: -302915775798783780}
+  - {fileID: 5423637450384372047}
+  - {fileID: -8657362269871621032}
+  - {fileID: 8485539905893226577}
+  - {fileID: 2680991999779202391}
 --- !u!114 &1370955394336453981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,9 +312,131 @@ MonoBehaviour:
   - 
   position: {x: 551.0958, y: -234}
   behaviours: []
-  character: character.emily
-  emotion: emot.emily.happy
+  character:
+    rid: 5074071859023577110
+  emotion:
+    rid: 5074071859023577115
   localized: Alright!
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071859023577110
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
+    - rid: 5074071859023577115
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.dracula.angry
+--- !u!114 &2221464315883597984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .variables.IntVariable.some-var
+  m_EditorClassIdentifier: 
+  id: qweqweq
+  value: 33
+  minValue: 0
+  maxValue: 100
+--- !u!114 &2680991999779202391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e027de692874cd54cacd221c8938f1d3, type: 3}
+  m_Name: .variables.FloatVariable.some-var
+  m_EditorClassIdentifier: 
+  id: 
+  value: 11
+  minValue: 0
+  maxValue: 2222
+--- !u!114 &2863072708597096085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .variables.IntVariable.some-var
+  m_EditorClassIdentifier: 
+  id: qw
+  value: 4
+  minValue: 0
+  maxValue: 4
+--- !u!114 &3549159660709852161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .variables.BoolVariable.some-var
+  m_EditorClassIdentifier: 
+  id: 
+  value: 0
+--- !u!114 &5160343534761019113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
+  m_Name: node.e82f16.Choice.SetVariable.0
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  variableName: 
+  variableValue: 
+--- !u!114 &5314306318798731325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e027de692874cd54cacd221c8938f1d3, type: 3}
+  m_Name: .variables.FloatVariable.some-var
+  m_EditorClassIdentifier: 
+  id: qwea
+  value: 5
+  minValue: 1
+  maxValue: 5
+--- !u!114 &5423637450384372047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .variables.IntVariable.some-var
+  m_EditorClassIdentifier: 
+  id: 
+  value: 3
+  minValue: 0
+  maxValue: 3213
 --- !u!114 &5751900957681057799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,12 +451,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3706cb4fb4a7b834e8d3c717c4e7659e
   nextNodes:
-  - 
-  position: {x: 551.0001, y: 40.214954}
+  - 905f06f7524d29e46a6af01bc793b7df
+  position: {x: 535.736, y: 120.00003}
   behaviours: []
-  character: character.emily
-  emotion: emot.emily.sad
+  character:
+    rid: 5074071859023577108
+  emotion:
+    rid: 5074071859023577116
   localized: Damn it!
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071859023577108
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
+    - rid: 5074071859023577116
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.dracula.normal
+--- !u!114 &6049108699184926505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .variables.BoolVariable.some-var
+  m_EditorClassIdentifier: 
+  id: qweq
+  value: 0
+--- !u!114 &8485539905893226577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .variables.IntVariable.some-var
+  m_EditorClassIdentifier: 
+  id: 
+  value: 0
+  minValue: 0
+  maxValue: 22
 --- !u!114 &8610283079855024542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,13 +514,72 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6b78a87b04952f740879090518cc72a5
   nextNodes:
-  - 
-  position: {x: -26.073818, y: -124.89719}
-  behaviours: []
-  character: character.alucard
-  emotion: emot.alucard.angry
-  localized: 'chop chop, some text chop chop, some text chop chop, some text chop
-    chop, some text chop chop, some text chop chop, some text chop chop, some text
-    chop chop, some text chop chop, some text chop chop, some text '
+  - 3706cb4fb4a7b834e8d3c717c4e7659e
+  position: {x: -36.000004, y: -20.760439}
+  behaviours:
+  - {fileID: 9092781575026762685}
+  character:
+    rid: 5074071859023577122
+  emotion:
+    rid: 5074071859023577124
+  localized: qwerqwerqwegf yauksdf yaksdf aqwerqwerqwegf yauksdf asdasdasd asd  yaksdf
+    aqwerqwerqwegf yauksdf yaksdf aqwerqwerqwegf yauksdf yaksdf aqwerqwerqwegf yauksdf
+    yaksdf aqwerqwerqwegf yauksdf yaksdf a
   choices:
-  - localizedText: 
+  - localizedText: adfkjasdfasdf adsf a
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071859023577122
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 901d2c8a4c007524894506962b21cc92, type: 2}
+    - rid: 5074071859023577124
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.alucard.normal
+--- !u!114 &8618035913356647136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .variables.StringVariable.some-var
+  m_EditorClassIdentifier: 
+  id: qwe
+  value: -10
+--- !u!114 &9092781575026762685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
+  m_Name: node.6b78a8.Choice.SetVariable.0
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  variableName: 
+  variableValue: 
+--- !u!114 &9157751385603535818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .variables.IntVariable.some-var
+  m_EditorClassIdentifier: 
+  id: qwe
+  value: -5
+  minValue: -123123
+  maxValue: 3

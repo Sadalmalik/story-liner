@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 namespace Self.Story.Editors
 {
-    [CustomEditor(typeof(Node))]
+    [CustomEditor(typeof(Node), true)]
     public class NodeEditor : Editor
     {
         private const string NODE_GUI_ROOT_NAME = "node-editor-container";
@@ -15,8 +15,10 @@ namespace Self.Story.Editors
 
         protected SerializedProperty m_NextNodesProperty;
         private SerializedProperty m_NodeActionsProperty;
+
         private VisualElement m_NodeActionsContainer;
         private VisualElement m_NodeActionsEmptyContainer;
+
         protected VisualElement m_Root;
         protected VisualElement m_NodeGuiContainer;
         protected NodeView m_NodeView;
@@ -27,6 +29,15 @@ namespace Self.Story.Editors
         {
             m_NextNodesProperty = serializedObject.FindProperty(nameof(Node.nextNodes));
             m_NodeActionsProperty = serializedObject.FindProperty(nameof(Node.behaviours));
+        }
+
+        public override void OnInspectorGUI()
+        {
+            GUI.enabled = false;
+
+            base.OnInspectorGUI();
+
+            GUI.enabled = true;
         }
 
         protected virtual void CreateNodeGUI(VisualElement root)
@@ -62,6 +73,10 @@ namespace Self.Story.Editors
 
         private VisualElement CreateNodeActionContainer(SerializedProperty actionProperty)
         {
+            var propDrawer = new NodeActionPropertyDrawer();
+
+            return propDrawer.CreatePropertyGUI(actionProperty);
+
             var editor = Editor.CreateEditor(actionProperty.objectReferenceValue);
 
             var imguiContainer = new IMGUIContainer(() =>

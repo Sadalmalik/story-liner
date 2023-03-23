@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Self.StoryV2
 {
+    [NodeMetadata(customOutput: true)]
 	public class ChoiceNode : ReplicaNode
 	{
 		public List<Choice> choices;

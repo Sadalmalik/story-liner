@@ -23,10 +23,11 @@ namespace Self.Story.Editors
         public List<Port> OutputPorts = new List<Port>();
 
         private VisualElement m_NodeInspector;
+        public StoryV2.Chapter CurrentChapter { get; private set; }
 
 
 
-        public static NodeView Create(StoryV2.Node node)
+        public static NodeView Create(StoryV2.Node node, StoryV2.Chapter chapter)
         {
             // To avoid absolute paths
             var uiFileAsset = Resources.Load("Styles/StoryNodeView");
@@ -36,6 +37,8 @@ namespace Self.Story.Editors
             // and instead feeding a found uiFilePath
             // to the default constructor
             var newNode = new NodeView(uiFilePath);
+
+            newNode.CurrentChapter = chapter;
 
             newNode.Node = node;
             newNode.viewDataKey = node.id;

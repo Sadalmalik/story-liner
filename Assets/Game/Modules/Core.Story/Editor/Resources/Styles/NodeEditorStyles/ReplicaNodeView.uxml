@@ -2,10 +2,14 @@
     <Style src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/NodeEditorStyles/ReplicaNodeStyle.uss?fileID=7433441132597879392&amp;guid=c1db9e71484a9004ebc33e0ceb2d060a&amp;type=3#ReplicaNodeStyle" />
     <ui:VisualElement name="replica-container" class="main-container">
         <ui:VisualElement name="upper-container" class="upper-container">
-            <ui:TextField picking-mode="Ignore" value="filler text" text="filler text" name="character-name" class="character-name-container" />
-            <ui:TextField picking-mode="Ignore" value="filler text" text="filler text" name="character-emotion" class="character-emotion-container" />
+            <ui:Button display-tooltip-when-elided="true" name="character-name" class="character-name-container" />
+            <ui:VisualElement name="emotion-container" class="character-emotion-container" style="justify-content: center; border-top-left-radius: 3px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; background-color: rgb(46, 46, 46); margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 3px; flex-grow: 1; height: 65px;">
+                <ui:Label text="Emotion" display-tooltip-when-elided="true" name="emotion-label" style="margin-left: 3px; margin-right: 2px; margin-top: 1px; margin-bottom: 1px;" />
+                <ui:DropdownField index="-1" choices="System.Collections.Generic.List`1[System.String]" name="character-emotion" class="character-emotion-container" />
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="lower-container" class="lower-container">
+            <ui:Label text="Replica Text" display-tooltip-when-elided="true" name="character-text-label" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 2px; margin-right: 2px; margin-top: 1px; margin-bottom: 1px;" />
             <ui:TextField picking-mode="Ignore" value="filler text" text="placeholder text placeholder text placeholder text placeholder text placeholder text  placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text  placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text  placeholder text placeholder text asd asd asd asd asd asd " name="character-text" multiline="true" class="character-text-container" style="white-space: normal;" />
         </ui:VisualElement>
     </ui:VisualElement>

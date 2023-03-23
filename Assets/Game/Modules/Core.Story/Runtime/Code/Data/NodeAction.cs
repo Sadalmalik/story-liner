@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Self.Story;
+using System;
 using UnityEngine;
 
 namespace Self.StoryV2
 {
 	public abstract class NodeAction : ScriptableObject, ICloneable
 	{
-		public bool executeOnce;
+		[DisplayOnNode(0)] public bool executeOnce;
 
 		public abstract void OnExecute();
 

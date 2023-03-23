@@ -7,6 +7,7 @@
     flex-direction: row;
     justify-content: space-around;
     width: 350px;
+    height: 82px;
 }
 
 .lower-container {
@@ -14,23 +15,23 @@
 }
 
 .character-name-container {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 1px;
+    margin-bottom: 1px;
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
-    width: 49%;
+    width: 65px;
+    height: 65px;
 }
 
 .character-emotion-container {
-    width: 49%;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 1px;
+    margin-bottom: 1px;
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
@@ -39,11 +40,15 @@
 
 .character-text-container {
     margin-left: 2px;
-    margin-right: 2px;
+    margin-right: 65px;
     margin-top: 3px;
     margin-bottom: 3px;
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
+    width: 346px;
+}
+
+.vertical-container {
 }

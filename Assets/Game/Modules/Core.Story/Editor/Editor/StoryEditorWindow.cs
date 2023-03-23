@@ -1,3 +1,4 @@
+using Self.StoryV2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,6 +50,8 @@ namespace Self.Story.Editors
             {
                 StoryEditorWindow wnd = OpenWindow();
 
+                CheckChapterVariablesContainer(chapter);
+
                 wnd.m_CurrentChapter = chapter; 
                 wnd.EditorView.Create(chapter);
 
@@ -83,12 +86,44 @@ namespace Self.Story.Editors
             m_ToolbarMenu = root.Q<ToolbarMenu>();
 
             if (m_CurrentChapter != null)
+            {
+                if(m_CurrentChapter.variables == null)
+                {
+                    CheckChapterVariablesContainer(m_CurrentChapter);
+                }
+
                 EditorView.Create(m_CurrentChapter);
+            }
 
             EditorApplication.delayCall += () =>
             {
                 EditorView.FrameAll();
             };
+        }
+
+        [MenuItem("Assets/[SELF]/Create Chapter")]
+        public static void CreateChapter()
+        {
+            var newChapter = (StoryV2.Chapter)ScriptableObject.CreateInstance(typeof(StoryV2.Chapter));
+            newChapter.name = "New Chapter";
+            newChapter.chapterName = "New Chapter";
+            newChapter.nodes = new List<StoryV2.Node>();
+
+            var variablesContainer = (VariablesContainer)ScriptableObject.CreateInstance(typeof(VariablesContainer));
+            variablesContainer.variables = new List<Variable>();
+            variablesContainer.name = ".settings.variables";
+
+            var assetPath = AssetDatabase.GetAssetPath(Selection.activeObject);
+
+            AssetDatabase.CreateAsset(newChapter, assetPath + "/" + newChapter.name + ".asset");
+
+            var newAssetPath = AssetDatabase.GetAssetPath(newChapter);
+
+            AssetDatabase.AddObjectToAsset(variablesContainer, newAssetPath);
+
+            newChapter.variables = variablesContainer;
+
+            AssetDatabase.SaveAssets();
         }
 
         #endregion
@@ -242,6 +277,24 @@ namespace Self.Story.Editors
         #endregion
 
         #region UTILITY
+
+        private static void CheckChapterVariablesContainer(StoryV2.Chapter target)
+        {
+            if (target.variables != null)
+                return;
+
+            var variablesContainer = (VariablesContainer)ScriptableObject.CreateInstance(typeof(VariablesContainer));
+            variablesContainer.variables = new List<Variable>();
+            variablesContainer.name = ".settings.variables";
+
+            var newAssetPath = AssetDatabase.GetAssetPath(target);
+
+            AssetDatabase.AddObjectToAsset(variablesContainer, newAssetPath);
+
+            target.variables = variablesContainer;
+
+            AssetDatabase.SaveAssets();
+        }
 
         [MenuItem("StoryEditor/Fix Null Nodes")]
         public static void FixNullNodes()

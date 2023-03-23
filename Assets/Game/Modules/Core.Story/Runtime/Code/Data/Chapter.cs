@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Self.Story;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +13,8 @@ namespace Self.StoryV2
 
 		public List<Node> nodes;
 		//public List<ChapterSettings> settings;
-		public List<Variable> variables;
+		public VariablesContainer variables;
+		public List<Character> characters;
         
 		[NonSerialized]
 		public Dictionary<string, Node> nodesByID;

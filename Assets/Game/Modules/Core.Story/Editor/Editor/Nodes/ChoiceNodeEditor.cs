@@ -9,6 +9,7 @@ using System.Linq;
 namespace Self.Story.Editors
 {
     [InspectedType(typeof(ChoiceNode))]
+    [CustomEditor(typeof(ChoiceNode))]
     public class ChoiceNodeEditor : ReplicaNodeEditor
     {
         private const string CHOICES_NODEVIEW_TEMPLATE_PATH = "Styles/NodeEditorStyles/ChoiceNodeView";

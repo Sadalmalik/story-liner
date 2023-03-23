@@ -2,10 +2,13 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Self.StoryV2;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Self.Story.Editors
 {
     [InspectedType(typeof(ReplicaNode))]
+    [CustomEditor(typeof(ReplicaNode))]
     public class ReplicaNodeEditor : NodeEditor
     {
         private const string REPLICA_NODEVIEW_PATH = "Styles/NodeEditorStyles/ReplicaNodeView";
@@ -16,13 +19,18 @@ namespace Self.Story.Editors
         private SerializedProperty m_ReplyTextProperty;
 
         private TextField m_ReplyTextField;
+        private ReplicaNode m_ReplicaNode;
 
+        private DropdownField m_EmotionsField;
+        private VisualElement m_CharacterIcon;
 
 
 
         protected override void OnEnable()
         {
             base.OnEnable();
+
+            m_ReplicaNode = serializedObject.targetObject as ReplicaNode;
 
             m_CharacterProperty = serializedObject.FindProperty(nameof(ReplicaNode.character));
             m_EmotionProperty = serializedObject.FindProperty(nameof(ReplicaNode.emotion));
@@ -52,16 +60,31 @@ namespace Self.Story.Editors
 
         private void CreateCharacterContainer(VisualElement guiRoot)
         {
-            var characterContainer = guiRoot.Q<TextField>("character-name");
-            characterContainer.RegisterValueChangedCallback(HandleCharacterChanged);
-            characterContainer.SetValueWithoutNotify(m_CharacterProperty.stringValue);
+            m_CharacterIcon = guiRoot.Q<VisualElement>("character-name");
+
+            if(m_ReplicaNode.character != null)
+            {
+                var charStyle = m_CharacterIcon.style;
+                var icon = m_ReplicaNode.character.character.characterIcon;
+
+                charStyle.backgroundImage = new StyleBackground(icon);
+            }
+
+            m_CharacterIcon.RegisterCallback<ClickEvent>(HandleCharacterClicked);
         }
 
         private void CreateEmotionContainer(VisualElement guiRoot)
         {
-            var emotionContainer = guiRoot.Q<TextField>("character-emotion");
-            emotionContainer.RegisterValueChangedCallback(HandleEmotionChanged);
-            emotionContainer.SetValueWithoutNotify(m_EmotionProperty.stringValue);
+            m_EmotionsField = guiRoot.Q<DropdownField>("character-emotion");
+            m_EmotionsField.choices = GetCharacterEmotionChoices();
+
+            m_EmotionsField.RegisterValueChangedCallback(HandleEmotionChanged);
+
+            if(m_EmotionProperty.managedReferenceValue != null)
+            {
+                var emotionRef = (m_EmotionProperty.managedReferenceValue as EmotionReference);
+                m_EmotionsField.SetValueWithoutNotify(emotionRef.emotion);
+            }
         }
 
         private void CreateReplyTextContainer(VisualElement guiRoot)
@@ -72,15 +95,44 @@ namespace Self.Story.Editors
             m_ReplyTextField.SetValueWithoutNotify(m_ReplyTextProperty.stringValue);
         }
 
-        private void HandleCharacterChanged(ChangeEvent<string> character)
+        private List<string> GetCharacterEmotionChoices()
         {
-            m_CharacterProperty.stringValue = character.newValue;
-            serializedObject.ApplyModifiedProperties();
+            if(m_ReplicaNode.character == null)
+                return new List<string> { "no character selected" };
+            else
+            {
+                return m_ReplicaNode.character.character.emotions.ToList();
+            }
         }
 
-        private void HandleEmotionChanged(ChangeEvent<string> emotion)
+        private void HandleCharacterSelected(object selectedCharacter)
         {
-            m_EmotionProperty.stringValue = emotion.newValue;
+            m_CharacterProperty.managedReferenceValue = new CharacterReference() { character = selectedCharacter as Character};
+
+            serializedObject.ApplyModifiedProperties();
+
+            // selected character updated
+            // update the emotions list
+            serializedObject.Update();
+
+            m_EmotionsField.choices = GetCharacterEmotionChoices();
+            m_EmotionProperty.managedReferenceValue = new EmotionReference() { emotion = string.Empty };
+            m_EmotionsField.SetValueWithoutNotify(string.Empty);
+
+            serializedObject.ApplyModifiedProperties();
+
+            if (m_ReplicaNode.character != null)
+            {
+                var charStyle = m_CharacterIcon.style;
+                var icon = m_ReplicaNode.character.character.characterIcon;
+
+                charStyle.backgroundImage = new StyleBackground(icon);
+            }
+        }
+
+        private void HandleEmotionChanged(ChangeEvent<string> selectedEmotion)
+        {
+            m_EmotionProperty.managedReferenceValue = new EmotionReference() { emotion = selectedEmotion.newValue };
             serializedObject.ApplyModifiedProperties();
         }
 
@@ -88,6 +140,21 @@ namespace Self.Story.Editors
         {
             m_ReplyTextProperty.stringValue = replyText.newValue;
             serializedObject.ApplyModifiedProperties();
+        }
+
+        private void HandleCharacterClicked(ClickEvent evt)
+        {
+            var currentCharacter = m_CharacterProperty.managedReferenceValue as CharacterReference;
+            var selectorMenu = new GenericMenu();
+
+            foreach (var character in m_NodeView.CurrentChapter.characters)
+            {
+                var name = character.characterName;
+                var isSelected = currentCharacter != null && currentCharacter.character.characterName == name;
+                selectorMenu.AddItem(new GUIContent(name), isSelected, HandleCharacterSelected, character);
+            }
+
+            selectorMenu.ShowAsContext();
         }
     }
 }

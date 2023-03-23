@@ -161,7 +161,7 @@ namespace Self.Story.Editors
         {
             try
             {
-                var view = NodeView.Create(node);
+                var view = NodeView.Create(node, m_CurrentChapter);
                 view.OnNodeSelected += OnNodeSelected;
                 view.OnNodePortDisconnected += HandleNodePortsDisconnected;
 
