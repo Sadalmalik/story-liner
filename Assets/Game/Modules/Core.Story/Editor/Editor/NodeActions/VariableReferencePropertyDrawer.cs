@@ -21,7 +21,7 @@ namespace Self.Story.Editors
 
 			m_Variables = new Dictionary<string, Variable>();
 
-			foreach (var variable in chapter.variables.variables)
+			foreach (var variable in chapter.book.variables.Variables)
 			{
 				m_Variables.Add(variable.id, variable);
 			}
@@ -29,7 +29,7 @@ namespace Self.Story.Editors
 			var variableDropDown = new DropdownField();
 			variableDropDown.label   = property.displayName;
 			variableDropDown.name    = "variable-dropdown";
-			variableDropDown.choices = chapter.variables.variables.Select(v => v.id).ToList();
+			variableDropDown.choices = chapter.book.variables.Variables.Select(v => v.id).ToList();
 
 			if (property.managedReferenceValue != null)
 			{

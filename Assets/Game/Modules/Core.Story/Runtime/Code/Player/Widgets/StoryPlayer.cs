@@ -20,7 +20,7 @@ namespace Self.Story
 		public void SetChapter(Chapter chapter, ChapterSave save)
 		{
 			_chapter     = chapter;
-			_currentNode = save.currentNode ?? chapter.startNode;
+			_currentNode = save.currentNode ?? chapter.startNodeID;
 
 			SetNode(_currentNode);
 		}

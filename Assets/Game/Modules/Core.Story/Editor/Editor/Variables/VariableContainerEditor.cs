@@ -29,11 +29,11 @@ namespace Self.Story.Editors
 			m_SortingActions    = CreateSortingActions();
 
 			var parentObjectPath = AssetDatabase.GetAssetPath(serializedObject.targetObject);
-			var parentObject     = AssetDatabase.LoadAssetAtPath(parentObjectPath, typeof(Chapter));
+			var parentObject     = AssetDatabase.LoadAssetAtPath(parentObjectPath, typeof(Book));
 
 			m_ParentObject           = new SerializedObject(parentObject);
 			m_VariablePropertyDrawer = new VariablePropertyDrawer(this);
-			m_VariablesListProperty  = serializedObject.FindProperty(nameof(VariablesContainer.variables));
+			m_VariablesListProperty  = serializedObject.FindProperty("_variables"); //nameof(VariablesContainer._variables));
 			m_VariablesList          = FillVariablesList(m_VariablesListProperty);
 
 			m_VariableTypes = new Dictionary<string, Type>();

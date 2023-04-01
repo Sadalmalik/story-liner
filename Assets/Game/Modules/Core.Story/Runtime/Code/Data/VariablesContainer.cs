@@ -1,38 +1,53 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace Self.Story
 {
-	public class VariablesContainer : ScriptableObject
+	public class VariablesContainer : ScriptableObject, ISerializationCallbackReceiver
 	{
-		public List<Variable> variables;
+#region Data
 
-		public Dictionary<string, Variable> variablesById;
+		[SerializeField]
+		private List<Variable> _variables;
+		public  List<Variable> Variables => _variables;
 
+		[field: NonSerialized] public Dictionary<string, Variable> VariablesById { get; private set; }
 
-		public void Init()
+		public VariablesContainer()
 		{
-			variablesById = new Dictionary<string, Variable>();
+			_variables   = new List<Variable>();
+			VariablesById = new Dictionary<string, Variable>();
+		}
 
-			foreach (var v in variables)
-			{
-				variablesById.Add(v.id, v);
-			}
+#endregion
+
+
+#region Variable Operations
+
+		public void Add(Variable variable)
+		{
+			Variables.Add(variable);
+			VariablesById.Add(variable.id, variable);
+		}
+
+		public void Remove(string id)
+		{
+			if (VariablesById.TryGetValue(id, out var variable))
+				Variables.Remove(variable);
+		}
+
+		public void Remove(Variable variable)
+		{
+			Variables.Remove(variable);
+			VariablesById.Remove(variable.id);
 		}
 
 		public Variable Get(string id)
 		{
-			if (variablesById != null)
-			{
-				if (variablesById.TryGetValue(id, out var value))
-					return value;
-			}
-
-			if (variables.Any(v => v.id == id))
-			{
-				return variables.First(v => v.id == id);
-			}
+			if (VariablesById.TryGetValue(id, out var value))
+				return value;
 
 			return null;
 		}
@@ -46,5 +61,23 @@ namespace Self.Story
 
 			return default;
 		}
+
+#endregion
+
+
+#region ISerializationCallbackReceiver
+
+		void ISerializationCallbackReceiver.OnAfterDeserialize()
+		{
+			foreach (var variable in Variables)
+				VariablesById.Add(variable.id, variable);
+		}
+
+		void ISerializationCallbackReceiver.OnBeforeSerialize()
+		{
+			// Do nothing
+		}
+
+#endregion
 	}
 }

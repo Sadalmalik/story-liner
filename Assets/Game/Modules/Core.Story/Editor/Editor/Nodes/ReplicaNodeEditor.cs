@@ -153,7 +153,7 @@ namespace Self.Story.Editors
 			var currentCharacter = m_CharacterProperty.managedReferenceValue as CharacterReference;
 			var selectorMenu     = new GenericMenu();
 
-			foreach (var character in m_NodeView.CurrentChapter.characters)
+			foreach (var character in m_NodeView.CurrentChapter.book.characters)
 			{
 				var name       = character.characterName;
 				var isSelected = currentCharacter != null && currentCharacter.character.characterName == name;

@@ -86,7 +86,7 @@ namespace Self.Story.Editors
 
 			if (m_CurrentChapter != null)
 			{
-				if (m_CurrentChapter.variables == null)
+				if (m_CurrentChapter.book.variables == null)
 				{
 					CheckChapterVariablesContainer(m_CurrentChapter);
 				}
@@ -97,30 +97,6 @@ namespace Self.Story.Editors
 			EditorApplication.delayCall += () => { EditorView.FrameAll(); };
 		}
 
-		[MenuItem("Assets/[SELF]/Create Chapter")]
-		public static void CreateChapter()
-		{
-			var newChapter = (Chapter) ScriptableObject.CreateInstance(typeof(Chapter));
-			newChapter.name        = "New Chapter";
-			newChapter.chapterName = "New Chapter";
-			newChapter.nodes       = new List<Node>();
-
-			var variablesContainer = (VariablesContainer) ScriptableObject.CreateInstance(typeof(VariablesContainer));
-			variablesContainer.variables = new List<Variable>();
-			variablesContainer.name      = ".settings.variables";
-
-			var assetPath = AssetDatabase.GetAssetPath(Selection.activeObject);
-
-			AssetDatabase.CreateAsset(newChapter, assetPath + "/" + newChapter.name + ".asset");
-
-			var newAssetPath = AssetDatabase.GetAssetPath(newChapter);
-
-			AssetDatabase.AddObjectToAsset(variablesContainer, newAssetPath);
-
-			newChapter.variables = variablesContainer;
-
-			AssetDatabase.SaveAssets();
-		}
 
 #endregion
 
@@ -277,18 +253,17 @@ namespace Self.Story.Editors
 
 		private static void CheckChapterVariablesContainer(Chapter target)
 		{
-			if (target.variables != null)
+			if (target.book.variables != null)
 				return;
 
 			var variablesContainer = (VariablesContainer) ScriptableObject.CreateInstance(typeof(VariablesContainer));
-			variablesContainer.variables = new List<Variable>();
 			variablesContainer.name      = ".settings.variables";
 
 			var newAssetPath = AssetDatabase.GetAssetPath(target);
 
 			AssetDatabase.AddObjectToAsset(variablesContainer, newAssetPath);
 
-			target.variables = variablesContainer;
+			target.book.variables = variablesContainer;
 
 			AssetDatabase.SaveAssets();
 		}
