@@ -1,4 +1,3 @@
-using Self.StoryV2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,17 +15,17 @@ namespace Self.Story.Editors
 		public event Action<NodeView>      OnNodeSelected;
 		public event Action<NodeView, int> OnNodePortDisconnected;
 
-		public StoryV2.Node Node { get; private set; }
-		public string       Guid { get; private set; }
+		public Node   Node { get; private set; }
+		public string Guid { get; private set; }
 
 		public Port       InputPort;
 		public List<Port> OutputPorts = new List<Port>();
 
-		private VisualElement   m_NodeInspector;
-		public  StoryV2.Chapter CurrentChapter { get; private set; }
+		private VisualElement m_NodeInspector;
+		public  Chapter       CurrentChapter { get; private set; }
 
 
-		public static NodeView Create(StoryV2.Node node, StoryV2.Chapter chapter)
+		public static NodeView Create(Node node, Chapter chapter)
 		{
 			// To avoid absolute paths
 			var uiFileAsset = Resources.Load("Styles/StoryNodeView");
@@ -135,7 +134,8 @@ namespace Self.Story.Editors
 
 		private void CreateVariableContainer()
 		{
-			var editors = TypeCache.GetTypesDerivedFrom(typeof(NodeEditor))
+			var editors = TypeCache
+				.GetTypesDerivedFrom(typeof(NodeEditor))
 				.ToList();
 
 			try

@@ -1,4 +1,3 @@
-using Self.StoryV2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +29,7 @@ namespace Self.Story.Editors
 			m_SortingActions    = CreateSortingActions();
 
 			var parentObjectPath = AssetDatabase.GetAssetPath(serializedObject.targetObject);
-			var parentObject     = AssetDatabase.LoadAssetAtPath(parentObjectPath, typeof(StoryV2.Chapter));
+			var parentObject     = AssetDatabase.LoadAssetAtPath(parentObjectPath, typeof(Chapter));
 
 			m_ParentObject           = new SerializedObject(parentObject);
 			m_VariablePropertyDrawer = new VariablePropertyDrawer(this);

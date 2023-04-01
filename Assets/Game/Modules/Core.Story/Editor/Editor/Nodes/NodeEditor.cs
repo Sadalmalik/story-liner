@@ -90,7 +90,7 @@ namespace Self.Story.Editors
 
 		private void HandleAddButton()
 		{
-			var actions = TypeCache.GetTypesDerivedFrom(typeof(StoryV2.NodeAction));
+			var actions = TypeCache.GetTypesDerivedFrom(typeof(NodeAction));
 
 			// maybe show a drop down menu right away
 			var dropDownMenu = new GenericMenu();
@@ -179,7 +179,7 @@ namespace Self.Story.Editors
 
 			var newActionProperty = m_NodeActionsProperty.GetArrayElementAtIndex(arraySize);
 			var newNodeAction     = ScriptableObject.CreateInstance(resultType);
-			newNodeAction.name = StoryEditorWindow.GetNodeActionName(serializedObject.targetObject as StoryV2.Node,
+			newNodeAction.name = StoryEditorWindow.GetNodeActionName(serializedObject.targetObject as Node,
 				resultType, arraySize);
 
 			AssetDatabase.AddObjectToAsset(newNodeAction, serializedObject.targetObject);

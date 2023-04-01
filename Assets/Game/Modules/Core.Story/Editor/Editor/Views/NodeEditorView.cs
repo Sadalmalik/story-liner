@@ -19,9 +19,9 @@ namespace Self.Story.Editors
 
 		public StoryEditorWindow EditorWindow { get; set; }
 
-		private StoryV2.Chapter m_CurrentChapter;
+		private Chapter m_CurrentChapter;
 
-		private List<StoryV2.Node> m_NodesToCopy = new List<StoryV2.Node>();
+		private List<Node> m_NodesToCopy = new List<Node>();
 
 
 #region CONSTRUCTORS
@@ -51,7 +51,7 @@ namespace Self.Story.Editors
 			this.unserializeAndPaste    += PasteOperation;
 		}
 
-		public void Create(StoryV2.Chapter chapter)
+		public void Create(Chapter chapter)
 		{
 			m_CurrentChapter = chapter;
 
@@ -65,7 +65,7 @@ namespace Self.Story.Editors
 			graphViewChanged += OnGraphViewChanged;
 
 			if (m_CurrentChapter.nodes == null)
-				m_CurrentChapter.nodes = new List<StoryV2.Node>();
+				m_CurrentChapter.nodes = new List<Node>();
 
 			var chapterNodes = m_CurrentChapter.nodes;
 
@@ -159,7 +159,7 @@ namespace Self.Story.Editors
 			}
 		}
 
-		private void CreateNodeView(StoryV2.Node node)
+		private void CreateNodeView(Node node)
 		{
 			try
 			{
@@ -195,7 +195,7 @@ namespace Self.Story.Editors
 					position - EditorWindow.position.position);
 			var localMousePosition = contentViewContainer.WorldToLocal(worldMousePosition) + new Vector2(150, 80);
 
-			StoryV2.Node node = StoryEditorWindow.CreateNode(a, m_CurrentChapter, localMousePosition);
+			Node node = StoryEditorWindow.CreateNode(a, m_CurrentChapter, localMousePosition);
 
 			CreateNodeView(node);
 		}
@@ -234,7 +234,7 @@ namespace Self.Story.Editors
 
 		public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
 		{
-			var allTypes     = TypeCache.GetTypesDerivedFrom<StoryV2.Node>();
+			var allTypes     = TypeCache.GetTypesDerivedFrom<Node>();
 			var concreteType = allTypes.Where(t => !t.IsAbstract);
 
 			foreach (var t in concreteType)
@@ -273,7 +273,7 @@ namespace Self.Story.Editors
 
 		private void DuplicateSelection(List<ISelectable> selection)
 		{
-			List<StoryV2.Node> nodes = new List<StoryV2.Node>();
+			List<Node> nodes = new List<Node>();
 
 			selection.ForEach(x =>
 			{
@@ -307,14 +307,14 @@ namespace Self.Story.Editors
 			PasteNodes(m_NodesToCopy);
 		}
 
-		private void PasteNodes(List<StoryV2.Node> nodesToDuplicate)
+		private void PasteNodes(List<Node> nodesToDuplicate)
 		{
 			List<string> clonedGuids = new List<string>();
 
 			Dictionary<string, string> clonedGuidToOldGuid = new Dictionary<string, string>();
 			Dictionary<string, string> oldGuidToClonedGuid = new Dictionary<string, string>();
 
-			List<StoryV2.Node> duplicatedNodes = new List<StoryV2.Node>();
+			List<Node> duplicatedNodes = new List<Node>();
 
 			foreach (var originalNode in nodesToDuplicate)
 			{
@@ -371,7 +371,7 @@ namespace Self.Story.Editors
 			m_NodesToCopy.Clear();
 		}
 
-		private void CopyNodeFields(StoryV2.Node src, StoryV2.Node dst)
+		private void CopyNodeFields(Node src, Node dst)
 		{
 			if (!src.GetType().Equals(dst.GetType()))
 				return;

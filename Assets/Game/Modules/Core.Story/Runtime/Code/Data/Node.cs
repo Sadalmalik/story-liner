@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Self.StoryV2
+namespace Self.Story
 {
 	public class Node : BaseNode
 	{

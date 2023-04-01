@@ -1,7 +1,6 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Self.StoryV2;
 using UnityEditor.Experimental.GraphView;
 using System.Collections.Generic;
 using System.Linq;

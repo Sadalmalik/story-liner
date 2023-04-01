@@ -18,10 +18,9 @@ namespace Self.Story
 		{
 			Debug.Log("[TEST] StoryManager.Dispose()");
 		}
-		
+
 		public void SetChapter(Chapter chapter)
 		{
-		
 		}
 
 		public void SetNode(string nodeId)

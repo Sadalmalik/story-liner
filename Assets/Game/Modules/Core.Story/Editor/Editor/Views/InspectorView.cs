@@ -8,18 +8,14 @@ namespace Self.Story.Editors
 {
 	public class InspectorView : VisualElement
 	{
-		private const string NAME_PROPERTY_NAME    = "m_Name";
-		private       string MAIN_BEHAVIOUR_NAME   = nameof(Node.mainBehaviour);
-		private       string BEHAVIOURS_ARRAY_NAME = nameof(Node.behaviours);
+		private string BEHAVIOURS_ARRAY_NAME = nameof(Node.behaviours);
 
-		public event Action<NodeAction> OnMainBehaviourChanged;
-
-		public new class UxmlFactory : UxmlFactory<InspectorView, VisualElement.UxmlTraits>
+		public new class UxmlFactory : UxmlFactory<InspectorView, UxmlTraits>
 		{
 		}
 
 		private NodeView         m_SelectedNodeView;
-		private StoryV2.Node     m_NodeData;
+		private Node             m_NodeData;
 		private VisualElement    m_MainBehaviourEditor;
 		private SerializedObject m_SerializedNode;
 		private string           m_CroppedGuid => m_NodeData.id.Substring(0, 6);
@@ -43,88 +39,7 @@ namespace Self.Story.Editors
 				m_SerializedNode = new SerializedObject(m_NodeData);
 
 			m_SelectedNodeView = selected;
-
-			DisplayMainBehaviourSelector();
-			DisplayMainBehaviourProperties();
-
-			DisplayBehavioursArray();
 		}
-
-#region MAIN BEHAVIOUR
-
-		private void DisplayMainBehaviourSelector()
-		{
-			//var choices = TypeCache
-			//                .GetTypesDerivedFrom(typeof(NodeAction))
-			//                .Where(t => !t.IsAbstract)
-			//                .Select(t => t.Name)
-			//                .ToList();
-
-			//var index = m_NodeData.mainBehaviour != null ? choices.IndexOf(m_NodeData.mainBehaviour.GetType().Name) : 0;
-			//var mainBehSelector = new DropdownField("Main Behaviour", choices, index, HandleMainBehaviourSelected);
-
-			//m_ScrollView.contentContainer.Add(mainBehSelector);
-		}
-
-		private void DisplayMainBehaviourProperties()
-		{
-			//if (m_NodeData.mainBehaviour == null)
-			//    return;
-
-			//var mainBehaviour = m_SerializedNode.FindProperty(MAIN_BEHAVIOUR_NAME);
-			//var propertyEditor = Editor.CreateEditor(mainBehaviour.objectReferenceValue);
-
-			//m_MainBehaviourEditor = new IMGUIContainer(() =>
-			//{
-			//    if (propertyEditor.target != null)
-			//        propertyEditor.OnInspectorGUI();
-			//});
-
-			//m_ScrollView.contentContainer.Add(m_MainBehaviourEditor);
-		}
-
-		private string HandleMainBehaviourSelected(string selectedBehaviourClassName)
-		{
-			//var selectedBehaviour = TypeCache
-			//                .GetTypesDerivedFrom(typeof(NodeAction))
-			//                .Where(t => !t.IsAbstract)
-			//                .First(t => t.Name == selectedBehaviourClassName);
-
-			//var mainBehaviour = m_SerializedNode.FindProperty(MAIN_BEHAVIOUR_NAME);
-
-			//if (mainBehaviour.objectReferenceValue == null
-			//    || mainBehaviour.objectReferenceValue.GetType() != selectedBehaviour)
-			//{
-			//    var behaviourInstance = NodeAction.CreateInstance(selectedBehaviour) as NodeAction;
-			//    behaviourInstance.name = StoryEditorWindow.GetNodeMainBehaviourName(m_NodeData, selectedBehaviour);
-
-			//    if (mainBehaviour.objectReferenceValue != null)
-			//    {
-			//        AssetDatabase.RemoveObjectFromAsset(mainBehaviour.objectReferenceValue);
-			//    }
-
-			//    AssetDatabase.AddObjectToAsset(behaviourInstance, m_NodeData);
-
-			//    mainBehaviour.objectReferenceValue = behaviourInstance;
-
-			//    var nameProp = m_SerializedNode.FindProperty(NAME_PROPERTY_NAME);
-			//    nameProp.stringValue = StoryEditorWindow.GetNodeName(m_NodeData, selectedBehaviour);
-
-			//    m_SerializedNode.ApplyModifiedProperties();
-
-			//    AssetDatabase.SaveAssets();
-
-			//    UpdateSelection(m_SelectedNodeView);
-
-			//    m_SelectedNodeView.UpdateTitle();
-			//}
-
-			return null;
-
-			//return selectedBehaviourClassName;
-		}
-
-#endregion
 
 #region BEHAVIOURS ARRAY
 

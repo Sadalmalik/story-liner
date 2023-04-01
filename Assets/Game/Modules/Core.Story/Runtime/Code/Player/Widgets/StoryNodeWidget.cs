@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Self.StoryV2
+namespace Self.Story
 {
 	public abstract class StoryNodeWidget : MonoBehaviour
 	{
@@ -22,7 +22,7 @@ namespace Self.StoryV2
 			var replica = node as ReplicaNode;
 		}
 	}
-	
+
 	public class ChoiceWidget : StoryNodeWidget
 	{
 		public override void SetNode(Node node)

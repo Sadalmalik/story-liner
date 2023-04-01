@@ -1,4 +1,3 @@
-using Self.StoryV2;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -18,7 +17,7 @@ namespace Self.Story.Editors
 			m_Property = property;
 
 			var chapterPath = AssetDatabase.GetAssetPath(property.serializedObject.targetObject);
-			var chapter     = (StoryV2.Chapter) AssetDatabase.LoadAssetAtPath(chapterPath, typeof(StoryV2.Chapter));
+			var chapter     = (Chapter) AssetDatabase.LoadAssetAtPath(chapterPath, typeof(Chapter));
 
 			m_Variables = new Dictionary<string, Variable>();
 

@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace Self.StoryV2
+namespace Self.Story
 {
 	public abstract class NodeAction : ScriptableObject, ICloneable
 	{

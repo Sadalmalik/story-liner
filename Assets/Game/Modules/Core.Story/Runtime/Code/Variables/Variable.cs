@@ -1,20 +1,20 @@
 using UnityEngine;
 
-namespace Self.StoryV2
+namespace Self.Story
 {
-    public enum VariableType
-    {
-        Float,
-        Int,
-        Bool,
-        String
-    }
+	public enum VariableType
+	{
+		Float,
+		Int,
+		Bool,
+		String
+	}
 
-    public abstract class Variable : ScriptableObject
-    {
-        public string id;
+	public abstract class Variable : ScriptableObject
+	{
+		public string id;
 
-        public abstract void SetValue(object value);
-        public abstract object GetValue();
-    }
+		public abstract void   SetValue(object value);
+		public abstract object GetValue();
+	}
 }

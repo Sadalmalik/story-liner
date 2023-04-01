@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Self.StoryV2
+namespace Self.Story
 {
 	[CreateAssetMenu]
 	public class Chapter : ScriptableObject
@@ -12,12 +12,12 @@ namespace Self.StoryV2
 		public string startNode;
 
 		public List<Node> nodes;
+
 		//public List<ChapterSettings> settings;
 		public VariablesContainer variables;
-		public List<Character> characters;
-        
-		[NonSerialized]
-		public Dictionary<string, Node> nodesByID;
+		public List<Character>    characters;
+
+		[NonSerialized] public Dictionary<string, Node> nodesByID;
 
 		public void Init()
 		{

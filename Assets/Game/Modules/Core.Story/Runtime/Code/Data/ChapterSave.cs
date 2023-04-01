@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Self.StoryV2
+namespace Self.Story
 {
 	public class ChapterSave
 	{

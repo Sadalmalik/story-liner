@@ -2,7 +2,7 @@
 using Self.Architecture.IOC;
 using UnityEngine;
 
-namespace Self.StoryV2
+namespace Self.Story
 {
 	public class StoryPlayer : MonoBehaviour
 	{
@@ -36,17 +36,14 @@ namespace Self.StoryV2
 
 			if (node is Node)
 			{
-				
 			}
 			else if (node is ReplicaNode replica)
 			{
-				
 			}
 			else if (node is ChoiceNode choice)
 			{
-				
 			}
-			
+
 			if (node.GetType() == typeof(Node))
 			{
 				Debug.Log("Node");
