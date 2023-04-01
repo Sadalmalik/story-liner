@@ -7,298 +7,298 @@ using UnityEngine;
 
 namespace Self.Story.Editors
 {
-    [CustomEditor(typeof(VariablesContainer))]
-    public class VariableContainerEditor : Editor
-    {
-        private SerializedObject m_ParentObject;
-        private SerializedProperty m_VariablesListProperty;
-        private List<SerializedProperty> m_VariablesList;
-        private Dictionary<string, Type> m_VariableTypes;
+	[CustomEditor(typeof(VariablesContainer))]
+	public class VariableContainerEditor : Editor
+	{
+		private SerializedObject         m_ParentObject;
+		private SerializedProperty       m_VariablesListProperty;
+		private List<SerializedProperty> m_VariablesList;
+		private Dictionary<string, Type> m_VariableTypes;
 
-        private VariablePropertyDrawer m_VariablePropertyDrawer;
-        private Dictionary<SerializedProperty, SerializedObject> m_SerializedObjects;
-        private Dictionary<string, Func<List<SerializedProperty>, List<SerializedProperty>>> m_SortingActions;
-        private string m_CurrentSorting;
-        private bool m_SortingDirection;
-        private int m_ElementForDeletion = -1;
+		private VariablePropertyDrawer                                                       m_VariablePropertyDrawer;
+		private Dictionary<SerializedProperty, SerializedObject>                             m_SerializedObjects;
+		private Dictionary<string, Func<List<SerializedProperty>, List<SerializedProperty>>> m_SortingActions;
 
+		private string m_CurrentSorting;
+		private bool   m_SortingDirection;
+		private int    m_ElementForDeletion = -1;
 
 
-        private void OnEnable()
-        {
-            m_SerializedObjects = new Dictionary<SerializedProperty, SerializedObject>();
-            m_SortingActions = CreateSortingActions();
+		private void OnEnable()
+		{
+			m_SerializedObjects = new Dictionary<SerializedProperty, SerializedObject>();
+			m_SortingActions    = CreateSortingActions();
 
-            var parentObjectPath = AssetDatabase.GetAssetPath(serializedObject.targetObject);
-            var parentObject = AssetDatabase.LoadAssetAtPath(parentObjectPath, typeof(StoryV2.Chapter));
+			var parentObjectPath = AssetDatabase.GetAssetPath(serializedObject.targetObject);
+			var parentObject     = AssetDatabase.LoadAssetAtPath(parentObjectPath, typeof(StoryV2.Chapter));
 
-            m_ParentObject = new SerializedObject(parentObject);
-            m_VariablePropertyDrawer = new VariablePropertyDrawer(this);
-            m_VariablesListProperty = serializedObject.FindProperty(nameof(VariablesContainer.variables));
-            m_VariablesList = FillVariablesList(m_VariablesListProperty);
+			m_ParentObject           = new SerializedObject(parentObject);
+			m_VariablePropertyDrawer = new VariablePropertyDrawer(this);
+			m_VariablesListProperty  = serializedObject.FindProperty(nameof(VariablesContainer.variables));
+			m_VariablesList          = FillVariablesList(m_VariablesListProperty);
 
-            m_VariableTypes = new Dictionary<string, Type>();
+			m_VariableTypes = new Dictionary<string, Type>();
 
-            var variableTypes = TypeCache.GetTypesDerivedFrom<Variable>();
+			var variableTypes = TypeCache.GetTypesDerivedFrom<Variable>();
 
-            foreach (var varType in variableTypes)
-            {
-                m_VariableTypes.Add(varType.FullName, varType);
-            }
-        }
+			foreach (var varType in variableTypes)
+			{
+				m_VariableTypes.Add(varType.FullName, varType);
+			}
+		}
 
-        private List<SerializedProperty> FillVariablesList(SerializedProperty m_VariablesListProperty)
-        {
-            var list = new List<SerializedProperty>();
-
-            var variablesCount = m_VariablesListProperty.arraySize;
-
-            for (int i = 0; i < variablesCount; i++)
-            {
-                list.Add(m_VariablesListProperty.GetArrayElementAtIndex(i));
-            }
+		private List<SerializedProperty> FillVariablesList(SerializedProperty m_VariablesListProperty)
+		{
+			var list = new List<SerializedProperty>();
+
+			var variablesCount = m_VariablesListProperty.arraySize;
+
+			for (int i = 0; i < variablesCount; i++)
+			{
+				list.Add(m_VariablesListProperty.GetArrayElementAtIndex(i));
+			}
+
+			return list;
+		}
+
+		public override void OnInspectorGUI()
+		{
+			serializedObject.Update();
+
+			var arraySize = m_VariablesListProperty.arraySize;
+
+			EditorGUI.BeginChangeCheck();
+
+			EditorGUILayout.BeginVertical();
+
+			DrawLayout();
+
+			if (arraySize == 0)
+			{
+				DrawEmptyContainer();
+			}
+			else
+			{
+				DrawVariablesArray(arraySize);
+			}
+
+			DrawArrayButtons();
 
-            return list;
-        }
-
-        public override void OnInspectorGUI()
-        {
-            serializedObject.Update();
-
-            var arraySize = m_VariablesListProperty.arraySize;
+			if (m_ElementForDeletion != -1)
+				RemoveVariable();
+
+			EditorGUILayout.EndVertical();
+
+			if (EditorGUI.EndChangeCheck())
+			{
+				serializedObject.ApplyModifiedProperties();
+				m_ParentObject.ApplyModifiedProperties();
+			}
+		}
 
-            EditorGUI.BeginChangeCheck();
+		private void DrawLayout()
+		{
+			var startPosition = EditorGUILayout.BeginHorizontal();
+
+			startPosition.width = (startPosition.width / 5f) - 2f;
+
+			startPosition = DrawLabelIndented(startPosition, "Id");
+			startPosition = DrawLabelIndented(startPosition, "Value");
+			startPosition = DrawLabelIndented(startPosition, "MinValue");
+			startPosition = DrawLabelIndented(startPosition, "MaxValue");
+			DrawLabelIndented(startPosition, "Type");
+
+			// force editor layout to new line
+			GUILayout.Label(GUIContent.none);
+
+			EditorGUILayout.EndHorizontal();
+
+			Rect DrawLabelIndented(Rect position, string label)
+			{
+				if (GUI.Button(position, new GUIContent(label)))
+				{
+					m_CurrentSorting   = label;
+					m_SortingDirection = !m_SortingDirection;
 
-            EditorGUILayout.BeginVertical();
+					m_VariablesList = m_SortingActions[m_CurrentSorting].Invoke(m_VariablesList);
+
+					if (m_SortingDirection)
+						m_VariablesList.Reverse();
+				}
 
-            DrawLayout();
+				position.x += position.width + 2f;
 
-            if(arraySize == 0)
-            {
-                DrawEmptyContainer();
-            }
-            else
-            {
-                DrawVariablesArray(arraySize);
-            }
+				return position;
+			}
+		}
 
-            DrawArrayButtons();
+		private void DrawVariablesArray(int arraySize)
+		{
+			if (m_CurrentSorting != null)
+			{
+				var variableCount = m_VariablesList.Count;
 
-            if (m_ElementForDeletion != -1)
-                RemoveVariable();
+				// draw array sorted
+				for (int i = 0; i < variableCount; i++)
+				{
+					DrawVariable(m_VariablesList[i], i);
+				}
+			}
+			else
+			{
+				// draw array unsorted
+				for (int i = 0; i < arraySize; i++)
+				{
+					var variableElement = m_VariablesListProperty.GetArrayElementAtIndex(i);
 
-            EditorGUILayout.EndVertical();
+					DrawVariable(variableElement, i);
+				}
+			}
+		}
 
-            if (EditorGUI.EndChangeCheck())
-            {
-                serializedObject.ApplyModifiedProperties();
-                m_ParentObject.ApplyModifiedProperties();
-            }
-        }
+		private void DrawVariable(SerializedProperty variableProperty, int index)
+		{
+			var startPosition = EditorGUILayout.BeginHorizontal();
 
-        private void DrawLayout()
-        {
-            var startPosition = EditorGUILayout.BeginHorizontal();
+			if (!m_SerializedObjects.ContainsKey(variableProperty))
+			{
+				m_SerializedObjects.Add(variableProperty, new SerializedObject(variableProperty.objectReferenceValue));
+			}
 
-            startPosition.width = (startPosition.width / 5f) - 2f;
+			m_VariablePropertyDrawer.DrawProperty(variableProperty, startPosition,
+				m_SerializedObjects[variableProperty], index);
 
-            startPosition = DrawLabelIndented(startPosition, "Id");
-            startPosition = DrawLabelIndented(startPosition, "Value");
-            startPosition = DrawLabelIndented(startPosition, "MinValue");
-            startPosition = DrawLabelIndented(startPosition, "MaxValue");
-            DrawLabelIndented(startPosition, "Type");
+			// force editor layout to new line
+			GUILayout.Label(GUIContent.none);
 
-            // force editor layout to new line
-            GUILayout.Label(GUIContent.none);
-
-            EditorGUILayout.EndHorizontal();
-
-            Rect DrawLabelIndented(Rect position, string label)
-            {
-                if (GUI.Button(position, new GUIContent(label)))
-                {
-                    m_CurrentSorting = label;
-                    m_SortingDirection = !m_SortingDirection;
+			EditorGUILayout.EndHorizontal();
+		}
 
-                    m_VariablesList = m_SortingActions[m_CurrentSorting].Invoke(m_VariablesList);
+		private void DrawEmptyContainer()
+		{
+			EditorGUILayout.LabelField(new GUIContent("No Variables Created Yet"));
+		}
 
-                    if (m_SortingDirection)
-                        m_VariablesList.Reverse();
-                }
+		private void DrawArrayButtons()
+		{
+			EditorGUILayout.BeginHorizontal();
 
-                position.x += position.width + 2f;
+			if (GUILayout.Button(new GUIContent("Add New Variable")))
+			{
+				DrawSelectionMenu();
+			}
 
-                return position;
-            }
-        }
+			EditorGUILayout.EndHorizontal();
+		}
 
-        private void DrawVariablesArray(int arraySize)
-        {
-            if(m_CurrentSorting != null)
-            {
-                var variableCount = m_VariablesList.Count;
+		private void DrawSelectionMenu()
+		{
+			var menu = new GenericMenu();
 
-                // draw array sorted
-                for (int i = 0; i < variableCount; i++)
-                {
-                    DrawVariable(m_VariablesList[i], i);
-                }
-            }
-            else
-            {
-                // draw array unsorted
-                for (int i = 0; i < arraySize; i++)
-                {
-                    var variableElement = m_VariablesListProperty.GetArrayElementAtIndex(i);
+			foreach (var varType in m_VariableTypes)
+			{
+				menu.AddItem(new GUIContent(varType.Value.Name), false, AddVariable, varType.Value.FullName);
+			}
 
-                    DrawVariable(variableElement, i);
-                }
-            }
+			menu.ShowAsContext();
+		}
 
-        }
+		private void AddVariable(object typeName)
+		{
+			var type        = m_VariableTypes[(string) typeName];
+			var newVariable = ScriptableObject.CreateInstance(type);
+			newVariable.name = $".variables.{type.Name}.some-var";
 
-        private void DrawVariable(SerializedProperty variableProperty, int index)
-        {
-            var startPosition = EditorGUILayout.BeginHorizontal();
+			AssetDatabase.AddObjectToAsset(newVariable, AssetDatabase.GetAssetPath(serializedObject.targetObject));
+			AssetDatabase.SaveAssets();
 
-            if (!m_SerializedObjects.ContainsKey(variableProperty))
-            {
-                m_SerializedObjects.Add(variableProperty, new SerializedObject(variableProperty.objectReferenceValue));
-            }
+			var newIndex = m_VariablesListProperty.arraySize;
 
-            m_VariablePropertyDrawer.DrawProperty(variableProperty, startPosition, m_SerializedObjects[variableProperty], index);
+			m_VariablesListProperty.InsertArrayElementAtIndex(newIndex);
 
-            // force editor layout to new line
-            GUILayout.Label(GUIContent.none);
+			var newVariableProperty = m_VariablesListProperty.GetArrayElementAtIndex(newIndex);
+			newVariableProperty.objectReferenceValue = newVariable;
 
-            EditorGUILayout.EndHorizontal();
-        }
+			serializedObject.ApplyModifiedProperties();
+			m_ParentObject.ApplyModifiedProperties();
 
-        private void DrawEmptyContainer()
-        {
-            EditorGUILayout.LabelField(new GUIContent("No Variables Created Yet"));
-        }
+			m_VariablesList.Add(m_VariablesListProperty.GetArrayElementAtIndex(newIndex));
 
-        private void DrawArrayButtons()
-        {
-            EditorGUILayout.BeginHorizontal();
+			AssetDatabase.SaveAssets();
+		}
 
-            if(GUILayout.Button(new GUIContent("Add New Variable")))
-            {
-                DrawSelectionMenu();
-            }
+		public void RemoveVariable(int index)
+		{
+			m_ElementForDeletion = index;
+		}
 
-            EditorGUILayout.EndHorizontal();
-        }
+		private void RemoveVariable()
+		{
+			var variable = m_VariablesListProperty.GetArrayElementAtIndex(m_ElementForDeletion);
 
-        private void DrawSelectionMenu()
-        {
-            var menu = new GenericMenu();
+			AssetDatabase.RemoveObjectFromAsset(variable.objectReferenceValue);
 
-            foreach (var varType in m_VariableTypes)
-            {
-                menu.AddItem(new GUIContent(varType.Value.Name), false, AddVariable, varType.Value.FullName);
-            }
+			m_VariablesListProperty.DeleteArrayElementAtIndex(m_ElementForDeletion);
+			m_VariablesList = FillVariablesList(m_VariablesListProperty);
 
-            menu.ShowAsContext();
-        }
+			serializedObject.ApplyModifiedProperties();
+			m_ParentObject.ApplyModifiedProperties();
 
-        private void AddVariable(object typeName)
-        {
-            var type = m_VariableTypes[(string)typeName];
-            var newVariable = ScriptableObject.CreateInstance(type);
-            newVariable.name = $".variables.{type.Name}.some-var";
+			AssetDatabase.SaveAssets();
 
-            AssetDatabase.AddObjectToAsset(newVariable, AssetDatabase.GetAssetPath(serializedObject.targetObject));
-            AssetDatabase.SaveAssets();
+			m_ElementForDeletion = -1;
+		}
 
-            var newIndex = m_VariablesListProperty.arraySize;
+		private Dictionary<string, Func<List<SerializedProperty>, List<SerializedProperty>>> CreateSortingActions()
+		{
+			var sortingActions = new Dictionary<string, Func<List<SerializedProperty>, List<SerializedProperty>>>();
 
-            m_VariablesListProperty.InsertArrayElementAtIndex(newIndex);
+			sortingActions.Add("Id", (list) => { return SortList(list, new ComparerById()); });
+			sortingActions.Add("Value", (list) => { return SortList(list, new ComparerByValue()); });
+			sortingActions.Add("MinValue", (list) => { return SortList(list, new ComparerByMinValue()); });
+			sortingActions.Add("MaxValue", (list) => { return SortList(list, new ComparerByMaxValue()); });
+			sortingActions.Add("Type", (list) => { return SortList(list, new ComparerByType()); });
 
-            var newVariableProperty = m_VariablesListProperty.GetArrayElementAtIndex(newIndex);
-            newVariableProperty.objectReferenceValue = newVariable;
+			return sortingActions;
+		}
 
-            serializedObject.ApplyModifiedProperties();
-            m_ParentObject.ApplyModifiedProperties();
+		private List<SerializedProperty> SortList(List<SerializedProperty> list, IComparer<SerializedProperty> comparer)
+		{
+			var sortedList = new List<SerializedProperty>();
 
-            m_VariablesList.Add(m_VariablesListProperty.GetArrayElementAtIndex(newIndex));
+			if (list.Any(elem => elem.objectReferenceValue is IntVariable))
+			{
+				var intVariables = list.Where(elem => elem.objectReferenceValue is IntVariable).ToList();
 
-            AssetDatabase.SaveAssets();
-        }
+				intVariables.Sort(comparer);
+				sortedList.AddRange(intVariables);
+			}
 
-        public void RemoveVariable(int index)
-        {
-            m_ElementForDeletion = index;
-        }
+			if (list.Any(elem => elem.objectReferenceValue is FloatVariable))
+			{
+				var floatVariables = list.Where(elem => elem.objectReferenceValue is FloatVariable).ToList();
 
-        private void RemoveVariable()
-        {
-            var variable = m_VariablesListProperty.GetArrayElementAtIndex(m_ElementForDeletion);
+				floatVariables.Sort(comparer);
+				sortedList.AddRange(floatVariables);
+			}
 
-            AssetDatabase.RemoveObjectFromAsset(variable.objectReferenceValue);
+			if (list.Any(elem => elem.objectReferenceValue is BoolVariable))
+			{
+				var boolVariables = list.Where(elem => elem.objectReferenceValue is BoolVariable).ToList();
 
-            m_VariablesListProperty.DeleteArrayElementAtIndex(m_ElementForDeletion);
-            m_VariablesList = FillVariablesList(m_VariablesListProperty);
+				boolVariables.Sort(comparer);
+				sortedList.AddRange(boolVariables);
+			}
 
-            serializedObject.ApplyModifiedProperties();
-            m_ParentObject.ApplyModifiedProperties();
+			if (list.Any(elem => elem.objectReferenceValue is StringVariable))
+			{
+				var stringVariables = list.Where(elem => elem.objectReferenceValue is StringVariable).ToList();
 
-            AssetDatabase.SaveAssets();
+				stringVariables.Sort(comparer);
+				sortedList.AddRange(stringVariables);
+			}
 
-            m_ElementForDeletion = -1;
-        }
-
-        private Dictionary<string, Func<List<SerializedProperty>, List<SerializedProperty>>> CreateSortingActions()
-        {
-            var sortingActions = new Dictionary<string, Func<List<SerializedProperty>, List<SerializedProperty>>>();
-
-            sortingActions.Add("Id", (list) => { return SortList(list, new ComparerById()); });
-            sortingActions.Add("Value", (list) => { return SortList(list, new ComparerByValue()); });
-            sortingActions.Add("MinValue", (list) => { return SortList(list, new ComparerByMinValue()); });
-            sortingActions.Add("MaxValue", (list) => { return SortList(list, new ComparerByMaxValue()); });
-            sortingActions.Add("Type", (list) => { return SortList(list, new ComparerByType()); });
-
-            return sortingActions;
-        }
-
-        private List<SerializedProperty> SortList(List<SerializedProperty> list, IComparer<SerializedProperty> comparer)
-        {
-            var sortedList = new List<SerializedProperty>();
-
-            if (list.Any(elem => elem.objectReferenceValue is IntVariable))
-            {
-                var intVariables = list.Where(elem => elem.objectReferenceValue is IntVariable).ToList();
-
-                intVariables.Sort(comparer);
-                sortedList.AddRange(intVariables);
-            }
-
-            if (list.Any(elem => elem.objectReferenceValue is FloatVariable))
-            {
-                var floatVariables = list.Where(elem => elem.objectReferenceValue is FloatVariable).ToList();
-
-                floatVariables.Sort(comparer);
-                sortedList.AddRange(floatVariables);
-            }
-
-            if (list.Any(elem => elem.objectReferenceValue is BoolVariable))
-            {
-                var boolVariables = list.Where(elem => elem.objectReferenceValue is BoolVariable).ToList();
-
-                boolVariables.Sort(comparer);
-                sortedList.AddRange(boolVariables);
-            }
-
-            if (list.Any(elem => elem.objectReferenceValue is StringVariable))
-            {
-                var stringVariables = list.Where(elem => elem.objectReferenceValue is StringVariable).ToList();
-
-                stringVariables.Sort(comparer);
-                sortedList.AddRange(stringVariables);
-            }
-
-            return sortedList;
-        }
-    }
+			return sortedList;
+		}
+	}
 }

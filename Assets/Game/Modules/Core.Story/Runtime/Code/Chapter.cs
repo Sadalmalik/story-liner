@@ -7,15 +7,13 @@ namespace Self.Story
 	[CreateAssetMenu]
 	public class Chapter : ScriptableObject
 	{
-		public string					chapterName;
-		public string					startNode;
+		public string chapterName;
+		public string startNode;
 
 		public Dictionary<string, Node> nodesByID;
 
-		public List<Variable>			variables;
-		public List<Node>				nodes;
-
-
+		public List<Variable> variables;
+		public List<Node>     nodes;
 
 		public void Init()
 		{

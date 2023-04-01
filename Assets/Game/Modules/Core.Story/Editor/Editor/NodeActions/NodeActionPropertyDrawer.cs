@@ -10,55 +10,58 @@ using System;
 
 namespace Self.Story.Editors
 {
-    public class FieldData : IComparable<FieldData>
-    {
-        public int order;
-        public FieldInfo field;
+	public class FieldData : IComparable<FieldData>
+	{
+		public int       order;
+		public FieldInfo field;
 
-        public int CompareTo(FieldData other)
-        {
-            return order - other.order;
-        }
-    }
+		public int CompareTo(FieldData other)
+		{
+			return order - other.order;
+		}
+	}
 
-    [CustomPropertyDrawer(typeof(NodeAction), true)]
-    public class NodeActionPropertyDrawer : PropertyDrawer
-    {
-        private const BindingFlags BINDING_FLAGS = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+	[CustomPropertyDrawer(typeof(NodeAction), true)]
+	public class NodeActionPropertyDrawer : PropertyDrawer
+	{
+		private const BindingFlags BINDING_FLAGS = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 
 
+		public override VisualElement CreatePropertyGUI(SerializedProperty property)
+		{
+			var serializedObject = new SerializedObject(property.objectReferenceValue);
+			var container        = new VisualElement() {name = property.displayName};
 
-        public override VisualElement CreatePropertyGUI(SerializedProperty property)
-        {
-            var serializedObject = new SerializedObject(property.objectReferenceValue);
-            var container = new VisualElement() { name = property.displayName };
+			var fields = property.objectReferenceValue
+				.GetType()
+				.GetFields(BINDING_FLAGS)
+				.Where(f => f.GetCustomAttribute(typeof(DisplayOnNodeAttribute)) != null)
+				.Select(f => new FieldData
+				{
+					order = ((DisplayOnNodeAttribute) f.GetCustomAttribute(typeof(DisplayOnNodeAttribute))).order,
+					field = f
+				})
+				.ToList();
 
-            var fields = property.objectReferenceValue
-                                    .GetType()
-                                    .GetFields(BINDING_FLAGS)
-                                    .Where(f => f.GetCustomAttribute(typeof(DisplayOnNodeAttribute)) != null)
-                                    .Select(f => new FieldData { order = ((DisplayOnNodeAttribute)f.GetCustomAttribute(typeof(DisplayOnNodeAttribute))).order, field = f })
-                                    .ToList();
+			fields.Sort();
 
-            fields.Sort();
+			foreach (var f in fields)
+			{
+				var field = serializedObject.FindProperty(f.field.Name);
 
-            foreach (var f in fields)
-            {
-                var field = serializedObject.FindProperty(f.field.Name);
+				if (field != null)
+				{
+					var propertyFieldContainer = new PropertyField(field);
+					propertyFieldContainer.BindProperty(serializedObject);
 
-                if (field != null)
-                {
-                    var propertyFieldContainer = new PropertyField(field);
-                    propertyFieldContainer.BindProperty(serializedObject);
+					container.Add(propertyFieldContainer);
+				}
+			}
 
-                    container.Add(propertyFieldContainer);
-                }
-            }
-
-            if (fields == null || fields.Count() == 0)
-                return base.CreatePropertyGUI(property);
-            else
-                return container;
-        }
-    }
+			if (fields == null || fields.Count() == 0)
+				return base.CreatePropertyGUI(property);
+			else
+				return container;
+		}
+	}
 }

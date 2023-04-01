@@ -6,347 +6,326 @@ using System.Collections.Generic;
 
 namespace Self.Story.Editors
 {
-    public class InspectorView : VisualElement
-    {
-        private const string NAME_PROPERTY_NAME = "m_Name";
-        private string MAIN_BEHAVIOUR_NAME = nameof(Node.mainBehaviour);
-        private string BEHAVIOURS_ARRAY_NAME = nameof(Node.behaviours);
+	public class InspectorView : VisualElement
+	{
+		private const string NAME_PROPERTY_NAME    = "m_Name";
+		private       string MAIN_BEHAVIOUR_NAME   = nameof(Node.mainBehaviour);
+		private       string BEHAVIOURS_ARRAY_NAME = nameof(Node.behaviours);
 
-        public event Action<NodeAction> OnMainBehaviourChanged;
+		public event Action<NodeAction> OnMainBehaviourChanged;
 
-        public new class UxmlFactory : UxmlFactory<InspectorView, VisualElement.UxmlTraits> { }
+		public new class UxmlFactory : UxmlFactory<InspectorView, VisualElement.UxmlTraits>
+		{
+		}
 
-        private NodeView m_SelectedNodeView;
-        private StoryV2.Node m_NodeData;
-        private VisualElement m_MainBehaviourEditor;
-        private SerializedObject m_SerializedNode;
-        private string m_CroppedGuid => m_NodeData.id.Substring(0, 6);
-        private ScrollView m_ScrollView;
+		private NodeView         m_SelectedNodeView;
+		private StoryV2.Node     m_NodeData;
+		private VisualElement    m_MainBehaviourEditor;
+		private SerializedObject m_SerializedNode;
+		private string           m_CroppedGuid => m_NodeData.id.Substring(0, 6);
+		private ScrollView       m_ScrollView;
 
 
+		public InspectorView()
+		{
+		}
 
-        public InspectorView()
-        {
-        }
+		public void UpdateSelection(NodeView selected)
+		{
+			if (m_ScrollView == null)
+				m_ScrollView = this.Q<ScrollView>();
+			else
+				m_ScrollView.contentContainer.Clear();
 
-        public void UpdateSelection(NodeView selected)
-        {
-            if (m_ScrollView == null)
-                m_ScrollView = this.Q<ScrollView>();
-            else
-                m_ScrollView.contentContainer.Clear();
+			m_NodeData = selected.Node;
 
-            m_NodeData = selected.Node;
+			if (m_SelectedNodeView != selected)
+				m_SerializedNode = new SerializedObject(m_NodeData);
 
-            if (m_SelectedNodeView != selected)
-                m_SerializedNode = new SerializedObject(m_NodeData);
+			m_SelectedNodeView = selected;
 
-            m_SelectedNodeView = selected;
+			DisplayMainBehaviourSelector();
+			DisplayMainBehaviourProperties();
 
-            DisplayMainBehaviourSelector();
-            DisplayMainBehaviourProperties();
+			DisplayBehavioursArray();
+		}
 
-            DisplayBehavioursArray();
-        }
+#region MAIN BEHAVIOUR
 
-        #region MAIN BEHAVIOUR
+		private void DisplayMainBehaviourSelector()
+		{
+			//var choices = TypeCache
+			//                .GetTypesDerivedFrom(typeof(NodeAction))
+			//                .Where(t => !t.IsAbstract)
+			//                .Select(t => t.Name)
+			//                .ToList();
 
-        private void DisplayMainBehaviourSelector()
-        {
-            //var choices = TypeCache
-            //                .GetTypesDerivedFrom(typeof(NodeAction))
-            //                .Where(t => !t.IsAbstract)
-            //                .Select(t => t.Name)
-            //                .ToList();
+			//var index = m_NodeData.mainBehaviour != null ? choices.IndexOf(m_NodeData.mainBehaviour.GetType().Name) : 0;
+			//var mainBehSelector = new DropdownField("Main Behaviour", choices, index, HandleMainBehaviourSelected);
 
-            //var index = m_NodeData.mainBehaviour != null ? choices.IndexOf(m_NodeData.mainBehaviour.GetType().Name) : 0;
-            //var mainBehSelector = new DropdownField("Main Behaviour", choices, index, HandleMainBehaviourSelected);
+			//m_ScrollView.contentContainer.Add(mainBehSelector);
+		}
 
-            //m_ScrollView.contentContainer.Add(mainBehSelector);
-        }
+		private void DisplayMainBehaviourProperties()
+		{
+			//if (m_NodeData.mainBehaviour == null)
+			//    return;
 
-        private void DisplayMainBehaviourProperties()
-        {
-            //if (m_NodeData.mainBehaviour == null)
-            //    return;
+			//var mainBehaviour = m_SerializedNode.FindProperty(MAIN_BEHAVIOUR_NAME);
+			//var propertyEditor = Editor.CreateEditor(mainBehaviour.objectReferenceValue);
 
-            //var mainBehaviour = m_SerializedNode.FindProperty(MAIN_BEHAVIOUR_NAME);
-            //var propertyEditor = Editor.CreateEditor(mainBehaviour.objectReferenceValue);
+			//m_MainBehaviourEditor = new IMGUIContainer(() =>
+			//{
+			//    if (propertyEditor.target != null)
+			//        propertyEditor.OnInspectorGUI();
+			//});
 
-            //m_MainBehaviourEditor = new IMGUIContainer(() =>
-            //{
-            //    if (propertyEditor.target != null)
-            //        propertyEditor.OnInspectorGUI();
-            //});
+			//m_ScrollView.contentContainer.Add(m_MainBehaviourEditor);
+		}
 
-            //m_ScrollView.contentContainer.Add(m_MainBehaviourEditor);
-        }
+		private string HandleMainBehaviourSelected(string selectedBehaviourClassName)
+		{
+			//var selectedBehaviour = TypeCache
+			//                .GetTypesDerivedFrom(typeof(NodeAction))
+			//                .Where(t => !t.IsAbstract)
+			//                .First(t => t.Name == selectedBehaviourClassName);
 
-        private string HandleMainBehaviourSelected(string selectedBehaviourClassName)
-        {
-            //var selectedBehaviour = TypeCache
-            //                .GetTypesDerivedFrom(typeof(NodeAction))
-            //                .Where(t => !t.IsAbstract)
-            //                .First(t => t.Name == selectedBehaviourClassName);
+			//var mainBehaviour = m_SerializedNode.FindProperty(MAIN_BEHAVIOUR_NAME);
 
-            //var mainBehaviour = m_SerializedNode.FindProperty(MAIN_BEHAVIOUR_NAME);
+			//if (mainBehaviour.objectReferenceValue == null
+			//    || mainBehaviour.objectReferenceValue.GetType() != selectedBehaviour)
+			//{
+			//    var behaviourInstance = NodeAction.CreateInstance(selectedBehaviour) as NodeAction;
+			//    behaviourInstance.name = StoryEditorWindow.GetNodeMainBehaviourName(m_NodeData, selectedBehaviour);
 
-            //if (mainBehaviour.objectReferenceValue == null
-            //    || mainBehaviour.objectReferenceValue.GetType() != selectedBehaviour)
-            //{
-            //    var behaviourInstance = NodeAction.CreateInstance(selectedBehaviour) as NodeAction;
-            //    behaviourInstance.name = StoryEditorWindow.GetNodeMainBehaviourName(m_NodeData, selectedBehaviour);
+			//    if (mainBehaviour.objectReferenceValue != null)
+			//    {
+			//        AssetDatabase.RemoveObjectFromAsset(mainBehaviour.objectReferenceValue);
+			//    }
 
-            //    if (mainBehaviour.objectReferenceValue != null)
-            //    {
-            //        AssetDatabase.RemoveObjectFromAsset(mainBehaviour.objectReferenceValue);
-            //    }
+			//    AssetDatabase.AddObjectToAsset(behaviourInstance, m_NodeData);
 
-            //    AssetDatabase.AddObjectToAsset(behaviourInstance, m_NodeData);
+			//    mainBehaviour.objectReferenceValue = behaviourInstance;
 
-            //    mainBehaviour.objectReferenceValue = behaviourInstance;
+			//    var nameProp = m_SerializedNode.FindProperty(NAME_PROPERTY_NAME);
+			//    nameProp.stringValue = StoryEditorWindow.GetNodeName(m_NodeData, selectedBehaviour);
 
-            //    var nameProp = m_SerializedNode.FindProperty(NAME_PROPERTY_NAME);
-            //    nameProp.stringValue = StoryEditorWindow.GetNodeName(m_NodeData, selectedBehaviour);
+			//    m_SerializedNode.ApplyModifiedProperties();
 
-            //    m_SerializedNode.ApplyModifiedProperties();
+			//    AssetDatabase.SaveAssets();
 
-            //    AssetDatabase.SaveAssets();
+			//    UpdateSelection(m_SelectedNodeView);
 
-            //    UpdateSelection(m_SelectedNodeView);
+			//    m_SelectedNodeView.UpdateTitle();
+			//}
 
-            //    m_SelectedNodeView.UpdateTitle();
-            //}
+			return null;
 
-            return null;
+			//return selectedBehaviourClassName;
+		}
 
-            //return selectedBehaviourClassName;
-        }
+#endregion
 
-        #endregion
+#region BEHAVIOURS ARRAY
 
-        #region BEHAVIOURS ARRAY
+		private void DisplayBehavioursArray()
+		{
+			var spacer      = new VisualElement();
+			var spacerStyle = spacer.style;
+			spacerStyle.height = new StyleLength(10f);
 
-        private void DisplayBehavioursArray()
-        {
-            var spacer = new VisualElement();
-            var spacerStyle = spacer.style;
-            spacerStyle.height = new StyleLength(10f);
+			m_ScrollView.contentContainer.Add(spacer);
+			m_ScrollView.contentContainer.Add(new Label("Sub Behaviours"));
 
-            m_ScrollView.contentContainer.Add(spacer);
-            m_ScrollView.contentContainer.Add(new Label("Sub Behaviours"));
+			DisplayBehaviourArrayButtons();
 
-            DisplayBehaviourArrayButtons();
+			var choices = TypeCache
+				.GetTypesDerivedFrom(typeof(NodeAction))
+				.Where(t => !t.IsAbstract)
+				.Select(t => t.Name)
+				.ToList();
 
-            var choices = TypeCache
-                            .GetTypesDerivedFrom(typeof(NodeAction))
-                            .Where(t => !t.IsAbstract)
-                            .Select(t => t.Name)
-                            .ToList();
+			var behavioursArray = m_SerializedNode.FindProperty(BEHAVIOURS_ARRAY_NAME);
+			var arraySize       = behavioursArray.arraySize;
 
-            var behavioursArray = m_SerializedNode.FindProperty(BEHAVIOURS_ARRAY_NAME);
-            var arraySize = behavioursArray.arraySize;
+			for (int i = 0; i < arraySize; i++)
+			{
+				var behaviourContainer = DisplayBehaviourContainer();
+				var behaviourSelector  = DisplayBehaviourSelector(choices, i);
+				var behaviourEditor    = DisplayBehaviourEditor(i);
 
-            for (int i = 0; i < arraySize; i++)
-            {
-                var behaviourContainer = DisplayBehaviourContainer();
-                var behaviourSelector = DisplayBehaviourSelector(choices, i);
-                var behaviourEditor = DisplayBehaviourEditor(i);
+				behaviourContainer.Add(behaviourSelector);
+				behaviourContainer.Add(behaviourEditor);
 
-                behaviourContainer.Add(behaviourSelector);
-                behaviourContainer.Add(behaviourEditor);
+				m_ScrollView.Add(behaviourContainer);
+			}
+		}
 
-                m_ScrollView.Add(behaviourContainer);
-            }
-        }
+		private void DisplayBehaviourArrayButtons()
+		{
+			var addButton = new Button(HandleAddBehaviourButtonClick)
+			{
+				text = "Add Behaviour"
+			};
 
-        private void DisplayBehaviourArrayButtons()
-        {
-            var addButton = new Button(HandleAddBehaviourButtonClick)
-            {
-                text = "Add Behaviour"
-            };
+			var addButtonStyle = addButton.style;
+			addButtonStyle.flexGrow = new StyleFloat(1f);
 
-            var addButtonStyle = addButton.style;
-            addButtonStyle.flexGrow = new StyleFloat(1f);
+			var removeButton = new Button(HandleRemoveBehaviourButtonClick)
+			{
+				text = "Remove Behaviour"
+			};
 
-            var removeButton = new Button(HandleRemoveBehaviourButtonClick)
-            {
-                text = "Remove Behaviour"
-            };
+			var removeButtonStyle = removeButton.style;
+			removeButtonStyle.flexGrow = new StyleFloat(1f);
 
-            var removeButtonStyle = removeButton.style;
-            removeButtonStyle.flexGrow = new StyleFloat(1f);
+			var buttonContainer = new VisualElement();
+			var containerStyle  = buttonContainer.style;
+			containerStyle.flexDirection  = new StyleEnum<FlexDirection>(FlexDirection.Row);
+			containerStyle.justifyContent = new StyleEnum<Justify>(Justify.SpaceBetween);
 
-            var buttonContainer = new VisualElement();
-            var containerStyle = buttonContainer.style;
-            containerStyle.flexDirection = new StyleEnum<FlexDirection>(FlexDirection.Row);
-            containerStyle.justifyContent = new StyleEnum<Justify>(Justify.SpaceBetween);
+			buttonContainer.Add(addButton);
+			buttonContainer.Add(removeButton);
 
-            buttonContainer.Add(addButton);
-            buttonContainer.Add(removeButton);
+			m_ScrollView.contentContainer.Add(buttonContainer);
+		}
 
-            m_ScrollView.contentContainer.Add(buttonContainer);
-        }
+		private void HandleAddBehaviourButtonClick()
+		{
+			var behavioursArray = m_SerializedNode.FindProperty(BEHAVIOURS_ARRAY_NAME);
+			var arraySize       = behavioursArray.arraySize;
 
-        private void HandleAddBehaviourButtonClick()
-        {
-            var behavioursArray = m_SerializedNode.FindProperty(BEHAVIOURS_ARRAY_NAME);
-            var arraySize = behavioursArray.arraySize;
+			behavioursArray.InsertArrayElementAtIndex(arraySize);
 
-            behavioursArray.InsertArrayElementAtIndex(arraySize);
+			var newElement = behavioursArray.GetArrayElementAtIndex(arraySize);
+			var previousElementTypeName = newElement.objectReferenceValue != null
+				? newElement.objectReferenceValue.GetType().Name
+				: null;
 
-            var newElement = behavioursArray.GetArrayElementAtIndex(arraySize);
-            var previousElementTypeName = newElement.objectReferenceValue != null
-                                            ? newElement.objectReferenceValue.GetType().Name
-                                            : null;
+			newElement.objectReferenceValue = null;
 
-            newElement.objectReferenceValue = null;
+			HandleBehaviourSelected(previousElementTypeName, arraySize);
+		}
 
-            HandleBehaviourSelected(previousElementTypeName, arraySize);
+		private void HandleRemoveBehaviourButtonClick()
+		{
+			var behavioursArray = m_SerializedNode.FindProperty(BEHAVIOURS_ARRAY_NAME);
+			var arraySize       = behavioursArray.arraySize;
 
-        }
+			if (arraySize == 0)
+				return;
 
-        private void HandleRemoveBehaviourButtonClick()
-        {
-            var behavioursArray = m_SerializedNode.FindProperty(BEHAVIOURS_ARRAY_NAME);
-            var arraySize = behavioursArray.arraySize;
+			var elementAtIndex = behavioursArray.GetArrayElementAtIndex(arraySize - 1);
 
-            if (arraySize == 0)
-                return;
+			if (elementAtIndex.objectReferenceValue != null)
+			{
+				AssetDatabase.RemoveObjectFromAsset(elementAtIndex.objectReferenceValue);
+				AssetDatabase.SaveAssets();
+			}
 
-            var elementAtIndex = behavioursArray.GetArrayElementAtIndex(arraySize - 1);
+			behavioursArray.DeleteArrayElementAtIndex(arraySize - 1);
 
-            if (elementAtIndex.objectReferenceValue != null)
-            {
-                AssetDatabase.RemoveObjectFromAsset(elementAtIndex.objectReferenceValue);
-                AssetDatabase.SaveAssets();
-            }
+			m_SerializedNode.ApplyModifiedProperties();
+			UpdateSelection(m_SelectedNodeView);
+		}
 
-            behavioursArray.DeleteArrayElementAtIndex(arraySize - 1);
+		private VisualElement DisplayBehaviourSelector(List<string> choices, int index)
+		{
+			Func<string, string> convertedHandler = (choice) => { return HandleBehaviourSelected(choice, index); };
 
-            m_SerializedNode.ApplyModifiedProperties();
-            UpdateSelection(m_SelectedNodeView);
-        }
+			var choiceIndex = m_NodeData.behaviours[index] != null
+				? choices.IndexOf(m_NodeData.behaviours[index].GetType().Name)
+				: 0;
+			var behaviourSelector = new DropdownField("Behaviour:", choices, choiceIndex, convertedHandler);
 
-        private VisualElement DisplayBehaviourSelector(List<string> choices, int index)
-        {
-            Func<string, string> convertedHandler = (choice) =>
-            {
-                return HandleBehaviourSelected(choice, index);
-            };
+			return behaviourSelector;
+		}
 
-            var choiceIndex = m_NodeData.behaviours[index] != null ? choices.IndexOf(m_NodeData.behaviours[index].GetType().Name) : 0;
-            var behaviourSelector = new DropdownField("Behaviour:", choices, choiceIndex, convertedHandler);
+		private VisualElement DisplayBehaviourEditor(int index)
+		{
+			var behaviourAtIndex = m_SerializedNode
+				.FindProperty(BEHAVIOURS_ARRAY_NAME)
+				.GetArrayElementAtIndex(index);
 
-            return behaviourSelector;
-        }
+			var behaviourEditor = Editor.CreateEditor(behaviourAtIndex.objectReferenceValue);
+			var editorContainer = new IMGUIContainer(() =>
+			{
+				if (behaviourAtIndex.objectReferenceValue != null)
+					behaviourEditor.OnInspectorGUI();
+			});
 
-        private VisualElement DisplayBehaviourEditor(int index)
-        {
-            var behaviourAtIndex = m_SerializedNode
-                                        .FindProperty(BEHAVIOURS_ARRAY_NAME)
-                                        .GetArrayElementAtIndex(index);
+			return editorContainer;
+		}
 
-            var behaviourEditor = Editor.CreateEditor(behaviourAtIndex.objectReferenceValue);
-            var editorContainer = new IMGUIContainer(() =>
-            {
-                if (behaviourAtIndex.objectReferenceValue != null)
-                    behaviourEditor.OnInspectorGUI();
-            });
+		private string HandleBehaviourSelected(string selectedBehaviourClassName, int arrayIndex)
+		{
+			var targetBehaviourClassName = selectedBehaviourClassName;
 
-            return editorContainer;
-        }
+			if (string.IsNullOrEmpty(targetBehaviourClassName))
+				targetBehaviourClassName = TypeCache
+					.GetTypesDerivedFrom(typeof(NodeAction))
+					.Where(t => !t.IsAbstract)
+					.ElementAt(0).Name;
 
-        private string HandleBehaviourSelected(string selectedBehaviourClassName, int arrayIndex)
-        {
-            var targetBehaviourClassName = selectedBehaviourClassName;
+			var behaviourProperty = m_SerializedNode.FindProperty(BEHAVIOURS_ARRAY_NAME);
+			var behaviourAtIndex  = behaviourProperty.GetArrayElementAtIndex(arrayIndex);
 
-            if (string.IsNullOrEmpty(targetBehaviourClassName))
-                targetBehaviourClassName = TypeCache
-                            .GetTypesDerivedFrom(typeof(NodeAction))
-                            .Where(t => !t.IsAbstract)
-                            .ElementAt(0).Name;
+			var selectedBehaviour = TypeCache
+				.GetTypesDerivedFrom(typeof(NodeAction))
+				.Where(t => !t.IsAbstract)
+				.First(t => t.Name == targetBehaviourClassName);
 
-            var behaviourProperty = m_SerializedNode.FindProperty(BEHAVIOURS_ARRAY_NAME);
-            var behaviourAtIndex = behaviourProperty.GetArrayElementAtIndex(arrayIndex);
+			if (behaviourAtIndex.objectReferenceValue == null
+			    || behaviourAtIndex.objectReferenceValue.GetType() != selectedBehaviour)
+			{
+				var behaviourInstance = NodeAction.CreateInstance(selectedBehaviour) as NodeAction;
+				behaviourInstance.name = StoryEditorWindow.GetNodeActionName(m_NodeData, selectedBehaviour, arrayIndex);
 
-            var selectedBehaviour = TypeCache
-                            .GetTypesDerivedFrom(typeof(NodeAction))
-                            .Where(t => !t.IsAbstract)
-                            .First(t => t.Name == targetBehaviourClassName);
+				if (behaviourAtIndex.objectReferenceValue != null)
+				{
+					AssetDatabase.RemoveObjectFromAsset(behaviourAtIndex.objectReferenceValue);
+				}
 
-            if (behaviourAtIndex.objectReferenceValue == null
-                || behaviourAtIndex.objectReferenceValue.GetType() != selectedBehaviour)
-            {
-                var behaviourInstance = NodeAction.CreateInstance(selectedBehaviour) as NodeAction;
-                behaviourInstance.name = StoryEditorWindow.GetNodeActionName(m_NodeData, selectedBehaviour, arrayIndex);
+				AssetDatabase.AddObjectToAsset(behaviourInstance, m_NodeData);
+				AssetDatabase.SaveAssets();
 
-                if (behaviourAtIndex.objectReferenceValue != null)
-                {
-                    AssetDatabase.RemoveObjectFromAsset(behaviourAtIndex.objectReferenceValue);
-                }
+				behaviourAtIndex.objectReferenceValue = behaviourInstance;
+				m_SerializedNode.ApplyModifiedProperties();
 
-                AssetDatabase.AddObjectToAsset(behaviourInstance, m_NodeData);
-                AssetDatabase.SaveAssets();
+				UpdateSelection(m_SelectedNodeView);
 
-                behaviourAtIndex.objectReferenceValue = behaviourInstance;
-                m_SerializedNode.ApplyModifiedProperties();
+				m_SelectedNodeView.UpdateTitle();
+			}
 
-                UpdateSelection(m_SelectedNodeView);
+			return targetBehaviourClassName;
+		}
 
-                m_SelectedNodeView.UpdateTitle();
-            }
+		private VisualElement DisplayBehaviourContainer()
+		{
+			var behaviourContainer = new VisualElement();
+			var bContainerStyle    = behaviourContainer.style;
 
-            return targetBehaviourClassName;
-        }
+			//behaviourContainerStyle.backgroundColor = new StyleColor(new UnityEngine.Color(0.12f, 0.12f, 0.12f, 1.12f));
+			bContainerStyle.SetBorderRadius(new StyleLength(3f));
+			bContainerStyle.SetBorder(new StyleFloat(2f));
+			bContainerStyle.SetBorderColor(new UnityEngine.Color(0.12f, 0.12f, 0.12f, 1.0f));
+			bContainerStyle.SetPadding(new StyleLength(3f));
+			bContainerStyle.SetMargin(new StyleLength(3f), new StyleLength(0f));
 
-        private VisualElement DisplayBehaviourContainer()
-        {
-            var behaviourContainer = new VisualElement();
-            var bContainerStyle = behaviourContainer.style;
+			return behaviourContainer;
+		}
 
-            //behaviourContainerStyle.backgroundColor = new StyleColor(new UnityEngine.Color(0.12f, 0.12f, 0.12f, 1.12f));
-            bContainerStyle.borderBottomLeftRadius
-                = bContainerStyle.borderBottomRightRadius
-                = bContainerStyle.borderTopLeftRadius
-                = bContainerStyle.borderTopRightRadius
-                = new StyleLength(3f);
+		private void DisplaySeparator()
+		{
+			var separator = new VisualElement();
+			var sStyle    = separator.style;
+			sStyle.height          = new StyleLength(2f);
+			sStyle.marginTop       = sStyle.marginBottom = new StyleLength(2f);
+			sStyle.backgroundColor = new StyleColor(new UnityEngine.Color(0.5f, 0.5f, 0.5f, 1f));
 
-            bContainerStyle.borderRightWidth
-                = bContainerStyle.borderTopWidth
-                = bContainerStyle.borderLeftWidth
-                = bContainerStyle.borderBottomWidth
-                = new StyleFloat(2f);
+			m_ScrollView.contentContainer.Add(separator);
+		}
 
-            bContainerStyle.borderRightColor
-                = bContainerStyle.borderLeftColor
-                = bContainerStyle.borderTopColor
-                = bContainerStyle.borderBottomColor
-                = new StyleColor(new UnityEngine.Color(0.12f, 0.12f, 0.12f, 1.0f));
-
-            bContainerStyle.paddingBottom
-                = bContainerStyle.paddingLeft
-                = bContainerStyle.paddingRight
-                = bContainerStyle.paddingTop
-                = bContainerStyle.marginBottom
-                = bContainerStyle.marginTop
-                = new StyleLength(3f);
-
-            return behaviourContainer;
-        }
-
-        private void DisplaySeparator()
-        {
-            var separator = new VisualElement();
-            var sStyle = separator.style;
-            sStyle.height = new StyleLength(2f);
-            sStyle.marginTop = sStyle.marginBottom = new StyleLength(2f);
-            sStyle.backgroundColor = new StyleColor(new UnityEngine.Color(0.5f, 0.5f, 0.5f, 1f));
-
-            m_ScrollView.contentContainer.Add(separator);
-        }
-
-        #endregion
-    }
+#endregion
+	}
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 11a3bf960583f99478bb0fd7cf4f5ffb
   nextNodes:
   - 6e61c0f7031c70049bedf023425ec1b0
-  position: {x: -797.31683, y: 244}
+  position: {x: -740.79456, y: 249.6}
   behaviours: []
   character:
     rid: 5074071876311187473
@@ -51,12 +51,12 @@ MonoBehaviour:
   id: 6e61c0f7031c70049bedf023425ec1b0
   nextNodes:
   - 45e404ad2bf24914aaf58bcb82250adb
-  position: {x: -245.0643, y: 244.00006}
+  position: {x: -188.79443, y: 267.20004}
   behaviours: []
   character:
     rid: 5074071876311187481
   emotion:
-    rid: 5074071876311187483
+    rid: 7354405711670935562
   localized: 'You have me at a disadvantage, Gentleman. I do not know you, and clearly
     you must confuse me with someone else. I have never killed anyone.
 
@@ -68,7 +68,7 @@ MonoBehaviour:
       type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         character: {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
-    - rid: 5074071876311187483
+    - rid: 7354405711670935562
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: emot.dracula.sad
@@ -90,21 +90,21 @@ MonoBehaviour:
   position: {x: -1796.1982, y: -87.99993}
   behaviours: []
   character:
-    rid: 5074071876311187460
+    rid: 7354405711670935558
   emotion:
-    rid: 5074071876311187462
+    rid: 7354405711670935560
   localized: You have the nerve to creep in to my house like a common burglar?
   references:
     version: 2
     RefIds:
-    - rid: 5074071876311187460
+    - rid: 7354405711670935558
       type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         character: {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
-    - rid: 5074071876311187462
+    - rid: 7354405711670935560
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
-        emotion: emot.dracula.normal
+        emotion: emot.dracula.angry
 --- !u!114 &-6429369090029268442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   id: b6381606bdb1c604ebec7807eed397cf
   nextNodes:
   - 
-  position: {x: 235.99997, y: 633}
+  position: {x: 292.00537, y: 656}
   behaviours: []
   character:
     rid: 5074071876311187491
@@ -170,8 +170,9 @@ MonoBehaviour:
   - f271a89d4a23fa941b842be2aff48abd
   - 11a3bf960583f99478bb0fd7cf4f5ffb
   - f587092927eea784fb02bdfee08884b5
-  position: {x: -1384.3918, y: -88.000015}
-  behaviours: []
+  position: {x: -1336.0936, y: -88}
+  behaviours:
+  - {fileID: -1518384098909752071}
   character:
     rid: 5074071876311187478
   emotion:
@@ -192,6 +193,73 @@ MonoBehaviour:
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: emot.dracula.angry
+--- !u!114 &-1518384098909752071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
+  m_Name: node.dcf11d.Choice.SetVariable.0
+  m_EditorClassIdentifier: 
+  executeOnce: 1
+  variableReference:
+    rid: 7354405711670935563
+  variableValue: "\u0432\u0430\u043F\u0432\u0430"
+  references:
+    version: 2
+    RefIds:
+    - rid: 7354405711670935563
+      type: {class: VariableReference, ns: Self.StoryV2, asm: Self.Core.Story}
+      data:
+        variable: {fileID: 7522731810625360659}
+--- !u!114 &-1448394095862481783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
+  m_Name: node.36b9ec.Replica.SetVariable.0
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  variableReference:
+    rid: -2
+  variableValue: 
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-1041709349971542336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
+  m_Name: node.45e404.Replica.SetVariable.0
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  variableReference:
+    rid: 7354405711670935564
+  variableValue: 
+  references:
+    version: 2
+    RefIds:
+    - rid: 7354405711670935564
+      type: {class: VariableReference, ns: Self.StoryV2, asm: Self.Core.Story}
+      data:
+        variable: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +270,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19c243d6803f4918bd02822bc04dd036, type: 3}
-  m_Name: asd
+  m_Name: Story
   m_EditorClassIdentifier: 
   chapterName: Chapter Test
   startNode: 
@@ -250,12 +318,12 @@ MonoBehaviour:
   id: f271a89d4a23fa941b842be2aff48abd
   nextNodes:
   - 6e61c0f7031c70049bedf023425ec1b0
-  position: {x: -797, y: -111.13058}
+  position: {x: -740.8, y: -197.635}
   behaviours: []
   character:
     rid: 5074071876311187466
   emotion:
-    rid: 5074071876311187468
+    rid: 7354405711670935554
   localized: Dracula speaking about courtesy? You are but a killer! You shall learn
     of my name, though now is not the time.
   references:
@@ -265,7 +333,7 @@ MonoBehaviour:
       type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         character: {fileID: 11400000, guid: 901d2c8a4c007524894506962b21cc92, type: 2}
-    - rid: 5074071876311187468
+    - rid: 7354405711670935554
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: emot.alucard.normal
@@ -284,8 +352,9 @@ MonoBehaviour:
   id: 45e404ad2bf24914aaf58bcb82250adb
   nextNodes:
   - 
-  position: {x: 236, y: 243.99998}
-  behaviours: []
+  position: {x: 292.00537, y: 267.20004}
+  behaviours:
+  - {fileID: -1041709349971542336}
   character:
     rid: 5074071876311187487
   emotion:
@@ -341,8 +410,9 @@ MonoBehaviour:
   id: 36b9ec349d6f5ff4ab15bc525ee26ec9
   nextNodes:
   - b6381606bdb1c604ebec7807eed397cf
-  position: {x: -245.00024, y: 633}
-  behaviours: []
+  position: {x: -188.79443, y: 656}
+  behaviours:
+  - {fileID: -1448394095862481783}
   character:
     rid: 5074071876311187484
   emotion:
@@ -393,7 +463,7 @@ MonoBehaviour:
   id: f587092927eea784fb02bdfee08884b5
   nextNodes:
   - 36b9ec349d6f5ff4ab15bc525ee26ec9
-  position: {x: -797.0001, y: 633}
+  position: {x: -740.79456, y: 656}
   behaviours:
   - {fileID: 3800574330011510458}
   character:
