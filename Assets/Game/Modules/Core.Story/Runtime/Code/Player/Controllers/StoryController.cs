@@ -21,6 +21,7 @@ namespace Self.Story
 		public event Action<string>   OnStoryBroken;
 
 		private string _nextNodeID;
+		private bool _nodeInProgress;
 		
 		public abstract override void Init();
 		public abstract override void Dispose();
@@ -54,8 +55,9 @@ namespace Self.Story
 				return;
 			}
 
-			_nextNodeID = null;
-			ActiveController.Enter(node, SetNode);
+			_nextNodeID     = null;
+			_nodeInProgress = true;
+			ActiveController.Enter(node, HandleNext);
 			if (node is ActiveNode activeNode)
 			{
 				foreach (var actionData in activeNode.actions)
@@ -64,13 +66,18 @@ namespace Self.Story
 					action.Execute(node);
 				}
 			}
+			_nodeInProgress = false;
 			if (_nextNodeID != null)
-				HandleNext(_nextNodeID);
+				SetNode(_nextNodeID);
 		}
+		
+		
 		
 		private void HandleNext(string nextNode)
 		{
 			_nextNodeID = nextNode;
+			if (!_nodeInProgress)
+				SetNode(_nextNodeID);
 		}
 	}
 }
