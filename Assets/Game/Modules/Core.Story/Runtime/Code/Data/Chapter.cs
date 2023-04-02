@@ -17,26 +17,25 @@ namespace Self.Story
 
 		[NonSerialized] public Dictionary<string, Node> nodesByID = new();
 
-		
-		
+
 		public void AddNode(Node node)
 		{
 			nodes.Add(node);
 			nodesByID.Add(node.id, node);
 		}
-		
+
 		public void RemoveNode(string nodeId)
 		{
 			nodes.Remove(nodesByID[nodeId]);
 			nodesByID.Remove(nodeId);
 		}
-		
+
 		public void RemoveNode(Node node)
 		{
 			nodes.Remove(node);
 			nodesByID.Remove(node.id);
 		}
-		
+
 		void ISerializationCallbackReceiver.OnBeforeSerialize()
 		{
 		}
@@ -45,7 +44,8 @@ namespace Self.Story
 		{
 			nodesByID.Clear();
 			foreach (var node in nodes)
-				nodesByID.Add(node.id, node);
+				if (node != null)
+					nodesByID.Add(node.id, node);
 		}
 	}
 }

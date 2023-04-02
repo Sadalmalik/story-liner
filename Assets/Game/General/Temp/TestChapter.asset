@@ -188,10 +188,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19c243d6803f4918bd02822bc04dd036, type: 3}
-  m_Name: Story
+  m_Name: TestChapter
   m_EditorClassIdentifier: 
-  chapterName: Chapter Test
-  startNode: 
+  book: {fileID: 11400000, guid: 5210043612696434a9499cb5ef23dd3b, type: 2}
+  chapterName: TestChapter
+  startNodeID: 
   nodes:
   - {fileID: -6451538739170824353}
   - {fileID: 1541727951907265767}
@@ -202,11 +203,6 @@ MonoBehaviour:
   - {fileID: 4849401045802377636}
   - {fileID: 3496594616109006797}
   - {fileID: -4338213197599957453}
-  variables: {fileID: 1315758339406588307}
-  characters:
-  - {fileID: 11400000, guid: 901d2c8a4c007524894506962b21cc92, type: 2}
-  - {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
-
 --- !u!114 &1541727951907265767
 MonoBehaviour:
   m_ObjectHideFlags: 0

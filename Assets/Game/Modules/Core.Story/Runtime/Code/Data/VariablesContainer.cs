@@ -9,17 +9,11 @@ namespace Self.Story
 	{
 #region Data
 
-		[SerializeField]
-		private List<Variable> _variables;
-		public  List<Variable> Variables => _variables;
+		[SerializeField] private List<Variable> _variables = new();
 
-		[field: NonSerialized] public Dictionary<string, Variable> VariablesById { get; private set; }
+		public List<Variable> Variables => _variables;
 
-		public VariablesContainer()
-		{
-			_variables   = new List<Variable>();
-			VariablesById = new Dictionary<string, Variable>();
-		}
+		[field: NonSerialized] public Dictionary<string, Variable> VariablesById { get; private set; } = new();
 
 #endregion
 
@@ -69,6 +63,7 @@ namespace Self.Story
 
 		void ISerializationCallbackReceiver.OnAfterDeserialize()
 		{
+			VariablesById.Clear();
 			foreach (var variable in Variables)
 				VariablesById.Add(variable.id, variable);
 		}
