@@ -7,9 +7,8 @@ using UnityEngine;
 namespace Self.Story.Editors
 {
 	[CustomEditor(typeof(VariablesContainer))]
-	public class VariableContainerEditor : Editor
+	public class VariableContainerEditor : NestedEditor
 	{
-		private SerializedObject         m_ParentObject;
 		private SerializedProperty       m_VariablesListProperty;
 		private List<SerializedProperty> m_VariablesList;
 		private Dictionary<string, Type> m_VariableTypes;
@@ -23,18 +22,19 @@ namespace Self.Story.Editors
 		private int    m_ElementForDeletion = -1;
 
 
-		private void OnEnable()
+		protected override void OnEnable()
 		{
+			base.OnEnable();
+			
 			m_SerializedObjects = new Dictionary<SerializedProperty, SerializedObject>();
 			m_SortingActions    = CreateSortingActions();
 
 			var parentObjectPath = AssetDatabase.GetAssetPath(serializedObject.targetObject);
-			var parentObject     = AssetDatabase.LoadAssetAtPath(parentObjectPath, typeof(Book));
 
-			m_ParentObject           = new SerializedObject(parentObject);
 			m_VariablePropertyDrawer = new VariablePropertyDrawer(this);
-			m_VariablesListProperty  = serializedObject.FindProperty("_variables"); //nameof(VariablesContainer._variables));
-			m_VariablesList          = FillVariablesList(m_VariablesListProperty);
+			m_VariablesListProperty =
+				serializedObject.FindProperty("_variables"); //nameof(VariablesContainer._variables));
+			m_VariablesList = FillVariablesList(m_VariablesListProperty);
 
 			m_VariableTypes = new Dictionary<string, Type>();
 
@@ -89,10 +89,7 @@ namespace Self.Story.Editors
 			EditorGUILayout.EndVertical();
 
 			if (EditorGUI.EndChangeCheck())
-			{
-				serializedObject.ApplyModifiedProperties();
-				m_ParentObject.ApplyModifiedProperties();
-			}
+				ApplyModifiedProperties();
 		}
 
 		private void DrawLayout()
@@ -205,12 +202,13 @@ namespace Self.Story.Editors
 		private void AddVariable(object typeName)
 		{
 			var type        = m_VariableTypes[(string) typeName];
-			var newVariable = ScriptableObject.CreateInstance(type);
-			newVariable.name = $".variables.{type.Name}.some-var";
 
-			AssetDatabase.AddObjectToAsset(newVariable, AssetDatabase.GetAssetPath(serializedObject.targetObject));
-			AssetDatabase.SaveAssets();
-
+			var newVariable = (Variable) ScriptableUtils.AddToAsset(
+				type,
+				serializedObject.targetObject,
+				$".variables.{type.Name}.unnamed");
+			newVariable.id = "unnamed";
+			
 			var newIndex = m_VariablesListProperty.arraySize;
 
 			m_VariablesListProperty.InsertArrayElementAtIndex(newIndex);
@@ -218,8 +216,7 @@ namespace Self.Story.Editors
 			var newVariableProperty = m_VariablesListProperty.GetArrayElementAtIndex(newIndex);
 			newVariableProperty.objectReferenceValue = newVariable;
 
-			serializedObject.ApplyModifiedProperties();
-			m_ParentObject.ApplyModifiedProperties();
+			ApplyModifiedProperties();
 
 			m_VariablesList.Add(m_VariablesListProperty.GetArrayElementAtIndex(newIndex));
 
@@ -240,8 +237,7 @@ namespace Self.Story.Editors
 			m_VariablesListProperty.DeleteArrayElementAtIndex(m_ElementForDeletion);
 			m_VariablesList = FillVariablesList(m_VariablesListProperty);
 
-			serializedObject.ApplyModifiedProperties();
-			m_ParentObject.ApplyModifiedProperties();
+			ApplyModifiedProperties();
 
 			AssetDatabase.SaveAssets();
 

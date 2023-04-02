@@ -64,9 +64,6 @@ namespace Self.Story.Editors
 
 			graphViewChanged += OnGraphViewChanged;
 
-			if (m_CurrentChapter.nodes == null)
-				m_CurrentChapter.nodes = new List<Node>();
-
 			var chapterNodes = m_CurrentChapter.nodes;
 
 			chapterNodes.ForEach(CreateNodeView);
@@ -115,7 +112,7 @@ namespace Self.Story.Editors
 				args.elementsToRemove?.ForEach(OnGraphElementRemoved);
 				args.edgesToCreate?.ForEach(OnEdgeCreated);
 			}
-			catch (InvalidOperationException ex)
+			catch (InvalidOperationException)
 			{
 				Create(m_CurrentChapter);
 			}

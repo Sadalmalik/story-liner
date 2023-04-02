@@ -13,15 +13,24 @@ namespace Self.Story
 		public string chapterName;
 		public string startNodeID;
 
-		public List<Node> nodes;
+		public List<Node> nodes = new();
 
-		[NonSerialized] public Dictionary<string, Node> nodesByID;
+		[NonSerialized] public Dictionary<string, Node> nodesByID = new();
 
+		
+		
 		public void AddNode(Node node)
 		{
 			nodes.Add(node);
 			nodesByID.Add(node.id, node);
 		}
+		
+		public void RemoveNode(string nodeId)
+		{
+			nodes.Remove(nodesByID[nodeId]);
+			nodesByID.Remove(nodeId);
+		}
+		
 		public void RemoveNode(Node node)
 		{
 			nodes.Remove(node);
@@ -34,7 +43,7 @@ namespace Self.Story
 
 		void ISerializationCallbackReceiver.OnAfterDeserialize()
 		{
-			nodesByID = new Dictionary<string, Node>();
+			nodesByID.Clear();
 			foreach (var node in nodes)
 				nodesByID.Add(node.id, node);
 		}

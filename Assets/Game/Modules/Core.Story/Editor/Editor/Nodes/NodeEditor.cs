@@ -77,15 +77,15 @@ namespace Self.Story.Editors
 
 			return propDrawer.CreatePropertyGUI(actionProperty);
 
-			var editor = Editor.CreateEditor(actionProperty.objectReferenceValue);
-
-			var imguiContainer = new IMGUIContainer(() =>
-			{
-				if (actionProperty.objectReferenceValue != null)
-					editor.OnInspectorGUI();
-			});
-
-			return imguiContainer;
+			// var editor = Editor.CreateEditor(actionProperty.objectReferenceValue);
+			//
+			// var imguiContainer = new IMGUIContainer(() =>
+			// {
+			// 	if (actionProperty.objectReferenceValue != null)
+			// 		editor.OnInspectorGUI();
+			// });
+			//
+			// return imguiContainer;
 		}
 
 		private void HandleAddButton()
