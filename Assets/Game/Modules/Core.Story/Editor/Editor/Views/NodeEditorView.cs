@@ -231,7 +231,7 @@ namespace Self.Story.Editors
 
 		public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
 		{
-			var allTypes     = TypeCache.GetTypesDerivedFrom<Node>();
+			var allTypes     = TypeCache.GetTypesDerivedFrom<BaseNode>();
 			var concreteType = allTypes.Where(t => !t.IsAbstract);
 
 			foreach (var t in concreteType)
@@ -243,7 +243,9 @@ namespace Self.Story.Editors
 				//else
 				//    UnityEngine.Debug.LogError($"Node {t.Name} is missing NodeInfoAttribute");
 
-				evt.menu.AppendAction($"Create/{t.Name}", a => CreateNode(t, a.eventInfo.mousePosition));
+				evt.menu.AppendAction(
+					$"Create/{t.Name}",
+					action => CreateNode(t, action.eventInfo.mousePosition));
 			}
 		}
 
