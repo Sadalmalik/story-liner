@@ -12,12 +12,12 @@ namespace Self.Story
 			OnNext?.Invoke(nodeId);
 		}
 
-		public abstract void SetNode(Node node);
+		public abstract void SetNode(BaseNode node);
 	}
 
 	public class ReplicaWidget : StoryNodeWidget
 	{
-		public override void SetNode(Node node)
+		public override void SetNode(BaseNode node)
 		{
 			var replica = node as ReplicaNode;
 		}
@@ -25,7 +25,7 @@ namespace Self.Story
 
 	public class ChoiceWidget : StoryNodeWidget
 	{
-		public override void SetNode(Node node)
+		public override void SetNode(BaseNode node)
 		{
 			var choice = node as ChoiceNode;
 		}

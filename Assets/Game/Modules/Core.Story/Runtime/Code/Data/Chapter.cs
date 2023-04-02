@@ -13,12 +13,12 @@ namespace Self.Story
 		public string chapterName;
 		public string startNodeID;
 
-		public List<Node> nodes = new();
+		public List<BaseNode> nodes = new();
 
-		[NonSerialized] public Dictionary<string, Node> nodesByID = new();
+		[NonSerialized] public Dictionary<string, BaseNode> nodesByID = new();
 
 
-		public void AddNode(Node node)
+		public void AddNode(BaseNode node)
 		{
 			nodes.Add(node);
 			nodesByID.Add(node.id, node);
@@ -30,7 +30,7 @@ namespace Self.Story
 			nodesByID.Remove(nodeId);
 		}
 
-		public void RemoveNode(Node node)
+		public void RemoveNode(BaseNode node)
 		{
 			nodes.Remove(node);
 			nodesByID.Remove(node.id);

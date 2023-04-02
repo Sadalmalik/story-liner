@@ -21,7 +21,7 @@ namespace Self.Story.Editors
 		}
 	}
 
-	[CustomPropertyDrawer(typeof(NodeAction), true)]
+	[CustomPropertyDrawer(typeof(BaseAction), true)]
 	public class NodeActionPropertyDrawer : PropertyDrawer
 	{
 		private const BindingFlags BINDING_FLAGS = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;

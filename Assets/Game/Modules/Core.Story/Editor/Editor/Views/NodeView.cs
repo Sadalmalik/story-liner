@@ -15,7 +15,7 @@ namespace Self.Story.Editors
 		public event Action<NodeView>      OnNodeSelected;
 		public event Action<NodeView, int> OnNodePortDisconnected;
 
-		public Node   Node { get; private set; }
+		public BaseNode   Node { get; private set; }
 		public string Guid { get; private set; }
 
 		public Port       InputPort;
@@ -25,7 +25,7 @@ namespace Self.Story.Editors
 		public  Chapter       CurrentChapter { get; private set; }
 
 
-		public static NodeView Create(Node node, Chapter chapter)
+		public static NodeView Create(BaseNode node, Chapter chapter)
 		{
 			// To avoid absolute paths
 			var uiFileAsset = Resources.Load("Styles/StoryNodeView");

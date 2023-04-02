@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 namespace Self.Story.Editors
 {
-	[CustomEditor(typeof(Node), true)]
+	[CustomEditor(typeof(BaseNode), true)]
 	public class NodeEditor : Editor
 	{
 		private const string NODE_GUI_ROOT_NAME     = "node-editor-container";
@@ -26,8 +26,8 @@ namespace Self.Story.Editors
 
 		protected virtual void OnEnable()
 		{
-			m_NextNodesProperty   = serializedObject.FindProperty(nameof(Node.nextNodes));
-			m_NodeActionsProperty = serializedObject.FindProperty(nameof(Node.behaviours));
+			m_NextNodesProperty   = serializedObject.FindProperty(nameof(BaseNode.nextNodes));
+			m_NodeActionsProperty = serializedObject.FindProperty(nameof(BaseNode.behaviours));
 		}
 
 		public override void OnInspectorGUI()
@@ -90,7 +90,7 @@ namespace Self.Story.Editors
 
 		private void HandleAddButton()
 		{
-			var actions = TypeCache.GetTypesDerivedFrom(typeof(NodeAction));
+			var actions = TypeCache.GetTypesDerivedFrom(typeof(BaseAction));
 
 			// maybe show a drop down menu right away
 			var dropDownMenu = new GenericMenu();
@@ -179,7 +179,7 @@ namespace Self.Story.Editors
 
 			var newActionProperty = m_NodeActionsProperty.GetArrayElementAtIndex(arraySize);
 			var newNodeAction     = ScriptableObject.CreateInstance(resultType);
-			newNodeAction.name = StoryEditorWindow.GetNodeActionName(serializedObject.targetObject as Node,
+			newNodeAction.name = StoryEditorWindow.GetNodeActionName(serializedObject.targetObject as BaseNode,
 				resultType, arraySize);
 
 			AssetDatabase.AddObjectToAsset(newNodeAction, serializedObject.targetObject);

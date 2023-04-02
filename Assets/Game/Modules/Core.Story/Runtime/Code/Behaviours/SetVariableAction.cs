@@ -9,7 +9,7 @@ namespace Self.Story
 		public Variable variable;
 	}
 
-	public class SetVariableAction : NodeAction
+	public class SetVariableAction : BaseAction
 	{
 		[DisplayOnNode(1), SerializeReference] public VariableReference variableReference;
 		[DisplayOnNode(2)]                     public string            variableValue;

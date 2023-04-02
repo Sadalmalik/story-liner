@@ -8,6 +8,7 @@ namespace Self.Story
 	{
 		public string  id;
 		public Vector2 position;
+
 		[HideInInspector]
 		public List<string> nextNodes = new();
 	}

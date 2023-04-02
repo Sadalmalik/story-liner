@@ -102,9 +102,9 @@ namespace Self.Story.Editors
 
 #region NODE ACTIONS
 
-		public static Node CreateNode(Type type, Chapter chapter, Vector2 position)
+		public static BaseNode CreateNode(Type type, Chapter chapter, Vector2 position)
 		{
-			var newNode = ScriptableObject.CreateInstance(type) as Node;
+			var newNode = ScriptableObject.CreateInstance(type) as BaseNode;
 			newNode.id        = GUID.Generate().ToString();
 			newNode.position  = position;
 			newNode.UpdateName();
@@ -120,7 +120,7 @@ namespace Self.Story.Editors
 			return newNode;
 		}
 
-		public static void DeleteNode(Node target, Chapter chapter)
+		public static void DeleteNode(BaseNode target, Chapter chapter)
 		{
 			Undo.RecordObject(chapter, $"Chapter '{chapter.chapterName}' (Delete Node)");
 
@@ -161,14 +161,14 @@ namespace Self.Story.Editors
 			AssetDatabase.Refresh();
 		}
 
-		public static void ConnectNode(Node node, int index, string nextNodeId)
+		public static void ConnectNode(BaseNode node, int index, string nextNodeId)
 		{
 			node.nextNodes[index] = nextNodeId;
 
 			AssetDatabase.SaveAssets();
 		}
 
-		public static void DisconnectNode(Node node, int index)
+		public static void DisconnectNode(BaseNode node, int index)
 		{
 			if (index < 0 || index >= node.nextNodes.Count)
 				return;
@@ -178,7 +178,7 @@ namespace Self.Story.Editors
 			AssetDatabase.SaveAssets();
 		}
 
-		public static string GetNodeActionName(Node node, Type actionType, int index)
+		public static string GetNodeActionName(BaseNode node, Type actionType, int index)
 		{
 			var croppedId  = node.id.Substring(0, 6);
 			var nodeType   = node.GetType().Name.Replace("Node", string.Empty);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Self.Story
 {
-	public abstract class NodeAction : ScriptableObject, ICloneable
+	public abstract class BaseAction : ScriptableObject, ICloneable
 	{
 		[DisplayOnNode(0)] public bool executeOnce;
 

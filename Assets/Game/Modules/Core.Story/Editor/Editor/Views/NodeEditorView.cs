@@ -21,7 +21,7 @@ namespace Self.Story.Editors
 
 		private Chapter m_CurrentChapter;
 
-		private List<Node> m_NodesToCopy = new List<Node>();
+		private List<BaseNode> m_NodesToCopy = new List<BaseNode>();
 
 
 #region CONSTRUCTORS
@@ -156,7 +156,7 @@ namespace Self.Story.Editors
 			}
 		}
 
-		private void CreateNodeView(Node node)
+		private void CreateNodeView(BaseNode node)
 		{
 			try
 			{
@@ -192,7 +192,7 @@ namespace Self.Story.Editors
 					position - EditorWindow.position.position);
 			var localMousePosition = contentViewContainer.WorldToLocal(worldMousePosition) + new Vector2(150, 80);
 
-			Node node = StoryEditorWindow.CreateNode(a, m_CurrentChapter, localMousePosition);
+			BaseNode node = StoryEditorWindow.CreateNode(a, m_CurrentChapter, localMousePosition);
 
 			CreateNodeView(node);
 		}
@@ -272,7 +272,7 @@ namespace Self.Story.Editors
 
 		private void DuplicateSelection(List<ISelectable> selection)
 		{
-			List<Node> nodes = new List<Node>();
+			List<BaseNode> nodes = new List<BaseNode>();
 
 			selection.ForEach(x =>
 			{
@@ -306,14 +306,14 @@ namespace Self.Story.Editors
 			PasteNodes(m_NodesToCopy);
 		}
 
-		private void PasteNodes(List<Node> nodesToDuplicate)
+		private void PasteNodes(List<BaseNode> nodesToDuplicate)
 		{
 			List<string> clonedGuids = new List<string>();
 
 			Dictionary<string, string> clonedGuidToOldGuid = new Dictionary<string, string>();
 			Dictionary<string, string> oldGuidToClonedGuid = new Dictionary<string, string>();
 
-			List<Node> duplicatedNodes = new List<Node>();
+			List<BaseNode> duplicatedNodes = new List<BaseNode>();
 
 			foreach (var originalNode in nodesToDuplicate)
 			{
@@ -370,7 +370,7 @@ namespace Self.Story.Editors
 			m_NodesToCopy.Clear();
 		}
 
-		private void CopyNodeFields(Node src, Node dst)
+		private void CopyNodeFields(BaseNode src, BaseNode dst)
 		{
 			if (!src.GetType().Equals(dst.GetType()))
 				return;
@@ -395,7 +395,7 @@ namespace Self.Story.Editors
 					var cloneMethod = value.GetType().GetMethod(nameof(ICloneable.Clone));
 					var clonedValue = cloneMethod.Invoke(value, null);
 
-					if (clonedValue is NodeAction beh)
+					if (clonedValue is BaseAction beh)
 					{
 						beh.name = beh.name.Replace(croppedIdSrc, croppedIdDst);
 

@@ -8,14 +8,14 @@ namespace Self.Story.Editors
 {
 	public class InspectorView : VisualElement
 	{
-		private string BEHAVIOURS_ARRAY_NAME = nameof(Node.behaviours);
+		private string BEHAVIOURS_ARRAY_NAME = nameof(BaseNode.behaviours);
 
 		public new class UxmlFactory : UxmlFactory<InspectorView, UxmlTraits>
 		{
 		}
 
 		private NodeView         m_SelectedNodeView;
-		private Node             m_NodeData;
+		private BaseNode             m_NodeData;
 		private VisualElement    m_MainBehaviourEditor;
 		private SerializedObject m_SerializedNode;
 		private string           m_CroppedGuid => m_NodeData.id.Substring(0, 6);
@@ -55,7 +55,7 @@ namespace Self.Story.Editors
 			DisplayBehaviourArrayButtons();
 
 			var choices = TypeCache
-				.GetTypesDerivedFrom(typeof(NodeAction))
+				.GetTypesDerivedFrom(typeof(BaseAction))
 				.Where(t => !t.IsAbstract)
 				.Select(t => t.Name)
 				.ToList();
@@ -178,7 +178,7 @@ namespace Self.Story.Editors
 
 			if (string.IsNullOrEmpty(targetBehaviourClassName))
 				targetBehaviourClassName = TypeCache
-					.GetTypesDerivedFrom(typeof(NodeAction))
+					.GetTypesDerivedFrom(typeof(BaseAction))
 					.Where(t => !t.IsAbstract)
 					.ElementAt(0).Name;
 
@@ -186,14 +186,14 @@ namespace Self.Story.Editors
 			var behaviourAtIndex  = behaviourProperty.GetArrayElementAtIndex(arrayIndex);
 
 			var selectedBehaviour = TypeCache
-				.GetTypesDerivedFrom(typeof(NodeAction))
+				.GetTypesDerivedFrom(typeof(BaseAction))
 				.Where(t => !t.IsAbstract)
 				.First(t => t.Name == targetBehaviourClassName);
 
 			if (behaviourAtIndex.objectReferenceValue == null
 			    || behaviourAtIndex.objectReferenceValue.GetType() != selectedBehaviour)
 			{
-				var behaviourInstance = NodeAction.CreateInstance(selectedBehaviour) as NodeAction;
+				var behaviourInstance = BaseAction.CreateInstance(selectedBehaviour) as BaseAction;
 				behaviourInstance.name = StoryEditorWindow.GetNodeActionName(m_NodeData, selectedBehaviour, arrayIndex);
 
 				if (behaviourAtIndex.objectReferenceValue != null)

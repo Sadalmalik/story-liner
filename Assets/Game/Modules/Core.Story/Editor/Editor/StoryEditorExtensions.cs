@@ -4,7 +4,7 @@ namespace Self.Story.Editors
 {
 	public static class StoryEditorExtensions
 	{
-		public static void UpdateName(this Node node)
+		public static void UpdateName(this BaseNode node)
 		{
 			var croppedId = node.id.Substring(0, 8);
 			var nodeType  = node.GetType().Name.Replace("Node", string.Empty);
