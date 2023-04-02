@@ -15,18 +15,15 @@ namespace Self.Story
 		public BaseNode    CurrentNode    { get; private set; }
 		public string      CurrentNodeID  { get; private set; }
 
-		private NodeBaseController ActiveController;
+		public NodeBaseController ActiveController;
 
 		public event Action<BaseNode> OnNodeEnter;
 		public event Action<string>   OnStoryBroken;
 
+		private string _nextNodeID;
+		
 		public abstract override void Init();
 		public abstract override void Dispose();
-		
-		private void HandleNext(string nextNode)
-		{
-			SetNode(nextNode);
-		}
 
 		public void SetChapter(Chapter chapter, ChapterSave save)
 		{
@@ -56,9 +53,24 @@ namespace Self.Story
 				OnStoryBroken?.Invoke(CurrentNodeID);
 				return;
 			}
-			
-			// Так. Тут надо как-то прикрутить такую штуку как выполнение экшенов ПОСЛЕ запуска контроллера, но ДО вызова следующей ноды!!
+
+			_nextNodeID = null;
 			ActiveController.Enter(node, SetNode);
+			if (node is ActiveNode activeNode)
+			{
+				foreach (var actionData in activeNode.actions)
+				{
+					var action = actions.Get(actionData.GetType());
+					action.Execute(node);
+				}
+			}
+			if (_nextNodeID != null)
+				HandleNext(_nextNodeID);
+		}
+		
+		private void HandleNext(string nextNode)
+		{
+			_nextNodeID = nextNode;
 		}
 	}
 }

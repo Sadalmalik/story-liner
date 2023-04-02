@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Self.Story
 {
-	public class BaseNode : ScriptableObject
+	public abstract class BaseNode : ScriptableObject
 	{
 		public string  id;
 		public Vector2 position;

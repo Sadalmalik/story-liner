@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 namespace Self.Story
 {
 	public class ActiveNode : BaseNode
 	{
-		public List<BaseAction> behaviours;
+		[FormerlySerializedAs("behaviours")]
+		public List<BaseAction> actions;
 	}
 }
