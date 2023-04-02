@@ -1,14 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using Self.Architecture.DataStructures;
 using Self.Architecture.IOC;
 using UnityEngine;
 
 namespace Self.Story
 {
-	public abstract class BaseStoryController : SharedObject
+	public class StoryController : SharedObject
 	{
-		public TypeContainer<BaseNode, NodeBaseController>     controllers = new();
-		public TypeContainer<BaseAction, ActionBaseController> actions     = new();
+		private Dictionary<Type, NodeBaseController>   _controllersByNodeType = new();
+		private Dictionary<Type, ActionBaseController> _actionsByNodeType     = new();
+
+		private string _nextNodeID;
+		private bool   _nodeInProgress;
 
 		public ChapterSave CurrentSave    { get; private set; }
 		public Chapter     CurrentChapter { get; private set; }
@@ -20,11 +24,21 @@ namespace Self.Story
 		public event Action<BaseNode> OnNodeEnter;
 		public event Action<string>   OnStoryBroken;
 
-		private string _nextNodeID;
-		private bool _nodeInProgress;
-		
-		public abstract override void Init();
-		public abstract override void Dispose();
+
+		public override void Init()
+		{
+			var list = container.GetAll<NodeBaseController>();
+			foreach (var controller in list)
+				_controllersByNodeType.Add(controller.TargetType, controller);
+
+			var actions = container.GetAll<ActionBaseController>();
+			foreach (var action in actions)
+				_actionsByNodeType.Add(action.TargetType, action);
+		}
+
+		public override void Dispose()
+		{
+		}
 
 		public void SetChapter(Chapter chapter, ChapterSave save)
 		{
@@ -46,9 +60,7 @@ namespace Self.Story
 
 			ActiveController?.Exit();
 
-			ActiveController = controllers.Get(node.GetType());
-			
-			if (ActiveController == null)
+			if (!_controllersByNodeType.TryGetValue(node.GetType(), out ActiveController))
 			{
 				Debug.Log($"Story broken! No controller defined for node type '{node.GetType()}'");
 				OnStoryBroken?.Invoke(CurrentNodeID);
@@ -57,22 +69,20 @@ namespace Self.Story
 
 			_nextNodeID     = null;
 			_nodeInProgress = true;
+
 			ActiveController.Enter(node, HandleNext);
+
 			if (node is ActiveNode activeNode)
-			{
 				foreach (var actionData in activeNode.actions)
-				{
-					var action = actions.Get(actionData.GetType());
-					action.Execute(node);
-				}
-			}
+					if (_actionsByNodeType.TryGetValue(actionData.GetType(), out var action))
+						action.Execute(node);
+
 			_nodeInProgress = false;
 			if (_nextNodeID != null)
 				SetNode(_nextNodeID);
 		}
-		
-		
-		
+
+
 		private void HandleNext(string nextNode)
 		{
 			_nextNodeID = nextNode;
