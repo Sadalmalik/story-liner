@@ -8,7 +8,7 @@ namespace Self.Story
 {
 	public class StoryController : SharedObject
 	{
-		private Dictionary<Type, NodeBaseController>   _controllersByNodeType = new();
+		private Dictionary<Type, INodeController>   _controllersByNodeType = new();
 		private Dictionary<Type, ActionBaseController> _actionsByNodeType     = new();
 
 		private string _nextNodeID;
@@ -19,7 +19,7 @@ namespace Self.Story
 		public BaseNode    CurrentNode    { get; private set; }
 		public string      CurrentNodeID  { get; private set; }
 
-		public NodeBaseController ActiveController;
+		public INodeController ActiveController;
 
 		public event Action<BaseNode> OnNodeEnter;
 		public event Action<string>   OnStoryBroken;
@@ -27,7 +27,7 @@ namespace Self.Story
 
 		public override void Init()
 		{
-			var list = container.GetAll<NodeBaseController>();
+			var list = container.GetAll<INodeController>();
 			foreach (var controller in list)
 				_controllersByNodeType.Add(controller.TargetType, controller);
 
