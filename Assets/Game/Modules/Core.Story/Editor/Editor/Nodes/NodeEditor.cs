@@ -14,10 +14,12 @@ namespace Self.Story.Editors
 		private const string ACTIONS_CONTAINER_NAME = "node-actions-container";
 
 		protected SerializedProperty m_NextNodesProperty;
-		private   SerializedProperty m_NodeActionsProperty;
 
-		private VisualElement m_NodeActionsContainer;
-		private VisualElement m_NodeActionsEmptyContainer;
+		// TODO: [Andrei] move this to ActiveNode Editor class
+		//private   SerializedProperty m_NodeActionsProperty;
+
+		//private VisualElement m_NodeActionsContainer;
+		//private VisualElement m_NodeActionsEmptyContainer;
 
 		protected VisualElement m_Root;
 		protected VisualElement m_NodeGuiContainer;
@@ -27,7 +29,8 @@ namespace Self.Story.Editors
 		protected virtual void OnEnable()
 		{
 			m_NextNodesProperty   = serializedObject.FindProperty(nameof(BaseNode.nextNodes));
-			m_NodeActionsProperty = serializedObject.FindProperty(nameof(BaseNode.behaviours));
+			// TODO: [Andrei] move this to ActiveNode Editor class
+			//m_NodeActionsProperty = serializedObject.FindProperty(nameof(BaseNode.behaviours));
 		}
 
 		public override void OnInspectorGUI()
@@ -54,143 +57,148 @@ namespace Self.Story.Editors
 
 			m_NodeGuiContainer = m_Root.Q(NODE_GUI_ROOT_NAME);
 			var buttonsRoot = m_Root.Q(ACTIONS_CONTAINER_NAME).Q(BUTTONS_ROOT_NAME);
-			m_NodeActionsContainer      = m_Root.Q(ACTIONS_CONTAINER_NAME).Q("data-container");
-			m_NodeActionsEmptyContainer = m_Root.Q(ACTIONS_CONTAINER_NAME).Q("empty-container");
+
+			// TODO: [Andrei] move this to ActiveNode Editor class
+			//m_NodeActionsContainer      = m_Root.Q(ACTIONS_CONTAINER_NAME).Q("data-container");
+			//m_NodeActionsEmptyContainer = m_Root.Q(ACTIONS_CONTAINER_NAME).Q("empty-container");
 
 			CreateNodeGUI(m_NodeGuiContainer);
-			CreateButtons(buttonsRoot);
-			UpdateNodeActionsContainer();
+			//CreateButtons(buttonsRoot);
+			// TODO: [Andrei] move this to ActiveNode Editor class
+			//UpdateNodeActionsContainer();
 		}
 
-		private void CreateButtons(VisualElement buttonsRoot)
-		{
-			var addButton = buttonsRoot.Q<Button>("add-button");
-			addButton.clicked += HandleAddButton;
+		//private void CreateButtons(VisualElement buttonsRoot)
+		//{
+		//	var addButton = buttonsRoot.Q<Button>("add-button");
+		//	addButton.clicked += HandleAddButton;
 
-			var removeButton = buttonsRoot.Q<Button>("remove-button");
-			removeButton.clicked += HandleRemoveButton;
-		}
+		//	var removeButton = buttonsRoot.Q<Button>("remove-button");
+		//	removeButton.clicked += HandleRemoveButton;
+		//}
 
-		private VisualElement CreateNodeActionContainer(SerializedProperty actionProperty)
-		{
-			var propDrawer = new NodeActionPropertyDrawer();
+		//private VisualElement CreateNodeActionContainer(SerializedProperty actionProperty)
+		//{
+		//	var propDrawer = new NodeActionPropertyDrawer();
 
-			return propDrawer.CreatePropertyGUI(actionProperty);
+		//	return propDrawer.CreatePropertyGUI(actionProperty);
 
-			// var editor = Editor.CreateEditor(actionProperty.objectReferenceValue);
-			//
-			// var imguiContainer = new IMGUIContainer(() =>
-			// {
-			// 	if (actionProperty.objectReferenceValue != null)
-			// 		editor.OnInspectorGUI();
-			// });
-			//
-			// return imguiContainer;
-		}
+		//	// var editor = Editor.CreateEditor(actionProperty.objectReferenceValue);
+		//	//
+		//	// var imguiContainer = new IMGUIContainer(() =>
+		//	// {
+		//	// 	if (actionProperty.objectReferenceValue != null)
+		//	// 		editor.OnInspectorGUI();
+		//	// });
+		//	//
+		//	// return imguiContainer;
+		//}
 
-		private void HandleAddButton()
-		{
-			var actions = TypeCache.GetTypesDerivedFrom(typeof(BaseAction));
+		// TODO: [Andrei] move this to ActiveNode Editor class
 
-			// maybe show a drop down menu right away
-			var dropDownMenu = new GenericMenu();
+		//private void HandleAddButton()
+		//{
+		//	var actions = TypeCache.GetTypesDerivedFrom(typeof(BaseAction));
 
-			foreach (var action in actions)
-			{
-				var label        = new GUIContent(action.Name);
-				var isOn         = false;
-				var selectedType = action;
+		//	// maybe show a drop down menu right away
+		//	var dropDownMenu = new GenericMenu();
 
-				dropDownMenu.AddItem(label, isOn, HandleActionSelected, selectedType);
-			}
+		//	foreach (var action in actions)
+		//	{
+		//		var label        = new GUIContent(action.Name);
+		//		var isOn         = false;
+		//		var selectedType = action;
 
-			dropDownMenu.ShowAsContext();
-		}
+		//		dropDownMenu.AddItem(label, isOn, HandleActionSelected, selectedType);
+		//	}
 
-		private void HandleRemoveButton()
-		{
-			// update serializedObject in case the node moved
-			serializedObject.Update();
+		//	dropDownMenu.ShowAsContext();
+		//}
 
-			var arraySize = m_NodeActionsProperty.arraySize;
+		//private void HandleRemoveButton()
+		//{
+		//	// update serializedObject in case the node moved
+		//	serializedObject.Update();
 
-			if (arraySize > 0)
-			{
-				var objectToRemove = m_NodeActionsProperty.GetArrayElementAtIndex(arraySize - 1);
+		//	var arraySize = m_NodeActionsProperty.arraySize;
 
-				if (objectToRemove.objectReferenceValue != null)
-					AssetDatabase.RemoveObjectFromAsset(objectToRemove.objectReferenceValue);
+		//	if (arraySize > 0)
+		//	{
+		//		var objectToRemove = m_NodeActionsProperty.GetArrayElementAtIndex(arraySize - 1);
 
-				m_NodeActionsProperty.DeleteArrayElementAtIndex(arraySize - 1);
+		//		if (objectToRemove.objectReferenceValue != null)
+		//			AssetDatabase.RemoveObjectFromAsset(objectToRemove.objectReferenceValue);
 
-				serializedObject.ApplyModifiedProperties();
+		//		m_NodeActionsProperty.DeleteArrayElementAtIndex(arraySize - 1);
 
-				AssetDatabase.SaveAssets();
+		//		serializedObject.ApplyModifiedProperties();
 
-				UpdateNodeActionsContainer();
-			}
-		}
+		//		AssetDatabase.SaveAssets();
 
-		private void UpdateNodeActionsContainer()
-		{
-			m_NodeActionsContainer.Clear();
+		//		UpdateNodeActionsContainer();
+		//	}
+		//}
 
-			var arraySize = m_NodeActionsProperty.arraySize;
+		//private void UpdateNodeActionsContainer()
+		//{
+		//	m_NodeActionsContainer.Clear();
 
-			for (int i = 0; i < arraySize; i++)
-			{
-				var nodeAction = m_NodeActionsProperty.GetArrayElementAtIndex(i);
-				m_NodeActionsContainer.Add(CreateNodeActionContainer(nodeAction));
-			}
+		//	var arraySize = m_NodeActionsProperty.arraySize;
 
-			if (arraySize > 0)
-			{
-				if (m_NodeActionsContainer.ClassListContains("hidden"))
-					m_NodeActionsContainer.RemoveFromClassList("hidden");
+		//	for (int i = 0; i < arraySize; i++)
+		//	{
+		//		var nodeAction = m_NodeActionsProperty.GetArrayElementAtIndex(i);
+		//		m_NodeActionsContainer.Add(CreateNodeActionContainer(nodeAction));
+		//	}
 
-				if (!m_NodeActionsEmptyContainer.ClassListContains("hidden"))
-					m_NodeActionsEmptyContainer.AddToClassList("hidden");
-			}
-			else
-			{
-				if (!m_NodeActionsContainer.ClassListContains("hidden"))
-					m_NodeActionsContainer.AddToClassList("hidden");
+		//	if (arraySize > 0)
+		//	{
+		//		if (m_NodeActionsContainer.ClassListContains("hidden"))
+		//			m_NodeActionsContainer.RemoveFromClassList("hidden");
 
-				if (m_NodeActionsEmptyContainer.ClassListContains("hidden"))
-					m_NodeActionsEmptyContainer.RemoveFromClassList("hidden");
-			}
-		}
+		//		if (!m_NodeActionsEmptyContainer.ClassListContains("hidden"))
+		//			m_NodeActionsEmptyContainer.AddToClassList("hidden");
+		//	}
+		//	else
+		//	{
+		//		if (!m_NodeActionsContainer.ClassListContains("hidden"))
+		//			m_NodeActionsContainer.AddToClassList("hidden");
 
-		private void HandleActionSelected(object selectedType)
-		{
-			// update serializedObject in case the node moved
-			serializedObject.Update();
+		//		if (m_NodeActionsEmptyContainer.ClassListContains("hidden"))
+		//			m_NodeActionsEmptyContainer.RemoveFromClassList("hidden");
+		//	}
+		//}
 
-			if (!(selectedType is Type))
-			{
-				throw new Exception(
-					$"[{typeof(NodeEditor).Name}.{nameof(HandleActionSelected)}] {selectedType} is not Type!");
-			}
+		//private void HandleActionSelected(object selectedType)
+		//{
+		//	// update serializedObject in case the node moved
+		//	serializedObject.Update();
 
-			var resultType = selectedType as Type;
-			var arraySize  = m_NodeActionsProperty.arraySize;
+		//	if (!(selectedType is Type))
+		//	{
+		//		throw new Exception(
+		//			$"[{typeof(NodeEditor).Name}.{nameof(HandleActionSelected)}] {selectedType} is not Type!");
+		//	}
 
-			m_NodeActionsProperty.InsertArrayElementAtIndex(arraySize);
+		//	var resultType = selectedType as Type;
+		//	var arraySize  = m_NodeActionsProperty.arraySize;
 
-			var newActionProperty = m_NodeActionsProperty.GetArrayElementAtIndex(arraySize);
-			var newNodeAction     = ScriptableObject.CreateInstance(resultType);
-			newNodeAction.name = StoryEditorWindow.GetNodeActionName(serializedObject.targetObject as BaseNode,
-				resultType, arraySize);
+		//	m_NodeActionsProperty.InsertArrayElementAtIndex(arraySize);
 
-			AssetDatabase.AddObjectToAsset(newNodeAction, serializedObject.targetObject);
-			AssetDatabase.SaveAssets();
+		//	var newActionProperty = m_NodeActionsProperty.GetArrayElementAtIndex(arraySize);
+		//	var newNodeAction     = ScriptableObject.CreateInstance(resultType);
+		//	newNodeAction.name = StoryEditorWindow.GetNodeActionName(serializedObject.targetObject as BaseNode,
+		//		resultType, arraySize);
 
-			newActionProperty.objectReferenceValue = newNodeAction;
+		//	AssetDatabase.AddObjectToAsset(newNodeAction, serializedObject.targetObject);
+		//	AssetDatabase.SaveAssets();
 
-			serializedObject.ApplyModifiedProperties();
+		//	newActionProperty.objectReferenceValue = newNodeAction;
 
-			UpdateNodeActionsContainer();
-		}
+		//	serializedObject.ApplyModifiedProperties();
+
+		//	UpdateNodeActionsContainer();
+		//}
 
 		protected VisualElement CreateContainerFromTemplate(string templatePath, string mainContainerName)
 		{

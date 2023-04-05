@@ -133,15 +133,14 @@ namespace Self.Story.Editors
 					chapter.nodes.Remove(nodeToRemove);
 					AssetDatabase.RemoveObjectFromAsset(nodeToRemove);
 
-					if (nodeToRemove.behaviours != null && nodeToRemove.behaviours.Count > 0)
-					{
-						var behavioursToRemove = nodeToRemove.behaviours
-							.ToList();
+					var childObjects = GetChildObjects(nodeToRemove);
 
-						foreach (var nb in behavioursToRemove)
-						{
-							AssetDatabase.RemoveObjectFromAsset(nb);
-						}
+					if (childObjects == null)
+						return;
+
+                    foreach (var child in childObjects)
+					{
+						AssetDatabase.RemoveObjectFromAsset(child);
 					}
 
 					Undo.DestroyObjectImmediate(target);
@@ -161,7 +160,34 @@ namespace Self.Story.Editors
 			AssetDatabase.Refresh();
 		}
 
-		public static void ConnectNode(BaseNode node, int index, string nextNodeId)
+        private static List<UnityEngine.Object> GetChildObjects(BaseNode nodeToRemove)
+        {
+			var nodeType = nodeToRemove.GetType();
+
+			var fieldSelector = System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic;
+
+			var fieldsThatAreSerializedAsChilds = nodeType.GetFields(fieldSelector)
+														  .Where(f => f.GetCustomAttributes(typeof(SerializedChild), true) != null);
+
+			if(fieldsThatAreSerializedAsChilds != null)
+            {
+				var objects = new List<UnityEngine.Object>();
+
+                foreach (var f in fieldsThatAreSerializedAsChilds)
+                {
+					var obj = f.GetValue(nodeToRemove);
+
+					if (obj != null)
+						objects.Add(obj as UnityEngine.Object);
+                }
+
+				return objects;
+            }
+
+			return null;
+        }
+
+        public static void ConnectNode(BaseNode node, int index, string nextNodeId)
 		{
 			node.nextNodes[index] = nextNodeId;
 

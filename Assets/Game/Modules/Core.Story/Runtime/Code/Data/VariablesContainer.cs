@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Self.Story
@@ -9,7 +8,7 @@ namespace Self.Story
 	{
 #region Data
 
-		[SerializeField] private List<Variable> _variables = new();
+		[SerializeField] private List<Variable> _variables = new(); 
 
 		public List<Variable> Variables => _variables;
 

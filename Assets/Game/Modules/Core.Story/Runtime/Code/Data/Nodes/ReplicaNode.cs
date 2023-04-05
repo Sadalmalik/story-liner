@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Self.Story
 {
+	/// <summary>
+	/// A node that contains only character dialogue
+	/// </summary>
 	[NodeMetadata]
 	public class ReplicaNode : ActiveNode
 	{
