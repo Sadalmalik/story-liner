@@ -15,14 +15,15 @@ namespace Self.Story.Editors
 		public event Action<NodeView>      OnNodeSelected;
 		public event Action<NodeView, int> OnNodePortDisconnected;
 
-		public BaseNode   Node { get; private set; }
-		public string Guid { get; private set; }
+		public BaseNode Node { get; private set; }
+		public string   Guid { get; private set; }
+		public Chapter  CurrentChapter { get; private set; }
 
 		public Port       InputPort;
 		public List<Port> OutputPorts = new List<Port>();
 
-		private VisualElement m_NodeInspector;
-		public  Chapter       CurrentChapter { get; private set; }
+		private VisualElement         m_NodeInspector;
+		private NodeMetadataAttribute m_NodeMetaData;
 
 
 		public static NodeView Create(BaseNode node, Chapter chapter)
@@ -38,9 +39,10 @@ namespace Self.Story.Editors
 
 			newNode.CurrentChapter = chapter;
 
-			newNode.Node        = node;
-			newNode.viewDataKey = node.id;
-			newNode.Guid        = node.id;
+			newNode.Node           = node;
+			newNode.viewDataKey    = node.id;
+			newNode.Guid           = node.id;
+			newNode.m_NodeMetaData = node.GetType().GetCustomAttribute(typeof(NodeMetadataAttribute)) as NodeMetadataAttribute;
 
 			var style = newNode.style;
 
@@ -87,6 +89,10 @@ namespace Self.Story.Editors
 		{
 			inputContainer.Clear();
 
+			// only add default input if it's not a custom input
+			if (m_NodeMetaData.customInput)
+				return;
+
 			InputPort           = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, null);
 			InputPort.portColor = Color.cyan;
 			InputPort.portName  = "in";
@@ -100,11 +106,9 @@ namespace Self.Story.Editors
 			outputContainer.Clear();
 			OutputPorts.Clear();
 
-			if (Node.GetType() == typeof(ChoiceNode))
-			{
-				// Choices Ports are handled via ChoiceNodeEditor.cs
+			// only add default outputs if it's not a custom output
+			if (m_NodeMetaData.customOutput)
 				return;
-			}
 
 			var ports = Node.nextNodes;
 

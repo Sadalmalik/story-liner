@@ -158,7 +158,7 @@ namespace Self.Story.Editors
 			var choiceTextContainer = choiceContainer.Q<TextField>("choice-text-template");
 			m_ChoicesPropertyMap.Add(choiceTextContainer, choiceProperty);
 
-			choiceTextContainer.label = $"choice-{atIndex + 1}";
+			//choiceTextContainer.label = $"choice-{atIndex + 1}";
 
 			choiceTextContainer.RegisterValueChangedCallback(HandleChoiceTextChanged);
 			choiceTextContainer.SetValueWithoutNotify(choiceProperty.stringValue);
