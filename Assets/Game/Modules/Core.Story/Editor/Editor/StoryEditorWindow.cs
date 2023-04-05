@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEditor.UIElements;
@@ -28,8 +29,7 @@ namespace Self.Story.Editors
 
 #region CONSTRUCTORS
 
-		[MenuItem("StoryEditor/Editor Window")]
-		public static StoryEditorWindow OpenWindow()
+		public static StoryEditorWindow OpenEmptyWindow()
 		{
 			m_CachedWindow = GetWindow<StoryEditorWindow>();
 
@@ -42,12 +42,33 @@ namespace Self.Story.Editors
 			return m_CachedWindow;
 		}
 
+		[MenuItem("StoryEditor/Editor Window")]
+		public static StoryEditorWindow OpenWindowWithFile()
+		{
+			var assetPath = EditorUtility.OpenFilePanel("Select Chapter File", Application.dataPath, "asset");
+
+			if (string.IsNullOrEmpty(assetPath))
+				return null;
+
+			var asset = LoadChapterAsset(assetPath);
+
+			if (asset == null)
+				return null;
+
+			var window = OpenEmptyWindow();
+
+			window.m_CurrentChapter = asset;
+			window.EditorView.Create(asset);
+
+			return window;
+		}
+
 		[OnOpenAsset]
 		public static bool OnOpenAsset(int instanceId, int line)
 		{
 			if (Selection.activeObject is Chapter chapter)
 			{
-				StoryEditorWindow wnd = OpenWindow();
+				StoryEditorWindow wnd = OpenEmptyWindow();
 
 				CheckChapterVariablesContainer(chapter);
 
@@ -283,6 +304,23 @@ namespace Self.Story.Editors
 
 			AssetDatabase.SaveAssets();
 		}
+
+		private static Chapter LoadChapterAsset(string path)
+        {
+            try
+            {
+				var pathRegex = new Regex("(Assets/[\\w\\W]+)");
+				var pathMatch = pathRegex.Match(path);
+
+				var relativePath = pathMatch.Captures[0].Value;
+
+				return AssetDatabase.LoadAssetAtPath<Chapter>(relativePath);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Something went wrong :()");
+            }
+        }
 
 #endregion
 	}

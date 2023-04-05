@@ -31,14 +31,17 @@ namespace Self.Story.Editors
 			var newChapter = ScriptableUtils.CreateAsset<Chapter>(
 				assetPath, "New Chapter");
 
+			// add start node
+			// add exit node
+
 			newChapter.chapterName = "New Chapter";
 
 			AssetDatabase.SaveAssets();
 		}
 
-		[MenuItem("StoryEditor/Fix Null Nodes")]
-		public static void FixNullNodes()
-		{
+		//[MenuItem("StoryEditor/Fix Null Nodes")]
+		//public static void FixNullNodes()
+		//{
 			// TODO [Andrei]: Fix this after reworking the editor
 			// to be compatible with the new structure
 
@@ -107,11 +110,11 @@ namespace Self.Story.Editors
 			//{
 			//    Debug.LogError($"[{nameof(StoryEditorWindow)}.{nameof(FixNullNodes)}] Not a Chapter, Node or NodeBehaviour asset selected!");
 			//}
-		}
+		//}
 
-		[MenuItem("StoryEditor/Fix Nodes Names")]
-		public static void FixNodesNames()
-		{
+		//[MenuItem("StoryEditor/Fix Nodes Names")]
+		//public static void FixNodesNames()
+		//{
 			// TODO [Andrei]: Fix this after reworking the editor
 			// to be compatible with the new structure
 
@@ -151,11 +154,11 @@ namespace Self.Story.Editors
 			//{
 			//    Debug.LogError($"[{nameof(StoryEditorWindow)}.{nameof(FixNullNodes)}] Not a Chapter, Node or NodeBehaviour asset selected!");
 			//}
-		}
+		//}
 
-		[MenuItem("StoryEditor/Check Asset Path")]
-		private static void CheckAssetPath()
-		{
+		//[MenuItem("StoryEditor/Check Asset Path")]
+		//private static void CheckAssetPath()
+		//{
 			// TODO [Andrei]: Fix this after reworking the editor
 			// to be compatible with the new structure
 
@@ -180,6 +183,6 @@ namespace Self.Story.Editors
 			//{
 			//    Debug.LogError($"[{nameof(StoryEditorWindow)}.{nameof(CheckAssetPath)}] Not a Chapter, Node or NodeBehaviour asset selected!");
 			//}
-		}
+		//}
 	}
 }
