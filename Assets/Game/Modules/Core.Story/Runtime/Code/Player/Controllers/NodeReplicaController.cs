@@ -9,7 +9,7 @@ namespace Self.Story
 		public Type TargetType => typeof(ReplicaNode);
 
 		[Inject] private StoryController _StoryController;
-		
+
 		public ReplicaNode   Node { get; private set; }
 		public ReplicaWidget View { get; private set; }
 
@@ -30,16 +30,17 @@ namespace Self.Story
 			_StoryController.SetNode(Node.NextNode);
 		}
 
-		public void Enter(
-			BaseNode       node,
-			Action<string> onNextCallback)
+		public string Enter(BaseNode node)
 		{
 			Node = node as ReplicaNode;
-			View.SetNode(Node);
+			View.Show(Node);
+
+			return null;
 		}
 
 		public void Exit()
 		{
+			View.Hide();
 		}
 	}
 }

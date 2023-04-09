@@ -11,9 +11,6 @@ namespace Self.Story
 	{
 		private Dictionary<Type, INodeController> _controllersByNodeType = new();
 
-		private string _nextNodeID;
-		private bool   _nodeInProgress;
-
 		public ChapterSave CurrentSave    { get; private set; }
 		public Chapter     CurrentChapter { get; private set; }
 		public BaseNode    CurrentNode    { get; private set; }
@@ -72,11 +69,6 @@ namespace Self.Story
 				return;
 			}
 
-			_nextNodeID     = null;
-			_nodeInProgress = true;
-
-			ActiveController.Enter(node, HandleNext);
-
 			if (node is ActiveNode activeNode)
 				foreach (var action in activeNode.actions)
 				{
@@ -84,22 +76,15 @@ namespace Self.Story
 					container.InjectAt(action);
 					action.Execute(node);
 				}
+			
+			var nextNode = ActiveController.Enter(node);
 
-			_nodeInProgress = false;
-			if (_nextNodeID != null)
+			if (nextNode != null)
 				// Вроде как C# умеет в хвостовую рекурсию
 				// Но возможно стоит переписать с рекурсии на цикл
-				SetNode(_nextNodeID);
+				SetNode(nextNode);
 		}
-
-
-		private void HandleNext(string nextNode)
-		{
-			_nextNodeID = nextNode;
-			if (!_nodeInProgress)
-				SetNode(_nextNodeID);
-		}
-
+		
 		public void ChapterComplete()
 		{
 			OnChapterComplete?.Invoke();

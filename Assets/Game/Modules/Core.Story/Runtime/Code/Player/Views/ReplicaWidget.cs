@@ -13,6 +13,8 @@ namespace Self.Story
 		public TMP_Text text;
 		public float    duration;
 
+		public event Action OnShowComplete;
+		public event Action OnHideComplete;
 		public event Action OnClick;
 		
 		private ReplicaNode _replica;
@@ -23,7 +25,7 @@ namespace Self.Story
 			button.onClick.AddListener(HandleClick);
 		}
 
-		public void SetNode(ReplicaNode node)
+		public void Show(ReplicaNode node)
 		{
 			_replica = node;
 			_tween = text
@@ -31,10 +33,17 @@ namespace Self.Story
 				.OnComplete(HandCompleteTextAnimation);
 		}
 
+		public void Hide()
+		{
+			
+		}
+
 		private void HandCompleteTextAnimation()
 		{
 			_tween?.Kill();
 			_tween = null;
+			
+			OnShowComplete?.Invoke();
 		}
 
 		private void HandleClick()

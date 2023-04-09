@@ -7,11 +7,9 @@ namespace Self.Story
 	{
 		public Type TargetType => typeof(BaseNode);
 
-		public void Enter(
-			BaseNode       node,
-			Action<string> onNextCallback)
+		public string Enter(BaseNode node)
 		{
-			onNextCallback(node.nextNodes[0]);
+			return node.nextNodes[0];
 		}
 
 		public void Exit()

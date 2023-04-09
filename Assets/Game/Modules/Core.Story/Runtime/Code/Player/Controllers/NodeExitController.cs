@@ -8,21 +8,21 @@ namespace Self.Story
 		public Type TargetType => typeof(ExitNode);
 
 		[Inject] private StoryController _StoryController;
-		
-		public void Enter(
-			BaseNode       node,
-			Action<string> onNextCallback)
+
+		public string Enter(BaseNode node)
 		{
 			var exit = node as ExitNode;
 
 			if (!string.IsNullOrEmpty(exit.TargetNode))
 			{
-				onNextCallback(exit.TargetNode);
+				return exit.TargetNode;
 			}
 			else
 			{
 				_StoryController.ChapterComplete();
 			}
+
+			return null;
 		}
 
 		public void Exit()
