@@ -72,24 +72,6 @@ MonoBehaviour:
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: emot.dracula.sad
---- !u!114 &-8066353701305340455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cbf2566a1734af290e22326dd834c0d, type: 3}
-  m_Name: node.Active.07aa8b15
-  m_EditorClassIdentifier: 
-  id: 07aa8b15fbb9744f0ba6bc06d21b3f15
-  position: {x: 854.49994, y: 439.47046}
-  nextNodes:
-  - 
-  actions:
-  - {fileID: -4396497440878800424}
 --- !u!114 &-7805283758184680516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,7 +303,8 @@ MonoBehaviour:
   - {fileID: -7528915428700405098}
   - {fileID: -7805283758184680516}
   - {fileID: -3155421870578805494}
-  - {fileID: -8066353701305340455}
+  - {fileID: 7506508359478642678}
+  parentChapter: {fileID: 11400000, guid: 6c686fbde0c8548f1aa420a63f1ebafa, type: 2}
 --- !u!114 &1541727951907265767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,6 +409,22 @@ MonoBehaviour:
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: emot.dracula.normal
+--- !u!114 &7506508359478642678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bed892dd2fb54983b44b2f8535b39a1, type: 3}
+  m_Name: node.Chapter.58cb20bf
+  m_EditorClassIdentifier: 
+  id: 58cb20bfe1c7e41d89647845b44c56c0
+  position: {x: 834, y: -0.5}
+  nextNodes: []
+  chapter: {fileID: 11400000, guid: ac7b785b7480f49a89ec5d9cb039691a, type: 2}
 --- !u!114 &8176957369831085152
 MonoBehaviour:
   m_ObjectHideFlags: 0

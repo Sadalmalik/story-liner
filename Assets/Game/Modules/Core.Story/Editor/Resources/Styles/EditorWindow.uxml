@@ -7,6 +7,6 @@
         <uie:ToolbarToggle focusable="false" name="debug-info-toggle" text="Debug Node Ids" />
     </uie:Toolbar>
     <Self.Story.Editors.NodeEditorView focusable="true" class="main-view">
-        <ui:Label text="Current Chapter Name Here" display-tooltip-when-elided="true" name="current-chapter-name" style="position: absolute; top: 15px; left: 15px;" />
+        <ui:Label text="Label" display-tooltip-when-elided="true" name="current-chapter-name" class="bread-crumbs" />
     </Self.Story.Editors.NodeEditorView>
 </ui:UXML>

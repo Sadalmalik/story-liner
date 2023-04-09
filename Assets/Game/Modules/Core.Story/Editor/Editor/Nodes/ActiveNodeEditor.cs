@@ -12,6 +12,7 @@ public class ActiveNodeEditor : NodeEditor
     private const string BUTTONS_ROOT_NAME = "buttons-container";
     private const string ACTIONS_CONTAINER_NAME = "node-actions-container";
     private const string ACTIONS_CONTAINER_PATH = "Styles/NodeEditorStyles/Arrays/ArrayContainerView";
+    private const string ACTIONS_STYLE_PATH = "Styles/NodeEditorStyles/Arrays/ArrayContainerStyle";
 
     private SerializedProperty m_NodeActionsProperty;
 
@@ -37,6 +38,7 @@ public class ActiveNodeEditor : NodeEditor
     protected void CreateActionsContainerGUI(VisualElement root)
     {
         var nodeActionsContainer = CreateContainerFromTemplate(ACTIONS_CONTAINER_PATH, "array-container");
+        TryAddStyleSheet(ACTIONS_STYLE_PATH);
 
         m_NodeActionsContainer = nodeActionsContainer.Q("data-container");
         m_NodeActionsEmptyContainer = nodeActionsContainer.Q("empty-container");

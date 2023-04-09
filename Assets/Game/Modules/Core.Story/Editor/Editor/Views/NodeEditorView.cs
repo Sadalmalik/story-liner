@@ -20,8 +20,8 @@ namespace Self.Story.Editors
 		public StoryEditorWindow EditorWindow { get; set; }
 
 		private Chapter m_CurrentChapter;
-
 		private List<BaseNode> m_NodesToCopy = new List<BaseNode>();
+
 
 
 #region CONSTRUCTORS
@@ -56,7 +56,9 @@ namespace Self.Story.Editors
 			m_CurrentChapter = chapter;
 
 			if (m_CurrentChapter != null)
-				this.Q<Label>("current-chapter-name").text = m_CurrentChapter.chapterName;
+			{
+				this.Q<Label>("current-chapter-name").text = GetChapterNameRecursive(m_CurrentChapter);
+			}
 
 			graphViewChanged -= OnGraphViewChanged;
 
@@ -101,11 +103,11 @@ namespace Self.Story.Editors
 			});
 		}
 
-#endregion
+        #endregion
 
-#region ELEMENTS CREATION
+        #region ELEMENTS CREATION
 
-		private GraphViewChange OnGraphViewChanged(GraphViewChange args)
+        private GraphViewChange OnGraphViewChanged(GraphViewChange args)
 		{
 			try
 			{
@@ -202,11 +204,25 @@ namespace Self.Story.Editors
 			return GetNodeByGuid(id) as NodeView;
 		}
 
-#endregion
+        #endregion
 
-#region EDITOR STUFF
+        #region EDITOR STUFF
 
-		private void OnUndoRedo()
+        private string GetChapterNameRecursive(Chapter m_CurrentChapter)
+        {
+			if(m_CurrentChapter.parentChapter != null)
+			{
+				var chapterName = GetChapterNameRecursive(m_CurrentChapter.parentChapter);
+
+				return $"{chapterName}/{m_CurrentChapter.chapterName}";
+			}
+			else
+			{
+                return $"{m_CurrentChapter.chapterName}";
+            }
+        }
+
+        private void OnUndoRedo()
 		{
 			Create(m_CurrentChapter);
 

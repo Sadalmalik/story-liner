@@ -17,6 +17,8 @@ namespace Self.Story
 
 		public List<BaseNode> nodes = new();
 
+		public Chapter parentChapter;
+
 		[NonSerialized] public Dictionary<string, BaseNode> nodesByID = new();
 
 

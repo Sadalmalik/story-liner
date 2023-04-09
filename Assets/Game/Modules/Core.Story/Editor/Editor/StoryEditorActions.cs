@@ -32,6 +32,10 @@ namespace Self.Story.Editors
 				assetPath, "New Chapter");
 
 			// add start node
+			var entryNode = ScriptableUtils.AddToAsset<EntryNode>(newChapter);
+
+            entryNode.id = GUID.Generate().ToString();
+            entryNode.UpdateName();
 			// add exit node
 
 			newChapter.chapterName = "New Chapter";
