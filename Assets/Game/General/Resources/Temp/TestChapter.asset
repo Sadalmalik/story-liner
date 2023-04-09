@@ -72,6 +72,37 @@ MonoBehaviour:
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: emot.dracula.sad
+--- !u!114 &-7805283758184680516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d3f003fe7946c39819a92296140114, type: 3}
+  m_Name: node.Exit.baefcd06
+  m_EditorClassIdentifier: 
+  id: baefcd06a5c1749f39acc1ce63b17065
+  position: {x: 854.423, y: 267}
+  nextNodes: []
+--- !u!114 &-7528915428700405098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49251e6351614c42a425c6b0c3fd897a, type: 3}
+  m_Name: node.Entry.fe9e362c
+  m_EditorClassIdentifier: 
+  id: fe9e362cb8cf74d01994ddb7ab210f8b
+  position: {x: -2167.5493, y: -88}
+  nextNodes:
+  - 6ef2935b63af3ea439612b3777495a0e
 --- !u!114 &-6451538739170824353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +151,7 @@ MonoBehaviour:
   id: b6381606bdb1c604ebec7807eed397cf
   position: {x: 292.00537, y: 656}
   nextNodes:
-  - 
+  - b84f6f31f556e4a2db2f4ab905090693
   actions: []
   character:
     rid: 5074071876311187491
@@ -139,6 +170,21 @@ MonoBehaviour:
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: emot.alucard.angry
+--- !u!114 &-3155421870578805494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d3f003fe7946c39819a92296140114, type: 3}
+  m_Name: node.Exit.b84f6f31
+  m_EditorClassIdentifier: 
+  id: b84f6f31f556e4a2db2f4ab905090693
+  position: {x: 854.5002, y: 656.00024}
+  nextNodes: []
 --- !u!114 &-2215376416503312391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +249,9 @@ MonoBehaviour:
   - {fileID: 4849401045802377636}
   - {fileID: 3496594616109006797}
   - {fileID: -4338213197599957453}
+  - {fileID: -7528915428700405098}
+  - {fileID: -7805283758184680516}
+  - {fileID: -3155421870578805494}
 --- !u!114 &1541727951907265767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,7 +301,7 @@ MonoBehaviour:
   id: 45e404ad2bf24914aaf58bcb82250adb
   position: {x: 292.00537, y: 267.20004}
   nextNodes:
-  - 
+  - baefcd06a5c1749f39acc1ce63b17065
   actions: []
   character:
     rid: 5074071876311187487
