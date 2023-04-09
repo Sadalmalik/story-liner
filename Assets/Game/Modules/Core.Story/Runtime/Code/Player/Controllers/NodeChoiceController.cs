@@ -1,20 +1,56 @@
 ﻿using System;
 using Self.Architecture.IOC;
+using Self.Architecture.Signals;
 
 namespace Self.Story
 {
 	public class NodeChoiceController : SharedObject, INodeController
 	{
-		public Type TargetType => typeof(ReplicaNode);
+		public Type TargetType => typeof(ChoiceNode);
 
-		public string Enter(
-			BaseNode       node)
+		[Inject] private StoryController _StoryController;
+
+		public ChoiceNode    Node { get; private set; }
+		public ChoiceWidget View { get; private set; }
+
+		private int _selected;
+		
+		public void Init()
 		{
-			return node.nextNodes[0];
+			SignalBus.Global.Subscribe<SStoryModuleReady>(HandleLoadingComplete);
 		}
 
-		public void Exit()
+		private void HandleLoadingComplete(SStoryModuleReady signal)
 		{
+			View = signal.view.choiceWidget;
+
+			View.OnSelect       += HandleSelect;
+			View.OnShowComplete += HandleShowComplete;
+			View.OnHideComplete += HandleHideComplete;
+		}
+
+		public string Enter(BaseNode node)
+		{
+			Node = node as ChoiceNode;
+			View.Show(Node);
+
+			return null;
+		}
+		
+		private void HandleSelect(int index)
+		{
+			_selected = index;
+			View.Hide();
+		}
+
+		private void HandleShowComplete()
+		{
+			
+		}
+		
+		private void HandleHideComplete()
+		{
+			_StoryController.SetNode(Node.nextNodes[_selected]);
 		}
 	}
 }

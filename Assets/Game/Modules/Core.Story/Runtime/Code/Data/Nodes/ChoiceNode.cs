@@ -19,7 +19,7 @@ namespace Self.Story
 
 			// TODO [Andrei]: should just take nextNode
 			// from index
-			//public string nextNode;
+			// public string nextNode;
 		}
 	}
 }
