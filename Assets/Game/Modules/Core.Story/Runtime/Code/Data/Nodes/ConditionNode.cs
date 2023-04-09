@@ -89,6 +89,34 @@ namespace Self.Story
 			return false;
 		}
 	}
+	public abstract class BoolCondition : VariableCondition
+	{
+		public enum Op
+		{
+			Equal,
+			NotEqual
+		}
+
+		public Op  op;
+		public bool expectedValue;
+
+		public override bool Evaluate(Container context)
+		{
+			var controller = context.Get<StoryController>();
+
+			var variable = controller.CurrentChapter.book.variables.Get(variableName) as BoolVariable;
+			if (variable == null)
+				return false;
+			
+			switch (op)
+			{
+				case Op.Equal:          return variable.value == expectedValue;
+				case Op.NotEqual:       return variable.value != expectedValue;
+			}
+
+			return false;
+		}
+	}
 
 
 	public class ConditionNode : BaseNode
