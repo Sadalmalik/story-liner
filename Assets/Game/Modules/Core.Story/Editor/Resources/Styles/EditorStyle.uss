@@ -17,3 +17,10 @@ GridBackground {
     flex-shrink: 0;
     flex-grow: 1;
 }
+
+.bread-crumbs {
+    flex-direction: row;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
