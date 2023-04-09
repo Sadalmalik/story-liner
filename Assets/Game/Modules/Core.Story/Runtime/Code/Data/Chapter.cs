@@ -47,7 +47,7 @@ namespace Self.Story
 			nodesByID.Clear();
 			foreach (var node in nodes)
 				if (node != null)
-					nodesByID.Add(node.id, node);
+					nodesByID?.Add(node.id, node);
 		}
 	}
 }

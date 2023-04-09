@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using Kaleb.TweenAnimator;
 using Self.Architecture.Utils;
 using TMPro;
 using UnityEngine;
@@ -11,12 +12,16 @@ namespace Self.Story
 	{
 		public Button   button;
 		public TMP_Text text;
-		public float    duration;
+		public float    textDuration;
+
+		[Space]
+		public TweenAnimator showAnimation;
+		public TweenAnimator hideAnimation;
 
 		public event Action OnShowComplete;
 		public event Action OnHideComplete;
 		public event Action OnClick;
-		
+
 		private ReplicaNode _replica;
 		private Tween       _tween;
 
@@ -28,22 +33,31 @@ namespace Self.Story
 		public void Show(ReplicaNode node)
 		{
 			_replica = node;
-			_tween = text
-				.DOText(_replica.localized, duration)
-				.OnComplete(HandCompleteTextAnimation);
+			_tween = DOTween
+				.Sequence()
+				.Join(text.DOText(_replica.localized, textDuration))
+				.Join(showAnimation.sequence)
+				.AppendCallback(HandleCompleteShow);
+			_tween.Play();
 		}
 
 		public void Hide()
 		{
-			
+			_tween = DOTween
+				.Sequence()
+				.Join(hideAnimation.sequence)
+				.AppendCallback(HandleCompleteHide);
+			_tween.Play();
 		}
 
-		private void HandCompleteTextAnimation()
+		private void HandleCompleteShow()
 		{
-			_tween?.Kill();
-			_tween = null;
-			
 			OnShowComplete?.Invoke();
+		}
+
+		private void HandleCompleteHide()
+		{
+			OnHideComplete?.Invoke();
 		}
 
 		private void HandleClick()
