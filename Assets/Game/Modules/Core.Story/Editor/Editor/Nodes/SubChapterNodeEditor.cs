@@ -1,4 +1,5 @@
 using UnityEditor;
+using UnityEngine.UIElements;
 
 namespace Self.Story.Editors
 {
@@ -6,6 +7,10 @@ namespace Self.Story.Editors
     [CustomEditor(typeof(SubChapterNode))]
     public class SubChapterNodeEditor : NodeEditor
     {
-
+        protected override void CreateNodeGUI(VisualElement root)
+        {
+            // TODO: [Andrei]
+            // maybe display some info about containing nodes here?
+        }
     }
 }

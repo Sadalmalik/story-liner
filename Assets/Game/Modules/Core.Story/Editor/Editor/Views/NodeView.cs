@@ -91,9 +91,14 @@ namespace Self.Story.Editors
 
 			// only add default input if it's not a custom input
 			if (m_NodeMetaData.customInput)
-				return;
+            {
+                var inputContainerStyle = inputContainer.style;
+                inputContainerStyle.visibility = new StyleEnum<Visibility>(Visibility.Hidden);
 
-			InputPort           = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, null);
+                return;
+            }
+
+            InputPort           = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, null);
 			InputPort.portColor = Color.cyan;
 			InputPort.portName  = "in";
 			InputPort.AddToClassList("left-port");
@@ -108,7 +113,12 @@ namespace Self.Story.Editors
 
 			// only add default outputs if it's not a custom output
 			if (m_NodeMetaData.customOutput)
+			{
+				var outputportContainerStyle = outputContainer.style;
+				outputportContainerStyle.visibility = new StyleEnum<Visibility>(Visibility.Hidden);
+
 				return;
+			}
 
 			var ports = Node.nextNodes;
 

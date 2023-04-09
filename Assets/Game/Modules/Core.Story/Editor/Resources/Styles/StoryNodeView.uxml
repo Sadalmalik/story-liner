@@ -1,5 +1,4 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
-    <ui:Template name="ArrayContainerView" src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/NodeEditorStyles/Arrays/ArrayContainerView.uxml?fileID=9197481963319205126&amp;guid=dc3e638255eb5734a84c63e36614d285&amp;type=3#ArrayContainerView" />
     <Style src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/StoryNodeStyle.uss?fileID=7433441132597879392&amp;guid=4d396d81dca0bc948a287889c80671f2&amp;type=3#StoryNodeStyle" />
     <ui:VisualElement name="node-state" class="node-state" />
     <ui:VisualElement name="node-body" class="node-body">
@@ -30,8 +29,6 @@
             <ui:VisualElement name="divider" class="horizontal" />
             <ui:VisualElement name="inspector-container" class="inspector-container">
                 <ui:VisualElement name="node-editor-container" />
-                <ui:Label text="Actions" display-tooltip-when-elided="true" name="node-actions-label" class="centered-label" />
-                <ui:Instance template="ArrayContainerView" name="node-actions-container" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
