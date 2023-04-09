@@ -24,9 +24,5 @@ namespace Self.Story
 
 			return null;
 		}
-
-		public void Exit()
-		{
-		}
 	}
 }

@@ -11,9 +11,5 @@ namespace Self.Story
 		{
 			return node.nextNodes[0];
 		}
-
-		public void Exit()
-		{
-		}
 	}
 }

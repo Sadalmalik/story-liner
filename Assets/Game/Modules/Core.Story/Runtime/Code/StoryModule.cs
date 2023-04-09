@@ -5,15 +5,11 @@ using UnityEngine;
 
 namespace Self.Story
 {
-	public struct SStoryModuleReady
-	{
-		public StoryView view;
-	}
-
 	public class StoryModule : SharedObject
 	{
 		public static void Init(Container container)
 		{
+			container.Add<StoryModule>();
 			container.Add<StoryController>();
 
 			container.Add<NodeBaseController>();
@@ -21,6 +17,8 @@ namespace Self.Story
 			container.Add<NodeChoiceController>();
 			container.Add<NodeExitController>();
 		}
+
+		[Inject] private StoryController _storyController;
 
 		public StoryModuleSettings Settings { get; private set; }
 
@@ -42,6 +40,8 @@ namespace Self.Story
 			StoryView = GameObject.Instantiate(Settings.prefab);
 
 			SignalBus.Global.Invoke(new SStoryModuleReady {view = StoryView});
+			
+			_storyController.SetChapter(Settings.testChapter, null);
 		}
 	}
 }
