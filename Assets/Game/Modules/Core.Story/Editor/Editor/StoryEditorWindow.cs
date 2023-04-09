@@ -1,8 +1,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using DG.Tweening.Plugins.Core.PathCore;
 using Self.Articy;
 using UnityEditor;
 using UnityEditor.Callbacks;
@@ -138,14 +140,20 @@ namespace Self.Story.Editors
 
             data.Packages[0].Models.ForEach(m => storyNodes.Add(m.Properties.Id.Value, m));
 
+			var creationPath = System.IO.Path.GetDirectoryName(relativeFilePath);
+
+			goto mark;
+
 			return;
 
-			var characters = CreateCharactersFromImport(data);
+			mark:
 
-		 	var book = CreateBookFromImport(data);
+			var characters = CreateCharactersFromImport(data, creationPath);
+
+		 	var book = CreateBookFromImport(data, creationPath);
 			book.characters = characters;
 
-			var chapters = CreateChaptersFromImport(data);
+			var chapters = CreateChaptersFromImport(data, creationPath);
 
 			foreach (var chapter in chapters)
 			{
@@ -155,7 +163,7 @@ namespace Self.Story.Editors
 			AssetDatabase.SaveAssets();
         }
 
-        private static List<Character> CreateCharactersFromImport(ArticyData data)
+        private static List<Character> CreateCharactersFromImport(ArticyData data, string path)
         {
 			var characters = data.Packages[0].Models.Where(m => m.Type.Equals("DefaultMainCharacterTemplate")
 															|| m.Type.Equals("DefaultSupportingCharacterTemplate"));
@@ -164,16 +172,16 @@ namespace Self.Story.Editors
 
 			foreach (var character in characters)
 			{
-				var newCharacter = ScriptableUtils.Create<Character>(character.Properties.DisplayName);
+				var newCharacter = ScriptableUtils.CreateAsset<Character>(path, character.Properties.DisplayName);
 				characterList.Add(newCharacter);
 			}
 
 			return characterList;
         }
 
-        private static Book CreateBookFromImport(ArticyData data)
+        private static Book CreateBookFromImport(ArticyData data, string path)
         {
-            var newBook = ScriptableUtils.Create<Book>(data.Project.Name);
+            var newBook = ScriptableUtils.CreateAsset<Book>(path, data.Project.Name);
 
             foreach (var variableSet in data.GlobalVariables)
             {
@@ -211,7 +219,7 @@ namespace Self.Story.Editors
 			return newBook;
         }
 
-        private static List<Chapter> CreateChaptersFromImport(ArticyData data)
+        private static List<Chapter> CreateChaptersFromImport(ArticyData data, string path)
         {
 			var chapterList = new List<Chapter>();
 
@@ -223,7 +231,7 @@ namespace Self.Story.Editors
 				var nodesDic = new Dictionary<HexValue, string>();
 
 
-				var newChapter = ScriptableUtils.CreateAsset<Chapter>(chapter.Properties.DisplayName);
+				var newChapter = ScriptableUtils.CreateAsset<Chapter>(path, chapter.Properties.DisplayName);
 				var nodes = data.Packages[0].Models.Where(n => n.Properties.Parent.Equals(chapter.Properties.Id));
 
 				foreach (var node in nodes)
@@ -246,7 +254,7 @@ namespace Self.Story.Editors
 
                             break;
 						case "Condition":
-							// create condition node
+							newNode = ScriptableUtils.AddToAsset<ConditionNode>(newChapter);
 							break;
 						case "Instruction":
                             newNode = ScriptableUtils.AddToAsset<ActiveNode>(newChapter);
@@ -269,7 +277,20 @@ namespace Self.Story.Editors
 					if(node.Properties.OutputPins.Count > 1)
 					{
 						// condition node
-					}
+
+						foreach (var pin in node.Properties.OutputPins)
+						{
+                            var connection = pin.Connections[0];
+
+                            // check if connection.Target is Dialogue
+                            // meaning that we are trying to link to Parent Chapter
+
+                            var targetNodeId = nodesDic[connection.Target];
+                            var targetNode = newChapter.nodesByID[targetNodeId];
+
+                            createdNode.nextNodes.Add(targetNodeId);
+                        }
+                    }
 					else
 					{
 						// other nodes
@@ -277,6 +298,9 @@ namespace Self.Story.Editors
 
 						foreach (var connection in connections)
 						{
+							// check if connection.Target is Dialogue
+							// meaning that we are trying to link to Parent Chapter
+
 							var targetNodeId = nodesDic[connection.Target];
 							var targetNode = newChapter.nodesByID[targetNodeId];
 
