@@ -8,15 +8,20 @@ using UnityEngine.UI;
 
 namespace Self.Story
 {
+	[ExecuteInEditMode]
 	public class ReplicaWidget : MonoBehaviour
 	{
-		public Button   button;
-		public TMP_Text text;
-		public float    textDuration;
-
-		[Space]
 		public TweenAnimator showAnimation;
 		public TweenAnimator hideAnimation;
+
+		[Space] public Button   button;
+		public         TMP_Text text;
+		public         float    textDuration;
+
+		[Space] public RectTransform leftContainer;
+		public         RectTransform rightContainer;
+		public         RectTransform characterRoot;
+		public         Image         characterImage;
 
 		public event Action OnShowComplete;
 		public event Action OnHideComplete;
@@ -33,12 +38,22 @@ namespace Self.Story
 		public void Show(ReplicaNode node)
 		{
 			_replica = node;
+			SetupCharacter();
 			_tween = DOTween
 				.Sequence()
 				.Join(text.DOText(_replica.localized, textDuration))
 				.Join(showAnimation.sequence)
 				.AppendCallback(HandleCompleteShow);
 			_tween.Play();
+		}
+
+		private void SetupCharacter()
+		{
+			var character = _replica.character.character;
+			characterImage.sprite = character.characterIcon;
+			
+			characterRoot.gameObject.SetActive(characterImage.sprite!=null);
+			characterRoot.FitInside(character.isMainCharacter ? leftContainer : rightContainer);
 		}
 
 		public void Hide()

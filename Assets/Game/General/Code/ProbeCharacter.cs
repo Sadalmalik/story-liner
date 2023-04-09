@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Self.Architecture.Utils;
 using Self.Story;
 using UnityEngine;
 
@@ -17,9 +18,9 @@ namespace Self.Game
 		
 		public void Update()
 		{
-			Trigger(ref toggleCharacter, ToggleCharacter);
-			Trigger(ref toggleCharacterDirection, ToggleCharacterDirection);
-			Trigger(ref toggleCharacterEmotion, ToggleCharacterEmotion);
+			toggleCharacter.Trigger(ToggleCharacter);
+			toggleCharacterDirection.Trigger(ToggleCharacterDirection);
+			toggleCharacterEmotion.Trigger(ToggleCharacterEmotion);
 		}
 
 		private void ToggleCharacter()
@@ -41,11 +42,6 @@ namespace Self.Game
 			currentEmotion = widget.character.emotions.ToList().IndexOf(emotion);
 			currentEmotion = (currentEmotion + 1) % widget.character.emotions.Length;
 			widget.SetEmotion(widget.character.emotions[currentEmotion].name);
-		}
-
-		private void Trigger(ref bool trigger, Action act)
-		{
-			if (trigger) { trigger = false; act();}
 		}
 	}
 }

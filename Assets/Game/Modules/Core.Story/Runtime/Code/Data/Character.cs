@@ -12,6 +12,7 @@ namespace Self.Story
 	{
 		public string characterName;
 		public Sprite characterIcon;
+		public bool   isMainCharacter;
 
 		public Emotion[] emotions;
 
