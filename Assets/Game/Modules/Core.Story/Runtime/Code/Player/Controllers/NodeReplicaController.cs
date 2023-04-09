@@ -8,8 +8,11 @@ namespace Self.Story
 	{
 		public Type TargetType => typeof(ReplicaNode);
 
-		private ReplicaWidget _view;
+		[Inject] private StoryController _StoryController;
 		
+		public ReplicaNode   Node { get; private set; }
+		public ReplicaWidget View { get; private set; }
+
 		public void Init()
 		{
 			SignalBus.Global.Subscribe<SStoryModuleReady>(HandleLoadingComplete);
@@ -17,14 +20,22 @@ namespace Self.Story
 
 		private void HandleLoadingComplete(SStoryModuleReady signal)
 		{
-			_view = signal.view.replicaWidget;
+			View = signal.view.replicaWidget;
+
+			View.OnClick += HandleClick;
 		}
-		
+
+		private void HandleClick()
+		{
+			_StoryController.SetNode(Node.NextNode);
+		}
+
 		public void Enter(
 			BaseNode       node,
 			Action<string> onNextCallback)
 		{
-			onNextCallback(node.nextNodes[0]);
+			Node = node as ReplicaNode;
+			View.SetNode(Node);
 		}
 
 		public void Exit()

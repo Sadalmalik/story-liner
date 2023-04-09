@@ -2,29 +2,30 @@
 using DG.Tweening;
 using Self.Architecture.Utils;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Self.Story
 {
-	public class ReplicaWidget : StoryNodeWidget
+	public class ReplicaWidget : MonoBehaviour
 	{
 		public Button   button;
 		public TMP_Text text;
 		public float    duration;
 
+		public event Action OnClick;
+		
 		private ReplicaNode _replica;
-
-		private Tween _tween;
+		private Tween       _tween;
 
 		public void Awake()
 		{
-			button.onClick.AddListener(OnClick);
+			button.onClick.AddListener(HandleClick);
 		}
 
-		public override void SetNode(BaseNode node)
+		public void SetNode(ReplicaNode node)
 		{
-			_replica = node as ReplicaNode;
-
+			_replica = node;
 			_tween = text
 				.DOText(_replica.localized, duration)
 				.OnComplete(HandCompleteTextAnimation);
@@ -36,7 +37,7 @@ namespace Self.Story
 			_tween = null;
 		}
 
-		private void OnClick()
+		private void HandleClick()
 		{
 			if (_tween != null)
 			{
@@ -47,7 +48,7 @@ namespace Self.Story
 			}
 			else
 			{
-				InvokeNext(_replica.NextNode);
+				OnClick?.Invoke();
 			}
 		}
 	}
