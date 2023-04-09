@@ -19,6 +19,7 @@ namespace Self.Story
 			container.Add<NodeBaseController>();
 			container.Add<NodeReplicaController>();
 			container.Add<NodeChoiceController>();
+			container.Add<NodeExitController>();
 		}
 
 		public StoryModuleSettings Settings { get; private set; }
