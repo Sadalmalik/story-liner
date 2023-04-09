@@ -10,7 +10,7 @@ namespace Self.Story.Editors
 	[InspectedType(typeof(ChoiceNode))]
 	[CustomEditor(typeof(ChoiceNode))]
 	public class ChoiceNodeEditor : ReplicaNodeEditor
-	{
+    {
 		private const string CHOICES_NODEVIEW_TEMPLATE_PATH = "Styles/NodeEditorStyles/ChoiceNodeView";
 		private const string CHOICE_CONTAINER_TEMPLATE_PATH = "Styles/NodeEditorStyles/ChoiceContainerView";
 		private const string CHOICES_STYLE_PATH             = "Styles/NodeEditorStyles/ChoiceNodeStyle";
@@ -20,6 +20,7 @@ namespace Self.Story.Editors
 
 		private VisualElement m_ChoicesArrayContainer;
 		private VisualElement m_ChoicesEmptyArrayContainer;
+
 
 
 		protected override void OnEnable()
@@ -32,19 +33,25 @@ namespace Self.Story.Editors
 
 		protected override void CreateNodeGUI(VisualElement nodeGuiRoot)
 		{
-			base.CreateNodeGUI(nodeGuiRoot);
+			CreateReplicaNodeGui(nodeGuiRoot);
+			CreateChoiceNodeGui(nodeGuiRoot);
+			CreateActionsContainerGUI(nodeGuiRoot);
+        }
 
-			TryAddStyleSheet(CHOICES_STYLE_PATH);
+		protected void CreateChoiceNodeGui(VisualElement root)
+		{
+            TryAddStyleSheet(CHOICES_STYLE_PATH);
 
-			var mainContainer = CreateContainerFromTemplate(CHOICES_NODEVIEW_TEMPLATE_PATH, "main-container");
+            var mainContainer = CreateContainerFromTemplate(CHOICES_NODEVIEW_TEMPLATE_PATH, "main-container");
 
-			m_ChoicesArrayContainer      = mainContainer.Q("data-container");
-			m_ChoicesEmptyArrayContainer = mainContainer.Q("empty-container");
+            m_ChoicesArrayContainer = mainContainer.Q("data-container");
+            m_ChoicesEmptyArrayContainer = mainContainer.Q("empty-container");
 
-			nodeGuiRoot.Add(mainContainer);
-			CreateButtons();
-			CreateChoicesContainers();
-		}
+            root.Add(mainContainer);
+
+            CreateButtons();
+            CreateChoicesContainers();
+        }
 
 		private void CreateChoicesContainers()
 		{

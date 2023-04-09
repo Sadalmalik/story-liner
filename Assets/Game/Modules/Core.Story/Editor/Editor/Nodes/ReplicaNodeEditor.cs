@@ -8,7 +8,7 @@ namespace Self.Story.Editors
 {
 	[InspectedType(typeof(ReplicaNode))]
 	[CustomEditor(typeof(ReplicaNode))]
-	public class ReplicaNodeEditor : NodeEditor
+	public class ReplicaNodeEditor : ActiveNodeEditor
 	{
 		private const string REPLICA_NODEVIEW_PATH = "Styles/NodeEditorStyles/ReplicaNodeView";
 		private const string REPLICA_STYLE_PATH    = "Styles/NodeEditorStyles/ReplicaNodeStyle";
@@ -24,6 +24,7 @@ namespace Self.Story.Editors
 		private VisualElement m_CharacterIcon;
 
 
+
 		protected override void OnEnable()
 		{
 			base.OnEnable();
@@ -37,26 +38,32 @@ namespace Self.Story.Editors
 
 		protected override void CreateNodeGUI(VisualElement nodeGuiRoot)
 		{
-			var nodeStyleSheet = Resources.Load<StyleSheet>(REPLICA_STYLE_PATH);
-
-			if (!nodeGuiRoot.styleSheets.Contains(nodeStyleSheet))
-				nodeGuiRoot.styleSheets.Add(nodeStyleSheet);
-
-			var replicaGuiTemplate = Resources.Load<VisualTreeAsset>(REPLICA_NODEVIEW_PATH);
-			var replicaGui         = new VisualElement();
-
-			replicaGuiTemplate.CloneTree(replicaGui);
-
-			replicaGui = replicaGui.Q("replica-container");
-			nodeGuiRoot.Add(replicaGui);
-
-			CreateCharacterContainer(replicaGui);
-			CreateEmotionContainer(replicaGui);
-
-			CreateReplyTextContainer(replicaGui);
+			CreateReplicaNodeGui(nodeGuiRoot);
+			CreateActionsContainerGUI(nodeGuiRoot);
 		}
 
-		private void CreateCharacterContainer(VisualElement guiRoot)
+		protected void CreateReplicaNodeGui(VisualElement root)
+		{
+            var nodeStyleSheet = Resources.Load<StyleSheet>(REPLICA_STYLE_PATH);
+
+            if (!root.styleSheets.Contains(nodeStyleSheet))
+                root.styleSheets.Add(nodeStyleSheet);
+
+            var replicaGuiTemplate = Resources.Load<VisualTreeAsset>(REPLICA_NODEVIEW_PATH);
+            var replicaGui = new VisualElement();
+
+            replicaGuiTemplate.CloneTree(replicaGui);
+
+            replicaGui = replicaGui.Q("replica-container");
+            root.Add(replicaGui);
+
+            RegisterCharacterChangedEvent(replicaGui);
+            RegisterEmotionChangedEvent(replicaGui);
+
+            RegisterTextChangedEvent(replicaGui);
+        }
+
+		private void RegisterCharacterChangedEvent(VisualElement guiRoot)
 		{
 			m_CharacterIcon = guiRoot.Q<VisualElement>("character-name");
 
@@ -71,7 +78,7 @@ namespace Self.Story.Editors
 			m_CharacterIcon.RegisterCallback<ClickEvent>(HandleCharacterClicked);
 		}
 
-		private void CreateEmotionContainer(VisualElement guiRoot)
+		private void RegisterEmotionChangedEvent(VisualElement guiRoot)
 		{
 			m_EmotionsField         = guiRoot.Q<DropdownField>("character-emotion");
 			m_EmotionsField.choices = GetCharacterEmotionChoices();
@@ -85,7 +92,7 @@ namespace Self.Story.Editors
 			}
 		}
 
-		private void CreateReplyTextContainer(VisualElement guiRoot)
+		private void RegisterTextChangedEvent(VisualElement guiRoot)
 		{
 			m_ReplyTextField = guiRoot.Q<TextField>("character-text");
 
@@ -93,17 +100,22 @@ namespace Self.Story.Editors
 			m_ReplyTextField.SetValueWithoutNotify(m_ReplyTextProperty.stringValue);
 		}
 
-		private List<string> GetCharacterEmotionChoices()
-		{
-			if (m_ReplicaNode.character == null)
-				return new List<string> {"no character selected"};
-			else
-			{
-				return m_ReplicaNode.character.character.emotions.Select(e => e.name).ToList();
-			}
-		}
+        private void HandleCharacterClicked(ClickEvent evt)
+        {
+            var currentCharacter = m_CharacterProperty.managedReferenceValue as CharacterReference;
+            var selectorMenu = new GenericMenu();
 
-		private void HandleCharacterSelected(object selectedCharacter)
+            foreach (var character in m_NodeView.CurrentChapter.book.characters)
+            {
+                var name = character.characterName;
+                var isSelected = currentCharacter != null && currentCharacter.character.characterName == name;
+                selectorMenu.AddItem(new GUIContent(name), isSelected, HandleCharacterSelected, character);
+            }
+
+            selectorMenu.ShowAsContext();
+        }
+
+        private void HandleCharacterSelected(object selectedCharacter)
 		{
 			// update in case node has been moved
 			serializedObject.Update();
@@ -130,9 +142,19 @@ namespace Self.Story.Editors
 
 				charStyle.backgroundImage = new StyleBackground(icon);
 			}
-		}
+        }
 
-		private void HandleEmotionChanged(ChangeEvent<string> selectedEmotion)
+        private List<string> GetCharacterEmotionChoices()
+        {
+            if (m_ReplicaNode.character == null)
+                return new List<string> { "no character selected" };
+            else
+            {
+                return m_ReplicaNode.character.character.emotions.Select(e => e.name).ToList();
+            }
+        }
+
+        private void HandleEmotionChanged(ChangeEvent<string> selectedEmotion)
 		{
 			// update in case node has been moved
 			serializedObject.Update();
@@ -146,21 +168,6 @@ namespace Self.Story.Editors
 			serializedObject.Update();
 			m_ReplyTextProperty.stringValue = replyText.newValue;
 			serializedObject.ApplyModifiedProperties();
-		}
-
-		private void HandleCharacterClicked(ClickEvent evt)
-		{
-			var currentCharacter = m_CharacterProperty.managedReferenceValue as CharacterReference;
-			var selectorMenu     = new GenericMenu();
-
-			foreach (var character in m_NodeView.CurrentChapter.book.characters)
-			{
-				var name       = character.characterName;
-				var isSelected = currentCharacter != null && currentCharacter.character.characterName == name;
-				selectorMenu.AddItem(new GUIContent(name), isSelected, HandleCharacterSelected, character);
-			}
-
-			selectorMenu.ShowAsContext();
 		}
 	}
 }

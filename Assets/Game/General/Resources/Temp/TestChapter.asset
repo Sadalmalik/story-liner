@@ -72,6 +72,24 @@ MonoBehaviour:
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: emot.dracula.sad
+--- !u!114 &-8066353701305340455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbf2566a1734af290e22326dd834c0d, type: 3}
+  m_Name: node.Active.07aa8b15
+  m_EditorClassIdentifier: 
+  id: 07aa8b15fbb9744f0ba6bc06d21b3f15
+  position: {x: 854.49994, y: 439.47046}
+  nextNodes:
+  - 
+  actions:
+  - {fileID: -4396497440878800424}
 --- !u!114 &-7805283758184680516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,6 +105,8 @@ MonoBehaviour:
   id: baefcd06a5c1749f39acc1ce63b17065
   position: {x: 854.423, y: 267}
   nextNodes: []
+  tag: 
+  TargetNode: 
 --- !u!114 &-7528915428700405098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +156,29 @@ MonoBehaviour:
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: emot.dracula.angry
+--- !u!114 &-4396497440878800424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
+  m_Name: node.07aa8b.Active.SetVariable.0
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  variableReference:
+    rid: 6912534164783497216
+  variableValue: 
+  references:
+    version: 2
+    RefIds:
+    - rid: 6912534164783497216
+      type: {class: VariableReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        variable: {fileID: -2584583770298815143, guid: 5210043612696434a9499cb5ef23dd3b, type: 2}
 --- !u!114 &-4338213197599957453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +228,8 @@ MonoBehaviour:
   id: b84f6f31f556e4a2db2f4ab905090693
   position: {x: 854.5002, y: 656.00024}
   nextNodes: []
+  tag: 
+  TargetNode: 
 --- !u!114 &-2215376416503312391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +248,9 @@ MonoBehaviour:
   - f271a89d4a23fa941b842be2aff48abd
   - 11a3bf960583f99478bb0fd7cf4f5ffb
   - f587092927eea784fb02bdfee08884b5
-  actions: []
+  - 
+  actions:
+  - {fileID: -1553871935444034587}
   character:
     rid: 5074071876311187478
   emotion:
@@ -213,6 +260,7 @@ MonoBehaviour:
   - localizedText: I don't think so.
   - localizedText: Don't talk to me about courtesy.
   - localizedText: Do I not look familiar to you?
+  - localizedText: 
   references:
     version: 2
     RefIds:
@@ -224,6 +272,27 @@ MonoBehaviour:
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: emot.dracula.angry
+--- !u!114 &-1553871935444034587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
+  m_Name: node.dcf11d.Choice.SetVariable.0
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  variableReference:
+    rid: -2
+  variableValue: 
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,6 +321,7 @@ MonoBehaviour:
   - {fileID: -7528915428700405098}
   - {fileID: -7805283758184680516}
   - {fileID: -3155421870578805494}
+  - {fileID: -8066353701305340455}
 --- !u!114 &1541727951907265767
 MonoBehaviour:
   m_ObjectHideFlags: 0
