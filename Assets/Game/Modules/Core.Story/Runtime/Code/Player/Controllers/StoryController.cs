@@ -9,7 +9,7 @@ namespace Self.Story
 {
 	public class StoryController : SharedObject
 	{
-		private Dictionary<Type, INodeController>   _controllersByNodeType = new();
+		private Dictionary<Type, INodeController> _controllersByNodeType = new();
 
 		private string _nextNodeID;
 		private bool   _nodeInProgress;
@@ -23,6 +23,7 @@ namespace Self.Story
 
 		public event Action<BaseNode> OnNodeEnter;
 		public event Action<string>   OnStoryBroken;
+		public event Action           OnChapterComplete;
 
 		public StoryView StoryView { get; private set; }
 
@@ -31,7 +32,7 @@ namespace Self.Story
 			var list = container.GetAll<INodeController>();
 			foreach (var controller in list)
 				_controllersByNodeType.Add(controller.TargetType, controller);
-			
+
 			SignalBus.Global.Subscribe<SStoryModuleReady>(HandleLoadingComplete);
 		}
 
@@ -43,7 +44,7 @@ namespace Self.Story
 		{
 			StoryView = signal.view;
 		}
-		
+
 		public void SetChapter(Chapter chapter, ChapterSave save)
 		{
 			CurrentChapter = chapter;
@@ -97,6 +98,11 @@ namespace Self.Story
 			_nextNodeID = nextNode;
 			if (!_nodeInProgress)
 				SetNode(_nextNodeID);
+		}
+
+		public void ChapterComplete()
+		{
+			OnChapterComplete?.Invoke();
 		}
 	}
 }
