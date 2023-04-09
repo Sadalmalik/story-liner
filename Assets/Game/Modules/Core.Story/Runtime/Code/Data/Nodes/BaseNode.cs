@@ -11,5 +11,7 @@ namespace Self.Story
 
 		[HideInInspector]
 		public List<string> nextNodes = new();
+
+		public string NextNode => nextNodes[0];
 	}
 }
