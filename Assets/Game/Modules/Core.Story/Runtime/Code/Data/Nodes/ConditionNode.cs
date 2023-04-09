@@ -52,6 +52,43 @@ namespace Self.Story
 			return value.Equals(expectedValue);
 		}
 	}
+	
+	public abstract class IntCondition : VariableCondition
+	{
+		public enum Op
+		{
+			Equal,
+			Less,
+			LessOrEqual,
+			Greater,
+			GreaterOrEqual,
+			NotEqual
+		}
+
+		public Op  op;
+		public int expectedValue;
+
+		public override bool Evaluate(Container context)
+		{
+			var controller = context.Get<StoryController>();
+
+			var variable = controller.CurrentChapter.book.variables.Get(variableName) as IntVariable;
+			if (variable == null)
+				return false;
+			
+			switch (op)
+			{
+				case Op.Equal:          return variable.value == expectedValue;
+				case Op.Less:           return variable.value < expectedValue;
+				case Op.LessOrEqual:    return variable.value <= expectedValue;
+				case Op.Greater:        return variable.value > expectedValue;
+				case Op.GreaterOrEqual: return variable.value >= expectedValue;
+				case Op.NotEqual:       return variable.value != expectedValue;
+			}
+
+			return false;
+		}
+	}
 
 
 	public class ConditionNode : BaseNode
