@@ -60,8 +60,6 @@ namespace Self.Story
 				return;
 			}
 
-			ActiveController?.Exit();
-
 			if (!_controllersByNodeType.TryGetValue(node.GetType(), out ActiveController))
 			{
 				Debug.Log($"Story broken! No controller defined for node type '{node.GetType()}'");

@@ -8,7 +8,5 @@ namespace Self.Story
 		Type TargetType { get; }
 
 		string Enter(BaseNode node);
-
-		void Exit();
 	}
 }

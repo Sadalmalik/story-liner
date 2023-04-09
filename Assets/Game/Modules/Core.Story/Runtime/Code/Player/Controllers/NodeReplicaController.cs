@@ -22,12 +22,9 @@ namespace Self.Story
 		{
 			View = signal.view.replicaWidget;
 
-			View.OnClick += HandleClick;
-		}
-
-		private void HandleClick()
-		{
-			_StoryController.SetNode(Node.NextNode);
+			View.OnClick        += HandleClick;
+			View.OnShowComplete += HandleShowComplete;
+			View.OnHideComplete += HandleHideComplete;
 		}
 
 		public string Enter(BaseNode node)
@@ -37,10 +34,20 @@ namespace Self.Story
 
 			return null;
 		}
-
-		public void Exit()
+		
+		private void HandleClick()
 		{
 			View.Hide();
+		}
+
+		private void HandleShowComplete()
+		{
+			
+		}
+		
+		private void HandleHideComplete()
+		{
+			_StoryController.SetNode(Node.NextNode);
 		}
 	}
 }
