@@ -4,7 +4,10 @@ using UnityEngine;
 
 namespace Self.Story
 {
-	[CreateAssetMenu]
+	[CreateAssetMenu(
+		menuName = "[SELF]/Story/New Chapter",
+		fileName = "New Chapter B",
+		order = 2)]
 	public class Chapter : ScriptableObject, ISerializationCallbackReceiver
 	{
 		public Book book;

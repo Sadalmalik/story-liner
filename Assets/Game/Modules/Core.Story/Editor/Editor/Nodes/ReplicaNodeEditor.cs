@@ -99,7 +99,7 @@ namespace Self.Story.Editors
 				return new List<string> {"no character selected"};
 			else
 			{
-				return m_ReplicaNode.character.character.emotions.ToList();
+				return m_ReplicaNode.character.character.emotions.Select(e => e.name).ToList();
 			}
 		}
 

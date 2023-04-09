@@ -1,7 +1,33 @@
+using System;
+using System.Linq;
 using UnityEngine;
 
 namespace Self.Story
 {
+	[CreateAssetMenu(
+		menuName = "[SELF]/Story/New Character",
+		fileName = "New Character",
+		order = 1)]
+	public class Character : ScriptableObject
+	{
+		public string characterName;
+		public Sprite characterIcon;
+
+		public Emotion[] emotions;
+
+		public Emotion GetEmotion(string emotion)
+		{
+			return emotions.FirstOrDefault(e => e.name.Equals(emotion));
+		}
+	}
+
+	[Serializable]
+	public class Emotion
+	{
+		public string name;
+		public Sprite sprite;
+	}
+
 	[System.Serializable]
 	public class EmotionReference
 	{
@@ -12,17 +38,5 @@ namespace Self.Story
 	public class CharacterReference
 	{
 		public Character character;
-	}
-
-	[CreateAssetMenu(fileName = "Character_", menuName = "Story/Configs/Character/New")]
-	public class Character : ScriptableObject
-	{
-		public string           characterName;
-		public string           defaultSkin;
-		public EmotionReference defaultEmotion;
-		public Sprite           characterIcon;
-		public Sprite           characterSprite;
-
-		public string[] emotions;
 	}
 }

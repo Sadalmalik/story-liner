@@ -7,7 +7,7 @@ namespace Self.Story
 	{
 		Type TargetType { get; }
 
-		void Enter(BaseNode node, Action<string> onNext);
+		void Enter(BaseNode node, Action<string> onNextCallback);
 
 		void Exit();
 	}

@@ -1,0 +1,345 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8933930290540501948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.11a3bf.Replica
+  m_EditorClassIdentifier: 
+  id: 11a3bf960583f99478bb0fd7cf4f5ffb
+  position: {x: -740.79456, y: 249.6}
+  nextNodes:
+  - 6e61c0f7031c70049bedf023425ec1b0
+  actions: []
+  character:
+    rid: 5074071876311187473
+  emotion:
+    rid: 5074071876311187475
+  localized: 'You are not deserving of any courtesy, Count Dracula. You have killed
+    my dear husband, and my most beloved friend.
+
+'
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071876311187473
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 901d2c8a4c007524894506962b21cc92, type: 2}
+    - rid: 5074071876311187475
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.alucard.angry
+--- !u!114 &-8152685559764439753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.6e61c0.Replica
+  m_EditorClassIdentifier: 
+  id: 6e61c0f7031c70049bedf023425ec1b0
+  position: {x: -188.79443, y: 267.20004}
+  nextNodes:
+  - 45e404ad2bf24914aaf58bcb82250adb
+  actions: []
+  character:
+    rid: 5074071876311187481
+  emotion:
+    rid: 7354405711670935562
+  localized: 'You have me at a disadvantage, Gentleman. I do not know you, and clearly
+    you must confuse me with someone else. I have never killed anyone.
+
+'
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071876311187481
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
+    - rid: 7354405711670935562
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.dracula.sad
+--- !u!114 &-6451538739170824353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.6ef293.Replica
+  m_EditorClassIdentifier: 
+  id: 6ef2935b63af3ea439612b3777495a0e
+  position: {x: -1732.4153, y: -87.999985}
+  nextNodes:
+  - dcf11d6ed09b9b04d8e77c3fec9c6a02
+  actions: []
+  character:
+    rid: 7354405711670935558
+  emotion:
+    rid: 7354405711670935560
+  localized: You have the nerve to creep in to my house like a common burglar?
+  references:
+    version: 2
+    RefIds:
+    - rid: 7354405711670935558
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
+    - rid: 7354405711670935560
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.dracula.angry
+--- !u!114 &-4338213197599957453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.b63816.Replica
+  m_EditorClassIdentifier: 
+  id: b6381606bdb1c604ebec7807eed397cf
+  position: {x: 292.00537, y: 656}
+  nextNodes:
+  - 
+  actions: []
+  character:
+    rid: 5074071876311187491
+  emotion:
+    rid: 5074071876311187492
+  localized: "It's Alucard for the likes of you. Count Dracula, your hellish existence
+    will end tonight. \r\n"
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071876311187491
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 901d2c8a4c007524894506962b21cc92, type: 2}
+    - rid: 5074071876311187492
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.alucard.angry
+--- !u!114 &-2215376416503312391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e71fad76354cc4b9340ec2a2558942, type: 3}
+  m_Name: node.dcf11d.Choice
+  m_EditorClassIdentifier: 
+  id: dcf11d6ed09b9b04d8e77c3fec9c6a02
+  position: {x: -1336.0936, y: -88}
+  nextNodes:
+  - f271a89d4a23fa941b842be2aff48abd
+  - 11a3bf960583f99478bb0fd7cf4f5ffb
+  - f587092927eea784fb02bdfee08884b5
+  actions: []
+  character:
+    rid: 5074071876311187478
+  emotion:
+    rid: 5074071876311187480
+  localized: "\u0444\u044B\u0432\u0444 \u044B"
+  choices:
+  - localizedText: I don't think so.
+  - localizedText: Don't talk to me about courtesy.
+  - localizedText: Do I not look familiar to you?
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071876311187478
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
+    - rid: 5074071876311187480
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.dracula.angry
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c243d6803f4918bd02822bc04dd036, type: 3}
+  m_Name: TestChapter
+  m_EditorClassIdentifier: 
+  book: {fileID: 11400000, guid: 5210043612696434a9499cb5ef23dd3b, type: 2}
+  chapterName: TestChapter
+  startNodeID: 6ef2935b63af3ea439612b3777495a0e
+  nodes:
+  - {fileID: -6451538739170824353}
+  - {fileID: 1541727951907265767}
+  - {fileID: -2215376416503312391}
+  - {fileID: -8933930290540501948}
+  - {fileID: 8176957369831085152}
+  - {fileID: -8152685559764439753}
+  - {fileID: 4849401045802377636}
+  - {fileID: 3496594616109006797}
+  - {fileID: -4338213197599957453}
+--- !u!114 &1541727951907265767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.f271a8.Replica
+  m_EditorClassIdentifier: 
+  id: f271a89d4a23fa941b842be2aff48abd
+  position: {x: -740.8, y: -197.635}
+  nextNodes:
+  - 6e61c0f7031c70049bedf023425ec1b0
+  actions: []
+  character:
+    rid: 5074071876311187466
+  emotion:
+    rid: 7354405711670935554
+  localized: Dracula speaking about courtesy? You are but a killer! You shall learn
+    of my name, though now is not the time.
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071876311187466
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 901d2c8a4c007524894506962b21cc92, type: 2}
+    - rid: 7354405711670935554
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.alucard.normal
+--- !u!114 &3496594616109006797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.45e404.Replica
+  m_EditorClassIdentifier: 
+  id: 45e404ad2bf24914aaf58bcb82250adb
+  position: {x: 292.00537, y: 267.20004}
+  nextNodes:
+  - 
+  actions: []
+  character:
+    rid: 5074071876311187487
+  emotion:
+    rid: 5074071876311187490
+  localized: "Please spare me the charade. I know who - what you are. And I will
+    have my revenge on you!\r"
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071876311187487
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 901d2c8a4c007524894506962b21cc92, type: 2}
+    - rid: 5074071876311187490
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.alucard.angry
+--- !u!114 &4849401045802377636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.36b9ec.Replica
+  m_EditorClassIdentifier: 
+  id: 36b9ec349d6f5ff4ab15bc525ee26ec9
+  position: {x: -188.79443, y: 656}
+  nextNodes:
+  - b6381606bdb1c604ebec7807eed397cf
+  actions: []
+  character:
+    rid: 5074071876311187484
+  emotion:
+    rid: 5074071876311187486
+  localized: 'I remember now - she carried a picture of you near her heart. You are
+    Alucard.
+
+'
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071876311187484
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 545dc0feba50d984985a3a9c6a5e3ec2, type: 2}
+    - rid: 5074071876311187486
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.dracula.normal
+--- !u!114 &8176957369831085152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.f58709.Replica
+  m_EditorClassIdentifier: 
+  id: f587092927eea784fb02bdfee08884b5
+  position: {x: -740.79456, y: 656}
+  nextNodes:
+  - 36b9ec349d6f5ff4ab15bc525ee26ec9
+  actions: []
+  character:
+    rid: 5074071876311187476
+  emotion:
+    rid: 5074071876311187477
+  localized: 'Look closely, Count. Is my face not familiar to you? If you were a
+    gentleman, I might be offended. But you are not.
+
+'
+  references:
+    version: 2
+    RefIds:
+    - rid: 5074071876311187476
+      type: {class: CharacterReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        character: {fileID: 11400000, guid: 901d2c8a4c007524894506962b21cc92, type: 2}
+    - rid: 5074071876311187477
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: emot.alucard.angry

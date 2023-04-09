@@ -8,7 +8,7 @@ namespace Self.Story
 	{
 		[DisplayOnNode(0)] public bool executeOnce;
 
-		public abstract void OnExecute();
+		public abstract void Execute(BaseNode node);
 
 		public object Clone()
 		{

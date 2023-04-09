@@ -11,10 +11,13 @@ namespace Self.Story
 
 	public class SetVariableAction : BaseAction
 	{
-		[DisplayOnNode(1), SerializeReference] public VariableReference variableReference;
-		[DisplayOnNode(2)]                     public string            variableValue;
+		[DisplayOnNode(1), SerializeReference]
+		public VariableReference variableReference;
+		
+		[DisplayOnNode(2)]
+		public string            variableValue;
 
-		public override void OnExecute()
+		public override void Execute(BaseNode node)
 		{
 		}
 	}

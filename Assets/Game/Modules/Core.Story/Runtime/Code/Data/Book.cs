@@ -3,7 +3,10 @@ using UnityEngine;
 
 namespace Self.Story
 {
-	[CreateAssetMenu]
+	[CreateAssetMenu(
+		menuName = "[SELF]/Story/New Book",
+		fileName = "New Book",
+		order = 2)]
 	public class Book : ScriptableObject
 	{
 		public string bookName;

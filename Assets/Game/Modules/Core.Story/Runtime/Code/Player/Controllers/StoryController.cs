@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Self.Architecture.DataStructures;
 using Self.Architecture.IOC;
+using Self.Architecture.Signals;
 using UnityEngine;
 
 namespace Self.Story
@@ -9,7 +10,6 @@ namespace Self.Story
 	public class StoryController : SharedObject
 	{
 		private Dictionary<Type, INodeController>   _controllersByNodeType = new();
-		private Dictionary<Type, ActionBaseController> _actionsByNodeType     = new();
 
 		private string _nextNodeID;
 		private bool   _nodeInProgress;
@@ -24,22 +24,26 @@ namespace Self.Story
 		public event Action<BaseNode> OnNodeEnter;
 		public event Action<string>   OnStoryBroken;
 
+		public StoryView StoryView { get; private set; }
 
 		public override void Init()
 		{
 			var list = container.GetAll<INodeController>();
 			foreach (var controller in list)
 				_controllersByNodeType.Add(controller.TargetType, controller);
-
-			var actions = container.GetAll<ActionBaseController>();
-			foreach (var action in actions)
-				_actionsByNodeType.Add(action.TargetType, action);
+			
+			SignalBus.Global.Subscribe<SStoryModuleReady>(HandleLoadingComplete);
 		}
 
 		public override void Dispose()
 		{
 		}
 
+		private void HandleLoadingComplete(SStoryModuleReady signal)
+		{
+			StoryView = signal.view;
+		}
+		
 		public void SetChapter(Chapter chapter, ChapterSave save)
 		{
 			CurrentChapter = chapter;
@@ -73,12 +77,17 @@ namespace Self.Story
 			ActiveController.Enter(node, HandleNext);
 
 			if (node is ActiveNode activeNode)
-				foreach (var actionData in activeNode.actions)
-					if (_actionsByNodeType.TryGetValue(actionData.GetType(), out var action))
-						action.Execute(node);
+				foreach (var action in activeNode.actions)
+				{
+					// Ход конем - инжектим зависимости, что бы команды могли делать что угодно
+					container.InjectAt(action);
+					action.Execute(node);
+				}
 
 			_nodeInProgress = false;
 			if (_nextNodeID != null)
+				// Вроде как C# умеет в хвостовую рекурсию
+				// Но возможно стоит переписать с рекурсии на цикл
 				SetNode(_nextNodeID);
 		}
 
