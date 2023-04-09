@@ -30,14 +30,14 @@ namespace Self.Story.Editors
 		{
 			Insert(0, new GridBackground());
 
-			var contentZoomer = new ContentZoomer();
+			var contentZoomer = new CustomContentZoomer();
 
 			contentZoomer.minScale       = 0.15f;
 			contentZoomer.referenceScale = 2f;
 			contentZoomer.maxScale       = 3f;
 
 			this.AddManipulator(contentZoomer);
-			this.AddManipulator(new ContentDragger());
+			this.AddManipulator(new CustomContentDragger());
 			this.AddManipulator(new SelectionDragger());
 			this.AddManipulator(new RectangleSelector());
 
