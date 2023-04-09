@@ -94,7 +94,8 @@ namespace Self.Story
 		public enum Op
 		{
 			Equal,
-			NotEqual
+			NotEqual,
+			Value
 		}
 
 		public Op  op;
@@ -110,8 +111,9 @@ namespace Self.Story
 			
 			switch (op)
 			{
-				case Op.Equal:          return variable.value == expectedValue;
-				case Op.NotEqual:       return variable.value != expectedValue;
+				case Op.Equal:    return variable.value == expectedValue;
+				case Op.NotEqual: return variable.value != expectedValue;
+				case Op.Value:    return variable.value;
 			}
 
 			return false;
