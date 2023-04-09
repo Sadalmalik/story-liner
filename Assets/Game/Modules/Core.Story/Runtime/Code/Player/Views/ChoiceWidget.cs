@@ -5,11 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Self.Story
 {
 	public class ChoiceWidget : ReplicaWidget
 	{
+		[Space]
 		public ChoiceButtonWidget choicePrefab;
 		public RectTransform      choiceContainer;
 
@@ -38,6 +40,8 @@ namespace Self.Story
 
 			for (int i = 0; i < node.choices.Count; i++)
 				choices[i].Init(i, node.choices[i].localizedText);
+
+			LayoutRebuilder.ForceRebuildLayoutImmediate(choiceContainer);
 		}
 
 		private void HandleSelect(int index)
@@ -48,7 +52,7 @@ namespace Self.Story
 		protected override void HandleCompleteHide()
 		{
 			foreach (var choice in choices)
-				choice.gameObject.SetActive(false);
+				choice.Hide();
 			base.HandleCompleteHide();
 		}
 	}

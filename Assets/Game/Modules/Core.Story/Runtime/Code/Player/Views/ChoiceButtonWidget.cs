@@ -26,6 +26,11 @@ namespace Self.Story
 			gameObject.SetActive(true);
 		}
 
+		public void Hide()
+		{
+			gameObject.SetActive(false);
+		}
+		
 		private void HandleClick()
 		{
 			OnClick?.Invoke(_index);
