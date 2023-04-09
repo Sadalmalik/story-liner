@@ -37,6 +37,7 @@ namespace Self.Story.Editors
             entryNode.id = GUID.Generate().ToString();
             entryNode.UpdateName();
 			// add exit node
+			newChapter.nodes.Add(entryNode);
 
 			newChapter.chapterName = "New Chapter";
 

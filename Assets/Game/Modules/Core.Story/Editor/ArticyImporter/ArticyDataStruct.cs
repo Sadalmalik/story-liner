@@ -7,11 +7,49 @@ namespace Self.Articy
     [Serializable]
     public class ArticyData
     {
-        public List<PackageData> Packages;
+        public ArticyProject Project;
+        public List<ArticyVariablesSet> GlobalVariables;
+        public List<ArticyPackageData> Packages;
+    }
+
+    #region Project
+
+    [System.Serializable]
+    public class ArticyProject
+    {
+        public string Name;
+        public string DetailName;
+        public string Guid;
+        public string TechnicalName;
+    }
+
+    #endregion
+
+    #region Variables
+
+    [Serializable]
+    public class ArticyVariablesSet
+    {
+        public string Namespace;
+        public string Description;
+        public List<ArticyVariable> Variables;
     }
 
     [Serializable]
-    public class PackageData
+    public class ArticyVariable
+    {
+        public string Variable; // name
+        public string Type;
+        public string Value;
+        public string Description;
+    }
+
+    #endregion
+
+    #region Packages
+
+    [Serializable]
+    public class ArticyPackageData
     {
         public string Name;
         public string Description;
@@ -154,4 +192,7 @@ namespace Self.Articy
         public HexValue TargetPin;
         public HexValue Target;
     }
+
+    #endregion
+
 }

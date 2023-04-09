@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Self.Articy;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEditor.UIElements;
@@ -118,12 +119,181 @@ namespace Self.Story.Editors
 			EditorApplication.delayCall += () => { EditorView.FrameAll(); };
 		}
 
+		[MenuItem("StoryEditor/Import From Articy")]
+		private static void ImportFromArticy()
+		{
+            var file = EditorUtility.OpenFilePanel("Open File", Application.dataPath, "json");
 
-#endregion
+            if (string.IsNullOrEmpty(file))
+                throw new System.Exception("Could not open file, path is null or empty");
 
-#region NODE ACTIONS
+            var relativeFilePath = $"Assets/{file.Split("Assets/")[1]}";
+            var jsonAsset = AssetDatabase.LoadAssetAtPath<TextAsset>(relativeFilePath);
 
-		public static BaseNode CreateNode(Type type, Chapter chapter, Vector2 position)
+            if (jsonAsset == null)
+                throw new System.Exception($"Error loading asset at path {relativeFilePath}");
+
+            var data = ArticyProjectImporter.ImportFromJsonAsset(jsonAsset);
+            var storyNodes = new Dictionary<ulong, StoryNode>();
+
+            data.Packages[0].Models.ForEach(m => storyNodes.Add(m.Properties.Id.Value, m));
+
+			return;
+
+			var characters = CreateCharactersFromImport(data);
+
+		 	var book = CreateBookFromImport(data);
+			book.characters = characters;
+
+			var chapters = CreateChaptersFromImport(data);
+
+			foreach (var chapter in chapters)
+			{
+				chapter.book = book;
+			}
+
+			AssetDatabase.SaveAssets();
+        }
+
+        private static List<Character> CreateCharactersFromImport(ArticyData data)
+        {
+			var characters = data.Packages[0].Models.Where(m => m.Type.Equals("DefaultMainCharacterTemplate")
+															|| m.Type.Equals("DefaultSupportingCharacterTemplate"));
+
+			var characterList = new List<Character>();
+
+			foreach (var character in characters)
+			{
+				var newCharacter = ScriptableUtils.Create<Character>(character.Properties.DisplayName);
+				characterList.Add(newCharacter);
+			}
+
+			return characterList;
+        }
+
+        private static Book CreateBookFromImport(ArticyData data)
+        {
+            var newBook = ScriptableUtils.Create<Book>(data.Project.Name);
+
+            foreach (var variableSet in data.GlobalVariables)
+            {
+                foreach (var variable in variableSet.Variables)
+                {
+                    var varName = $".{variableSet.Namespace}.{variable.Variable}";
+
+                    switch (variable.Type)
+                    {
+                        case "Boolean":
+                            var boolVar = ScriptableUtils.AddToAsset<BoolVariable>(newBook, varName);
+                            bool.TryParse(variable.Value, out boolVar.value);
+                            break;
+                        case "String":
+                            var stringVar = ScriptableUtils.AddToAsset<StringVariable>(newBook, varName);
+                            stringVar.value = variable.Value;
+                            break;
+                        case "Integer":
+                            var intVar = ScriptableUtils.AddToAsset<IntVariable>(newBook, varName);
+
+                            if (int.TryParse(variable.Value, out int parsedValue))
+                            {
+                                if (parsedValue > intVar.maxValue)
+                                    intVar.maxValue = parsedValue;
+
+                                intVar.value = parsedValue;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+
+			return newBook;
+        }
+
+        private static List<Chapter> CreateChaptersFromImport(ArticyData data)
+        {
+			var chapterList = new List<Chapter>();
+
+			var chapters = data.Packages[0].Models.Where(m => m.Type.Equals("Dialogue")
+														|| m.Type.Equals("FlowFragment"));
+
+			foreach (var chapter in chapters)
+			{
+				var nodesDic = new Dictionary<HexValue, string>();
+
+
+				var newChapter = ScriptableUtils.CreateAsset<Chapter>(chapter.Properties.DisplayName);
+				var nodes = data.Packages[0].Models.Where(n => n.Properties.Parent.Equals(chapter.Properties.Id));
+
+				foreach (var node in nodes)
+				{
+					BaseNode newNode = null;
+
+					switch (node.Type)
+					{
+						case "DialogueFragment":
+
+							if (node.Properties.OutputPins[0].Connections.Count > 1)
+							{
+                                newNode = ScriptableUtils.AddToAsset<ChoiceNode>(newChapter);
+
+                            }
+                            else
+							{
+                                newNode = ScriptableUtils.AddToAsset<ReplicaNode>(newChapter);
+                            }
+
+                            break;
+						case "Condition":
+							// create condition node
+							break;
+						case "Instruction":
+                            newNode = ScriptableUtils.AddToAsset<ActiveNode>(newChapter);
+							break;
+
+						default:
+							break;
+					}
+
+                    newNode.id = GUID.Generate().ToString();
+                    nodesDic.Add(node.Properties.Id, newNode.id);
+					newChapter.AddNode(newNode);
+                }
+
+				foreach (var node in nodes)
+				{
+					var createdNodeId = nodesDic[node.Properties.Id];
+					var createdNode = newChapter.nodesByID[createdNodeId];
+
+					if(node.Properties.OutputPins.Count > 1)
+					{
+						// condition node
+					}
+					else
+					{
+						// other nodes
+						var connections = node.Properties.OutputPins[0].Connections;
+
+						foreach (var connection in connections)
+						{
+							var targetNodeId = nodesDic[connection.Target];
+							var targetNode = newChapter.nodesByID[targetNodeId];
+
+							createdNode.nextNodes.Add(targetNodeId);
+						}
+                    }
+				}
+            }
+
+            return chapterList;
+        }
+
+        #endregion
+
+        #region NODE ACTIONS
+
+        public static BaseNode CreateNode(Type type, Chapter chapter, Vector2 position)
 		{
 			var newNode = ScriptableObject.CreateInstance(type) as BaseNode;
 			newNode.id        = GUID.Generate().ToString();
@@ -240,26 +410,6 @@ namespace Self.Story.Editors
 
 		private void HandleImportFromArticyButtonClick()
 		{
-			throw new System.NotImplementedException(
-				$"[{nameof(StoryEditorWindow)}.{nameof(HandleImportFromArticyButtonClick)}] Not implemented yet");
-
-			//var file = EditorUtility.OpenFilePanel("Open File", Application.dataPath, "json");
-
-			//if(string.IsNullOrEmpty(file))
-			//    throw new System.Exception("Could not open file, path is null or empty");
-
-			//var relativeFilePath = $"Assets/{file.Split("Assets/")[1]}";
-			//var jsonAsset = AssetDatabase.LoadAssetAtPath<TextAsset>(relativeFilePath);
-
-			//if (jsonAsset == null)
-			//    throw new System.Exception($"Error loading asset at path {relativeFilePath}");
-
-			//var data = ArticyProjectImporter.ImportFromJsonAsset(jsonAsset);
-			//var storyNodes = new Dictionary<ulong, StoryNode>();
-
-			//data.Packages[0].Models.ForEach(m => storyNodes.Add(m.Properties.Id.Value, m));
-
-			//FillToolbarMenu(data);
 		}
 
 		private void HandleNodeSelected(NodeView selectedNodeView)
