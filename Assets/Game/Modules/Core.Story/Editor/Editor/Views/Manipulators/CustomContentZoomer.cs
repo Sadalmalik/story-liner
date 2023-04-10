@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -9,12 +7,15 @@ namespace Self.Story.Editors
 {
     public class CustomContentZoomer : ContentZoomer
     {
+        private const float c_MacZoomMultiplier = 0.15f;
+
+
+
         public CustomContentZoomer()
         {
-            scaleStep = DefaultScaleStep * c_MacZoomMultiplier;
+            if(Application.platform == RuntimePlatform.OSXEditor)
+                scaleStep = DefaultScaleStep * c_MacZoomMultiplier;
         }
-
-        private const float c_MacZoomMultiplier = 0.15f;
 
         protected override void RegisterCallbacksOnTarget()
         {
