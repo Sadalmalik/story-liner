@@ -1,5 +1,4 @@
-﻿using Self.Story;
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace Self.Story
@@ -13,7 +12,7 @@ namespace Self.Story
 		public object Clone()
 		{
 			var clone = ScriptableObject.Instantiate(this);
-			clone.name = this.name;
+			clone.name = (string)this.name.Clone();
 			return clone;
 		}
 	}

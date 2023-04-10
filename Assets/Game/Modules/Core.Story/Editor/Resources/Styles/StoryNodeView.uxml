@@ -1,5 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <Style src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/StoryNodeStyle.uss?fileID=7433441132597879392&amp;guid=4d396d81dca0bc948a287889c80671f2&amp;type=3#StoryNodeStyle" />
+    <Style src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/NodeHeaderStyle.uss?fileID=7433441132597879392&amp;guid=d4a6f5a5d0fade24ab7ad6be9c1033f1&amp;type=3#NodeHeaderStyle" />
     <ui:VisualElement name="node-state" class="node-state" />
     <ui:VisualElement name="node-body" class="node-body">
         <ui:VisualElement name="contents">

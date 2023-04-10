@@ -50,7 +50,7 @@ namespace Self.Story
 
 		private void SetupCharacter()
 		{
-			var character = _replica.character.character;
+			var character = _replica.character;
 			characterImage.sprite = character.characterIcon;
 			
 			characterRoot.gameObject.SetActive(characterImage.sprite!=null);

@@ -64,7 +64,8 @@ namespace Self.Story
 		{
 			VariablesById.Clear();
 			foreach (var variable in Variables)
-				VariablesById.Add(variable.id, variable);
+				if(variable.id != null)
+					VariablesById.Add(variable.id, variable);
 		}
 
 		void ISerializationCallbackReceiver.OnBeforeSerialize()

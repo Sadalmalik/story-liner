@@ -26,6 +26,7 @@ namespace Self.Story.Editors
 		private NodeMetadataAttribute m_NodeMetaData;
 
 
+
 		public static NodeView Create(BaseNode node, Chapter chapter)
 		{
 			// To avoid absolute paths
@@ -170,6 +171,32 @@ namespace Self.Story.Editors
 
 		private void SetupStyleClasses()
 		{
+            switch (Node.GetType().Name)
+            {
+				case "ConditionNode":
+					titleContainer.AddToClassList("condition-node");
+					break;
+				case "ActiveNode":
+					titleContainer.AddToClassList("active-node");
+					break;
+				case "ChoiceNode":
+					titleContainer.AddToClassList("choice-node");
+					break;
+				case "ReplicaNode":
+					titleContainer.AddToClassList("replica-node");
+					break;
+				case "EntryNode":
+					titleContainer.AddToClassList("entry-node");
+					break;
+				case "ExitNode":
+					titleContainer.AddToClassList("exit-node");
+					break;
+				case "ChapterNode":
+					titleContainer.AddToClassList("chapter-node");
+					break;
+				default:
+                    break;
+            }
 		}
 
 		public override void OnSelected()

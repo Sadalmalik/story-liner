@@ -70,7 +70,7 @@ namespace Self.Story.Editors
 			if (m_ReplicaNode.character != null)
 			{
 				var charStyle = m_CharacterIcon.style;
-				var icon      = m_ReplicaNode.character.character.characterIcon;
+				var icon      = m_ReplicaNode.character.characterIcon;
 
 				charStyle.backgroundImage = new StyleBackground(icon);
 			}
@@ -102,13 +102,13 @@ namespace Self.Story.Editors
 
         private void HandleCharacterClicked(ClickEvent evt)
         {
-            var currentCharacter = m_CharacterProperty.managedReferenceValue as CharacterReference;
+            var currentCharacter = m_CharacterProperty.objectReferenceValue as Character;
             var selectorMenu = new GenericMenu();
 
             foreach (var character in m_NodeView.CurrentChapter.book.characters)
             {
                 var name = character.characterName;
-                var isSelected = currentCharacter != null && currentCharacter.character.characterName == name;
+                var isSelected = currentCharacter != null && currentCharacter.characterName == name;
                 selectorMenu.AddItem(new GUIContent(name), isSelected, HandleCharacterSelected, character);
             }
 
@@ -120,8 +120,7 @@ namespace Self.Story.Editors
 			// update in case node has been moved
 			serializedObject.Update();
 
-			m_CharacterProperty.managedReferenceValue = new CharacterReference()
-				{character = selectedCharacter as Character};
+			m_CharacterProperty.objectReferenceValue = selectedCharacter as Character;
 
 			serializedObject.ApplyModifiedProperties();
 
@@ -138,7 +137,7 @@ namespace Self.Story.Editors
 			if (m_ReplicaNode.character != null)
 			{
 				var charStyle = m_CharacterIcon.style;
-				var icon      = m_ReplicaNode.character.character.characterIcon;
+				var icon      = m_ReplicaNode.character.characterIcon;
 
 				charStyle.backgroundImage = new StyleBackground(icon);
 			}
@@ -150,7 +149,10 @@ namespace Self.Story.Editors
                 return new List<string> { "no character selected" };
             else
             {
-                return m_ReplicaNode.character.character.emotions.Select(e => e.name).ToList();
+				if (m_ReplicaNode.character.emotions != null)
+					return m_ReplicaNode.character.emotions.Select(e => e.name).ToList();
+				else
+					return new List<string> { "character has no emotions" };
             }
         }
 

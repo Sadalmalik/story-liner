@@ -46,9 +46,9 @@ namespace Self.Story
 
 		void ISerializationCallbackReceiver.OnAfterDeserialize()
 		{
-			nodesByID.Clear();
+			nodesByID.Clear(); 
 			foreach (var node in nodes)
-				if (node != null)
+				if (node != null && node.id != null)
 					nodesByID?.Add(node.id, node);
 		}
 	}

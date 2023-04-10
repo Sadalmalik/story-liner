@@ -34,10 +34,4 @@ namespace Self.Story
 	{
 		public string emotion;
 	}
-
-	[System.Serializable]
-	public class CharacterReference
-	{
-		public Character character;
-	}
 }

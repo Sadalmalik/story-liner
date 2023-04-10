@@ -120,7 +120,7 @@ namespace Self.Story
 		}
 	}
 
-
+	[NodeMetadata(customOutput: true)]
 	public class ConditionNode : BaseNode
 	{
 		public Condition condition;

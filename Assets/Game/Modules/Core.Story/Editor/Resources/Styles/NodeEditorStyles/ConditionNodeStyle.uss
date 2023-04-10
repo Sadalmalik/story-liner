@@ -1,0 +1,21 @@
+.condition-text {
+    flex-grow: 1;
+    flex-shrink: 0;
+    height: 100%;
+    -unity-text-align: upper-left;
+}
+
+.condition-container {
+    height: 150px;
+}
+
+.right-port {
+    right: -11px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.ports-container {
+    justify-content: space-around;
+    align-items: center;
+}

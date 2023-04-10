@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Game/Modules/Core.Story/Editor/Resources/Styles/NodeEditorStyles/ConditionNodeStyle.uss?fileID=7433441132597879392&amp;guid=5b07cd82a7e7d804486a5414a5e1221a&amp;type=3#ConditionNodeStyle" />
+    <ui:VisualElement name="condition-container" class="condition-container" style="flex-direction: row;">
+        <ui:TextField picking-mode="Ignore" text="Condition Text Here" password="false" name="condition-text" multiline="true" class="condition-text" />
+        <ui:VisualElement name="ports-container" class="ports-container" style="width: 24px;" />
+    </ui:VisualElement>
+</ui:UXML>

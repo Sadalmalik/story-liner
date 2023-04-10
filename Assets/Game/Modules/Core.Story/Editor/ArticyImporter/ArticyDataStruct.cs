@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Self.Articy
+namespace Self.ArticyImporter
 {
     [Serializable]
     public class ArticyData

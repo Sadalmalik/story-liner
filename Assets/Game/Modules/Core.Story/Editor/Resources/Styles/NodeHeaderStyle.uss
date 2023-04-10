@@ -1,0 +1,27 @@
+.chapter-node {
+    background-color: rgba(103, 50, 74, 255);
+}
+
+.exit-node {
+    background-color: rgba(98, 86, 118, 255);
+}
+
+.entry-node {
+    background-color: rgba(56, 101, 108, 255);
+}
+
+.condition-node {
+    background-color: rgba(45, 72, 66, 255);
+}
+
+.choice-node {
+    background-color: rgba(101, 85, 43, 255);
+}
+
+.active-node {
+    background-color: rgba(108, 53, 51, 255);
+}
+
+.replica-node {
+    background-color: rgba(53, 91, 74, 255);
+}

@@ -9,7 +9,7 @@ namespace Self.Story
 	[NodeMetadata]
 	public class ReplicaNode : ActiveNode
 	{
-		[SerializeReference] public CharacterReference character;
+		public Character character;
 		[SerializeReference] public EmotionReference   emotion;
 
 		public string localized;

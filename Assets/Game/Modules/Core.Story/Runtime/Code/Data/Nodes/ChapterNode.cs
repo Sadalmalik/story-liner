@@ -1,6 +1,6 @@
 namespace Self.Story
 {
-    [NodeMetadata(customOutput: true)]
+    [NodeMetadata]
     public class ChapterNode : BaseNode
     {
         public Chapter chapter;
