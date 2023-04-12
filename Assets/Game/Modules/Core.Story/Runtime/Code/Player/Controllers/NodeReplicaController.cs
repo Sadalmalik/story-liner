@@ -13,7 +13,7 @@ namespace Self.Story
 		public ReplicaNode   Node { get; private set; }
 		public ReplicaWidget View { get; private set; }
 
-		public void Init()
+		public override void Init()
 		{
 			SignalBus.Global.Subscribe<SStoryModuleReady>(HandleLoadingComplete);
 		}

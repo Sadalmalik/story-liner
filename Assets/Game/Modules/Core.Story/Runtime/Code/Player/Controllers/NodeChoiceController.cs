@@ -15,7 +15,7 @@ namespace Self.Story
 
 		private int _selected;
 		
-		public void Init()
+		public override void Init()
 		{
 			SignalBus.Global.Subscribe<SStoryModuleReady>(HandleLoadingComplete);
 		}

@@ -1288,8 +1288,12 @@ PrefabInstance:
       value: ChoiceWidget
       objectReference: {fileID: 0}
     - target: {fileID: 2578281133115590688, guid: b6a7efb9c7fcfb34e84c0c91f1162066, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2578281133115590688, guid: b6a7efb9c7fcfb34e84c0c91f1162066, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -800
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2578281133462461144, guid: b6a7efb9c7fcfb34e84c0c91f1162066, type: 3}
       propertyPath: serializationData.Prefab
@@ -1365,8 +1369,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9081091787305903841, guid: ce9aef0ea2c2ea349b7c37a96b6b684e, type: 3}
     - target: {fileID: 9081091787572069232, guid: ce9aef0ea2c2ea349b7c37a96b6b684e, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9081091787572069232, guid: ce9aef0ea2c2ea349b7c37a96b6b684e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9081091787655589203, guid: ce9aef0ea2c2ea349b7c37a96b6b684e, type: 3}
       propertyPath: m_Pivot.x

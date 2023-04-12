@@ -44,6 +44,7 @@ namespace Self.Story
 
 		public void SetChapter(Chapter chapter, ChapterSave save)
 		{
+			chapter.Init();
 			CurrentChapter = chapter;
 			CurrentNodeID  = save?.currentNode ?? chapter.startNodeID;
 			CurrentNode    = CurrentChapter.nodesByID[CurrentNodeID];

@@ -43,7 +43,7 @@ namespace Self.Story
 
 			StoryView = GameObject.FindObjectOfType<StoryView>();
 
-			SignalBus.Global.Invoke(new SStoryModuleReady {view = StoryView});
+			SignalBus.Global.Invoke<SStoryModuleReady>(new SStoryModuleReady {view = StoryView});
 			
 			_storyController.SetChapter(Settings.testChapter, null);
 		}

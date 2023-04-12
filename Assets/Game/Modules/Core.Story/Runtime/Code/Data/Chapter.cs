@@ -8,7 +8,7 @@ namespace Self.Story
 		menuName = "[SELF]/Story/New Chapter",
 		fileName = "New Chapter B",
 		order = 2)]
-	public class Chapter : ScriptableObject, ISerializationCallbackReceiver
+	public class Chapter : ScriptableObject
 	{
 		public Book book;
 
@@ -40,11 +40,7 @@ namespace Self.Story
 			nodesByID.Remove(node.id);
 		}
 
-		void ISerializationCallbackReceiver.OnBeforeSerialize()
-		{
-		}
-
-		void ISerializationCallbackReceiver.OnAfterDeserialize()
+		public void Init()
 		{
 			nodesByID.Clear(); 
 			foreach (var node in nodes)
