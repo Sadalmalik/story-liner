@@ -286,6 +286,20 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+--- !u!114 &-2883926566402302933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2390d353374d46269864ac4f65afc508, type: 3}
+  m_Name: node.8ee2f7.Replica.Background.0
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  sprite: {fileID: 21300000, guid: ee01d9669dd1b9346bcb86b34dcf0678, type: 3}
 --- !u!114 &-2868090070720301012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,7 +589,8 @@ MonoBehaviour:
   position: {x: 1645, y: 455}
   nextNodes:
   - 32d995b2981b9b24bba718ac77d1eba6
-  actions: []
+  actions:
+  - {fileID: -2883926566402302933}
   character: {fileID: 11400000, guid: 86af288b6a0f1844d8143a8494f10005, type: 2}
   emotion:
     rid: -2
