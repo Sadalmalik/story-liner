@@ -3,7 +3,7 @@ using Self.Architecture.IOC;
 
 namespace Self.Story
 {
-	public interface INodeController : IShared
+	public interface INodeController
 	{
 		Type TargetType { get; }
 

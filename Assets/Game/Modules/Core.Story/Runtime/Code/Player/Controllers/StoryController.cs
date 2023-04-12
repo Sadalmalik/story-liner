@@ -45,7 +45,7 @@ namespace Self.Story
 		public void SetChapter(Chapter chapter, ChapterSave save)
 		{
 			CurrentChapter = chapter;
-			CurrentNodeID  = save.currentNode ?? chapter.startNodeID;
+			CurrentNodeID  = save?.currentNode ?? chapter.startNodeID;
 			CurrentNode    = CurrentChapter.nodesByID[CurrentNodeID];
 
 			SetNode(CurrentNodeID);
@@ -53,6 +53,8 @@ namespace Self.Story
 
 		public void SetNode(string nodeId)
 		{
+			CurrentNode = null;
+			
 			if (!CurrentChapter.nodesByID.TryGetValue(nodeId, out var node))
 			{
 				Debug.LogError($"Story broken! No node with id '{nodeId}'");
@@ -66,6 +68,8 @@ namespace Self.Story
 				OnStoryBroken?.Invoke(CurrentNodeID);
 				return;
 			}
+
+			CurrentNode = node;
 
 			if (node is ActiveNode activeNode)
 				foreach (var action in activeNode.actions)

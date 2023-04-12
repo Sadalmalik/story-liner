@@ -38,7 +38,9 @@ namespace Self.Story
 
 		private void InstantiateStoryView()
 		{
-			StoryView = GameObject.Instantiate(Settings.prefab);
+			//StoryView = GameObject.Instantiate(Settings.prefab);
+
+			StoryView = GameObject.FindObjectOfType<StoryView>();
 
 			SignalBus.Global.Invoke(new SStoryModuleReady {view = StoryView});
 			
