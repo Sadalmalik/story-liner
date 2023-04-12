@@ -6,7 +6,7 @@ namespace Self.Story
 {
 	public class NodeChoiceController : SharedObject, INodeController
 	{
-		public Type TargetType => typeof(ChoiceNode);
+		public Type GetTargetType() => typeof(ChoiceNode);
 
 		[Inject] private StoryController _StoryController;
 

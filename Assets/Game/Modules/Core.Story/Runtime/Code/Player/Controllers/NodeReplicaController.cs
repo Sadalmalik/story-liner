@@ -6,7 +6,7 @@ namespace Self.Story
 {
 	public class NodeReplicaController : SharedObject, INodeController
 	{
-		public Type TargetType => typeof(ReplicaNode);
+		public Type GetTargetType() => typeof(ReplicaNode);
 
 		[Inject] private StoryController _StoryController;
 

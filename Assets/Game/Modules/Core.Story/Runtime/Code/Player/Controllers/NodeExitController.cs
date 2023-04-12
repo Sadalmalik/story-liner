@@ -5,7 +5,7 @@ namespace Self.Story
 {
 	public class NodeExitController : SharedObject, INodeController
 	{
-		public Type TargetType => typeof(ExitNode);
+		public Type GetTargetType() => typeof(ExitNode);
 
 		[Inject] private StoryController _StoryController;
 

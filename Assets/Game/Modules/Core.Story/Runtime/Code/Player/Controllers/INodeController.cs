@@ -5,7 +5,7 @@ namespace Self.Story
 {
 	public interface INodeController
 	{
-		Type TargetType { get; }
+		Type GetTargetType();
 
 		string Enter(BaseNode node);
 	}

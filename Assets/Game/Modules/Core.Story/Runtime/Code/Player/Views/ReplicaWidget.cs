@@ -40,12 +40,12 @@ namespace Self.Story
 		{
 			_replica = node;
 			SetupCharacter();
-			_tween = DOTween
-				.Sequence()
+			text.SetText(string.Empty);
+			_tween = DOTween.Sequence()
 				.Join(text.DOText(_replica.localized, textDuration))
-				.Join(showAnimation.sequence)
-				.AppendCallback(HandleCompleteShow);
+				.InsertCallback(showAnimation.Duration, HandleCompleteShow);
 			_tween.Play();
+			showAnimation.Play();
 		}
 
 		private void SetupCharacter()
@@ -59,20 +59,19 @@ namespace Self.Story
 
 		public virtual void Hide()
 		{
-			_tween = DOTween
-				.Sequence()
-				.Join(hideAnimation.sequence)
-				.AppendCallback(HandleCompleteHide);
-			_tween.Play();
+			hideAnimation.Play();
+			hideAnimation.OnComplete += HandleCompleteHide;
 		}
 
 		protected virtual void HandleCompleteShow()
 		{
+			_tween = null;
 			OnShowComplete?.Invoke();
 		}
 
 		protected virtual void HandleCompleteHide()
 		{
+			hideAnimation.OnComplete -= HandleCompleteHide;
 			OnHideComplete?.Invoke();
 		}
 
@@ -82,6 +81,8 @@ namespace Self.Story
 			{
 				_tween?.Kill();
 				_tween = null;
+				
+				showAnimation.Stop();
 
 				text.SetText(_replica.localized);
 			}

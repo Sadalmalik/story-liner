@@ -5,7 +5,7 @@ namespace Self.Story
 {
 	public class NodeConditionController : SharedObject, INodeController
 	{
-		public Type TargetType => typeof(ConditionNode);
+		public Type GetTargetType() => typeof(ConditionNode);
 
 		public string Enter(BaseNode node)
 		{

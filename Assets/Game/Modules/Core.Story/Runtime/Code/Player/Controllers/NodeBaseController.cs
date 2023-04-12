@@ -5,7 +5,7 @@ namespace Self.Story
 {
 	public class NodeBaseController : SharedObject, INodeController
 	{
-		public Type TargetType => typeof(BaseNode);
+		public virtual Type GetTargetType() => typeof(BaseNode);
 
 		public string Enter(BaseNode node)
 		{

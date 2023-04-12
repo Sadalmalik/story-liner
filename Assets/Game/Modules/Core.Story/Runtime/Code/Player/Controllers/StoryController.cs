@@ -28,7 +28,7 @@ namespace Self.Story
 		{
 			var list = container.GetAll<INodeController>();
 			foreach (var controller in list)
-				_controllersByNodeType.Add(controller.TargetType, controller);
+				_controllersByNodeType.Add(controller.GetTargetType(), controller);
 
 			SignalBus.Global.Subscribe<SStoryModuleReady>(HandleLoadingComplete);
 		}

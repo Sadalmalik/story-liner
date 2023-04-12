@@ -13,11 +13,12 @@ namespace Self.Story
 			container.Add<StoryController>();
 
 			container.Add<NodeBaseController>();
+			container.Add<NodeActiveController>();
 			container.Add<NodeReplicaController>();
 			container.Add<NodeChoiceController>();
+			container.Add<NodeConditionController>();
 			container.Add<NodeEntryController>();
 			container.Add<NodeExitController>();
-			container.Add<NodeConditionController>();
 		}
 
 		[Inject] private StoryController _storyController;
