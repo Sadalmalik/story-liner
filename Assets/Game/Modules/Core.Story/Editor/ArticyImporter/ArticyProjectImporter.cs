@@ -173,6 +173,7 @@ namespace Self.ArticyImporter
 				exitNode.id  = GUID.Generate().ToString();
 				entryNode.UpdateName();
 				exitNode.UpdateName();
+				newChapter.startNodeID = entryNode.id;
 
 				var nodes = data.Packages[0].Models.Where(n => n.Properties.Parent.Equals(chapter.Properties.Id));
 
@@ -281,7 +282,7 @@ namespace Self.ArticyImporter
 
 				EditorUtility.SetDirty(newChapter);
 				AssetDatabase.SaveAssets();
-
+				
 				// position entry node and exit node at the very ends of the chapter
 				var leftMostNodePosition = Vector2.one * float.MaxValue;
 				var leftMostNodeId       = string.Empty;
@@ -373,6 +374,22 @@ namespace Self.ArticyImporter
 					AssetDatabase.SaveAssets();
 				}
 			}
+
+            foreach (var chapterNode in chapterNodes.Values)
+            {
+				var node = chapterNode
+									.chapter
+									.nodes
+									.FirstOrDefault(n => n is ExitNode);
+
+				if(node != null)
+                {
+					var exitNode = node as ExitNode;
+					var nextChapterNode = chapterNode.chapter.parentChapter.nodesByID[chapterNode.NextNode];
+
+					exitNode.nextNodes = new List<string> { nextChapterNode.id };
+                }
+            }
 
 			return chapterList;
 		}

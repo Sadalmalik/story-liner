@@ -78,7 +78,8 @@ namespace Self.Story.Editors
 				{
 					for (int i = 0; i < n.nextNodes.Count; i++)
 					{
-						if (string.IsNullOrEmpty(n.nextNodes[i]))
+						if (string.IsNullOrEmpty(n.nextNodes[i])
+							|| n is ExitNode)
 							continue;
 
 						var outputNode = FindNodeView(n.nextNodes[i]);
