@@ -15,6 +15,7 @@ namespace Self.Story
 			container.Add<NodeBaseController>();
 			container.Add<NodeReplicaController>();
 			container.Add<NodeChoiceController>();
+			container.Add<NodeEntryController>();
 			container.Add<NodeExitController>();
 			container.Add<NodeConditionController>();
 		}

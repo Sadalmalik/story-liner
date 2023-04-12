@@ -9,7 +9,7 @@ namespace Self.Story
 
 		public string Enter(BaseNode node)
 		{
-			return node.nextNodes[0];
+			return node.NextNode;
 		}
 	}
 }
