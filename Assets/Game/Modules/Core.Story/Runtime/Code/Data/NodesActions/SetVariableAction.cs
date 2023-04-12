@@ -10,7 +10,7 @@ namespace Self.Story
 		private static readonly Regex _conditionReg =
 			new Regex(@"(?<variable>[\w\.]*) *= *(?:(?<value>true|false|[\+\-]{0,1}\d+)|""(?<string>[^""]*)"")");
 
-		public string rawExpression;
+		[DisplayOnNode(1)] public string rawExpression;
 
 		[Inject] private StoryController _StoryController;
 
