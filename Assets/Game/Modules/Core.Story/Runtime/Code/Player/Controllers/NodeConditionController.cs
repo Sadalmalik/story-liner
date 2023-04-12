@@ -11,7 +11,12 @@ namespace Self.Story
 		{
 			var cond = node as ConditionNode;
 			
-			var result = cond.condition.Evaluate(container);
+			if (cond == null) return node.NextNode;
+			
+			var condition = cond.LoadCondition();
+			if (condition == null) return node.NextNode;
+			
+			var result = condition.Evaluate(container);
 			
 			return result ? node.nextNodes[0] : node.nextNodes[1];
 		}

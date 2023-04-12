@@ -1,13 +1,41 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using Self.Architecture.IOC;
+using UnityEngine;
 
 namespace Self.Story
 {
+	public enum Op
+	{
+		Equal,
+		Less,
+		LessOrEqual,
+		Greater,
+		GreaterOrEqual,
+		NotEqual,
+		Value
+	}
+	
+	public static class OpExtensions
+	{
+		public static readonly Dictionary<string, Op> ExpressionToOperation = new Dictionary<string, Op>()
+		{
+			{"==", Op.Equal},
+			{"<", Op.Less},
+			{"<=", Op.LessOrEqual},
+			{">", Op.Greater},
+			{">=", Op.GreaterOrEqual},
+			{"!=", Op.NotEqual}
+		};
+	}
+	[Serializable]
 	public abstract class Condition
 	{
 		public abstract bool Evaluate(Container context);
 	}
 
+	[Serializable]
 	public class AndCondition : Condition
 	{
 		public List<Condition> childs;
@@ -21,6 +49,7 @@ namespace Self.Story
 		}
 	}
 
+	[Serializable]
 	public class OrCondition : Condition
 	{
 		public List<Condition> childs;
@@ -34,12 +63,14 @@ namespace Self.Story
 		}
 	}
 
+	[Serializable]
 	public abstract class VariableCondition : Condition
 	{
-		public string variableName;
+		public string variableId;
 	}
 
-	public abstract class StringCondition : VariableCondition
+	[Serializable]
+	public class StringCondition : VariableCondition
 	{
 		public string expectedValue;
 
@@ -47,24 +78,15 @@ namespace Self.Story
 		{
 			var controller = context.Get<StoryController>();
 
-			var value = controller.CurrentChapter.book.variables.GetValue(variableName);
+			var value = controller.CurrentChapter.book.variables.GetValue(variableId);
 
 			return value.Equals(expectedValue);
 		}
 	}
 	
-	public abstract class IntCondition : VariableCondition
+	[Serializable]
+	public class IntCondition : VariableCondition
 	{
-		public enum Op
-		{
-			Equal,
-			Less,
-			LessOrEqual,
-			Greater,
-			GreaterOrEqual,
-			NotEqual
-		}
-
 		public Op  op;
 		public int expectedValue;
 
@@ -72,7 +94,7 @@ namespace Self.Story
 		{
 			var controller = context.Get<StoryController>();
 
-			var variable = controller.CurrentChapter.book.variables.Get(variableName) as IntVariable;
+			var variable = controller.CurrentChapter.book.variables.Get(variableId) as IntVariable;
 			if (variable == null)
 				return false;
 			
@@ -89,15 +111,10 @@ namespace Self.Story
 			return false;
 		}
 	}
-	public abstract class BoolCondition : VariableCondition
+	
+	[Serializable]
+	public class BoolCondition : VariableCondition
 	{
-		public enum Op
-		{
-			Equal,
-			NotEqual,
-			Value
-		}
-
 		public Op  op;
 		public bool expectedValue;
 
@@ -105,7 +122,7 @@ namespace Self.Story
 		{
 			var controller = context.Get<StoryController>();
 
-			var variable = controller.CurrentChapter.book.variables.Get(variableName) as BoolVariable;
+			var variable = controller.CurrentChapter.book.variables.Get(variableId) as BoolVariable;
 			if (variable == null)
 				return false;
 			
@@ -123,6 +140,56 @@ namespace Self.Story
 	[NodeMetadata(customOutput: true)]
 	public class ConditionNode : BaseNode
 	{
-		public Condition condition;
+		private static readonly Regex _conditionReg =
+			new Regex(@"(?<variable>[\w\.]*) *(?<expression>\>=|\<=|==|\!=) *(?:(?<value>true|false|\+{0,1}\d+)|""(?<string>[^""]*)"")");
+
+		public string    rawCondition;
+		//public Condition condition;
+
+		public Condition LoadCondition()
+		{
+			var cond  = (Condition)null;
+			var match = _conditionReg.Match(rawCondition);
+			if (match.Success)
+			{
+				var _var = match.Groups["variable"].Value;
+				var _exp = match.Groups["expression"].Value;
+				var _val = match.Groups["value"].Value;
+				var _str = match.Groups["string"].Value;
+
+				if (int.TryParse(_val, out var intValue))
+				{
+					cond = new IntCondition
+					{
+						variableId    = _var,
+						op            = OpExtensions.ExpressionToOperation[_exp],
+						expectedValue = intValue
+					};
+				}
+				else if (bool.TryParse(_val, out var boolValue))
+				{
+					cond = new BoolCondition
+					{
+						variableId    = _var,
+						op            = OpExtensions.ExpressionToOperation[_exp],
+						expectedValue = boolValue
+					};
+				}
+				else if (!string.IsNullOrEmpty(_str))
+				{
+					cond = new StringCondition()
+					{
+						variableId    = _var,
+						expectedValue = _str
+					};
+				}
+			}
+			else
+			{
+				Debug.LogWarning($"Can't parse condition:\n{rawCondition}");
+			}
+
+			return cond;
+		}
 	}
 }

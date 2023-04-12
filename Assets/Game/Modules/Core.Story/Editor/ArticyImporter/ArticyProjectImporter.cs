@@ -6,15 +6,16 @@ using UnityEditor;
 using Self.Story;
 using Self.Story.Editors;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Self.ArticyImporter
 {
-    public static class ArticyProjectImporter
-    {
-        public static ArticyData ImportFromJsonAsset(TextAsset textAsset)
-        {
-            return JsonConvert.DeserializeObject<ArticyData>(textAsset.text);
-        }
+	public static class ArticyProjectImporter
+	{
+		public static ArticyData ImportFromJsonAsset(TextAsset textAsset)
+		{
+			return JsonConvert.DeserializeObject<ArticyData>(textAsset.text);
+		}
 
 		[MenuItem("StoryEditor/Import From Articy")]
 		private static void ImportFromArticy()
@@ -25,28 +26,28 @@ namespace Self.ArticyImporter
 				throw new System.Exception("Could not open file, path is null or empty");
 
 			var relativeFilePath = $"Assets/{file.Split("Assets/")[1]}";
-			var jsonAsset = AssetDatabase.LoadAssetAtPath<TextAsset>(relativeFilePath);
+			var jsonAsset        = AssetDatabase.LoadAssetAtPath<TextAsset>(relativeFilePath);
 
 			if (jsonAsset == null)
 				throw new System.Exception($"Error loading asset at path {relativeFilePath}");
 
-			var data = ImportFromJsonAsset(jsonAsset);
+			var data       = ImportFromJsonAsset(jsonAsset);
 			var storyNodes = new Dictionary<ulong, StoryNode>();
 
 			data.Packages[0].Models.ForEach(m => storyNodes.Add(m.Properties.Id.Value, m));
 
 			var creationPath = System.IO.Path.GetDirectoryName(relativeFilePath);
-			var characters = CreateCharactersFromImport(data, creationPath);
+			var characters   = CreateCharactersFromImport(data, creationPath);
 
 			var book = CreateBookFromImport(data, creationPath);
 			book.characters = characters.Values.ToList();
 
-			var chapters = CreateChaptersFromImport(data, characters, creationPath);
+			var chapters = CreateChaptersFromImport(book, data, characters, creationPath);
 
-			foreach (var chapter in chapters)
-			{
-				chapter.book = book;
-			}
+			//  foreach (var chapter in chapters)
+			//  {
+			//  	chapter.book = book;
+			//  }
 
 			AssetDatabase.SaveAssets();
 		}
@@ -54,7 +55,7 @@ namespace Self.ArticyImporter
 		private static Dictionary<HexValue, Character> CreateCharactersFromImport(ArticyData data, string path)
 		{
 			var characters = data.Packages[0].Models.Where(m => m.Type.Equals("DefaultMainCharacterTemplate")
-															|| m.Type.Equals("DefaultSupportingCharacterTemplate"));
+			                                                    || m.Type.Equals("DefaultSupportingCharacterTemplate"));
 
 			path = $"{path}/Characters/";
 
@@ -65,9 +66,10 @@ namespace Self.ArticyImporter
 
 			foreach (var character in characters)
 			{
-				var newCharacter = ScriptableUtils.CreateAsset<Character>(path, $"Character_{character.Properties.DisplayName}");
+				var newCharacter =
+					ScriptableUtils.CreateAsset<Character>(path, $"Character_{character.Properties.DisplayName}");
 				newCharacter.isMainCharacter = (character.Type.Equals("DefaultMainCharacterTemplate")) ? true : false;
-				newCharacter.characterName = character.Properties.DisplayName;
+				newCharacter.characterName   = character.Properties.DisplayName;
 
 				EditorUtility.SetDirty(newCharacter);
 				AssetDatabase.SaveAssets();
@@ -80,19 +82,19 @@ namespace Self.ArticyImporter
 
 		private static Book CreateBookFromImport(ArticyData data, string path)
 		{
-			var newBook = ScriptableUtils.CreateAsset<Book>(path, $"Book_{data.Project.Name}");
+			var newBook            = ScriptableUtils.CreateAsset<Book>(path, $"Book_{data.Project.Name}");
 			var variablesContainer = ScriptableUtils.AddToAsset<VariablesContainer>(newBook, ".settings.variables");
 
 			newBook.variables = variablesContainer;
-			newBook.bookName = data.Project.Name;
+			newBook.bookName  = data.Project.Name;
 
 			foreach (var variableSet in data.GlobalVariables)
 			{
 				foreach (var variable in variableSet.Variables)
 				{
-					var varName = $".{variableSet.Namespace}.{variable.Variable}";
-					var varId = $"{variableSet.Namespace}.{variable.Variable}";
-					Variable newVar = null;
+					var      varName = $".{variableSet.Namespace}.{variable.Variable}";
+					var      varId   = $"{variableSet.Namespace}.{variable.Variable}";
+					Variable newVar  = null;
 
 					switch (variable.Type)
 					{
@@ -104,7 +106,7 @@ namespace Self.ArticyImporter
 						case "String":
 							var stringVar = ScriptableUtils.AddToAsset<StringVariable>(newBook, varName);
 							stringVar.value = variable.Value;
-							newVar = stringVar;
+							newVar          = stringVar;
 							break;
 						case "Integer":
 							var intVar = ScriptableUtils.AddToAsset<IntVariable>(newBook, varName);
@@ -116,6 +118,7 @@ namespace Self.ArticyImporter
 
 								intVar.value = parsedValue;
 							}
+
 							newVar = intVar;
 							break;
 						default:
@@ -133,7 +136,11 @@ namespace Self.ArticyImporter
 			return newBook;
 		}
 
-		private static List<Chapter> CreateChaptersFromImport(ArticyData data, Dictionary<HexValue, Character> characters, string path)
+		private static List<Chapter> CreateChaptersFromImport(
+			Book                            book,
+			ArticyData                      data,
+			Dictionary<HexValue, Character> characters,
+			string                          path)
 		{
 			path = $"{path}/Chapters/";
 
@@ -142,28 +149,28 @@ namespace Self.ArticyImporter
 
 			var chapterList = new List<Chapter>();
 			var chapters = data.Packages[0].Models.Where(m => m.Type.Equals("Dialogue")
-														|| m.Type.Equals("FlowFragment"));
+			                                                  || m.Type.Equals("FlowFragment"));
 
 			var chaptersDictionary = new Dictionary<HexValue, Chapter>();
-			var chapterNodes = new Dictionary<HexValue, ChapterNode>();
-			var inputConnections = new Dictionary<HexValue, Chapter>();
+			var chapterNodes       = new Dictionary<HexValue, ChapterNode>();
+			var inputConnections   = new Dictionary<HexValue, Chapter>();
 
 			// create new chapter assets
 			foreach (var chapter in chapters)
 			{
 				var chapterName = chapter.Properties.DisplayName;
-				var nodesDic = new Dictionary<HexValue, string>();
-				var newChapter = ScriptableUtils.CreateAsset<Chapter>(path, $"Chapter_{chapterName}");
+				var nodesDic    = new Dictionary<HexValue, string>();
+				var newChapter  = ScriptableUtils.CreateAsset<Chapter>(path, $"Chapter_{chapterName}");
 
 				newChapter.chapterName = chapterName;
 
 				chaptersDictionary.Add(chapter.Properties.Id, newChapter);
 
 				var entryNode = ScriptableUtils.AddToAsset<EntryNode>(newChapter);
-				var exitNode = ScriptableUtils.AddToAsset<ExitNode>(newChapter);
+				var exitNode  = ScriptableUtils.AddToAsset<ExitNode>(newChapter);
 
 				entryNode.id = GUID.Generate().ToString();
-				exitNode.id = GUID.Generate().ToString();
+				exitNode.id  = GUID.Generate().ToString();
 				entryNode.UpdateName();
 				exitNode.UpdateName();
 
@@ -177,29 +184,13 @@ namespace Self.ArticyImporter
 					switch (node.Type)
 					{
 						case "DialogueFragment":
-
-							if (node.Properties.OutputPins != null
-								&& node.Properties.OutputPins[0].Connections != null 
-								&& node.Properties.OutputPins[0].Connections.Count > 1)
-							{
-								newNode = ScriptableUtils.AddToAsset<ChoiceNode>(newChapter);
-							}
-							else
-							{
-								newNode = ScriptableUtils.AddToAsset<ReplicaNode>(newChapter);
-							}
-
-							var replica = newNode as ReplicaNode;
-
-							replica.localized = string.IsNullOrEmpty(node.Properties.Text) ? node.Properties.MenuText : node.Properties.Text;
-							replica.character = characters[node.Properties.Speaker];
-
+							newNode = ParseDialogueNode(characters, node, newChapter);
 							break;
 						case "Condition":
-							newNode = ScriptableUtils.AddToAsset<ConditionNode>(newChapter);
+							newNode = ParseConditionNode(node, newChapter);
 							break;
 						case "Instruction":
-							newNode = ScriptableUtils.AddToAsset<ActiveNode>(newChapter);
+							newNode = ParseInstructionNode(node, newChapter);
 							break;
 						case "Dialogue":
 							newNode = ScriptableUtils.AddToAsset<ChapterNode>(newChapter);
@@ -213,7 +204,7 @@ namespace Self.ArticyImporter
 
 					newNode.id = GUID.Generate().ToString();
 					newNode.UpdateName();
-					newNode.position = ((Vector2)node.Properties.Position) * 1.4f;
+					newNode.position = ((Vector2) node.Properties.Position) * 1.4f;
 
 					nodesDic.Add(node.Properties.Id, newNode.id);
 					newChapter.AddNode(newNode);
@@ -223,20 +214,20 @@ namespace Self.ArticyImporter
 				foreach (var node in nodes)
 				{
 					var createdNodeId = nodesDic[node.Properties.Id];
-					var createdNode = newChapter.nodesByID[createdNodeId];
+					var createdNode   = newChapter.nodesByID[createdNodeId];
 
 					var connections = new List<Connection>();
 
 					if (node.Properties.OutputPins != null
-						&& node.Properties.OutputPins.Count > 1)
+					    && node.Properties.OutputPins.Count > 1)
 					{
 						// condition node
 						foreach (var pin in node.Properties.OutputPins)
 						{
-							if(pin.Connections != null)
-                            {
+							if (pin.Connections != null)
+							{
 								connections.Add(pin.Connections[0]);
-                            }
+							}
 						}
 					}
 					else
@@ -244,10 +235,10 @@ namespace Self.ArticyImporter
 						// other nodes
 
 						if (node.Properties.OutputPins != null
-							&& node.Properties.OutputPins[0].Connections != null)
-                        {
+						    && node.Properties.OutputPins[0].Connections != null)
+						{
 							connections.AddRange(node.Properties.OutputPins[0].Connections);
-                        }
+						}
 					}
 
 					foreach (var connection in connections)
@@ -259,10 +250,10 @@ namespace Self.ArticyImporter
 
 							createdNode.nextNodes.Add(targetNodeId);
 
-							if(node.Type == "DialogueFragment" && connections.Count > 1)
-                            {
-								if(nodes.Any(n => n.Properties.Id.Equals(connection.Target)))
-                                {
+							if (node.Type == "DialogueFragment" && connections.Count > 1)
+							{
+								if (nodes.Any(n => n.Properties.Id.Equals(connection.Target)))
+								{
 									var connectedNode = nodes.First(n => n.Properties.Id.Equals(connection.Target));
 
 									var choiceNode = createdNode as ChoiceNode;
@@ -275,13 +266,13 @@ namespace Self.ArticyImporter
 										localizedText = connectedNode.Properties.MenuText
 									});
 								}
-                            }
+							}
 						}
 						else
 						{
 							// meaning that we are trying to link to Parent Chapter
-							if(chaptersDictionary.TryGetValue(connection.Target, out var parentChapter))
-                            {
+							if (chaptersDictionary.TryGetValue(connection.Target, out var parentChapter))
+							{
 								createdNode.nextNodes.Add(exitNode.id);
 							}
 						}
@@ -293,19 +284,19 @@ namespace Self.ArticyImporter
 
 				// position entry node and exit node at the very ends of the chapter
 				var leftMostNodePosition = Vector2.one * float.MaxValue;
-				var leftMostNodeId = string.Empty;
+				var leftMostNodeId       = string.Empty;
 
-                foreach (var node in newChapter.nodes)
-                {
+				foreach (var node in newChapter.nodes)
+				{
 					if (node.position.x < leftMostNodePosition.x)
-                    {
+					{
 						leftMostNodePosition = node.position;
-						leftMostNodeId = node.id;
-                    }
-                }
+						leftMostNodeId       = node.id;
+					}
+				}
 
-				entryNode.position = leftMostNodePosition + new Vector2(-500f, 0f);
-				entryNode.nextNodes = new List<string> { leftMostNodeId };
+				entryNode.position  = leftMostNodePosition + new Vector2(-500f, 0f);
+				entryNode.nextNodes = new List<string> {leftMostNodeId};
 
 				// position entry node and exit node at the very ends of the chapter
 				var rightMostNodePosition = Vector2.zero;
@@ -323,39 +314,36 @@ namespace Self.ArticyImporter
 
 				// fix choice nodes choices sorting
 				var choiceNodes = newChapter.nodes
-											.Where(n => n is ChoiceNode)
-											.Select(n => n as ChoiceNode);
+					.Where(n => n is ChoiceNode)
+					.Select(n => n as ChoiceNode);
 
-                foreach (var choiceNode in choiceNodes)
-                {
-					if(newChapter.nodes.Any(n => choiceNode.nextNodes.Contains(n.id)))
-                    {
-						var choicesMap = new Dictionary<string, string>();
+				foreach (var choiceNode in choiceNodes)
+				{
+					if (newChapter.nodes.Any(n => choiceNode.nextNodes.Contains(n.id)))
+					{
+						var choicesMap    = new Dictionary<string, string>();
 						var choiceOutputs = newChapter.nodes.Where(n => choiceNode.nextNodes.Contains(n.id)).ToList();
 
-                        for (int i = 0; i < choiceNode.choices.Count; i++)
-                        {
-							choicesMap.Add(choiceNode.nextNodes[i], choiceNode.choices[i].localizedText);
-                        }
-
-						choiceOutputs.Sort((a, b) =>
+						for (int i = 0; i < choiceNode.choices.Count; i++)
 						{
-							return (int)((a.position.y * 100f) - (b.position.y * 100f));
-						});
+							choicesMap.Add(choiceNode.nextNodes[i], choiceNode.choices[i].localizedText);
+						}
 
-						choiceNode.choices = new List<ChoiceNode.Choice>();
+						choiceOutputs.Sort((a, b) => { return (int) ((a.position.y * 100f) - (b.position.y * 100f)); });
+
+						choiceNode.choices   = new List<ChoiceNode.Choice>();
 						choiceNode.nextNodes = new List<string>();
 
-                        foreach (var choice in choiceOutputs)
-                        {
+						foreach (var choice in choiceOutputs)
+						{
 							choiceNode.choices.Add(new ChoiceNode.Choice
 							{
 								localizedText = choicesMap[choice.id]
 							});
 							choiceNode.nextNodes.Add(choice.id);
-                        }
-                    }
-                }
+						}
+					}
+				}
 
 				EditorUtility.SetDirty(newChapter);
 				AssetDatabase.SaveAssets();
@@ -367,17 +355,17 @@ namespace Self.ArticyImporter
 			foreach (var chapterNode in chapterNodes)
 			{
 				var node = chapterNode.Value;
-				if(chaptersDictionary.TryGetValue(chapterNode.Key, out var chapter))
-                {
+				if (chaptersDictionary.TryGetValue(chapterNode.Key, out var chapter))
+				{
 					node.chapter = chapter;
-                }
+				}
 			}
 
 			// set each chapter asset parent chapter if needed
 			foreach (var chapter in chapters)
-            {
-				if(chaptersDictionary.TryGetValue(chapter.Properties.Parent, out var parentChapter))
-                {
+			{
+				if (chaptersDictionary.TryGetValue(chapter.Properties.Parent, out var parentChapter))
+				{
 					var chapterAsset = chaptersDictionary[chapter.Properties.Id];
 					chapterAsset.parentChapter = parentChapter;
 
@@ -387,6 +375,61 @@ namespace Self.ArticyImporter
 			}
 
 			return chapterList;
+		}
+
+		private static BaseNode ParseDialogueNode(
+			Dictionary<HexValue, Character> characters,
+			StoryNode                       node,
+			Chapter                         newChapter)
+		{
+			BaseNode newNode;
+			if (node.Properties.OutputPins != null
+			    && node.Properties.OutputPins[0].Connections != null
+			    && node.Properties.OutputPins[0].Connections.Count > 1)
+			{
+				newNode = ScriptableUtils.AddToAsset<ChoiceNode>(newChapter);
+			}
+			else
+			{
+				newNode = ScriptableUtils.AddToAsset<ReplicaNode>(newChapter);
+			}
+
+			var replica = newNode as ReplicaNode;
+
+			replica.localized = string.IsNullOrEmpty(node.Properties.Text)
+				? node.Properties.MenuText
+				: node.Properties.Text;
+			replica.character = characters[node.Properties.Speaker];
+			return newNode;
+		}
+
+		private static BaseNode ParseConditionNode(
+			StoryNode node,
+			Chapter   newChapter)
+		{
+			BaseNode newNode;
+			newNode = ScriptableUtils.AddToAsset<ConditionNode>(newChapter);
+
+			var cond = newNode as ConditionNode;
+			cond.rawCondition = node.Properties.Expression;
+
+			return newNode;
+		}
+
+		private static BaseNode ParseInstructionNode(
+			StoryNode node,
+			Chapter   newChapter)
+		{
+			BaseNode newNode;
+			newNode = ScriptableUtils.AddToAsset<ActiveNode>(newChapter);
+
+			var cond   = newNode as ActiveNode;
+			var action = ScriptableUtils.AddToAsset<SetVariableAction>(newChapter);
+			action.rawExpression = node.Properties.Expression;
+
+			cond.actions = new List<BaseAction> {action};
+
+			return newNode;
 		}
 	}
 }

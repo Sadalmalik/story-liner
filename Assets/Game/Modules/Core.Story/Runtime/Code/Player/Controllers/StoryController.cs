@@ -55,8 +55,9 @@ namespace Self.Story
 		public void SetNode(string nodeId)
 		{
 			CurrentNode = null;
-			
-			if (!CurrentChapter.nodesByID.TryGetValue(nodeId, out var node))
+
+			var node = CurrentChapter.TryGetNode(nodeId);
+			if (node != null)
 			{
 				Debug.LogError($"Story broken! No node with id '{nodeId}'");
 				OnStoryBroken?.Invoke(CurrentNodeID);

@@ -21,7 +21,6 @@ namespace Self.Story
 
 		[NonSerialized] public Dictionary<string, BaseNode> nodesByID = new();
 
-
 		public void AddNode(BaseNode node)
 		{
 			nodes.Add(node);
@@ -46,6 +45,15 @@ namespace Self.Story
 			foreach (var node in nodes)
 				if (node != null && node.id != null)
 					nodesByID?.Add(node.id, node);
+		}
+
+		public BaseNode TryGetNode(string nodeID)
+		{
+			if (nodesByID.TryGetValue(nodeID, out var node))
+				return node;
+			if (parentChapter != null)
+				return parentChapter.TryGetNode(nodeID);
+			return null;
 		}
 	}
 }

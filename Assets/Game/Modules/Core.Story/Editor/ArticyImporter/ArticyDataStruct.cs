@@ -67,23 +67,24 @@ namespace Self.ArticyImporter
     [Serializable]
     public class NodeProperties
     {
-        public string TechnicalName;
-        public HexValue Id;
-        public HexValue Parent;
-        public string[] Attachments;
-        public string MenuText;
-        public string StageDirections;
-        public string DisplayName;
-        public PreviewImage PreviewImage;
-        public float SplitHeight;
-        public Color Color;
-        public HexValue Speaker;
-        public string Text;
-        public string ExternalId;
-        public Position Position;
-        public float ZIndex;
-        public Size Size;
-        public uint ShortId;
+        public string        TechnicalName;
+        public HexValue      Id;
+        public HexValue      Parent;
+        public string[]      Attachments;
+        public string        MenuText;
+        public string        StageDirections;
+        public string        DisplayName;
+        public PreviewImage  PreviewImage;
+        public float         SplitHeight;
+        public Color         Color;
+        public HexValue      Speaker;
+        public string        Text;
+        public string        ExternalId;
+        public string        Expression;
+        public Position      Position;
+        public float         ZIndex;
+        public Size          Size;
+        public uint          ShortId;
         public List<NodePin> InputPins;
         public List<NodePin> OutputPins;
     }

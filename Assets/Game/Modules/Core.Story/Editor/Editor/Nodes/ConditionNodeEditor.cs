@@ -22,6 +22,10 @@ namespace Self.Story.Editors
 			m_ConditionContainer = CreateContainerFromTemplate(CONDITIONVIEW_TEMPLATE_PATH, "condition-container");
 			m_PortsContainer = m_ConditionContainer.Q<VisualElement>("ports-container");
 
+			var m_textField = m_ConditionContainer.Q<TextField>("condition-text");
+			var condNode = m_NodeView.Node as ConditionNode;
+			m_textField.SetValueWithoutNotify(condNode.rawCondition);
+			
 			root.Add(m_ConditionContainer);
 			TryAddStyleSheet(CONDITIONVIEW_STYLE_PATH);
 
