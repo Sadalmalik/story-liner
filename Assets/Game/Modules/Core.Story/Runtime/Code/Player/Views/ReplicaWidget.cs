@@ -11,10 +11,11 @@ namespace Self.Story
 	public class ReplicaWidget : MonoBehaviour
 	{
 		public TweenAnimator showAnimation;
+		public TweenAnimator showInstantAnimation;
 		public TweenAnimator hideAnimation;
 
 		[Space]
-		public Button button;
+		public Button   button;
 		public TMP_Text text;
 		public float    textDuration;
 
@@ -30,6 +31,8 @@ namespace Self.Story
 
 		private ReplicaNode _replica;
 		private Tween       _tween;
+		private bool        _isHiding;
+		private bool        _isShowing;
 
 		public void Awake()
 		{
@@ -38,7 +41,8 @@ namespace Self.Story
 
 		public virtual void Show(ReplicaNode node)
 		{
-			_replica = node;
+			_replica   = node;
+			_isShowing = true;
 			SetupCharacter();
 			text.SetText(string.Empty);
 			_tween = DOTween.Sequence()
@@ -52,44 +56,54 @@ namespace Self.Story
 		{
 			var character = _replica.character;
 			characterImage.sprite = character.characterIcon;
-			
-			characterRoot.gameObject.SetActive(characterImage.sprite!=null);
+
+			characterRoot.gameObject.SetActive(characterImage.sprite != null);
 			characterRoot.FitInside(character.isMainCharacter ? leftContainer : rightContainer);
 		}
 
 		public virtual void Hide()
 		{
+			_isHiding = true;
 			hideAnimation.Play();
 			hideAnimation.OnComplete += HandleCompleteHide;
 		}
 
 		protected virtual void HandleCompleteShow()
 		{
+			_isShowing = false;
+			
 			_tween = null;
+			text.SetText(_replica.localized);
 			OnShowComplete?.Invoke();
 		}
 
 		protected virtual void HandleCompleteHide()
 		{
+			_isHiding = false;
+
 			hideAnimation.OnComplete -= HandleCompleteHide;
 			OnHideComplete?.Invoke();
 		}
 
 		private void HandleClick()
 		{
-			if (_tween != null)
+			if (_isHiding)
+			{
+				return;
+			}
+
+			if (_isShowing)
 			{
 				_tween?.Kill();
-				_tween = null;
-				
 				showAnimation.Stop();
-
-				text.SetText(_replica.localized);
+				showInstantAnimation.Play();
+				
+				HandleCompleteShow();
+				
+				return;
 			}
-			else
-			{
-				OnClick?.Invoke();
-			}
+			
+			OnClick?.Invoke();
 		}
 	}
 }
