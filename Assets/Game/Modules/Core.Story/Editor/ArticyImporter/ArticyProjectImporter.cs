@@ -416,7 +416,12 @@ namespace Self.ArticyImporter
 			replica.localized = string.IsNullOrEmpty(node.Properties.Text)
 				? node.Properties.MenuText
 				: node.Properties.Text;
-			replica.character = characters[node.Properties.Speaker];
+			
+			replica.character = null;
+			var speaker = node.Properties.Speaker;
+			if (characters.ContainsKey(node.Properties.Speaker))
+				replica.character = characters[speaker];
+			
 			return newNode;
 		}
 

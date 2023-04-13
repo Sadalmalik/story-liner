@@ -39,8 +39,8 @@ namespace Self.Story
 
 		public void Add(Variable variable)
 		{
-			Variables.Add(variable);
 			VariablesById.Add(variable.id, variable);
+			Variables.Add(variable);
 		}
 
 		public void Remove(string id)

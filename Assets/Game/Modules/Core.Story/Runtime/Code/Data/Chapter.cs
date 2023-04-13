@@ -39,8 +39,8 @@ namespace Self.Story
 
 		public void AddNode(BaseNode node)
 		{
-			nodes.Add(node);
 			NodesByID.Add(node.id, node);
+			nodes.Add(node);
 		}
 
 		public void RemoveNode(string nodeId)
