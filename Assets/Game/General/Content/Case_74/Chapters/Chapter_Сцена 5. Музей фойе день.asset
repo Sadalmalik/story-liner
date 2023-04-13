@@ -383,7 +383,8 @@ MonoBehaviour:
   position: {x: -105, y: 140}
   nextNodes:
   - 9b8c49d42edfd7344873d4cceacb3129
-  actions: []
+  actions:
+  - {fileID: 5237229664148309894}
   character: {fileID: 11400000, guid: 3a96e52208cc66344bbcb6a686ba2d59, type: 2}
   emotion:
     rid: -2
@@ -895,7 +896,7 @@ MonoBehaviour:
   m_Name: "Chapter_\u0421\u0446\u0435\u043D\u0430 5. \u041C\u0443\u0437\u0435\u0439
     \u0444\u043E\u0439\u0435 \u0434\u0435\u043D\u044C"
   m_EditorClassIdentifier: 
-  book: {fileID: 0}
+  book: {fileID: 11400000, guid: 734e32502d1a2664aaea2157822b3fbe, type: 2}
   chapterName: "\u0421\u0446\u0435\u043D\u0430 5. \u041C\u0443\u0437\u0435\u0439
     \u0444\u043E\u0439\u0435 \u0434\u0435\u043D\u044C"
   startNodeID: eba7b23297fdc044db0c572060f1bcdf
@@ -1189,7 +1190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5af4a2757c4c0da49a8a8c90fe231fd6
   position: {x: 18175, y: 140}
-  nextNodes: []
+  nextNodes:
+  - ec3afbf165dbc2943bb880a4953ea8b2
   tag: 
   TargetNode: 
 --- !u!114 &2300865727708242290
@@ -1372,6 +1374,20 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+--- !u!114 &5237229664148309894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2390d353374d46269864ac4f65afc508, type: 3}
+  m_Name: node.54c346.Replica.Background.0
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  sprite: {fileID: 21300000, guid: fa033a56892a04e47af0955369bad6a4, type: 3}
 --- !u!114 &5861487417073525940
 MonoBehaviour:
   m_ObjectHideFlags: 0

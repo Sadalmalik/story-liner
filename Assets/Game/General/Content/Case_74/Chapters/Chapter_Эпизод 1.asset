@@ -32,7 +32,7 @@ MonoBehaviour:
   position: {x: 1738.7999, y: 70}
   nextNodes:
   - ec3afbf165dbc2943bb880a4953ea8b2
-  chapter: {fileID: 0}
+  chapter: {fileID: 11400000, guid: aa12d6a7de761ff47a93874cec2b705c, type: 2}
 --- !u!114 &-3087512091903005441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   position: {x: 1283.7999, y: 70}
   nextNodes:
   - 7a143caaec5ad954bb8666284e9c77da
-  chapter: {fileID: 0}
+  chapter: {fileID: 11400000, guid: 0795618c1cf925640bd57f483f664a24, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c243d6803f4918bd02822bc04dd036, type: 3}
   m_Name: "Chapter_\u042D\u043F\u0438\u0437\u043E\u0434 1"
   m_EditorClassIdentifier: 
-  book: {fileID: 0}
+  book: {fileID: 11400000, guid: 734e32502d1a2664aaea2157822b3fbe, type: 2}
   chapterName: "\u042D\u043F\u0438\u0437\u043E\u0434 1"
   startNodeID: 873405a821eab6f419320c5efed32f5b
   parentChapter: {fileID: 0}
@@ -91,7 +91,7 @@ MonoBehaviour:
   position: {x: 2193.8, y: 70}
   nextNodes:
   - 2f15e2b78dc4c93459b25d2775f98950
-  chapter: {fileID: 0}
+  chapter: {fileID: 11400000, guid: a5cd46811302ad142b19a639eae85baf, type: 2}
 --- !u!114 &2906942535087259886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   position: {x: 303.8, y: 70}
   nextNodes:
   - 1b80efc2c0f9cc948a61c9bfddb36e90
-  chapter: {fileID: 0}
+  chapter: {fileID: 11400000, guid: 3020e044e0efb484a9071bf5b598bcf4, type: 2}
 --- !u!114 &6253342044585221689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   position: {x: -186.2, y: 70}
   nextNodes:
   - 99959dbc6c2a2b94aa37625371571716
-  chapter: {fileID: 0}
+  chapter: {fileID: 11400000, guid: 7b6b5ec5f9aa96c40b5a10d312f20b5a, type: 2}
 --- !u!114 &6762044222866580867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,4 +159,4 @@ MonoBehaviour:
   position: {x: 793.8, y: 70}
   nextNodes:
   - 9645b85abe8888c478646eda88ef75f9
-  chapter: {fileID: 0}
+  chapter: {fileID: 11400000, guid: e9248e7c7ea7d83408b4ad0903b9b296, type: 2}
