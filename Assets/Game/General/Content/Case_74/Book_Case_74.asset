@@ -1,0 +1,603 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6822636855746297125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Wardrobe.William_EP1_opt3
+  m_EditorClassIdentifier: 
+  id: Wardrobe.William_EP1_opt3
+  value: 0
+--- !u!114 &-5491870603859849626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Music.Airplane
+  m_EditorClassIdentifier: 
+  id: Music.Airplane
+  value: 0
+--- !u!114 &-5436295767398293918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Bettina
+  m_EditorClassIdentifier: 
+  id: Name.Bettina
+  value: "\u0411\u0435\u0442\u0442\u0438\u043D\u0430"
+--- !u!114 &-4688668024885178421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Dialogue.EP1_4_LE_santis
+  m_EditorClassIdentifier: 
+  id: Dialogue.EP1_4_LE_santis
+  value: 0
+--- !u!114 &-4512391205826860706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Nicole
+  m_EditorClassIdentifier: 
+  id: Name.Nicole
+  value: "\u0416\u0435\u043D\u0449\u0438\u043D\u0430"
+--- !u!114 &-4437722447066024181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Isabella
+  m_EditorClassIdentifier: 
+  id: Name.Isabella
+  value: "\u0414\u0435\u0432\u0443\u0448\u043A\u0430"
+--- !u!114 &-3865648042469797594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.William
+  m_EditorClassIdentifier: 
+  id: Name.William
+  value: "\u0423\u0438\u043B\u044C\u044F\u043C"
+--- !u!114 &-3308488109393169817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Like.Giovanna
+  m_EditorClassIdentifier: 
+  id: Like.Giovanna
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &-2736414072121460418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Music.Stress
+  m_EditorClassIdentifier: 
+  id: Music.Stress
+  value: 0
+--- !u!114 &-2063003709883458662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Stat.Audacity
+  m_EditorClassIdentifier: 
+  id: Stat.Audacity
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &-1929900891451212085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Like.Victoria
+  m_EditorClassIdentifier: 
+  id: Like.Victoria
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410617834cbb469684228e563b4fa39c, type: 3}
+  m_Name: Book_Case_74
+  m_EditorClassIdentifier: 
+  bookName: Case_74
+  characters: []
+  variables: {fileID: 6130156252838255942}
+--- !u!114 &549309648730161922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Stat.Detective
+  m_EditorClassIdentifier: 
+  id: Stat.Detective
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &849478039598884446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Adriano
+  m_EditorClassIdentifier: 
+  id: Name.Adriano
+  value: "\u041C\u0443\u0436\u0447\u0438\u043D\u0430"
+--- !u!114 &1045930404192345172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Maria
+  m_EditorClassIdentifier: 
+  id: Name.Maria
+  value: "\u041C\u0430\u0440\u0438\u044F"
+--- !u!114 &1985959770305168778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Dialogue.EP1_1_LMB_collusion
+  m_EditorClassIdentifier: 
+  id: Dialogue.EP1_1_LMB_collusion
+  value: 0
+--- !u!114 &2022848080451215862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Dialogue.EP1_3_GB_listen
+  m_EditorClassIdentifier: 
+  id: Dialogue.EP1_3_GB_listen
+  value: 0
+--- !u!114 &2311365671117323106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Like.Isabella
+  m_EditorClassIdentifier: 
+  id: Like.Isabella
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &2411947985585751551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Like.Matteo
+  m_EditorClassIdentifier: 
+  id: Like.Matteo
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &2425388556221945569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Music.Drama
+  m_EditorClassIdentifier: 
+  id: Music.Drama
+  value: 0
+--- !u!114 &2535592839041209194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Wardrobe.William_EP1_opt2
+  m_EditorClassIdentifier: 
+  id: Wardrobe.William_EP1_opt2
+  value: 0
+--- !u!114 &3156722045388212929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Wardrobe.William_EP1_opt1
+  m_EditorClassIdentifier: 
+  id: Wardrobe.William_EP1_opt1
+  value: 0
+--- !u!114 &3305977877735734720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Li_Mun_Bel
+  m_EditorClassIdentifier: 
+  id: Name.Li_Mun_Bel
+  value: "\u041B\u0438 \u041C\u0443\u043D \u0411\u0451\u043B\u044C"
+--- !u!114 &3585538587150808101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Stat.Restraint
+  m_EditorClassIdentifier: 
+  id: Stat.Restraint
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &4262228642577911638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Narrator
+  m_EditorClassIdentifier: 
+  id: Name.Narrator
+  value: "\u0420\u0430\u0441\u0441\u043A\u0430\u0437\u0447\u0438\u043A"
+--- !u!114 &4789240031663328268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Victoria
+  m_EditorClassIdentifier: 
+  id: Name.Victoria
+  value: "\u0414\u0435\u0432\u0443\u0448\u043A\u0430"
+--- !u!114 &5416697895866308946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Music.Romance
+  m_EditorClassIdentifier: 
+  id: Music.Romance
+  value: 0
+--- !u!114 &5449684802374458941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Music.MainTheme
+  m_EditorClassIdentifier: 
+  id: Music.MainTheme
+  value: 0
+--- !u!114 &5788113305976749948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Luka
+  m_EditorClassIdentifier: 
+  id: Name.Luka
+  value: "\u041B\u0443\u043A\u0430"
+--- !u!114 &6041575780785462892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Money.Gold
+  m_EditorClassIdentifier: 
+  id: Money.Gold
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &6130156252838255942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e398ad67f4742bb4eb3fb78a9bfe31cb, type: 3}
+  m_Name: .settings.variables
+  m_EditorClassIdentifier: 
+  _variables:
+  - {fileID: 2022848080451215862}
+  - {fileID: 8203023070453762909}
+  - {fileID: -4688668024885178421}
+  - {fileID: 1985959770305168778}
+  - {fileID: 8171573918794284472}
+  - {fileID: 6505226362050598012}
+  - {fileID: 8867507741286874911}
+  - {fileID: -4437722447066024181}
+  - {fileID: 4789240031663328268}
+  - {fileID: 7237161046138893855}
+  - {fileID: 7765899592282179148}
+  - {fileID: -4512391205826860706}
+  - {fileID: 849478039598884446}
+  - {fileID: 4262228642577911638}
+  - {fileID: -3865648042469797594}
+  - {fileID: -5436295767398293918}
+  - {fileID: 5788113305976749948}
+  - {fileID: 1045930404192345172}
+  - {fileID: 6149451932220027910}
+  - {fileID: 3305977877735734720}
+  - {fileID: 549309648730161922}
+  - {fileID: 8965573441822032929}
+  - {fileID: -2063003709883458662}
+  - {fileID: 3585538587150808101}
+  - {fileID: 2311365671117323106}
+  - {fileID: -1929900891451212085}
+  - {fileID: -3308488109393169817}
+  - {fileID: 2411947985585751551}
+  - {fileID: 5449684802374458941}
+  - {fileID: 2425388556221945569}
+  - {fileID: -2736414072121460418}
+  - {fileID: 5416697895866308946}
+  - {fileID: -5491870603859849626}
+  - {fileID: 6041575780785462892}
+  - {fileID: 3156722045388212929}
+  - {fileID: 2535592839041209194}
+  - {fileID: -6822636855746297125}
+--- !u!114 &6149451932220027910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Luigi
+  m_EditorClassIdentifier: 
+  id: Name.Luigi
+  value: "\u041B\u0443\u0438\u0434\u0436\u0438"
+--- !u!114 &6505226362050598012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Dialogue.EP1_5_IM_tomorrow
+  m_EditorClassIdentifier: 
+  id: Dialogue.EP1_5_IM_tomorrow
+  value: 0
+--- !u!114 &7237161046138893855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Giovanna
+  m_EditorClassIdentifier: 
+  id: Name.Giovanna
+  value: "\u0416\u0443\u0440\u043D\u0430\u043B\u0438\u0441\u0442\u043A\u0430"
+--- !u!114 &7765899592282179148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Matteo
+  m_EditorClassIdentifier: 
+  id: Name.Matteo
+  value: "\u041C\u0443\u0436\u0447\u0438\u043D\u0430"
+--- !u!114 &8171573918794284472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Dialogue.EP1_3_GB_telephone
+  m_EditorClassIdentifier: 
+  id: Dialogue.EP1_3_GB_telephone
+  value: 0
+--- !u!114 &8203023070453762909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Dialogue.EP1_4_LE_invitation
+  m_EditorClassIdentifier: 
+  id: Dialogue.EP1_4_LE_invitation
+  value: 0
+--- !u!114 &8867507741286874911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Dialogue.EP1_2_LdS_info
+  m_EditorClassIdentifier: 
+  id: Dialogue.EP1_2_LdS_info
+  value: 0
+--- !u!114 &8965573441822032929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Stat.Team
+  m_EditorClassIdentifier: 
+  id: Stat.Team
+  value: 0
+  minValue: 0
+  maxValue: 100
