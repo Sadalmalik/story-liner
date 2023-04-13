@@ -22,7 +22,7 @@ namespace Self.Story
 				_StoryController.ChapterComplete();
 			}
 
-			return null;
+			return exit.NextNode;
 		}
 	}
 }

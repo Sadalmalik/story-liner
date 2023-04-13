@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Self.Story
 {
-	public class VariablesContainer : ScriptableObject, ISerializationCallbackReceiver
+	public class VariablesContainer : ScriptableObject
 	{
 #region Data
 
@@ -12,7 +12,25 @@ namespace Self.Story
 
 		public List<Variable> Variables => _variables;
 
-		[field: NonSerialized] public Dictionary<string, Variable> VariablesById { get; private set; } = new();
+		private Dictionary<string, Variable> _variablesById;
+
+		[field: NonSerialized]
+		public Dictionary<string, Variable> VariablesById
+		{
+			get
+			{
+				if (_variablesById == null)
+				{
+					_variablesById = new();
+					foreach (var variable in Variables)
+						if(variable.id != null)
+							_variablesById.Add(variable.id, variable);
+				}
+
+				return _variablesById;
+			}
+			
+		}
 
 #endregion
 
@@ -53,24 +71,6 @@ namespace Self.Story
 				return variable.GetValue();
 
 			return default;
-		}
-
-#endregion
-
-
-#region ISerializationCallbackReceiver
-
-		void ISerializationCallbackReceiver.OnAfterDeserialize()
-		{
-			VariablesById.Clear();
-			foreach (var variable in Variables)
-				if(variable.id != null)
-					VariablesById.Add(variable.id, variable);
-		}
-
-		void ISerializationCallbackReceiver.OnBeforeSerialize()
-		{
-			// Do nothing
 		}
 
 #endregion

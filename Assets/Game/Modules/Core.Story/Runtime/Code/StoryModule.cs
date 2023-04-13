@@ -13,6 +13,7 @@ namespace Self.Story
 			container.Add<StoryController>();
 
 			container.Add<NodeBaseController>();
+			container.Add<NodeChapterController>();
 			container.Add<NodeActiveController>();
 			container.Add<NodeReplicaController>();
 			container.Add<NodeChoiceController>();

@@ -12,44 +12,52 @@ namespace Self.Story
 	{
 		public Book book;
 
-		public string chapterName;
-		public string startNodeID;
+		public string  chapterName;
+		public string  startNodeID;
+		public Chapter parentChapter;
 
 		public List<BaseNode> nodes = new();
 
-		public Chapter parentChapter;
+		[NonSerialized]
+		private Dictionary<string, BaseNode> _nodesByID = null;
 
-		[NonSerialized] public Dictionary<string, BaseNode> nodesByID = new();
+		public Dictionary<string, BaseNode> NodesByID
+		{
+			get
+			{
+				if (_nodesByID == null)
+				{
+					_nodesByID = new();
+					foreach (var node in nodes)
+						if (node != null && node.id != null)
+							NodesByID?.Add(node.id, node);
+				}
+
+				return _nodesByID;
+			}
+		}
 
 		public void AddNode(BaseNode node)
 		{
 			nodes.Add(node);
-			nodesByID.Add(node.id, node);
+			NodesByID.Add(node.id, node);
 		}
 
 		public void RemoveNode(string nodeId)
 		{
-			nodes.Remove(nodesByID[nodeId]);
-			nodesByID.Remove(nodeId);
+			nodes.Remove(NodesByID[nodeId]);
+			NodesByID.Remove(nodeId);
 		}
 
 		public void RemoveNode(BaseNode node)
 		{
 			nodes.Remove(node);
-			nodesByID.Remove(node.id);
-		}
-
-		public void Init()
-		{
-			nodesByID.Clear(); 
-			foreach (var node in nodes)
-				if (node != null && node.id != null)
-					nodesByID?.Add(node.id, node);
+			NodesByID.Remove(node.id);
 		}
 
 		public BaseNode TryGetNode(string nodeID)
 		{
-			if (nodesByID.TryGetValue(nodeID, out var node))
+			if (NodesByID.TryGetValue(nodeID, out var node))
 				return node;
 			if (parentChapter != null)
 				return parentChapter.TryGetNode(nodeID);

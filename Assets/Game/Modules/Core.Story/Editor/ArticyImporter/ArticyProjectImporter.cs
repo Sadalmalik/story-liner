@@ -215,7 +215,7 @@ namespace Self.ArticyImporter
 				foreach (var node in nodes)
 				{
 					var createdNodeId = nodesDic[node.Properties.Id];
-					var createdNode   = newChapter.nodesByID[createdNodeId];
+					var createdNode   = newChapter.NodesByID[createdNodeId];
 
 					var connections = new List<Connection>();
 
@@ -247,7 +247,7 @@ namespace Self.ArticyImporter
 						// check if connection.Target is NOT Dialogue
 						if (nodesDic.TryGetValue(connection.Target, out string targetNodeId))
 						{
-							var targetNode = newChapter.nodesByID[targetNodeId];
+							var targetNode = newChapter.NodesByID[targetNodeId];
 
 							createdNode.nextNodes.Add(targetNodeId);
 
@@ -385,7 +385,7 @@ namespace Self.ArticyImporter
 				if(node != null)
                 {
 					var exitNode = node as ExitNode;
-					var nextChapterNode = chapterNode.chapter.parentChapter.nodesByID[chapterNode.NextNode];
+					var nextChapterNode = chapterNode.chapter.parentChapter.NodesByID[chapterNode.NextNode];
 
 					exitNode.nextNodes = new List<string> { nextChapterNode.id };
                 }

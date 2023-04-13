@@ -44,10 +44,9 @@ namespace Self.Story
 
 		public void SetChapter(Chapter chapter, ChapterSave save)
 		{
-			chapter.Init();
 			CurrentChapter = chapter;
 			CurrentNodeID  = save?.currentNode ?? chapter.startNodeID;
-			CurrentNode    = CurrentChapter.nodesByID[CurrentNodeID];
+			CurrentNode    = CurrentChapter.TryGetNode(CurrentNodeID);
 
 			SetNode(CurrentNodeID);
 		}
@@ -57,7 +56,7 @@ namespace Self.Story
 			CurrentNode = null;
 
 			var node = CurrentChapter.TryGetNode(nodeId);
-			if (node != null)
+			if (node == null)
 			{
 				Debug.LogError($"Story broken! No node with id '{nodeId}'");
 				OnStoryBroken?.Invoke(CurrentNodeID);
@@ -81,6 +80,7 @@ namespace Self.Story
 					action.Execute(node);
 				}
 			
+			Debug.Log($"[TEST] <{node.name}>.Enter");
 			var nextNode = ActiveController.Enter(node);
 
 			if (nextNode != null)
