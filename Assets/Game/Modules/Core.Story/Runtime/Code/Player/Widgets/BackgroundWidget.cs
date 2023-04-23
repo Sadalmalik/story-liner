@@ -6,8 +6,8 @@ namespace Self.Story
 {
 	public class BackgroundWidget : MonoBehaviour
 	{
-		public Image backA;
-		public Image backB;
+		public Image background;
+		public Image fade;
 
 		public float duration = 0.6f;
 
@@ -15,8 +15,8 @@ namespace Self.Story
 		
 		public void Awake()
 		{
-			backA.color = Color.white;
-			backB.color = Color.clear;
+			background.color = Color.white;
+			fade.color       = Color.clear;
 		}
 
 		public void SetImage(Sprite sprite, bool instantly=false)
@@ -25,20 +25,16 @@ namespace Self.Story
 
 			if (instantly)
 			{
-				backA.sprite = sprite;
-				backA.color  = Color.white;
-				backB.color  = Color.clear;
+				background.sprite = sprite;
+				fade.color        = Color.clear;
 			}
 			else
 			{
+				var halfDuration = duration * 0.5f;
 				_sequence = DOTween.Sequence();
-				_sequence.AppendCallback(() => backB.sprite = sprite);
-				_sequence.Append(backB.DOFade(1, duration));
-				_sequence.AppendCallback(() =>
-				{
-					backA.sprite = sprite;
-					backB.color  = Color.clear;
-				});
+				_sequence.Append(fade.DOFade(1, halfDuration));
+				_sequence.AppendCallback(() => background.sprite = sprite);
+				_sequence.Append(fade.DOFade(0, halfDuration));
 			}
 		}
 	}

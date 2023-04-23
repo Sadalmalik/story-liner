@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37089851, g: 0.3783701, b: 0.3572253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -174,8 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a036b016dd34cdd9e98505b5888bc73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backA: {fileID: 494284178}
-  backB: {fileID: 1123446859}
+  background: {fileID: 494284178}
+  fade: {fileID: 1123446859}
   duration: 0.6
 --- !u!1 &121617903
 GameObject:
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 494284178}
   - component: {fileID: 494284180}
   m_Layer: 5
-  m_Name: BackA
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1255,7 +1255,7 @@ GameObject:
   - component: {fileID: 1123446859}
   - component: {fileID: 1123446861}
   m_Layer: 5
-  m_Name: BackB
+  m_Name: Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
