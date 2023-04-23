@@ -21,16 +21,12 @@ namespace Self.Story
 
 		public new void Awake()
 		{
-			choices = new List<ChoiceButtonWidget>();
-
+			//choices = new List<ChoiceButtonWidget>();
+		
 			for (int i = 0; i < 4; i++)
 			{
-				var widget = Instantiate(
-					choicePrefab,
-					choiceContainer,
-					true);
+				var widget = choices[i];
 				widget.OnClick += HandleSelect;
-				choices.Add(widget);
 			}
 		}
 
@@ -38,9 +34,15 @@ namespace Self.Story
 		{
 			base.Show(node as ReplicaNode);
 
-			for (int i = 0; i < node.choices.Count; i++)
-				choices[i].Init(i, node.choices[i].localizedText);
-
+			for (int i = 0; i < choices.Count; i++)
+			{
+				var choice  = choices[i];
+				var enabled = i < node.choices.Count;
+				choice.gameObject.SetActive(enabled);
+				if (enabled)
+					choice.Init(i, node.choices[i].localizedText);
+			}
+			
 			LayoutRebuilder.ForceRebuildLayoutImmediate(choiceContainer);
 		}
 

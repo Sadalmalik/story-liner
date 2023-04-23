@@ -14,16 +14,14 @@ namespace Self.Story
 		public TweenAnimator showInstantAnimation;
 		public TweenAnimator hideAnimation;
 
-		[Space]
-		public Button   button;
-		public TMP_Text text;
-		public float    textDuration;
+		[Space] public Button   button;
+		public         TMP_Text text;
+		public         float    textDuration;
 
-		[Space]
-		public RectTransform leftContainer;
-		public RectTransform rightContainer;
-		public RectTransform characterRoot;
-		public Image         characterImage;
+		[Space] public RectTransform leftContainer;
+		public         RectTransform rightContainer;
+		public         RectTransform characterRoot;
+		public         Image         characterImage;
 
 		public event Action OnShowComplete;
 		public event Action OnHideComplete;
@@ -36,7 +34,8 @@ namespace Self.Story
 
 		public void Awake()
 		{
-			button.onClick.AddListener(HandleClick);
+			if (button != null)
+				button.onClick.AddListener(HandleClick);
 		}
 
 		public virtual void Show(ReplicaNode node)
@@ -71,7 +70,7 @@ namespace Self.Story
 		protected virtual void HandleCompleteShow()
 		{
 			_isShowing = false;
-			
+
 			_tween = null;
 			text.SetText(_replica.localized);
 			OnShowComplete?.Invoke();
@@ -97,12 +96,12 @@ namespace Self.Story
 				_tween?.Kill();
 				showAnimation.Stop();
 				showInstantAnimation.Play();
-				
+
 				HandleCompleteShow();
-				
+
 				return;
 			}
-			
+
 			OnClick?.Invoke();
 		}
 	}

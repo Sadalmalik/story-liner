@@ -8,9 +8,15 @@ namespace Self.Game
 	public class GameStarter : MonoBehaviour
 	{
 		private Container container;
+
+		public Vector2Int startResolution = new Vector2Int(400, 800);
 		
 		void Start()
 		{
+			Screen.SetResolution(
+				startResolution.x,
+				startResolution.y,
+				FullScreenMode.Windowed);
 			container = Container.Global;
 
 			/*
