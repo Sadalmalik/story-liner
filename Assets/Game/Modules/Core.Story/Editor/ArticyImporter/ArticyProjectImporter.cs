@@ -44,10 +44,10 @@ namespace Self.ArticyImporter
 
 			var chapters = CreateChaptersFromImport(book, data, characters, creationPath);
 
-			//  foreach (var chapter in chapters)
-			//  {
-			//  	chapter.book = book;
-			//  }
+			foreach (var chapter in chapters)
+			{
+				chapter.book = book;
+			}
 
 			AssetDatabase.SaveAssets();
 		}
