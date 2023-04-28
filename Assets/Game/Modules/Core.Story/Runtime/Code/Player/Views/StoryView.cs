@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 namespace Self.Story
 {
@@ -10,5 +11,8 @@ namespace Self.Story
 		[Header("Story widgets")]
 		public ReplicaWidget replicaWidget;
 		public ChoiceWidget choiceWidget;
+
+		[Header("Story widgets")]
+		public TMP_Text endMessage;
 	}
 }

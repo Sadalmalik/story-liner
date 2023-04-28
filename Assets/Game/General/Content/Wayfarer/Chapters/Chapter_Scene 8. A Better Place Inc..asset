@@ -1,0 +1,1722 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8573570737941724537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.945e675a
+  m_EditorClassIdentifier: 
+  id: 945e675aaf0c4e54a93452607667b838
+  position: {x: 10570, y: 455}
+  nextNodes:
+  - 156af924fd759d64e9ac30cda7edcb30
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: I skim through the pages and push my thumb against the bioframe on the
+    last one.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-8522893039230891488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.56af11c6
+  m_EditorClassIdentifier: 
+  id: 56af11c6448d32748b9f294eac3fd7ef
+  position: {x: 11830, y: 455}
+  nextNodes:
+  - ce9f9cf92355a48439d279cb42c4350c
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: "Wait, what? I\u2019m not guaranteed to survive it? It didn\u2019t say
+    that in the contract!"
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-8500016735238762721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.1bba4a80
+  m_EditorClassIdentifier: 
+  id: 1bba4a803657248448d7a4ccc431f07a
+  position: {x: 17325, y: 210}
+  nextNodes:
+  - 69f493a19bd31f64fb5659a280494fac
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: "The smell of antiseptic hangs in the air, and heavy nausea hits me
+    as I\u2019m reminded of my morning outside the Memory Hall."
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-8410771909570197519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.49281f71
+  m_EditorClassIdentifier: 
+  id: 49281f719a886714f9a2f94f11473298
+  position: {x: 23205, y: 210}
+  nextNodes:
+  - 43f72f3afc2997a4caffdf7b9d3e6552
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: I know he means well, but that sounds like a threat.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-8342081004532903212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.156af924
+  m_EditorClassIdentifier: 
+  id: 156af924fd759d64e9ac30cda7edcb30
+  position: {x: 10990, y: 455}
+  nextNodes:
+  - 353bbeef996280b48960d37f7cb85460
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: According to your contract, you will wake up in exactly 7305 days. Thank
+    you for entrusting your life to A Better Place Inc.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-8192203899949784165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.b29261d0
+  m_EditorClassIdentifier: 
+  id: b29261d0d78dad245b18164e1b8629c2
+  position: {x: 5845, y: 735}
+  nextNodes:
+  - c4e864e84fd6f3140a09be6a049afd1f
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: Ask about cryosleep.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-7954500317442420629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.0b757d55
+  m_EditorClassIdentifier: 
+  id: 0b757d55b1cf50b43bdcef2820f7cdc4
+  position: {x: 16065, y: 595}
+  nextNodes:
+  - f0c1b3d2f85fc7548b10ff96bd66a366
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: I can't be indecisive? What does it even mean? Is this a military camp?
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-7637911652418882307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.44ebd38e
+  m_EditorClassIdentifier: 
+  id: 44ebd38e935b69c45a0cfe72bb9769f6
+  position: {x: 14350, y: 455}
+  nextNodes:
+  - a91c79ef8233bb245b780499b087999b
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: According to your plan, indecision is inadmissible. Please, proceed
+    to the room on your left when your name is called.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-7260862594218923268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.2e0aece5
+  m_EditorClassIdentifier: 
+  id: 2e0aece5b1b8cd045b8d7c8802bfad3b
+  position: {x: 16905, y: 595}
+  nextNodes:
+  - 15064a3237387474b86cf14847036509
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: I turn to the doors. Before I know it, the guard bots have me in their
+    grip.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-6736105001631109416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.6397f7fb
+  m_EditorClassIdentifier: 
+  id: 6397f7fb24c97f94ebe77a5e071c7681
+  position: {x: 15225, y: 595}
+  nextNodes:
+  - f78e0383603ac9148ac997c121bb7e16
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: Breach the contract.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-6616372477455893535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.f0c1b3d2
+  m_EditorClassIdentifier: 
+  id: f0c1b3d2f85fc7548b10ff96bd66a366
+  position: {x: 16485, y: 595}
+  nextNodes:
+  - 2e0aece5b1b8cd045b8d7c8802bfad3b
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: What will you do, if I do try to leave? Report me to the governor?
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-6596518114656529792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.dca227ab
+  m_EditorClassIdentifier: 
+  id: dca227abbb9a5154283b039126c89c95
+  position: {x: 4970, y: 910}
+  nextNodes:
+  - 634f9622285caa34ca8e20ce16db85cf
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: It comes with in-built military protection equipment and high-end personality
+    integration system that makes it a perfect partner!
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-6432412979059445570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.1a10f9dd
+  m_EditorClassIdentifier: 
+  id: 1a10f9ddad20f83449ed2d9520d2ae6d
+  position: {x: 1820, y: 455}
+  nextNodes:
+  - 99647e0e889ab534dadfc6576fed3453
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: May I interest you in the Dreamscape experience? We can incarnate your
+    deepest desires for as little as 9,999 creds.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-6280834957166720191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.36aa4b8c
+  m_EditorClassIdentifier: 
+  id: 36aa4b8c2cc4a9848a720561c3a79905
+  position: {x: 3080, y: 630}
+  nextNodes:
+  - 4a2a233fa5ca3e04a8177d1b1b8199ec
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: "Are you in need of bionic prosthetics? Do you lack a limb? Or even
+    if you don\u2019t!"
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-6197442761637223149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.c518ad76
+  m_EditorClassIdentifier: 
+  id: c518ad769462db34e8e19c914ccf5320
+  position: {x: 13090, y: 455}
+  nextNodes:
+  - f5a516b8f6a43b84d8fd4347cd87df00
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: Don't you need to like... examine me first?
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-6100730043837761232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.84420bc7
+  m_EditorClassIdentifier: 
+  id: 84420bc7e4a7f02458cf0e9d6208fe29
+  position: {x: 6265, y: 1120}
+  nextNodes:
+  - a7c7c8297e6bfcf478244a1881303eb1
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: Do you want to leave an imprint on the existence of your descendants?
+    Do you wish to haunt your in-laws even after you die? We have a solution!
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-5951484355147980457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.353bbeef
+  m_EditorClassIdentifier: 
+  id: 353bbeef996280b48960d37f7cb85460
+  position: {x: 11410, y: 455}
+  nextNodes:
+  - 56af11c6448d32748b9f294eac3fd7ef
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: We kindly remind you that your body is not guaranteed to survive the
+    stasis. We wish you best of luck!
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-5644384377278109661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbf2566a1734af290e22326dd834c0d, type: 3}
+  m_Name: node.Active.ee24ef55
+  m_EditorClassIdentifier: 
+  id: ee24ef55f5281514fb55b19894ff9a63
+  position: {x: 15645, y: 280}
+  nextNodes:
+  - e90d14cc09c0db84797612721fa642ed
+  actions:
+  - {fileID: 4771223270845412000}
+--- !u!114 &-5310360991996295422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e71fad76354cc4b9340ec2a2558942, type: 3}
+  m_Name: node.Choice.4a2a233f
+  m_EditorClassIdentifier: 
+  id: 4a2a233fa5ca3e04a8177d1b1b8199ec
+  position: {x: 3500, y: 630}
+  nextNodes:
+  - 0d40ea8194ed0f043a6777982f3740b7
+  - 3e2cb15fcf7b3494c914fb5729c9a38d
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: We can replace your unreliable flesh parts with more efficient and everlasting
+    synthetic counterparts.
+  choices:
+  - localizedText: Ask about cryosleep.
+  - localizedText: Keep listening.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-5281502665794307850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e71fad76354cc4b9340ec2a2558942, type: 3}
+  m_Name: node.Choice.a91c79ef
+  m_EditorClassIdentifier: 
+  id: a91c79ef8233bb245b780499b087999b
+  position: {x: 14770, y: 455}
+  nextNodes:
+  - 893f10d67f04f374db3bf25591bdcab7
+  - 6397f7fb24c97f94ebe77a5e071c7681
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: This is ridiculous.
+  choices:
+  - localizedText: Follow the procedure.
+  - localizedText: Breach the contract.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-4201228493065473716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2390d353374d46269864ac4f65afc508, type: 3}
+  m_Name: node.67925e.Replica.Background.0
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  sprite: {fileID: 21300000, guid: 7ca7836eec0d7984b8e599d75638e24e, type: 3}
+--- !u!114 &-3835248120596113680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.b600d5aa
+  m_EditorClassIdentifier: 
+  id: b600d5aa41d83d748808af6bd246c658
+  position: {x: 2660, y: 630}
+  nextNodes:
+  - 36aa4b8c2cc4a9848a720561c3a79905
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: Keep listening.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-3723955195743590059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e71fad76354cc4b9340ec2a2558942, type: 3}
+  m_Name: node.Choice.99647e0e
+  m_EditorClassIdentifier: 
+  id: 99647e0e889ab534dadfc6576fed3453
+  position: {x: 2240, y: 455}
+  nextNodes:
+  - a32bc12b283c3ff4ab1881fcaa88a5a7
+  - b600d5aa41d83d748808af6bd246c658
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: I nearly choke at the sum.
+  choices:
+  - localizedText: Ask about cryosleep.
+  - localizedText: Keep listening.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-3295746732691329620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.43f72f3a
+  m_EditorClassIdentifier: 
+  id: 43f72f3afc2997a4caffdf7b9d3e6552
+  position: {x: 23625, y: 210}
+  nextNodes:
+  - 5b3b8dd8f13834e48bd4fac30496f142
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: But before I can retort, I feel a jab of a needle in my arm, and my
+    world fades away as I slip into a deep, dreamless sleep.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-3284636249277800106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.24ef1d94
+  m_EditorClassIdentifier: 
+  id: 24ef1d94b8ac9a84d9f520aa40c913a7
+  position: {x: 19845, y: 210}
+  nextNodes:
+  - 4a99f703d99ac7a46841a248cd6c8553
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: The cryochamber reminds me of coffins they used to put people in.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-2813368020319740288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.67925ec3
+  m_EditorClassIdentifier: 
+  id: 67925ec340097f743b7e8ef5f7c7455c
+  position: {x: 140, y: 455}
+  nextNodes:
+  - 171c9ed04c70eaf4885a90a4a4b88a93
+  actions:
+  - {fileID: -4201228493065473716}
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: Inside, there are only two other people besides me, conversing in hushed
+    voices, their heads bent over the brochure.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-1224353196796450325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.f5033ac9
+  m_EditorClassIdentifier: 
+  id: f5033ac9202147d42b18d8b1529a0323
+  position: {x: 18165, y: 210}
+  nextNodes:
+  - 74239ceac8a4e1349ab564a4e19f39a7
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: I hope she is in a better place Although any place is better than this
+    bullshit.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-1210789307012443168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbf2566a1734af290e22326dd834c0d, type: 3}
+  m_Name: node.Active.f78e0383
+  m_EditorClassIdentifier: 
+  id: f78e0383603ac9148ac997c121bb7e16
+  position: {x: 15645, y: 665}
+  nextNodes:
+  - 0b757d55b1cf50b43bdcef2820f7cdc4
+  actions:
+  - {fileID: 8867234033267309246}
+--- !u!114 &-1169830608535530680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.4a99f703
+  m_EditorClassIdentifier: 
+  id: 4a99f703d99ac7a46841a248cd6c8553
+  position: {x: 20265, y: 210}
+  nextNodes:
+  - f5529315223b4d44fa0e5a81829e4239
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: I've only seen one in pictures, now I get to lie in one? Lucky me...
+    I guess.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-359731031464277311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.7cdcd5d4
+  m_EditorClassIdentifier: 
+  id: 7cdcd5d42b22cb7489a7cc2bbd4adfda
+  position: {x: 9730, y: 455}
+  nextNodes:
+  - 945e675aaf0c4e54a93452607667b838
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: Please, carefully read the contract and leave your bioprint on the last
+    page. Your better life starts now!
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c243d6803f4918bd02822bc04dd036, type: 3}
+  m_Name: Chapter_Scene 8. A Better Place Inc.
+  m_EditorClassIdentifier: 
+  book: {fileID: 11400000, guid: 4dae072c21602dc439e3dd43bdbcdfec, type: 2}
+  chapterName: Scene 8. A Better Place Inc.
+  startNodeID: 0312380cde036bf48a82294a23f5225f
+  parentChapter: {fileID: 11400000, guid: 962ba35f1b77f1c40bdf1b90550187d6, type: 2}
+  nodes:
+  - {fileID: -2813368020319740288}
+  - {fileID: 5519347923975971387}
+  - {fileID: 5355206555962950307}
+  - {fileID: 5476047542611399131}
+  - {fileID: -6432412979059445570}
+  - {fileID: -3723955195743590059}
+  - {fileID: 2617272125243778585}
+  - {fileID: -3835248120596113680}
+  - {fileID: -5310360991996295422}
+  - {fileID: 1756682424586787168}
+  - {fileID: 2062283887316867434}
+  - {fileID: 9124579281733733038}
+  - {fileID: -8192203899949784165}
+  - {fileID: 4039609697238631111}
+  - {fileID: -6100730043837761232}
+  - {fileID: 2793394909098710689}
+  - {fileID: 8371725133817706197}
+  - {fileID: 3736882438449904259}
+  - {fileID: 426549971175575629}
+  - {fileID: -8573570737941724537}
+  - {fileID: -8342081004532903212}
+  - {fileID: -5281502665794307850}
+  - {fileID: -7260862594218923268}
+  - {fileID: 8236700739773357535}
+  - {fileID: 1842852267193583836}
+  - {fileID: 8408147780981735706}
+  - {fileID: 906010687524634748}
+  - {fileID: -8500016735238762721}
+  - {fileID: -1224353196796450325}
+  - {fileID: 1932719840448951275}
+  - {fileID: 9175445491091292639}
+  - {fileID: 6368129614278893487}
+  - {fileID: 1903216680638274019}
+  - {fileID: 7568311092985467035}
+  - {fileID: 457974652641114109}
+  - {fileID: -8410771909570197519}
+  - {fileID: -3295746732691329620}
+  - {fileID: 506987482163256821}
+  - {fileID: -6280834957166720191}
+  - {fileID: 4240151753405895152}
+  - {fileID: -6596518114656529792}
+  - {fileID: 9097255235615345320}
+  - {fileID: 958348973305447605}
+  - {fileID: -359731031464277311}
+  - {fileID: -5951484355147980457}
+  - {fileID: -8522893039230891488}
+  - {fileID: -6197442761637223149}
+  - {fileID: 9159774839224321644}
+  - {fileID: 674369473160254291}
+  - {fileID: 3093776884093275205}
+  - {fileID: -7637911652418882307}
+  - {fileID: 7724961204026674960}
+  - {fileID: -6736105001631109416}
+  - {fileID: -7954500317442420629}
+  - {fileID: -6616372477455893535}
+  - {fileID: -3284636249277800106}
+  - {fileID: -1169830608535530680}
+  - {fileID: -1210789307012443168}
+  - {fileID: -5644384377278109661}
+  - {fileID: 3778499990234340094}
+  - {fileID: 2469624925433051390}
+--- !u!114 &426549971175575629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.9bcdaca1
+  m_EditorClassIdentifier: 
+  id: 9bcdaca1efb38414ead270798038ffcd
+  position: {x: 9310, y: 455}
+  nextNodes:
+  - 7cdcd5d42b22cb7489a7cc2bbd4adfda
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: Welcome to A Better Place Inc. cryosleep program, Mr. Levi. Your service
+    plan is Optimist.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &457974652641114109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.2b623e36
+  m_EditorClassIdentifier: 
+  id: 2b623e364b9b21146b68fe34116af939
+  position: {x: 22785, y: 210}
+  nextNodes:
+  - 49281f719a886714f9a2f94f11473298
+  actions: []
+  character: {fileID: 11400000, guid: 015881006c31f874289c1ec73eb91d92, type: 2}
+  emotion:
+    rid: -2
+  localized: "I will prepare you for the procedure. There is nothing to worry about,
+    Mr. Levi. Just relax. You\u2019ll wake up in a better place."
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &506987482163256821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.69f493a1
+  m_EditorClassIdentifier: 
+  id: 69f493a19bd31f64fb5659a280494fac
+  position: {x: 17745, y: 210}
+  nextNodes:
+  - f5033ac9202147d42b18d8b1529a0323
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: The call about Gran's passing took me by surprise. I had to urgently
+    return to the city, and was late nonetheless.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &674369473160254291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.f5a516b8
+  m_EditorClassIdentifier: 
+  id: f5a516b8f6a43b84d8fd4347cd87df00
+  position: {x: 13510, y: 455}
+  nextNodes:
+  - 6d1df7cf614ff2b489da8e17507defff
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: The Optimist plan does not include a medical examination. Do you wish
+    to buy an upgrade?
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &906010687524634748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.e90d14cc
+  m_EditorClassIdentifier: 
+  id: e90d14cc09c0db84797612721fa642ed
+  position: {x: 16065, y: 210}
+  nextNodes:
+  - 1bba4a803657248448d7a4ccc431f07a
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: Okay, Gran. Worst case scenario you'll have me over for dinner.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &958348973305447605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.9edb352b
+  m_EditorClassIdentifier: 
+  id: 9edb352b183a10349a5a6c1da801201f
+  position: {x: 8470, y: 455}
+  nextNodes:
+  - 9bcdaca1efb38414ead270798038ffcd
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: I put the stack of papers on the frontdesk.The robot scans the papers,
+    and after several beeps and blinks of the panels, chimes a friendly tune.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &1756682424586787168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.3e2cb15f
+  m_EditorClassIdentifier: 
+  id: 3e2cb15fcf7b3494c914fb5729c9a38d
+  position: {x: 4130, y: 910}
+  nextNodes:
+  - 989da2784705acf4c984ef8ab7bf2b44
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: Keep listening.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &1842852267193583836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.27d1da45
+  m_EditorClassIdentifier: 
+  id: 27d1da45e8bbd47479e7e5bf98ffed72
+  position: {x: 17745, y: 595}
+  nextNodes:
+  - 0c08f2058aadb894ca794cb323860d7f
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: The breach of contract is inadmissible.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &1903216680638274019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.f5529315
+  m_EditorClassIdentifier: 
+  id: f5529315223b4d44fa0e5a81829e4239
+  position: {x: 20685, y: 210}
+  nextNodes:
+  - a851dfadadeea904c9f6947b4c19794a
+  actions: []
+  character: {fileID: 11400000, guid: 015881006c31f874289c1ec73eb91d92, type: 2}
+  emotion:
+    rid: -2
+  localized: Change into this robe, please.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &1932719840448951275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.74239cea
+  m_EditorClassIdentifier: 
+  id: 74239ceac8a4e1349ab564a4e19f39a7
+  position: {x: 19005, y: 210}
+  nextNodes:
+  - b5ea0dd0eb952a4468876969e6cb67b2
+  actions: []
+  character: {fileID: 11400000, guid: 015881006c31f874289c1ec73eb91d92, type: 2}
+  emotion:
+    rid: -2
+  localized: Mr. Arthur Levi. Follow me, please.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &2062283887316867434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.0d40ea81
+  m_EditorClassIdentifier: 
+  id: 0d40ea8194ed0f043a6777982f3740b7
+  position: {x: 4130, y: 525}
+  nextNodes:
+  - c4e864e84fd6f3140a09be6a049afd1f
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: Ask about cryosleep.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &2469624925433051390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d3f003fe7946c39819a92296140114, type: 3}
+  m_Name: node.Exit.5b3b8dd8
+  m_EditorClassIdentifier: 
+  id: 5b3b8dd8f13834e48bd4fac30496f142
+  position: {x: 24125, y: 210}
+  nextNodes:
+  - 90c40b19d532f5d4491ac2bc63f1bc91
+  tag: 
+  TargetNode: 
+--- !u!114 &2617272125243778585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.a32bc12b
+  m_EditorClassIdentifier: 
+  id: a32bc12b283c3ff4ab1881fcaa88a5a7
+  position: {x: 2660, y: 210}
+  nextNodes:
+  - c4e864e84fd6f3140a09be6a049afd1f
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: Ask about cryosleep.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &2793394909098710689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.7910d86a
+  m_EditorClassIdentifier: 
+  id: 7910d86ac2b048d408d7f293b456b9ff
+  position: {x: 7105, y: 1120}
+  nextNodes:
+  - c4e864e84fd6f3140a09be6a049afd1f
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: Keep listening.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &3093776884093275205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.6d1df7cf
+  m_EditorClassIdentifier: 
+  id: 6d1df7cf614ff2b489da8e17507defff
+  position: {x: 13930, y: 455}
+  nextNodes:
+  - 44ebd38e935b69c45a0cfe72bb9769f6
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: No, I don't wish to buy anything! I need a moment to think.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &3736882438449904259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.80e97127
+  m_EditorClassIdentifier: 
+  id: 80e9712764ae6754c91b7e264ada9785
+  position: {x: 7630, y: 455}
+  nextNodes:
+  - 9edb352b183a10349a5a6c1da801201f
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: Buy now to receive a 0,999% discount on the Time Traveler Plan!
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &3778499990234340094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49251e6351614c42a425c6b0c3fd897a, type: 3}
+  m_Name: node.Entry.0312380c
+  m_EditorClassIdentifier: 
+  id: 0312380cde036bf48a82294a23f5225f
+  position: {x: -360, y: 455}
+  nextNodes:
+  - 67925ec340097f743b7e8ef5f7c7455c
+--- !u!114 &4039609697238631111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.2d591427
+  m_EditorClassIdentifier: 
+  id: 2d591427274921c43b2fb4796feab06a
+  position: {x: 5845, y: 1120}
+  nextNodes:
+  - 84420bc7e4a7f02458cf0e9d6208fe29
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: Keep listening.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &4240151753405895152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.989da278
+  m_EditorClassIdentifier: 
+  id: 989da2784705acf4c984ef8ab7bf2b44
+  position: {x: 4550, y: 910}
+  nextNodes:
+  - dca227abbb9a5154283b039126c89c95
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: Has your wife left you? Has your dog been eaten by a pack of giant rats?
+    We have a solution! A companion for life will cost you only 99.999 creds.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &4771223270845412000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
+  m_Name: SetVariableAction
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  rawExpression: Stats.Sanity = +1;
+--- !u!114 &5355206555962950307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.5e073ec6
+  m_EditorClassIdentifier: 
+  id: 5e073ec61b455d746bd37c8ef754ea66
+  position: {x: 980, y: 455}
+  nextNodes:
+  - ae566ec1eebb5df41bdf87be04e453a0
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: We provide various services to help humans lift burdens of their earthly
+    existence. How may I assist you today?
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &5476047542611399131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.ae566ec1
+  m_EditorClassIdentifier: 
+  id: ae566ec1eebb5df41bdf87be04e453a0
+  position: {x: 1400, y: 455}
+  nextNodes:
+  - 1a10f9ddad20f83449ed2d9520d2ae6d
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: Earthly existence, huh?
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &5519347923975971387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.171c9ed0
+  m_EditorClassIdentifier: 
+  id: 171c9ed04c70eaf4885a90a4a4b88a93
+  position: {x: 560, y: 455}
+  nextNodes:
+  - 5e073ec61b455d746bd37c8ef754ea66
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: Good evening and welcome to A Better Place Inc.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &6368129614278893487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.a851dfad
+  m_EditorClassIdentifier: 
+  id: a851dfadadeea904c9f6947b4c19794a
+  position: {x: 21105, y: 210}
+  nextNodes:
+  - 3c66f60b72d8b55438e19a15ad4d19db
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: As I comply, I feel a sense of apprehension rising within me. This is
+    it, the point of no return. My heart hammers in my chest.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &7568311092985467035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.3c66f60b
+  m_EditorClassIdentifier: 
+  id: 3c66f60b72d8b55438e19a15ad4d19db
+  position: {x: 21525, y: 210}
+  nextNodes:
+  - 2b623e364b9b21146b68fe34116af939
+  actions: []
+  character: {fileID: 11400000, guid: 015881006c31f874289c1ec73eb91d92, type: 2}
+  emotion:
+    rid: -2
+  localized: It's a standard procedure, but I need you to be calm, okay? Step inside,
+    please.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &7724961204026674960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.893f10d6
+  m_EditorClassIdentifier: 
+  id: 893f10d67f04f374db3bf25591bdcab7
+  position: {x: 15225, y: 210}
+  nextNodes:
+  - ee24ef55f5281514fb55b19894ff9a63
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: Follow the procedure.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &8236700739773357535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.15064a32
+  m_EditorClassIdentifier: 
+  id: 15064a3237387474b86cf14847036509
+  position: {x: 17325, y: 595}
+  nextNodes:
+  - 27d1da45e8bbd47479e7e5bf98ffed72
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: Dear client, by signing the contract you gave us authorization to take
+    you to a better place forcefully in case of indecisiveness.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &8371725133817706197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.c4e864e8
+  m_EditorClassIdentifier: 
+  id: c4e864e84fd6f3140a09be6a049afd1f
+  position: {x: 6790, y: 455}
+  nextNodes:
+  - 80e9712764ae6754c91b7e264ada9785
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: We offer the latest in cryosleep technology, allowing you to pause your
+    life and wake up to a brighter tomorrow.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &8408147780981735706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.0c08f205
+  m_EditorClassIdentifier: 
+  id: 0c08f2058aadb894ca794cb323860d7f
+  position: {x: 18165, y: 595}
+  nextNodes:
+  - 5b3b8dd8f13834e48bd4fac30496f142
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: I feel a jab of a needle in my arm and my world fades away as I slip
+    into a deep, dreamless sleep.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &8867234033267309246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
+  m_Name: SetVariableAction
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  rawExpression: Stats.Insanity = +1;
+--- !u!114 &9097255235615345320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.a7c7c829
+  m_EditorClassIdentifier: 
+  id: a7c7c8297e6bfcf478244a1881303eb1
+  position: {x: 6685, y: 1120}
+  nextNodes:
+  - 7910d86ac2b048d408d7f293b456b9ff
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: Meet Engram Technology, that can create your own personality construct
+    compatible with any AI-based tech! Be eternal!
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &9124579281733733038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e71fad76354cc4b9340ec2a2558942, type: 3}
+  m_Name: node.Choice.634f9622
+  m_EditorClassIdentifier: 
+  id: 634f9622285caa34ca8e20ce16db85cf
+  position: {x: 5390, y: 910}
+  nextNodes:
+  - b29261d0d78dad245b18164e1b8629c2
+  - 2d591427274921c43b2fb4796feab06a
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: "It won\u2019t leave you even if you want it to!"
+  choices:
+  - localizedText: Ask about cryosleep.
+  - localizedText: Keep listening.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &9159774839224321644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.ce9f9cf9
+  m_EditorClassIdentifier: 
+  id: ce9f9cf92355a48439d279cb42c4350c
+  position: {x: 12670, y: 455}
+  nextNodes:
+  - c518ad769462db34e8e19c914ccf5320
+  actions: []
+  character: {fileID: 11400000, guid: 1b25dbec445fcdc438e7d349bde4a1e0, type: 2}
+  emotion:
+    rid: -2
+  localized: Please, proceed to the room on your left when your name is called.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &9175445491091292639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.b5ea0dd0
+  m_EditorClassIdentifier: 
+  id: b5ea0dd0eb952a4468876969e6cb67b2
+  position: {x: 19425, y: 210}
+  nextNodes:
+  - 24ef1d94b8ac9a84d9f520aa40c913a7
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: I follow a man down a sterile hallway and into a small room. In the
+    center, there is a sleek, metallic cylinder.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

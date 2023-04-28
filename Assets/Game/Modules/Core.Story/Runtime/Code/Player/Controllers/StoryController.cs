@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using Self.Architecture.DataStructures;
 using Self.Architecture.IOC;
 using Self.Architecture.Signals;
@@ -40,6 +41,8 @@ namespace Self.Story
 		private void HandleLoadingComplete(SStoryModuleReady signal)
 		{
 			StoryView = signal.view;
+			StoryView.endMessage.DOFade(0, 0);
+			StoryView.endMessage.gameObject.SetActive(false);
 		}
 
 		public void SetChapter(Chapter chapter, ChapterSave save)
@@ -91,6 +94,8 @@ namespace Self.Story
 		
 		public void ChapterComplete()
 		{
+			StoryView.endMessage.gameObject.SetActive(true);
+			StoryView.endMessage.DOFade(1, 2);
 			OnChapterComplete?.Invoke();
 		}
 	}

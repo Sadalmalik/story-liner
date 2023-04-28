@@ -1,0 +1,609 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8643137781165520511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.c4e8f4b7
+  m_EditorClassIdentifier: 
+  id: c4e8f4b75d667ce4292728a59572d9d4
+  position: {x: 3780, y: 630}
+  nextNodes:
+  - 5129a13d89c826f48a3ddd390a47e3b7
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: No dream is too high, they say.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-8209835753992659838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e71fad76354cc4b9340ec2a2558942, type: 3}
+  m_Name: node.Choice.ec748146
+  m_EditorClassIdentifier: 
+  id: ec748146be7d4b84989492b97cbcceb5
+  position: {x: 1575, y: 840}
+  nextNodes:
+  - f98941a814521cb48a1e84921b17282d
+  - cabeb212c90d6554bb937db052cc06a0
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: Or should I say, for those rich enough.
+  choices:
+  - localizedText: I could've been one of them.
+  - localizedText: I could've been with Erica now.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-7097095985790361822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.4251447d
+  m_EditorClassIdentifier: 
+  id: 4251447dd4ebdfa4286c256d27ded281
+  position: {x: 4200, y: 1050}
+  nextNodes:
+  - 38d49600e01af794cba3cf753e2fc91f
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: Mine is among the stars. Take that, dreamers.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-6036272809234445145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.ed86e221
+  m_EditorClassIdentifier: 
+  id: ed86e221017044d45a339db0ad7740a2
+  position: {x: 735, y: 840}
+  nextNodes:
+  - 8689f76ee03d2a84cb69990aeebb0231
+  actions:
+  - {fileID: -5976204371896734748}
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: As I walk down the bustling city street, the neon lights of advertisements
+    reflect off the puddles on the pavement, casting an otherworldly glow on everything
+    around me.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-5976204371896734748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2390d353374d46269864ac4f65afc508, type: 3}
+  m_Name: node.ed86e2.Replica.Background.0
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  sprite: {fileID: 21300000, guid: 28f4e776fb2783a4b9acb37bba464f44, type: 3}
+--- !u!114 &-5318895882496696707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49251e6351614c42a425c6b0c3fd897a, type: 3}
+  m_Name: node.Entry.fed2c247
+  m_EditorClassIdentifier: 
+  id: fed2c247e9c06a34fafe1fa44072271a
+  position: {x: 235, y: 840}
+  nextNodes:
+  - ed86e221017044d45a339db0ad7740a2
+--- !u!114 &-4752176156504693072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.4e6b0e29
+  m_EditorClassIdentifier: 
+  id: 4e6b0e29ef745564597ebf2cf289a8f9
+  position: {x: 5985, y: 840}
+  nextNodes:
+  - 5a00cf6d961e8fe47a28b44946f6fc9a
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: But then stop, contemplating the idea. Maybe it's exactly what I need
+    right now. A break.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-4078387451420066317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
+  m_Name: SetVariableAction
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  rawExpression: Stats.Friendship = +1;
+--- !u!114 &-3616762479480107895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.0f0a9e26
+  m_EditorClassIdentifier: 
+  id: 0f0a9e26d4f5f9c4caef5c88fd4f0a14
+  position: {x: 2940, y: 630}
+  nextNodes:
+  - b0e371708d65df74293dd7636d55b0a5
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: I was never rich, but I used to have a good job. The one that offers
+    to join the colonization program.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-3257478477443251861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.5129a13d
+  m_EditorClassIdentifier: 
+  id: 5129a13d89c826f48a3ddd390a47e3b7
+  position: {x: 4200, y: 630}
+  nextNodes:
+  - 38d49600e01af794cba3cf753e2fc91f
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: But this one certainly is.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-2725883831661350173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.1cd3a304
+  m_EditorClassIdentifier: 
+  id: 1cd3a304efe0d394ba332a9351cbc53c
+  position: {x: 5145, y: 840}
+  nextNodes:
+  - 0c593be8d4ec2cb48a2d62ac9c08b29b
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: "I can\u2019t go on like this. I need a place to think. To figure out
+    what\u2019s next."
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-1436491121871591971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
+  m_Name: SetVariableAction
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  rawExpression: Stats.Love = +1;
+--- !u!114 &-1281902536839403833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.8e2ffcb0
+  m_EditorClassIdentifier: 
+  id: 8e2ffcb0ea64c064ba634f231593e523
+  position: {x: 3360, y: 1050}
+  nextNodes:
+  - 9ccac21534e373b468b8d10cda4e4027
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: That very one that Erica joined.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-785348846412136135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.9ccac215
+  m_EditorClassIdentifier: 
+  id: 9ccac21534e373b468b8d10cda4e4027
+  position: {x: 3780, y: 1050}
+  nextNodes:
+  - 4251447dd4ebdfa4286c256d27ded281
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: No dream is too high, they say.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c243d6803f4918bd02822bc04dd036, type: 3}
+  m_Name: Chapter_Scene 4. City
+  m_EditorClassIdentifier: 
+  book: {fileID: 11400000, guid: 4dae072c21602dc439e3dd43bdbcdfec, type: 2}
+  chapterName: Scene 4. City
+  startNodeID: fed2c247e9c06a34fafe1fa44072271a
+  parentChapter: {fileID: 11400000, guid: 962ba35f1b77f1c40bdf1b90550187d6, type: 2}
+  nodes:
+  - {fileID: -6036272809234445145}
+  - {fileID: 6581863073782699612}
+  - {fileID: -8209835753992659838}
+  - {fileID: 5889022953778070258}
+  - {fileID: -2725883831661350173}
+  - {fileID: 2448201551808641748}
+  - {fileID: -4752176156504693072}
+  - {fileID: 2393758608248511668}
+  - {fileID: 5174170508596964149}
+  - {fileID: -3616762479480107895}
+  - {fileID: 4874972031582498118}
+  - {fileID: -8643137781165520511}
+  - {fileID: -3257478477443251861}
+  - {fileID: 6103046328629999922}
+  - {fileID: -1281902536839403833}
+  - {fileID: -785348846412136135}
+  - {fileID: -7097095985790361822}
+  - {fileID: 8953397971975646677}
+  - {fileID: 6727140399944687165}
+  - {fileID: -5318895882496696707}
+  - {fileID: 7300079522657971396}
+--- !u!114 &2393758608248511668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.f98941a8
+  m_EditorClassIdentifier: 
+  id: f98941a814521cb48a1e84921b17282d
+  position: {x: 2100, y: 630}
+  nextNodes:
+  - 1306d36225215d949b939b264698a901
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: I could've been one of them.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &2448201551808641748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.0c593be8
+  m_EditorClassIdentifier: 
+  id: 0c593be8d4ec2cb48a2d62ac9c08b29b
+  position: {x: 5565, y: 840}
+  nextNodes:
+  - 4e6b0e29ef745564597ebf2cf289a8f9
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: I walk by a cybercafe and glance at the neon sign that reads, "CyberZone.
+    Get a break from reality." I keep walking.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &4874972031582498118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.b0e37170
+  m_EditorClassIdentifier: 
+  id: b0e371708d65df74293dd7636d55b0a5
+  position: {x: 3360, y: 630}
+  nextNodes:
+  - c4e8f4b75d667ce4292728a59572d9d4
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: I could've been one of those dreamers, drifting among the stars now,
+    if not for the accident.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &5174170508596964149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.cabeb212
+  m_EditorClassIdentifier: 
+  id: cabeb212c90d6554bb937db052cc06a0
+  position: {x: 2100, y: 1050}
+  nextNodes:
+  - 4a34ac2df7d594d40bc5e9a2462966fd
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: I could've been with Erica now.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &5889022953778070258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.38d49600
+  m_EditorClassIdentifier: 
+  id: 38d49600e01af794cba3cf753e2fc91f
+  position: {x: 4725, y: 840}
+  nextNodes:
+  - 1cd3a304efe0d394ba332a9351cbc53c
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: I shake my head, feeling a mix of anger and sadness well up inside me.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &6103046328629999922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.9f430858
+  m_EditorClassIdentifier: 
+  id: 9f430858dc7f0004e80e61241fcda6ac
+  position: {x: 2940, y: 1050}
+  nextNodes:
+  - 8e2ffcb0ea64c064ba634f231593e523
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: I was never rich, but I used to have a good job. The one that offers
+    to join the colonization program.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &6581863073782699612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.8689f76e
+  m_EditorClassIdentifier: 
+  id: 8689f76ee03d2a84cb69990aeebb0231
+  position: {x: 1155, y: 840}
+  nextNodes:
+  - ec748146be7d4b84989492b97cbcceb5
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: "Some of the ads catch my attention \u2014 a sleek, futuristic spaceship,
+    promoting a new colony on a distant planet, promising a better life for those
+    brave enough to make the journey."
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &6727140399944687165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbf2566a1734af290e22326dd834c0d, type: 3}
+  m_Name: node.Active.4a34ac2d
+  m_EditorClassIdentifier: 
+  id: 4a34ac2df7d594d40bc5e9a2462966fd
+  position: {x: 2520, y: 1120}
+  nextNodes:
+  - 9f430858dc7f0004e80e61241fcda6ac
+  actions:
+  - {fileID: -1436491121871591971}
+--- !u!114 &7300079522657971396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d3f003fe7946c39819a92296140114, type: 3}
+  m_Name: node.Exit.5a00cf6d
+  m_EditorClassIdentifier: 
+  id: 5a00cf6d961e8fe47a28b44946f6fc9a
+  position: {x: 6485, y: 840}
+  nextNodes:
+  - 14fe2fb271e5100469072fc661315ba9
+  tag: 
+  TargetNode: 
+--- !u!114 &8953397971975646677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbf2566a1734af290e22326dd834c0d, type: 3}
+  m_Name: node.Active.1306d362
+  m_EditorClassIdentifier: 
+  id: 1306d36225215d949b939b264698a901
+  position: {x: 2520, y: 700}
+  nextNodes:
+  - 0f0a9e26d4f5f9c4caef5c88fd4f0a14
+  actions:
+  - {fileID: -4078387451420066317}

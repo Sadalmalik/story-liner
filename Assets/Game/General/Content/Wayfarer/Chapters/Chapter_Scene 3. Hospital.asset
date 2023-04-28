@@ -1,0 +1,1398 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8113009657135581535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.62fa246a
+  m_EditorClassIdentifier: 
+  id: 62fa246ac5a2e314abafc157ef2e9cc0
+  position: {x: 245, y: -3955}
+  nextNodes:
+  - 212cda19c51c1af46b6f568370d24917
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: There is time and place for everything.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-8110105984033529842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbf2566a1734af290e22326dd834c0d, type: 3}
+  m_Name: node.Active.8e72d65c
+  m_EditorClassIdentifier: 
+  id: 8e72d65c8e1cfde4ca1f160a2b462236
+  position: {x: -175, y: -3430}
+  nextNodes:
+  - fdd347ed4ff6ec049b56a3fd873a0ff4
+  actions:
+  - {fileID: 2040742549763923883}
+--- !u!114 &-8080072012203553729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.8a7bc53c
+  m_EditorClassIdentifier: 
+  id: 8a7bc53cbf1614c4eba71494242a5ff0
+  position: {x: 10045, y: -3570}
+  nextNodes:
+  - 1560a43a1fee422449bf689b412dc530
+  actions: []
+  character: {fileID: 11400000, guid: 5adabc9c574e72542a4ef564e8433746, type: 2}
+  emotion:
+    rid: -2
+  localized: Are you an engineer then?
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-7890262157966946388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.8bd01e6c
+  m_EditorClassIdentifier: 
+  id: 8bd01e6cff457204ab86c3f1398f2465
+  position: {x: 1505, y: -3500}
+  nextNodes:
+  - b9061d6cf24cc5c429c1b762a3be0e34
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: ...Wait, was it creepy?
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-7029485860685171268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.08385a57
+  m_EditorClassIdentifier: 
+  id: 08385a57591e1d34ba6e05cc1487bf82
+  position: {x: 2765, y: -3500}
+  nextNodes:
+  - 289ef2ac79d2d1c4891d40b6d23cc04b
+  actions: []
+  character: {fileID: 11400000, guid: 5adabc9c574e72542a4ef564e8433746, type: 2}
+  emotion:
+    rid: -2
+  localized: "I have your grandmother\u2019s possessions if you are willing to take
+    them."
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-6576139684431031270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.fddf4706
+  m_EditorClassIdentifier: 
+  id: fddf4706e9d3eb74191d1745ef8bd28b
+  position: {x: 8365, y: -3570}
+  nextNodes:
+  - e843a2bb0b4e9844bb04df7ee2d8ad43
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: This is common for PACs, and easily fixable.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-6217014847889185788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.75241fc7
+  m_EditorClassIdentifier: 
+  id: 75241fc71b10a66439b1fd7bbd3e3ffd
+  position: {x: 3675, y: -3780}
+  nextNodes:
+  - b83a2360bbb2f3f45bf0bf74d9e1fda6
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: I okay whatever the procedure is with a nod.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-5553044245087878443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.41d9e20d
+  m_EditorClassIdentifier: 
+  id: 41d9e20d2fc77b54da3bde27b00eaea7
+  position: {x: 2345, y: -3500}
+  nextNodes:
+  - 08385a57591e1d34ba6e05cc1487bf82
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: The nurse's voice snaps me out of it.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-5189638827050400151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.18a36d15
+  m_EditorClassIdentifier: 
+  id: 18a36d15910adad4fa794bf7c6e0ad15
+  position: {x: 7945, y: -3570}
+  nextNodes:
+  - fddf4706e9d3eb74191d1745ef8bd28b
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: I bet she thinks I'll break it, and she'll have to pay for it.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-4913168074186986581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.c814002d
+  m_EditorClassIdentifier: 
+  id: c814002de14a2c640a2ccb2aabb15b8f
+  position: {x: -1890, y: -3745}
+  nextNodes:
+  - 5c65a3ba530e457428387b10b66274d7
+  actions:
+  - {fileID: 6972877161665575932}
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: As I walk out of the Memory Hall, a nurse approaches me. The color of
+    embarrassment on her face perfectly matches her hair.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-4741197274801605179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.10b34240
+  m_EditorClassIdentifier: 
+  id: 10b342404d3d43540bcdeb938890c0cb
+  position: {x: 7945, y: -3955}
+  nextNodes:
+  - a3e2661637ad9884c95fb44d8813ca67
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: "After a moment\u2019s hesitation the nurse takes the package. The bot\u2019s
+    grip loosens. The nurse smiles in relief as I take the packet from her."
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-4022804733414902267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.21503410
+  m_EditorClassIdentifier: 
+  id: 215034103f9c31843a672f60774e94d5
+  position: {x: 4935, y: -3780}
+  nextNodes:
+  - 3c42c1b4fc849484b8577b19d1bb5e71
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: I quickly examine the robot, my eyes scanning its wiry body.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-3753078850968115936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.1560a43a
+  m_EditorClassIdentifier: 
+  id: 1560a43a1fee422449bf689b412dc530
+  position: {x: 10465, y: -3570}
+  nextNodes:
+  - 72fb807fbe5c18e428665c821b9f716f
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: I was.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-3693346921634513932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.5c65a3ba
+  m_EditorClassIdentifier: 
+  id: 5c65a3ba530e457428387b10b66274d7
+  position: {x: -1470, y: -3745}
+  nextNodes:
+  - ac10b9fcf4facd447b0fedfefafa1aca
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: Could have been cute in any other situation.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-3665154057336392165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbf2566a1734af290e22326dd834c0d, type: 3}
+  m_Name: node.Active.8ff9dd34
+  m_EditorClassIdentifier: 
+  id: 8ff9dd34e647d5e4eaa50334030b30c3
+  position: {x: -175, y: -3885}
+  nextNodes:
+  - 62fa246ac5a2e314abafc157ef2e9cc0
+  actions:
+  - {fileID: 1738630858599178008}
+--- !u!114 &-3478658697073901318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.80178517
+  m_EditorClassIdentifier: 
+  id: 80178517a638de6429cb017c56ae0480
+  position: {x: 6265, y: -3955}
+  nextNodes:
+  - 9b9135faaa369584ba54c61772868d11
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: Slam bot's head in place.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-3310265180664534608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e71fad76354cc4b9340ec2a2558942, type: 3}
+  m_Name: node.Choice.85a9b2de
+  m_EditorClassIdentifier: 
+  id: 85a9b2de463825b44b7bb3d90f4c985d
+  position: {x: 5775, y: -3780}
+  nextNodes:
+  - 80178517a638de6429cb017c56ae0480
+  - 1108b9e86d837c347b6b2d8c67a1cbc2
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: "Don\u2019t bother with AI-spec. Let me just..."
+  choices:
+  - localizedText: Slam bot's head in place.
+  - localizedText: Fix it like a pro.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-3299090122249326646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.f7153357
+  m_EditorClassIdentifier: 
+  id: f7153357f76014d4da80403073416170
+  position: {x: 1505, y: -3955}
+  nextNodes:
+  - 40b787e3be895874b86a7fdd53c27bdc
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: Get a grip, Arthur!
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-3169828786262958691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.b83a2360
+  m_EditorClassIdentifier: 
+  id: b83a2360bbb2f3f45bf0bf74d9e1fda6
+  position: {x: 4095, y: -3780}
+  nextNodes:
+  - 4b73ed04f8b2ab24296996516032bd6b
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: Her confusion is obvious now. She steps away, showing a helper-bot with
+    a small brownish packet in its extended hands.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-3005611493468685949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.72fb807f
+  m_EditorClassIdentifier: 
+  id: 72fb807fbe5c18e428665c821b9f716f
+  position: {x: 10990, y: -3815}
+  nextNodes:
+  - 31244c62a8a6e9346ae35c3b9309dc96
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: There is a pause in the air as if she is waiting for me to continue.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-2824555486842458537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.e843a2bb
+  m_EditorClassIdentifier: 
+  id: e843a2bb0b4e9844bb04df7ee2d8ad43
+  position: {x: 8785, y: -3570}
+  nextNodes:
+  - c195adde20d7c2b4a88755ab07bd3e62
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: We wait in silence, awkwardly. Finally, the bot chimes to life. I can
+    see the girl is relieved.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-2781130901189137685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.ab320d2a
+  m_EditorClassIdentifier: 
+  id: ab320d2a50f93e047bbc0cb2d2389b29
+  position: {x: 9625, y: -3955}
+  nextNodes:
+  - 93d59fc3a437bda4b8064f920a2b7422
+  actions: []
+  character: {fileID: 11400000, guid: 5adabc9c574e72542a4ef564e8433746, type: 2}
+  emotion:
+    rid: -2
+  localized: An engineer then?
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-2644839196844334604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.212cda19
+  m_EditorClassIdentifier: 
+  id: 212cda19c51c1af46b6f568370d24917
+  position: {x: 665, y: -3955}
+  nextNodes:
+  - 554dbe344a3c4df4c85a2ca51d9e3e21
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: And now is certainly not the time to pine for a former colleague...
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-2629554958527152075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.1108b9e8
+  m_EditorClassIdentifier: 
+  id: 1108b9e86d837c347b6b2d8c67a1cbc2
+  position: {x: 6265, y: -3570}
+  nextNodes:
+  - 7e04e8495a248034c8dae3c8dabb7d51
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: Fix it like a pro.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-2506612107312234003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.9b9135fa
+  m_EditorClassIdentifier: 
+  id: 9b9135faaa369584ba54c61772868d11
+  position: {x: 6685, y: -3955}
+  nextNodes:
+  - 6c1d9daad64cfec40a7810009d8dde2b
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: I slam my fist on top of the bot, setting the head panel back in place
+    with a soft clank.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-913041807845541075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49251e6351614c42a425c6b0c3fd897a, type: 3}
+  m_Name: node.Entry.25caf166
+  m_EditorClassIdentifier: 
+  id: 25caf1669938c0842b1aa97ee1f91ad4
+  position: {x: -2390, y: -3745}
+  nextNodes:
+  - c814002de14a2c640a2ccb2aabb15b8f
+--- !u!114 &-710746083357824563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.5b644498
+  m_EditorClassIdentifier: 
+  id: 5b6444989af532f40a4fd011bba09abf
+  position: {x: 665, y: -3500}
+  nextNodes:
+  - cadb4ebc3c7e8734ca1a72eb296e7ba2
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: Her "Hello" used to be the brightest point of any day.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-679663514216844899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.f20b9930
+  m_EditorClassIdentifier: 
+  id: f20b99304b4172542890ce51c93beb0d
+  position: {x: -595, y: -3955}
+  nextNodes:
+  - 8ff9dd34e647d5e4eaa50334030b30c3
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: Push the thought away.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c243d6803f4918bd02822bc04dd036, type: 3}
+  m_Name: Chapter_Scene 3. Hospital
+  m_EditorClassIdentifier: 
+  book: {fileID: 11400000, guid: 4dae072c21602dc439e3dd43bdbcdfec, type: 2}
+  chapterName: Scene 3. Hospital
+  startNodeID: 25caf1669938c0842b1aa97ee1f91ad4
+  parentChapter: {fileID: 11400000, guid: 962ba35f1b77f1c40bdf1b90550187d6, type: 2}
+  nodes:
+  - {fileID: -4913168074186986581}
+  - {fileID: 5323528665080437714}
+  - {fileID: 459933283969468760}
+  - {fileID: 2357957871988084112}
+  - {fileID: -3169828786262958691}
+  - {fileID: 5779857194567221534}
+  - {fileID: -4022804733414902267}
+  - {fileID: -3310265180664534608}
+  - {fileID: -2506612107312234003}
+  - {fileID: 6591543574797957381}
+  - {fileID: -4741197274801605179}
+  - {fileID: -3753078850968115936}
+  - {fileID: -3005611493468685949}
+  - {fileID: 4137373800077124948}
+  - {fileID: 4236784096664359124}
+  - {fileID: 1210490948244369345}
+  - {fileID: -3693346921634513932}
+  - {fileID: -3478658697073901318}
+  - {fileID: -2629554958527152075}
+  - {fileID: 6832725681287202645}
+  - {fileID: 1310809731160706097}
+  - {fileID: -2781130901189137685}
+  - {fileID: 8161514225532033747}
+  - {fileID: 5764992608637536864}
+  - {fileID: 3654622066899936712}
+  - {fileID: 2287215647515446866}
+  - {fileID: -5189638827050400151}
+  - {fileID: -8080072012203553729}
+  - {fileID: -6576139684431031270}
+  - {fileID: -2824555486842458537}
+  - {fileID: 5292284086727019439}
+  - {fileID: -679663514216844899}
+  - {fileID: 5374295804434082787}
+  - {fileID: -8113009657135581535}
+  - {fileID: -2644839196844334604}
+  - {fileID: 1009721353755476144}
+  - {fileID: -3299090122249326646}
+  - {fileID: 1737411924903179879}
+  - {fileID: 5797050018158389459}
+  - {fileID: -710746083357824563}
+  - {fileID: -7890262157966946388}
+  - {fileID: 5439239437086950078}
+  - {fileID: -5553044245087878443}
+  - {fileID: -7029485860685171268}
+  - {fileID: -6217014847889185788}
+  - {fileID: 8402110156414064428}
+  - {fileID: -3665154057336392165}
+  - {fileID: -8110105984033529842}
+  - {fileID: -913041807845541075}
+  - {fileID: 461550511775624905}
+--- !u!114 &459933283969468760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.40b787e3
+  m_EditorClassIdentifier: 
+  id: 40b787e3be895874b86a7fdd53c27bdc
+  position: {x: 1925, y: -3955}
+  nextNodes:
+  - 289ef2ac79d2d1c4891d40b6d23cc04b
+  actions: []
+  character: {fileID: 11400000, guid: 5adabc9c574e72542a4ef564e8433746, type: 2}
+  emotion:
+    rid: -2
+  localized: "Mr. Levi? I have your grandmother\u2019s possessions if you are willing
+    to take them."
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &461550511775624905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d3f003fe7946c39819a92296140114, type: 3}
+  m_Name: node.Exit.ab7e8cd1
+  m_EditorClassIdentifier: 
+  id: ab7e8cd1b25c9c44f83ddc590c8ef99a
+  position: {x: 12750, y: -3815}
+  nextNodes:
+  - 78c59ccbada03664ca5c8c15358ecaa4
+  tag: 
+  TargetNode: 
+--- !u!114 &1009721353755476144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.554dbe34
+  m_EditorClassIdentifier: 
+  id: 554dbe344a3c4df4c85a2ca51d9e3e21
+  position: {x: 1085, y: -3955}
+  nextNodes:
+  - f7153357f76014d4da80403073416170
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: ...I had zero complete conversations with.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &1210490948244369345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.3c42c1b4
+  m_EditorClassIdentifier: 
+  id: 3c42c1b4fc849484b8577b19d1bb5e71
+  position: {x: 5355, y: -3780}
+  nextNodes:
+  - 85a9b2de463825b44b7bb3d90f4c985d
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: "There\u2019s a small red light blinking on its metal frame, indicating
+    that something is malfunctioning."
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &1310809731160706097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.1926cc9b
+  m_EditorClassIdentifier: 
+  id: 1926cc9bc2deef841abd15bd819d67d7
+  position: {x: 9205, y: -3955}
+  nextNodes:
+  - ab320d2a50f93e047bbc0cb2d2389b29
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: That's one way to put it.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &1737411924903179879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.fdd347ed
+  m_EditorClassIdentifier: 
+  id: fdd347ed4ff6ec049b56a3fd873a0ff4
+  position: {x: 245, y: -3500}
+  nextNodes:
+  - 5b6444989af532f40a4fd011bba09abf
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: My thoughts drift away for a few long moments.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &1738630858599178008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
+  m_Name: SetVariableAction
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  rawExpression: Stats.Friendship = +1;
+--- !u!114 &2040742549763923883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161b5eb6de40d9b46a1172d87b989b91, type: 3}
+  m_Name: SetVariableAction
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  rawExpression: Stats.Love = +1;
+--- !u!114 &2287215647515446866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.6d38cd58
+  m_EditorClassIdentifier: 
+  id: 6d38cd5844db63a4ba777ce8b6a42efc
+  position: {x: 7525, y: -3570}
+  nextNodes:
+  - 18a36d15910adad4fa794bf7c6e0ad15
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: The nurse watches me cautiously.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &2357957871988084112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.289ef2ac
+  m_EditorClassIdentifier: 
+  id: 289ef2ac79d2d1c4891d40b6d23cc04b
+  position: {x: 3220, y: -3780}
+  nextNodes:
+  - 75241fc71b10a66439b1fd7bbd3e3ffd
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: "Yes, am. I\u2019m willing to take them and get the hell out of here."
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &3654622066899936712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.7e04e849
+  m_EditorClassIdentifier: 
+  id: 7e04e8495a248034c8dae3c8dabb7d51
+  position: {x: 6685, y: -3570}
+  nextNodes:
+  - 6d38cd5844db63a4ba777ce8b6a42efc
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: I bend down and open the back panel. Then type in the master key to
+    override bot's protection and reboot the system.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &4137373800077124948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.ddf7b025
+  m_EditorClassIdentifier: 
+  id: ddf7b02587ae3224f9fd415cd925203b
+  position: {x: 11830, y: -3815}
+  nextNodes:
+  - d1cd5a81f9cd46841961995512237db0
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: I should go.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &4236784096664359124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.d1cd5a81
+  m_EditorClassIdentifier: 
+  id: d1cd5a81f9cd46841961995512237db0
+  position: {x: 12250, y: -3815}
+  nextNodes:
+  - ab7e8cd1b25c9c44f83ddc590c8ef99a
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: She nods, her eyes soft with gratitude. I turn and walk away, the weight
+    of the packet in my hand a constant reminder of my grandmother's passing.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &5292284086727019439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.c195adde
+  m_EditorClassIdentifier: 
+  id: c195adde20d7c2b4a88755ab07bd3e62
+  position: {x: 9625, y: -3570}
+  nextNodes:
+  - 8a7bc53cbf1614c4eba71494242a5ff0
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: I take the packet out of bot's grip, and it loosens, like it should.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &5323528665080437714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e71fad76354cc4b9340ec2a2558942, type: 3}
+  m_Name: node.Choice.ac10b9fc
+  m_EditorClassIdentifier: 
+  id: ac10b9fcf4facd447b0fedfefafa1aca
+  position: {x: -1050, y: -3745}
+  nextNodes:
+  - f20b99304b4172542890ce51c93beb0d
+  - 0c4bfd4bf70eb724c8ab7aceca5b7eb6
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: She reminds me of Erica.
+  choices:
+  - localizedText: Push the thought away.
+  - localizedText: Get lost in thoughts.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &5374295804434082787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.0c4bfd4b
+  m_EditorClassIdentifier: 
+  id: 0c4bfd4bf70eb724c8ab7aceca5b7eb6
+  position: {x: -595, y: -3500}
+  nextNodes:
+  - 8e72d65c8e1cfde4ca1f160a2b462236
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: Get lost in thoughts.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &5439239437086950078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.b9061d6c
+  m_EditorClassIdentifier: 
+  id: b9061d6cf24cc5c429c1b762a3be0e34
+  position: {x: 1925, y: -3500}
+  nextNodes:
+  - 41d9e20d2fc77b54da3bde27b00eaea7
+  actions: []
+  character: {fileID: 11400000, guid: 5adabc9c574e72542a4ef564e8433746, type: 2}
+  emotion:
+    rid: -2
+  localized: Mr.Levi? Are you alright? Hello-o-o!
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &5764992608637536864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.6c1d9daa
+  m_EditorClassIdentifier: 
+  id: 6c1d9daad64cfec40a7810009d8dde2b
+  position: {x: 7105, y: -3955}
+  nextNodes:
+  - 0de362bc1f120ae459233ba05142a988
+  actions: []
+  character: {fileID: 11400000, guid: a261098108a08704eae5369849c33d06, type: 2}
+  emotion:
+    rid: -2
+  localized: Nurse's eyes widen in horror, but then the bot comes to motion.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &5779857194567221534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.4b73ed04
+  m_EditorClassIdentifier: 
+  id: 4b73ed04f8b2ab24296996516032bd6b
+  position: {x: 4515, y: -3780}
+  nextNodes:
+  - 215034103f9c31843a672f60774e94d5
+  actions: []
+  character: {fileID: 11400000, guid: 5adabc9c574e72542a4ef564e8433746, type: 2}
+  emotion:
+    rid: -2
+  localized: "Could you possibly wait? This thing won\u2019t give it away, I already
+    called the AI specialist, but it seems they are on a break..."
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &5797050018158389459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.cadb4ebc
+  m_EditorClassIdentifier: 
+  id: cadb4ebc3c7e8734ca1a72eb296e7ba2
+  position: {x: 1085, y: -3500}
+  nextNodes:
+  - 8bd01e6cff457204ab86c3f1398f2465
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: We never got a chance to get to know each other, but I liked watching
+    her from distance. Not in a creepy way.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &6591543574797957381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.0de362bc
+  m_EditorClassIdentifier: 
+  id: 0de362bc1f120ae459233ba05142a988
+  position: {x: 7525, y: -3955}
+  nextNodes:
+  - 10b342404d3d43540bcdeb938890c0cb
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: Should be okay, try it.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &6832725681287202645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.a3e26616
+  m_EditorClassIdentifier: 
+  id: a3e2661637ad9884c95fb44d8813ca67
+  position: {x: 8785, y: -3955}
+  nextNodes:
+  - 1926cc9bc2deef841abd15bd819d67d7
+  actions: []
+  character: {fileID: 11400000, guid: 5adabc9c574e72542a4ef564e8433746, type: 2}
+  emotion:
+    rid: -2
+  localized: Tech savvy, are you?
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &6972877161665575932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2390d353374d46269864ac4f65afc508, type: 3}
+  m_Name: node.c81400.Replica.Background.0
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  sprite: {fileID: 21300000, guid: c522b978c820e5641a4cd27a0e3944a5, type: 3}
+--- !u!114 &8161514225532033747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.93d59fc3
+  m_EditorClassIdentifier: 
+  id: 93d59fc3a437bda4b8064f920a2b7422
+  position: {x: 10045, y: -3955}
+  nextNodes:
+  - 72fb807fbe5c18e428665c821b9f716f
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: Used to be.
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &8402110156414064428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.31244c62
+  m_EditorClassIdentifier: 
+  id: 31244c62a8a6e9346ae35c3b9309dc96
+  position: {x: 11410, y: -3815}
+  nextNodes:
+  - ddf7b02587ae3224f9fd415cd925203b
+  actions: []
+  character: {fileID: 11400000, guid: 9bb4b866bc3d6994988d5522284f1303, type: 2}
+  emotion:
+    rid: -2
+  localized: "Well, I\u2019m not explaining it further."
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

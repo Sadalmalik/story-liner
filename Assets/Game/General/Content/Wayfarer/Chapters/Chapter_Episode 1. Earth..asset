@@ -1,0 +1,198 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8588772150336357725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bed892dd2fb54983b44b2f8535b39a1, type: 3}
+  m_Name: node.Chapter.78c59ccb
+  m_EditorClassIdentifier: 
+  id: 78c59ccbada03664ca5c8c15358ecaa4
+  position: {x: 1878.7999, y: 385}
+  nextNodes:
+  - 14fe2fb271e5100469072fc661315ba9
+  chapter: {fileID: 0}
+--- !u!114 &-7222090564046272888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49251e6351614c42a425c6b0c3fd897a, type: 3}
+  m_Name: node.Entry.a602edf5
+  m_EditorClassIdentifier: 
+  id: a602edf52e8372848a01fab3eac9948a
+  position: {x: -196.20001, y: 385}
+  nextNodes:
+  - a233087516f10424aafdd090a619c423
+--- !u!114 &-6503528650487204215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bed892dd2fb54983b44b2f8535b39a1, type: 3}
+  m_Name: node.Chapter.a2330875
+  m_EditorClassIdentifier: 
+  id: a233087516f10424aafdd090a619c423
+  position: {x: 303.8, y: 385}
+  nextNodes:
+  - f6175edfb3d206243bfcffa7ab642831
+  chapter: {fileID: 0}
+--- !u!114 &-6167519910699317460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bed892dd2fb54983b44b2f8535b39a1, type: 3}
+  m_Name: node.Chapter.3a39b93f
+  m_EditorClassIdentifier: 
+  id: 3a39b93fd80828140b157273422a4167
+  position: {x: 3453.8, y: 385}
+  nextNodes:
+  - c4b1fff34c0908844996e08d96ad402c
+  chapter: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c243d6803f4918bd02822bc04dd036, type: 3}
+  m_Name: Chapter_Episode 1. Earth.
+  m_EditorClassIdentifier: 
+  book: {fileID: 0}
+  chapterName: Episode 1. Earth.
+  startNodeID: a602edf52e8372848a01fab3eac9948a
+  parentChapter: {fileID: 0}
+  nodes:
+  - {fileID: -6503528650487204215}
+  - {fileID: 5578987817996796525}
+  - {fileID: 2643698972871186604}
+  - {fileID: -8588772150336357725}
+  - {fileID: 6695097188763897728}
+  - {fileID: 8886544244343608039}
+  - {fileID: -6167519910699317460}
+  - {fileID: 7111133416869252771}
+  - {fileID: -7222090564046272888}
+  - {fileID: 1734022573934447952}
+--- !u!114 &1734022573934447952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d3f003fe7946c39819a92296140114, type: 3}
+  m_Name: node.Exit.90c40b19
+  m_EditorClassIdentifier: 
+  id: 90c40b19d532f5d4491ac2bc63f1bc91
+  position: {x: 4478.8, y: 385}
+  nextNodes: []
+  tag: 
+  TargetNode: 
+--- !u!114 &2643698972871186604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bed892dd2fb54983b44b2f8535b39a1, type: 3}
+  m_Name: node.Chapter.3a923860
+  m_EditorClassIdentifier: 
+  id: 3a92386007cc0014da2f272bf1c46c35
+  position: {x: 1353.7999, y: 385}
+  nextNodes:
+  - 78c59ccbada03664ca5c8c15358ecaa4
+  chapter: {fileID: 0}
+--- !u!114 &5578987817996796525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bed892dd2fb54983b44b2f8535b39a1, type: 3}
+  m_Name: node.Chapter.f6175edf
+  m_EditorClassIdentifier: 
+  id: f6175edfb3d206243bfcffa7ab642831
+  position: {x: 828.8, y: 385}
+  nextNodes:
+  - 3a92386007cc0014da2f272bf1c46c35
+  chapter: {fileID: 0}
+--- !u!114 &6695097188763897728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bed892dd2fb54983b44b2f8535b39a1, type: 3}
+  m_Name: node.Chapter.14fe2fb2
+  m_EditorClassIdentifier: 
+  id: 14fe2fb271e5100469072fc661315ba9
+  position: {x: 2403.8, y: 385}
+  nextNodes:
+  - 96fcceeb2ca4ee54f9b30d643031cd49
+  chapter: {fileID: 0}
+--- !u!114 &7111133416869252771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bed892dd2fb54983b44b2f8535b39a1, type: 3}
+  m_Name: node.Chapter.c4b1fff3
+  m_EditorClassIdentifier: 
+  id: c4b1fff34c0908844996e08d96ad402c
+  position: {x: 3978.8, y: 385}
+  nextNodes:
+  - 90c40b19d532f5d4491ac2bc63f1bc91
+  chapter: {fileID: 0}
+--- !u!114 &8886544244343608039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bed892dd2fb54983b44b2f8535b39a1, type: 3}
+  m_Name: node.Chapter.96fcceeb
+  m_EditorClassIdentifier: 
+  id: 96fcceeb2ca4ee54f9b30d643031cd49
+  position: {x: 2928.8, y: 385}
+  nextNodes:
+  - 3a39b93fd80828140b157273422a4167
+  chapter: {fileID: 0}
