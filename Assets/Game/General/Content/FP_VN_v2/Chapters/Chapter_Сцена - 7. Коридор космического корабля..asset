@@ -74,7 +74,7 @@ MonoBehaviour:
   id: 427057dda5b32cc42911827bc1a5bee8
   position: {x: 5670, y: 420}
   nextNodes:
-  - e8680125b6c161a458523c0fb98ac569
+  - 385f9355e77e0f94698e577d536b82f7
   actions: []
   character: {fileID: 11400000, guid: 575022a5c8008964cbb86756a7a2e522, type: 2}
   emotion:
@@ -175,6 +175,41 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+--- !u!114 &-5415820939127321849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e71fad76354cc4b9340ec2a2558942, type: 3}
+  m_Name: node.Choice.385f9355
+  m_EditorClassIdentifier: 
+  id: 385f9355e77e0f94698e577d536b82f7
+  position: {x: 6124.799, y: 419.99997}
+  nextNodes:
+  - 4566e35df33ae0d44a3b07297e552f77
+  actions: []
+  character: {fileID: 11400000, guid: 093a00b6983362b4f9c9be95908ac7f2, type: 2}
+  emotion:
+    rid: 1723189982071619606
+  localized: "\u041C\u0430\u0440\u0438\u0439 \u0438 \u042D\u0434\u0432\u0430\u0440\u0434
+    \u0440\u0430\u0437\u043E\u0448\u043B\u0438\u0441\u044C \u0432 \u0440\u0430\u0437\u043D\u044B\u0435
+    \u043D\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F. \u0422\u044B
+    \u0436\u0435 \u043E\u0431\u0435\u0449\u0430\u043B \u0432\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F
+    \u043D\u0430 \u043A\u0430\u043F\u0438\u0442\u0430\u043D\u0441\u043A\u0438\u0439
+    \u043C\u043E\u0441\u0442\u0438\u043A."
+  choices:
+  - localizedText: "\u041F\u043E\u0439\u0442\u0438 \u043A \u041C\u0435\u0434\u0435\u0435"
+  references:
+    version: 2
+    RefIds:
+    - rid: 1723189982071619606
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: 
 --- !u!114 &-5299687664432513240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +311,7 @@ MonoBehaviour:
   m_Name: node.Replica.e8680125
   m_EditorClassIdentifier: 
   id: e8680125b6c161a458523c0fb98ac569
-  position: {x: 6125, y: 420}
+  position: {x: 6124.799, y: 30.060211}
   nextNodes:
   - df87cea0c5a44324cb14e646f5cef576
   actions: []
@@ -412,6 +447,7 @@ MonoBehaviour:
   - {fileID: -5299687664432513240}
   - {fileID: 2355637142875201449}
   - {fileID: 2097813459068549109}
+  - {fileID: -5415820939127321849}
 --- !u!114 &1454742709249844045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,7 +685,7 @@ MonoBehaviour:
   m_Name: node.Replica.df87cea0
   m_EditorClassIdentifier: 
   id: df87cea0c5a44324cb14e646f5cef576
-  position: {x: 6580, y: 420}
+  position: {x: 6579.999, y: 30.060211}
   nextNodes:
   - 4566e35df33ae0d44a3b07297e552f77
   actions: []

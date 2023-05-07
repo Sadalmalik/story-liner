@@ -256,7 +256,7 @@ MonoBehaviour:
   id: 75b337019a7d11b45ba1f263f7fc1c24
   position: {x: 17815, y: 560}
   nextNodes:
-  - 1badc573e03b912429ef20ed754193a2
+  - 
   actions: []
   character: {fileID: 11400000, guid: 24da195adfc06c8498859091d6c63007, type: 2}
   emotion:
@@ -381,6 +381,36 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+--- !u!114 &-6423874659765886089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e71fad76354cc4b9340ec2a2558942, type: 3}
+  m_Name: node.Choice.4026b7b8
+  m_EditorClassIdentifier: 
+  id: 4026b7b84ec157346b43caac9f20bf9a
+  position: {x: 18270.404, y: 877.04016}
+  nextNodes:
+  - 
+  actions: []
+  character: {fileID: 11400000, guid: 575022a5c8008964cbb86756a7a2e522, type: 2}
+  emotion:
+    rid: 1723189982071619607
+  localized: "\u0423\u0434\u0430\u0447\u0438, \u043A\u0430\u043F\u0438\u0442\u0430\u043D."
+  choices:
+  - localizedText: "\u0423\u0439\u0442\u0438 "
+  references:
+    version: 2
+    RefIds:
+    - rid: 1723189982071619607
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: 
 --- !u!114 &-6295833772896355158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1008,6 +1038,7 @@ MonoBehaviour:
   - {fileID: -780199976121249306}
   - {fileID: -2208555526844440092}
   - {fileID: -370063911560347602}
+  - {fileID: -6423874659765886089}
 --- !u!114 &48563539218443590
 MonoBehaviour:
   m_ObjectHideFlags: 0

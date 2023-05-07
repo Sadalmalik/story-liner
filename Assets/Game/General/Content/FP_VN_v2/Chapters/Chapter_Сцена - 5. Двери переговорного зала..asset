@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: node.Replica.e14a1413
   m_EditorClassIdentifier: 
   id: e14a141399d2e9b4fa10d735ccec6b17
-  position: {x: 4340, y: 420}
+  position: {x: 4340, y: 46.671967}
   nextNodes:
   - beb9ed9af30480c4c9302ed0253b0e5a
   actions: []
@@ -180,6 +180,37 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+--- !u!114 &-3863832054301514953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e71fad76354cc4b9340ec2a2558942, type: 3}
+  m_Name: node.Choice.ea39aa09
+  m_EditorClassIdentifier: 
+  id: ea39aa09c495fc444b0c2aadf775c83e
+  position: {x: 4340, y: 420.00006}
+  nextNodes:
+  - 146205db642751649982ca2d15add0d9
+  actions: []
+  character: {fileID: 11400000, guid: 575022a5c8008964cbb86756a7a2e522, type: 2}
+  emotion:
+    rid: 1723189982071619605
+  localized: "\u042F \u043F\u043E\u0434\u0443\u043C\u0430\u044E \u043D\u0430\u0434
+    \u044D\u0442\u0438\u043C."
+  choices:
+  - localizedText: "\u041F\u043E\u0439\u0442\u0438 \u0437\u0430 \u0414\u0438\u0430\u043D\u043E\u0439"
+  references:
+    version: 2
+    RefIds:
+    - rid: 1723189982071619605
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: 
 --- !u!114 &-2697507530933951479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +224,7 @@ MonoBehaviour:
   m_Name: node.Replica.beb9ed9a
   m_EditorClassIdentifier: 
   id: beb9ed9af30480c4c9302ed0253b0e5a
-  position: {x: 4795, y: 420}
+  position: {x: 4795.2, y: 46.399963}
   nextNodes:
   - 146205db642751649982ca2d15add0d9
   actions: []
@@ -252,7 +283,7 @@ MonoBehaviour:
   id: 706a9816f58276d4fa28d4d66d7d38e7
   position: {x: 3885, y: 420}
   nextNodes:
-  - e14a141399d2e9b4fa10d735ccec6b17
+  - ea39aa09c495fc444b0c2aadf775c83e
   actions: []
   character: {fileID: 11400000, guid: 424916d0bc0c8ec45a9a55d5c1bd5356, type: 2}
   emotion:
@@ -326,6 +357,7 @@ MonoBehaviour:
   - {fileID: -6313644641728206692}
   - {fileID: 7820189690944137434}
   - {fileID: -8246035504584946957}
+  - {fileID: -3863832054301514953}
 --- !u!114 &86180967417266966
 MonoBehaviour:
   m_ObjectHideFlags: 0
