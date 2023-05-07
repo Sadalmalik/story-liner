@@ -91,6 +91,41 @@ MonoBehaviour:
   position: {x: -745, y: 525}
   nextNodes:
   - e7db9156378d11e478cf5d9021c08f01
+--- !u!114 &-4180460357692915119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e71fad76354cc4b9340ec2a2558942, type: 3}
+  m_Name: node.Choice.77115e89
+  m_EditorClassIdentifier: 
+  id: 77115e899f7ef874ca6fe04051c418f7
+  position: {x: 3851.2, y: 524.8}
+  nextNodes:
+  - 56365b68e84d7174aaeab06a75e0a564
+  actions: []
+  character: {fileID: 11400000, guid: 772d5996ef764174d8889b4ea84d917e, type: 2}
+  emotion:
+    rid: 1723189981901225984
+  localized: "\u041A\u044D\u043B \u0413\u043E\u043D\u0442\u044C\u0435, \u0432\u044B
+    \u043F\u0440\u0438\u0437\u043D\u0430\u0435\u0442\u0435 \u0432\u0438\u043D\u0443? 
+    \u042F \u0436\u0434\u0443 \u0447\u0435\u0441\u0442\u043D\u043E\u0433\u043E \u043E\u0442\u0432\u0435\u0442\u0430.
+    \u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u0435 \u0447\u0435\u0441\u0442\u044C
+    \u043E\u0444\u0438\u0446\u0435\u0440\u0430 \u0438\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u0441\u043A\u043E\u0433\u043E
+    \u0444\u043B\u043E\u0442\u0430."
+  choices:
+  - localizedText: "\u0417\u0430\u043A\u0440\u0438\u0447\u0430\u0442\u044C!"
+  references:
+    version: 2
+    RefIds:
+    - rid: 1723189981901225984
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: 
 --- !u!114 &-3463553422956980178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +188,7 @@ MonoBehaviour:
   - {fileID: -5587997036610674447}
   - {fileID: -4786601777418963023}
   - {fileID: -7328145718989916135}
+  - {fileID: -4180460357692915119}
 --- !u!114 &264173254698722141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +307,7 @@ MonoBehaviour:
   id: 275f0f203d1220e468c1c8d9ab343070
   position: {x: 3395, y: 525}
   nextNodes:
-  - 128b2a96517038740b5f932bc7d32327
+  - 77115e899f7ef874ca6fe04051c418f7
   actions: []
   character: {fileID: 11400000, guid: 772d5996ef764174d8889b4ea84d917e, type: 2}
   emotion:
@@ -327,7 +363,7 @@ MonoBehaviour:
   m_Name: node.Replica.128b2a96
   m_EditorClassIdentifier: 
   id: 128b2a96517038740b5f932bc7d32327
-  position: {x: 3850, y: 525}
+  position: {x: 3851.2002, y: 114.25461}
   nextNodes:
   - 68839f71b8dfec6499ee4cb8058c674d
   actions: []
@@ -390,7 +426,7 @@ MonoBehaviour:
   m_Name: node.Replica.68839f71
   m_EditorClassIdentifier: 
   id: 68839f71b8dfec6499ee4cb8058c674d
-  position: {x: 4305, y: 525}
+  position: {x: 4305.6, y: 114.25461}
   nextNodes:
   - 56365b68e84d7174aaeab06a75e0a564
   actions: []
