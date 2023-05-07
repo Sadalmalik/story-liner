@@ -17,11 +17,26 @@ namespace Self.ArticyImporter
 			return JsonConvert.DeserializeObject<ArticyData>(textAsset.text);
 		}
 
-		[MenuItem("StoryEditor/Import From Articy")]
-		private static void ImportFromArticy()
+		[MenuItem("StoryEditor/Import From Articy File")]
+		private static void ImportFileFromArticy()
 		{
 			var file = EditorUtility.OpenFilePanel("Open File", Application.dataPath, "json");
 
+			ImportFromArticy(file);
+		}
+
+		[MenuItem("StoryEditor/Import From Articy Selected")]
+		private static void ImportSelectedFromArticy()
+		{
+			var file = Path.GetFullPath(
+				AssetDatabase.GetAssetPath(Selection.activeObject)
+			).Replace("\\", "/");
+
+			ImportFromArticy(file);
+		}
+
+		private static void ImportFromArticy(string file)
+		{
 			if (string.IsNullOrEmpty(file))
 				throw new System.Exception("Could not open file, path is null or empty");
 
@@ -203,6 +218,12 @@ namespace Self.ArticyImporter
 							break;
 					}
 
+					if (newNode == null)
+					{
+						Debug.Log(node.Type);
+						continue;
+					}
+
 					newNode.id = GUID.Generate().ToString();
 					newNode.UpdateName();
 					newNode.position = ((Vector2) node.Properties.Position) * 1.4f;
@@ -214,7 +235,11 @@ namespace Self.ArticyImporter
 				// create node connections
 				foreach (var node in nodes)
 				{
-					var createdNodeId = nodesDic[node.Properties.Id];
+					var id = node.Properties.Id;
+					if (!nodesDic.ContainsKey(id))
+						continue;
+
+					var createdNodeId = nodesDic[id];
 					var createdNode   = newChapter.NodesByID[createdNodeId];
 
 					var connections = new List<Connection>();
@@ -282,7 +307,7 @@ namespace Self.ArticyImporter
 
 				EditorUtility.SetDirty(newChapter);
 				AssetDatabase.SaveAssets();
-				
+
 				// position entry node and exit node at the very ends of the chapter
 				var leftMostNodePosition = Vector2.one * float.MaxValue;
 				var leftMostNodeId       = string.Empty;
@@ -375,21 +400,21 @@ namespace Self.ArticyImporter
 				}
 			}
 
-            foreach (var chapterNode in chapterNodes.Values)
-            {
+			foreach (var chapterNode in chapterNodes.Values)
+			{
 				var node = chapterNode
-									.chapter
-									.nodes
-									.FirstOrDefault(n => n is ExitNode);
+					.chapter
+					.nodes
+					.FirstOrDefault(n => n is ExitNode);
 
-				if(node != null)
-                {
-					var exitNode = node as ExitNode;
+				if (node != null)
+				{
+					var exitNode        = node as ExitNode;
 					var nextChapterNode = chapterNode.chapter.parentChapter.NodesByID[chapterNode.NextNode];
 
-					exitNode.nextNodes = new List<string> { nextChapterNode.id };
-                }
-            }
+					exitNode.nextNodes = new List<string> {nextChapterNode.id};
+				}
+			}
 
 			return chapterList;
 		}
@@ -416,12 +441,12 @@ namespace Self.ArticyImporter
 			replica.localized = string.IsNullOrEmpty(node.Properties.Text)
 				? node.Properties.MenuText
 				: node.Properties.Text;
-			
+
 			replica.character = null;
 			var speaker = node.Properties.Speaker;
 			if (characters.ContainsKey(node.Properties.Speaker))
 				replica.character = characters[speaker];
-			
+
 			return newNode;
 		}
 

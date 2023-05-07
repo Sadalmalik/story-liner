@@ -19,7 +19,7 @@ namespace Self.Story
 			}
 			else
 			{
-				_StoryController.ChapterComplete();
+				//_StoryController.ChapterComplete();
 			}
 
 			return exit.NextNode;
