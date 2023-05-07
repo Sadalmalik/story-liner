@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bc4fdf6cdf5427ba134d3755d2f1512, type: 3}
-  m_Name: StoryModuleSettings
+  m_Script: {fileID: 11500000, guid: d9cb9112ee52f284d8b55def3af857d1, type: 3}
+  m_Name: Character_Narrator
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  testChapter: {fileID: 11400000, guid: 7d0a1dc32faf5d54a9175aa5e80950b8, type: 2}
+  characterName: Narrator
+  characterIcon: {fileID: 0}
+  isMainCharacter: 0
+  emotions: []
