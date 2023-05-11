@@ -8,14 +8,15 @@ namespace Self.Story
 	public class SetVariableAction : BaseAction
 	{
 		private static readonly Regex _conditionReg =
-			new Regex(@"(?<variable>[\w\.]*) *= *(?:(?<value>true|false|[\+\-]{0,1}\d+)|""(?<string>[^""]*)"")");
+			new Regex(
+				@"(?<variable>[\w\.]*) *(?<operation>=|\+=|\-=|\*=|/=) *(?:(?<value>true|false|[\+\-]{0,1}\d+)|""(?<string>[^""]*)"")");
 
 		[DisplayOnNode(1)] public string rawExpression;
 
 		[Inject] private StoryController _StoryController;
 
 		private VariablesContainer _variables;
-		
+
 		public override void Execute(BaseNode node)
 		{
 			_variables = _StoryController.CurrentChapter.book.variables;
@@ -33,24 +34,62 @@ namespace Self.Story
 			if (match.Success)
 			{
 				var _var = match.Groups["variable"].Value;
+				var _op  = match.Groups["operation"].Value;
 				var _val = match.Groups["value"].Value;
 				var _str = match.Groups["string"].Value;
 
 				var variable = _variables.VariablesById[_var];
-				
+
 				if (variable is IntVariable intVariable)
 				{
-					if (int.TryParse(_val, out var intValue))
-						intVariable.value += intValue;
+					if (!int.TryParse(_val, out var intValue))
+						return;
+
+					switch (_op)
+					{
+						case "+=":
+							intVariable.value += intValue;
+							break;
+						case "-=":
+							intVariable.value -= intValue;
+							break;
+						case "*=":
+							intVariable.value *= intValue;
+							break;
+						case "/=":
+							intVariable.value /= intValue;
+							break;
+						default:
+							intVariable.value = intValue;
+							break;
+					}
 				}
 				else if (variable is BoolVariable boolVariable)
 				{
-					if (bool.TryParse(_val, out var boolValue))
-						boolVariable.value = boolValue;
+					if (!bool.TryParse(_val, out var boolValue))
+						return;
+					if (!_op.Equals("="))
+					{
+						Debug.LogWarning("Wrong operation with bool!");
+						return;
+					}
+
+					boolVariable.value = boolValue;
 				}
 				else if (variable is StringVariable stringVariable)
 				{
-					stringVariable.value = _str;
+					switch (_op)
+					{
+						case "=":
+							stringVariable.value = _str;
+							break;
+						case "+=":
+							stringVariable.value += _str;
+							break;
+						default:
+							Debug.LogWarning("Wrong operation with string!");
+							break;
+					}
 				}
 			}
 		}
