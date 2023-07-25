@@ -1,4 +1,4 @@
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
@@ -6,10 +6,11 @@ using System.Linq;
 
 namespace Self.Story.Editors
 {
-	[InspectedType(typeof(ReplicaNode))]
-	[CustomEditor(typeof(ReplicaNode))]
-	public class ReplicaNodeEditor : ActiveNodeEditor
-	{
+    [InspectedType(typeof(ReplicaNode))]
+    [CustomEditor(typeof(ReplicaNode))]
+    public class ReplicaNodeEditor : ActiveNodeEditor
+    {
+        private HashSet<string> INVALID_EMOTIONS = new HashSet<string> { "character has no emotions", "no character selected" };
 		private const string REPLICA_NODEVIEW_PATH = "Styles/NodeEditorStyles/ReplicaNodeView";
 		private const string REPLICA_STYLE_PATH    = "Styles/NodeEditorStyles/ReplicaNodeStyle";
 
@@ -149,15 +150,24 @@ namespace Self.Story.Editors
                 return new List<string> { "no character selected" };
             else
             {
-				if (m_ReplicaNode.character.emotions != null)
-					return m_ReplicaNode.character.emotions.Select(e => e.name).ToList();
-				else
+				if (m_ReplicaNode.character.emotions == null
+                    || m_ReplicaNode.character.emotions.Length == 0)
 					return new List<string> { "character has no emotions" };
+				else
+					return m_ReplicaNode.character.emotions.Select(e => e.name).ToList();
             }
         }
 
         private void HandleEmotionChanged(ChangeEvent<string> selectedEmotion)
 		{
+			if (selectedEmotion.previousValue == selectedEmotion.newValue
+				|| INVALID_EMOTIONS.Contains(selectedEmotion.newValue)) 
+			{
+                m_EmotionsField.SetValueWithoutNotify(selectedEmotion.previousValue);
+
+				return;
+            }
+
 			// update in case node has been moved
 			serializedObject.Update();
 			m_EmotionProperty.managedReferenceValue = new EmotionReference() {emotion = selectedEmotion.newValue};
