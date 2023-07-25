@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -196,7 +196,7 @@ namespace Self.Story.Editors
                 {
 					var obj = f.GetValue(nodeToRemove);
 
-					if (obj != null)
+					if (obj != null && obj is UnityEngine.Object)
 						objects.Add(obj as UnityEngine.Object);
                 }
 
