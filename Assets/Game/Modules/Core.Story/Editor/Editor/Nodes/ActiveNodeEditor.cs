@@ -81,6 +81,12 @@ public class ActiveNodeEditor : NodeEditor
         {
             var nodeAction = m_NodeActionsProperty.GetArrayElementAtIndex(i);
             m_NodeActionsContainer.Add(CreateNodeActionContainer(nodeAction));
+
+            if(i != arraySize - 1) {
+                var separator = new VisualElement();
+                separator.name = "separator";
+                m_NodeActionsContainer.Add(separator);
+            }
         }
 
         if (arraySize > 0)
