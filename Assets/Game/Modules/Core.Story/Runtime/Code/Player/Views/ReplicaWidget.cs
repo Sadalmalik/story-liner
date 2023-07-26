@@ -1,108 +1,147 @@
 ﻿using System;
+using System.Linq;
 using DG.Tweening;
 using Kaleb.TweenAnimator;
 using Self.Architecture.Utils;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 
 namespace Self.Story
 {
-	public class ReplicaWidget : MonoBehaviour
-	{
-		public TweenAnimator showAnimation;
-		public TweenAnimator showInstantAnimation;
-		public TweenAnimator hideAnimation;
+    public class ReplicaWidget : MonoBehaviour
+    {
+        // new workflow
+        [SerializeField] PlayableDirector[] animations;
 
-		[Space] public Button   button;
-		public         TMP_Text text;
-		public         float    textDuration;
+        [Space] public Button button;
+        public TMP_Text text;
+        public float textDuration;
 
-		[Space] public RectTransform leftContainer;
-		public         RectTransform rightContainer;
-		public         RectTransform characterRoot;
-		public         Image         characterImage;
+        [Space] public RectTransform leftContainer;
+        public RectTransform rightContainer;
+        public RectTransform characterRoot;
+        public Image characterImage;
 
-		public event Action OnShowComplete;
-		public event Action OnHideComplete;
-		public event Action OnClick;
+        public event Action OnShowComplete;
+        public event Action OnHideComplete;
+        public event Action OnClick;
 
-		private ReplicaNode _replica;
-		private Tween       _tween;
-		private bool        _isHiding;
-		private bool        _isShowing;
+        private ReplicaNode _replica;
+        private Tween _tween;
+        private bool _isHiding;
+        private bool _isShowing;
 
-		public void Awake()
-		{
-			if (button != null)
-				button.onClick.AddListener(HandleClick);
-		}
 
-		public virtual void Show(ReplicaNode node)
-		{
-			_replica   = node;
-			_isShowing = true;
-			SetupCharacter();
-			text.SetText(string.Empty);
-			_tween = DOTween.Sequence()
-				.Join(text.DOText(_replica.localized, textDuration))
-				.InsertCallback(showAnimation.Duration, HandleCompleteShow);
-			_tween.Play();
-			showAnimation.Play();
-		}
 
-		private void SetupCharacter()
-		{
-			var character = _replica.character;
-			characterImage.sprite = character.characterIcon;
+        public virtual void Show(ReplicaNode node)
+        {
+            _replica = node;
+            _isShowing = true;
+            SetupCharacter();
+            text.SetText(string.Empty);
+            _tween = DOTween.Sequence()
+                .Join(text.DOText(_replica.localized, textDuration))
+                .InsertCallback(textDuration, HandleCompleteShow);
+            _tween.Play();
+            PlayAnimation("Anim_Show");
 
-			characterRoot.gameObject.SetActive(characterImage.sprite != null);
-			characterRoot.FitInside(character.isMainCharacter ? leftContainer : rightContainer);
-		}
+            if (button != null)
+                button.onClick.AddListener(HandleClick);
+        }
 
-		public virtual void Hide()
-		{
-			_isHiding = true;
-			hideAnimation.Play();
-			hideAnimation.OnComplete += HandleCompleteHide;
-		}
+        private void SetupCharacter()
+        {
+            var character = _replica.character;
+            characterImage.sprite = character.characterIcon;
 
-		protected virtual void HandleCompleteShow()
-		{
-			_isShowing = false;
+            characterRoot.gameObject.SetActive(characterImage.sprite != null);
+            characterRoot.FitInside(character.isMainCharacter ? leftContainer : rightContainer);
+        }
 
-			_tween = null;
-			text.SetText(_replica.localized);
-			OnShowComplete?.Invoke();
-		}
+        public virtual void Hide()
+        {
+            _isHiding = true;
+            var hideAnim = PlayAnimation("Anim_Hide");
 
-		protected virtual void HandleCompleteHide()
-		{
-			_isHiding = false;
+            hideAnim.stopped += HandleCompleteHide;
 
-			hideAnimation.OnComplete -= HandleCompleteHide;
-			OnHideComplete?.Invoke();
-		}
+            if (button != null)
+                button.onClick.RemoveListener(HandleClick);
+        }
 
-		private void HandleClick()
-		{
-			if (_isHiding)
-			{
-				return;
-			}
+        protected virtual void HandleCompleteShow()
+        {
+            _isShowing = false;
 
-			if (_isShowing)
-			{
-				_tween?.Kill();
-				showAnimation.Stop();
-				showInstantAnimation.Play();
+            _tween = null;
+            text.SetText(_replica.localized);
+            OnShowComplete?.Invoke();
+        }
 
-				HandleCompleteShow();
+        protected virtual void HandleCompleteHide(PlayableDirector hideAnim)
+        {
+            _isHiding = false;
 
-				return;
-			}
+            hideAnim.stopped -= HandleCompleteHide;
+            OnHideComplete?.Invoke();
+        }
 
-			OnClick?.Invoke();
-		}
-	}
+        private void HandleClick()
+        {
+            if (_isHiding)
+            {
+                return;
+            }
+
+            if (_isShowing)
+            {
+                _tween?.Kill();
+
+                foreach (var anim in animations)
+                {
+                    anim.stopped -= HandleCompleteHide;
+                }
+
+                StopAnimation("Anim_Show");
+                PlayAnimation("Anim_ShowInstant");
+
+                HandleCompleteShow();
+
+                return;
+            }
+
+            OnClick?.Invoke();
+        }
+
+        protected PlayableDirector PlayAnimation(string name)
+        {
+            var animToPlay = animations.FirstOrDefault(a => a.name == name);
+
+            if(animToPlay != null)
+            {
+                animToPlay.Play();
+                return animToPlay;
+            }
+            else
+            {
+                throw new Exception($"[{GetType().Name}.{nameof(PlayAnimation)}] Could not find animation: '{name}'");
+            }
+        }
+
+        protected void StopAnimation(string name)
+        {
+            var animToPlay = animations.FirstOrDefault(a => a.name == name);
+
+            if (animToPlay != null)
+            {
+                animToPlay.Stop();
+            }
+            else
+            {
+                throw new Exception($"[{GetType().Name}.{nameof(PlayAnimation)}] Could not find animation: '{name}'");
+            }
+        }
+    }
 }

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 
 namespace Self.Story
@@ -51,11 +52,12 @@ namespace Self.Story
 			OnSelect?.Invoke(index);
 		}
 
-		protected override void HandleCompleteHide()
+		protected override void HandleCompleteHide(PlayableDirector hideAnim)
 		{
 			foreach (var choice in choices)
 				choice.Hide();
-			base.HandleCompleteHide();
+
+			base.HandleCompleteHide(hideAnim);
 		}
 	}
 }
