@@ -16,48 +16,23 @@ namespace Self.Story
 		public ChoiceButtonWidget choicePrefab;
 		public RectTransform      choiceContainer;
 
-		public List<ChoiceButtonWidget> choices;
+		public List<ChoiceButtonWidget> choiceContainers;
 
-		public event Action<int> OnSelect;
 
-		public new void Awake()
-		{
-			//choices = new List<ChoiceButtonWidget>();
-		
-			for (int i = 0; i < 4; i++)
-			{
-				var widget = choices[i];
-				widget.OnClick += HandleSelect;
-			}
-		}
 
-		public void Show(ChoiceNode node)
-		{
-			base.Show(node as ReplicaNode);
+        public void InitChoices(List<ChoiceNode.Choice> choices)
+        {
+            for (int i = 0; i < choices.Count; i++)
+            {
+                var choice = choiceContainers[i];
+                var enabled = i < choices.Count;
+                choice.gameObject.SetActive(enabled);
 
-			for (int i = 0; i < choices.Count; i++)
-			{
-				var choice  = choices[i];
-				var enabled = i < node.choices.Count;
-				choice.gameObject.SetActive(enabled);
-				if (enabled)
-					choice.Init(i, node.choices[i].localizedText);
-			}
-			
-			LayoutRebuilder.ForceRebuildLayoutImmediate(choiceContainer);
-		}
+                if (enabled)
+                    choice.Init(i, choices[i].localizedText);
+            }
 
-		private void HandleSelect(int index)
-		{
-			OnSelect?.Invoke(index);
-		}
-
-		protected override void HandleCompleteHide(PlayableDirector hideAnim)
-		{
-			foreach (var choice in choices)
-				choice.Hide();
-
-			base.HandleCompleteHide(hideAnim);
-		}
-	}
+            LayoutRebuilder.ForceRebuildLayoutImmediate(choiceContainer);
+        }
+    }
 }

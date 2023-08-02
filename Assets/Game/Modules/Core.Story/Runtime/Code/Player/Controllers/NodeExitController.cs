@@ -9,8 +9,8 @@ namespace Self.Story
 
 		[Inject] private StoryController _StoryController;
 
-		public string Enter(BaseNode node)
-		{
+        public string Enter(BaseNode node, BaseNode previousNode = null)
+        {
 			var exit = node as ExitNode;
 
 			if (!string.IsNullOrEmpty(exit.TargetNode))

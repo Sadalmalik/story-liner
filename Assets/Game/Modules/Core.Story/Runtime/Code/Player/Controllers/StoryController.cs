@@ -56,6 +56,7 @@ namespace Self.Story
 
 		public void SetNode(string nodeId)
 		{
+			var previousNode = CurrentNode;
 			CurrentNode = null;
 
 			var node = CurrentChapter.TryGetNode(nodeId);
@@ -84,7 +85,7 @@ namespace Self.Story
 				}
 			
 			Debug.Log($"[TEST] <{node.name}>.Enter");
-			var nextNode = ActiveController.Enter(node);
+			var nextNode = ActiveController.Enter(node, previousNode);
 
 			if (nextNode != null)
 				// Вроде как C# умеет в хвостовую рекурсию

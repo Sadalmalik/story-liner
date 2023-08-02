@@ -7,8 +7,8 @@ namespace Self.Story
 	{
 		public Type GetTargetType() => typeof(ConditionNode);
 
-		public string Enter(BaseNode node)
-		{
+        public string Enter(BaseNode node, BaseNode previousNode = null)
+        {
 			var cond = node as ConditionNode;
 			
 			if (cond == null) return node.NextNode;

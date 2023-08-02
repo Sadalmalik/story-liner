@@ -458,6 +458,7 @@ namespace Self.ArticyImporter
 			newNode = ScriptableUtils.AddToAsset<ConditionNode>(newChapter);
 
 			var cond = newNode as ConditionNode;
+			cond.nextNodes = new List<string>(2) { string.Empty, string.Empty };
 			cond.rawCondition = node.Properties.Expression;
 
 			return newNode;

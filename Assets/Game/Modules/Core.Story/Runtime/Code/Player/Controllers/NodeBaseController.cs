@@ -7,8 +7,8 @@ namespace Self.Story
 	{
 		public virtual Type GetTargetType() => typeof(BaseNode);
 
-		public string Enter(BaseNode node)
-		{
+        public string Enter(BaseNode node, BaseNode previousNode = null)
+        {
 			return node.NextNode;
 		}
 	}

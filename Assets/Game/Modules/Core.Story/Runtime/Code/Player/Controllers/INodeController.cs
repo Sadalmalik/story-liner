@@ -7,6 +7,6 @@ namespace Self.Story
 	{
 		Type GetTargetType();
 
-		string Enter(BaseNode node);
+		string Enter(BaseNode node, BaseNode previousNode);
 	}
 }
