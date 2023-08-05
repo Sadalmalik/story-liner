@@ -1,12 +1,6 @@
 ﻿using System;
 using Self.Architecture.IOC;
 using Self.Architecture.Signals;
-using static Self.Story.ChoiceNode;
-using UnityEngine.Playables;
-using UnityEngine.UI;
-using UnityEngine;
-using DG.Tweening;
-using System.Linq;
 
 namespace Self.Story
 {
@@ -14,123 +8,87 @@ namespace Self.Story
 	{
 		public Type GetTargetType() => typeof(ChoiceNode);
 
-		[SerializeField] private Button button;
 		[Inject] private StoryController _StoryController;
-        [SerializeField] private PlayableDirector[] animations;
-        [SerializeField] private float textDuration;
 
-        public ChoiceNode    Node { get; private set; }
-        // TODO: rework this View to become
-        // ChoicesView
-        // TextView
-        // CharacterView
-		public ChoiceWidget View { get; private set; }
+		public ChoiceNode Node { get; private set; }
+		public TextWidget TextView { get; private set; }
+		public ChoiceWidget ChoiceView { get; private set; }
+		public CharacterWidget CharacterView { get; private set; }
 
 		private int _selectedChoice;
-        private bool _isPlayingSameNode;
-        private bool _isHiding;
-        private bool _isShowing;
-        private Tween _tween;
+		private bool _isShowing;
+		private bool _isActive;
 
 
 
-        public override void Init()
+		public override void Init()
 		{
 			SignalBus.Global.Subscribe<SStoryModuleReady>(HandleLoadingComplete);
 		}
 
 		private void HandleLoadingComplete(SStoryModuleReady signal)
 		{
-			View = signal.view.choiceWidget;
+			signal.view.continueButton.onClick.AddListener(HandleClick);
+			ChoiceView = signal.view.choiceWidget;
+			TextView = signal.view.textWidget;
+			CharacterView = signal.view.characterWidget;
 
+			for (int i = 0; i < ChoiceView.choiceContainers.Count; i++)
+			{
+				var index = i;
 
-            for (int i = 0; i < View.choiceContainers.Count; i++)
-            {
-                var index = i;
-
-                View.choiceContainers[i].button.onClick.AddListener(() => HandleSelect(index));
-            }
+				ChoiceView.choiceContainers[i].button.onClick.AddListener(() => HandleSelect(index));
+			}
 		}
 
-        public string Enter(BaseNode node, BaseNode previousNode = null)
-        {
-			Node = node as ChoiceNode;
-            View.InitText(Node.localized, textDuration, HandleShowComplete);
-            View.InitCharacter(Node.character);
-            View.InitChoices(Node.choices);
-
-            var changeAnimation = GetChangeAnimation(node, previousNode);
-
-            PlayAnimation(changeAnimation);
-
-            return null;
-        }
-
-        private string GetChangeAnimation(BaseNode node, BaseNode previousNode)
-        {
-            var prevName = previousNode == null ? string.Empty : previousNode.GetType().Name;
-            var nextName = node.GetType().Name;
-
-            return $"Anim_{prevName}To{nextName}";
-        }
-
-        private PlayableDirector PlayAnimation(string name)
-        {
-            var animToPlay = animations.FirstOrDefault(a => a.name == name);
-
-            if (animToPlay != null)
-            {
-                animToPlay.Play();
-                return animToPlay;
-            }
-            else
-            {
-                throw new Exception($"[{GetType().Name}.{nameof(PlayAnimation)}] Could not find animation: '{name}'");
-            }
-        }
-
-        private void StopAnimation(string name)
-        {
-            var animToPlay = animations.FirstOrDefault(a => a.name == name);
-
-            if (animToPlay != null)
-            {
-                animToPlay.Stop();
-            }
-            else
-            {
-                throw new Exception($"[{GetType().Name}.{nameof(StopAnimation)}] Could not find animation: '{name}'");
-            }
-        }
-
-        private void HandleSelect(int index)
+		public string Enter(BaseNode node, BaseNode previousNode = null)
 		{
+			Node = node as ChoiceNode;
+			TextView.InitText(Node.localized, HandleShowComplete);
+			CharacterView.InitCharacter(Node.character);
+			ChoiceView.InitChoices(Node.choices);
+
+			_StoryController.StoryView.KeepViews(TextView, CharacterView, ChoiceView);
+
+			ChoiceView.Show();
+			CharacterView.Show();
+			TextView.Show(typeof(ChoiceNode).Name);
+			_isActive = true;
+
+			return null;
+		}
+
+		private void HandleClick()
+		{
+			if (!_isActive)
+				return;
+
+			if (_isShowing)
+			{
+				TextView.SkipShowing();
+				return;
+			}
+		}
+
+		private void HandleSelect(int index)
+		{
+			if (!_isActive)
+				return;
+
+			if (_isShowing)
+			{
+				TextView.SkipShowing();
+				return;
+			}
+
+			_isActive = false;
 			_selectedChoice = index;
-			View.Hide();
+			_StoryController.SetNode(Node.nextNodes[_selectedChoice]);
 		}
 
 		private void HandleShowComplete()
 		{
-			
+			_isShowing = false;
 		}
-		
-		private void HandleHideComplete()
-		{
-			_StoryController.SetNode(Node.nextNodes[_selectedChoice]);
-		}
-
-        public void Show(ChoiceNode node)
-        {
-            base.Show(node as ReplicaNode);
-
-        }
-
-        protected override void HandleCompleteHide(PlayableDirector hideAnim)
-        {
-            foreach (var choice in choices)
-                choice.Hide();
-
-            base.HandleCompleteHide(hideAnim);
-        }
-    }
+	}
 }

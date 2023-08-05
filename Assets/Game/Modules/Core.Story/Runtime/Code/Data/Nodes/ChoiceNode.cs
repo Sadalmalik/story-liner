@@ -7,19 +7,15 @@ namespace Self.Story
 	/// A node that contains character dialogue
 	/// as well as some player choices
 	/// </summary>
-    [NodeMetadata(customOutput: true)]
+	[NodeMetadata(customOutput: true)]
 	public class ChoiceNode : ReplicaNode
 	{
 		public List<Choice> choices;
-		
+
 		[System.Serializable]
 		public class Choice
 		{
 			public string localizedText;
-
-			// TODO [Andrei]: should just take nextNode
-			// from index
-			// public string nextNode;
 		}
 	}
 }
