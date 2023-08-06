@@ -69,6 +69,7 @@ namespace Self.ArticyImporter
 			foreach (var chapter in chapters)
 			{
 				chapter.book = book;
+				EditorUtility.SetDirty(chapter);
 			}
 
 			AssetDatabase.SaveAssets();
