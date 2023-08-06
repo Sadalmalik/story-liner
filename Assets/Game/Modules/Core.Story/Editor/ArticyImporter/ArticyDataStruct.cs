@@ -11,6 +11,20 @@ namespace Self.ArticyImporter
 		public List<ArticyVariablesSet> GlobalVariables;
 		public List<ArticyPackageData>  Packages;
 		public HierarchyNode            Hierarchy;
+
+		public Dictionary<HexValue, StoryNode> Assets;
+
+		public void InitAssets()
+		{
+			Assets = new Dictionary<HexValue, StoryNode>();
+
+			foreach (var package in Packages)
+			foreach (var node in package.Models)
+				if (node.Type == "Asset")
+					Assets.Add(node.Properties.Id, node);
+			
+			Debug.Log($"Assets count: {Assets.Count}");
+		}
 	}
 
 	[Serializable]
@@ -71,6 +85,7 @@ namespace Self.ArticyImporter
 	public class StoryNode
 	{
 		public string         Type;
+		public string         AssetRef;
 		public NodeProperties Properties;
 	}
 

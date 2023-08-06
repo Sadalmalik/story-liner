@@ -15,7 +15,6 @@ namespace Self.ArticyImporter
 	{
 #region Menu
 
-
 		[MenuItem("StoryEditor/Import From Articy File")]
 		private static void ImportFileFromArticy()
 		{
@@ -37,7 +36,6 @@ namespace Self.ArticyImporter
 #endregion
 
 
-
 #region Main Import
 
 		private static void ImportFromArticy(string file)
@@ -52,8 +50,11 @@ namespace Self.ArticyImporter
 			if (jsonAsset == null)
 				throw new System.Exception($"Error loading asset at path {relativeFilePath}");
 
-			var data       = JsonConvert.DeserializeObject<ArticyData>(jsonAsset.text);
+			ArticyStructureTool.ReorderArticyFolders(Path.Combine(relativeFilePath, "Assets"));
 			
+			var data = JsonConvert.DeserializeObject<ArticyData>(jsonAsset.text);
+			data.InitAssets();
+
 			var storyNodes = new Dictionary<ulong, StoryNode>();
 
 			data.Packages[0].Models.ForEach(m => storyNodes.Add(m.Properties.Id.Value, m));
@@ -74,7 +75,7 @@ namespace Self.ArticyImporter
 
 			AssetDatabase.SaveAssets();
 		}
-		
+
 		private static Dictionary<HexValue, Character> CreateCharactersFromImport(ArticyData data, string path)
 		{
 			var entities = data.Hierarchy.Children.First(node => node.Type == "Entities");
@@ -83,23 +84,31 @@ namespace Self.ArticyImporter
 				throw new System.Exception("Node 'Entities' not foud in Aticy project hierarchy!");
 
 			HashSet<HexValue> characterIds = entities.Children.Select(node => node.Id).ToHashSet();
-			
+
 			var characters = data.Packages[0].Models.Where(node => characterIds.Contains(node.Properties.Id));
 
-			path = $"{path}/Characters/";
+			var charFolder = Path.Combine(path, "Characters");
 
-			if (!Directory.Exists(path))
-				Directory.CreateDirectory(path);
+			if (!Directory.Exists(charFolder))
+				Directory.CreateDirectory(charFolder);
 
 			var characterList = new Dictionary<HexValue, Character>();
 
 			foreach (var character in characters)
 			{
-				var newCharacter =
-					ScriptableUtils.CreateAsset<Character>(path, $"Character_{character.Properties.DisplayName}");
-				newCharacter.isMainCharacter = (character.Type.Equals("DefaultMainCharacterTemplate")) ? true : false;
+				var newCharacter = ScriptableUtils.CreateAsset<Character>(
+					charFolder, $"Character_{character.Properties.DisplayName}");
+				newCharacter.isMainCharacter = character.Type.Equals("DefaultMainCharacterTemplate");
 				newCharacter.characterName   = character.Properties.DisplayName;
 
+				Debug.Log($"Try get asset: {character.Properties.PreviewImage.Asset}");
+				if (data.Assets.TryGetValue(character.Properties.PreviewImage.Asset, out var asset))
+				{
+					var assetPath = Path.Combine(path, "Assets/Characters", Path.GetFileName(asset.AssetRef));
+					Debug.Log($"Set character: '{asset.AssetRef}' => '{assetPath}'");
+					newCharacter.characterIcon = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
+				}
+				
 				EditorUtility.SetDirty(newCharacter);
 				AssetDatabase.SaveAssets();
 
@@ -108,7 +117,7 @@ namespace Self.ArticyImporter
 
 			return characterList;
 		}
-		
+
 #endregion
 
 
