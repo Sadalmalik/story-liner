@@ -4,196 +4,205 @@ using UnityEngine;
 
 namespace Self.ArticyImporter
 {
-    [Serializable]
-    public class ArticyData
-    {
-        public ArticyProject Project;
-        public List<ArticyVariablesSet> GlobalVariables;
-        public List<ArticyPackageData> Packages;
-    }
+	[Serializable]
+	public class ArticyData
+	{
+		public ArticyProject            Project;
+		public List<ArticyVariablesSet> GlobalVariables;
+		public List<ArticyPackageData>  Packages;
+		public HierarchyNode            Hierarchy;
+	}
 
-    #region Project
+	[Serializable]
+	public class HierarchyNode
+	{
+		public HexValue            Id;
+		public string              TechnicalName;
+		public string              Type;
+		public List<HierarchyNode> Children;
+	}
 
-    [System.Serializable]
-    public class ArticyProject
-    {
-        public string Name;
-        public string DetailName;
-        public string Guid;
-        public string TechnicalName;
-    }
+#region Project
 
-    #endregion
+	[System.Serializable]
+	public class ArticyProject
+	{
+		public string Name;
+		public string DetailName;
+		public string Guid;
+		public string TechnicalName;
+	}
 
-    #region Variables
+#endregion
 
-    [Serializable]
-    public class ArticyVariablesSet
-    {
-        public string Namespace;
-        public string Description;
-        public List<ArticyVariable> Variables;
-    }
+#region Variables
 
-    [Serializable]
-    public class ArticyVariable
-    {
-        public string Variable; // name
-        public string Type;
-        public string Value;
-        public string Description;
-    }
+	[Serializable]
+	public class ArticyVariablesSet
+	{
+		public string               Namespace;
+		public string               Description;
+		public List<ArticyVariable> Variables;
+	}
 
-    #endregion
+	[Serializable]
+	public class ArticyVariable
+	{
+		public string Variable; // name
+		public string Type;
+		public string Value;
+		public string Description;
+	}
 
-    #region Packages
+#endregion
 
-    [Serializable]
-    public class ArticyPackageData
-    {
-        public string Name;
-        public string Description;
-        public bool IsDefaultPackage;
-        public List<StoryNode> Models;
-    }
+#region Packages
 
-    [Serializable]
-    public class StoryNode
-    {
-        public string Type;
-        public NodeProperties Properties;
-    }
+	[Serializable]
+	public class ArticyPackageData
+	{
+		public string          Name;
+		public string          Description;
+		public bool            IsDefaultPackage;
+		public List<StoryNode> Models;
+	}
 
-    [Serializable]
-    public class NodeProperties
-    {
-        public string        TechnicalName;
-        public HexValue      Id;
-        public HexValue      Parent;
-        public string[]      Attachments;
-        public string        MenuText;
-        public string        StageDirections;
-        public string        DisplayName;
-        public PreviewImage  PreviewImage;
-        public float         SplitHeight;
-        public Color         Color;
-        public HexValue      Speaker;
-        public string        Text;
-        public string        ExternalId;
-        public string        Expression;
-        public Position      Position;
-        public float         ZIndex;
-        public Size          Size;
-        public uint          ShortId;
-        public List<NodePin> InputPins;
-        public List<NodePin> OutputPins;
-    }
+	[Serializable]
+	public class StoryNode
+	{
+		public string         Type;
+		public NodeProperties Properties;
+	}
 
-    [Serializable]
-    public class PreviewImage
-    {
-        public ViewBox ViewBox;
-        public string Mode;
-        public HexValue Asset;
-    }
+	[Serializable]
+	public class NodeProperties
+	{
+		public string        TechnicalName;
+		public HexValue      Id;
+		public HexValue      Parent;
+		public string[]      Attachments;
+		public string        MenuText;
+		public string        StageDirections;
+		public string        DisplayName;
+		public PreviewImage  PreviewImage;
+		public float         SplitHeight;
+		public Color         Color;
+		public HexValue      Speaker;
+		public string        Text;
+		public string        ExternalId;
+		public string        Expression;
+		public Position      Position;
+		public float         ZIndex;
+		public Size          Size;
+		public uint          ShortId;
+		public List<NodePin> InputPins;
+		public List<NodePin> OutputPins;
+	}
 
-    [Serializable]
-    public struct ViewBox
-    {
-        public float x, y, w, h;
+	[Serializable]
+	public class PreviewImage
+	{
+		public ViewBox  ViewBox;
+		public string   Mode;
+		public HexValue Asset;
+	}
 
-        public ViewBox(float x, float y, float w, float h)
-        {
-            this.x = x;
-            this.y = y;
-            this.w = w;
-            this.h = h;
-        }
+	[Serializable]
+	public struct ViewBox
+	{
+		public float x, y, w, h;
 
-        public override string ToString()
-        {
-            return $"[x:{x}, y:{y}, w:{w}, h:{h}]";
-        }
+		public ViewBox(float x, float y, float w, float h)
+		{
+			this.x = x;
+			this.y = y;
+			this.w = w;
+			this.h = h;
+		}
 
-        public static explicit operator ViewBox(Rect rect) => new ViewBox(rect.x, rect.y, rect.width, rect.height);
-        public static explicit operator Rect(ViewBox vb) => new Rect(vb.x, vb.y, vb.w, vb.h);
-    }
+		public override string ToString()
+		{
+			return $"[x:{x}, y:{y}, w:{w}, h:{h}]";
+		}
 
-    [Serializable]
-    public struct Position
-    {
-        public float x, y;
+		public static explicit operator ViewBox(Rect rect) => new ViewBox(rect.x, rect.y, rect.width, rect.height);
+		public static explicit operator Rect(ViewBox vb)   => new Rect(vb.x, vb.y, vb.w, vb.h);
+	}
 
-        public Position(float x, float y)
-        {
-            this.x = x;
-            this.y = y;
-        }
+	[Serializable]
+	public struct Position
+	{
+		public float x, y;
 
-        public override string ToString()
-        {
-            return $"[x:{x}, y:{y}]";
-        }
+		public Position(float x, float y)
+		{
+			this.x = x;
+			this.y = y;
+		}
 
-        public static explicit operator Vector2(Position p) => new Vector2(p.x, p.y);
-        public static explicit operator Position(Vector2 v) => new Position(v.x, v.y);
-    }
+		public override string ToString()
+		{
+			return $"[x:{x}, y:{y}]";
+		}
 
-    [Serializable]
-    public struct Size
-    {
-        public float w, h;
+		public static explicit operator Vector2(Position p) => new Vector2(p.x, p.y);
+		public static explicit operator Position(Vector2 v) => new Position(v.x, v.y);
+	}
 
-        public Size(float w, float h)
-        {
-            this.w = w;
-            this.h = h;
-        }
+	[Serializable]
+	public struct Size
+	{
+		public float w, h;
 
-        public override string ToString()
-        {
-            return $"[w:{w}, h:{h}]";
-        }
+		public Size(float w, float h)
+		{
+			this.w = w;
+			this.h = h;
+		}
 
-        public static explicit operator Vector2(Size s) => new Vector2(s.w, s.h);
-        public static explicit operator Size(Vector2 v) => new Size(v.x, v.y);
-    }
+		public override string ToString()
+		{
+			return $"[w:{w}, h:{h}]";
+		}
 
-    [Serializable]
-    public struct HexValue : IEquatable<ulong>, IEquatable<HexValue>
-    {
-        public ulong Value;
+		public static explicit operator Vector2(Size s) => new Vector2(s.w, s.h);
+		public static explicit operator Size(Vector2 v) => new Size(v.x, v.y);
+	}
 
-        public static explicit operator string(HexValue value) => value.ToString();
-        public static explicit operator HexValue(string from) => new HexValue { Value = Convert.ToUInt64(from, 16) };
+	[Serializable]
+	public struct HexValue : IEquatable<ulong>, IEquatable<HexValue>
+	{
+		public ulong Value;
 
-        public override string ToString()
-        {
-            return $"0x{Value.ToString("X16")}";
-        }
+		public static explicit operator string(HexValue value) => value.ToString();
+		public static explicit operator HexValue(string from)  => new HexValue {Value = Convert.ToUInt64(from, 16)};
 
-        public bool Equals(ulong other) => Value.Equals(other);
-        public bool Equals(HexValue other) => Value.Equals(other.Value);
-    }
+		public override string ToString()
+		{
+			return $"0x{Value.ToString("X16")}";
+		}
 
-    [Serializable]
-    public class NodePin
-    {
-        public string Text;
-        public HexValue Id;
-        public HexValue Owner;
-        public List<Connection> Connections;
-    }
+		public bool Equals(ulong    other) => Value.Equals(other);
+		public bool Equals(HexValue other) => Value.Equals(other.Value);
+	}
 
-    [Serializable]
-    public class Connection
-    {
-        public Color Color;
-        public string Label;
-        public HexValue TargetPin;
-        public HexValue Target;
-    }
+	[Serializable]
+	public class NodePin
+	{
+		public string           Text;
+		public HexValue         Id;
+		public HexValue         Owner;
+		public List<Connection> Connections;
+	}
 
-    #endregion
+	[Serializable]
+	public class Connection
+	{
+		public Color    Color;
+		public string   Label;
+		public HexValue TargetPin;
+		public HexValue Target;
+	}
 
+#endregion
 }

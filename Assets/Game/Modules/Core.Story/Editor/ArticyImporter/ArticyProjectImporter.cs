@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Newtonsoft.Json;
 using System.Collections.Generic;
@@ -12,10 +13,8 @@ namespace Self.ArticyImporter
 {
 	public static class ArticyProjectImporter
 	{
-		public static ArticyData ImportFromJsonAsset(TextAsset textAsset)
-		{
-			return JsonConvert.DeserializeObject<ArticyData>(textAsset.text);
-		}
+#region Menu
+
 
 		[MenuItem("StoryEditor/Import From Articy File")]
 		private static void ImportFileFromArticy()
@@ -35,18 +34,26 @@ namespace Self.ArticyImporter
 			ImportFromArticy(file);
 		}
 
+#endregion
+
+
+
+#region Main Import
+
 		private static void ImportFromArticy(string file)
 		{
 			if (string.IsNullOrEmpty(file))
 				throw new System.Exception("Could not open file, path is null or empty");
 
+			//var relativeFilePath = Path.GetRelativePath(Application.dataPath, file);
 			var relativeFilePath = $"Assets/{file.Split("Assets/")[1]}";
 			var jsonAsset        = AssetDatabase.LoadAssetAtPath<TextAsset>(relativeFilePath);
 
 			if (jsonAsset == null)
 				throw new System.Exception($"Error loading asset at path {relativeFilePath}");
 
-			var data       = ImportFromJsonAsset(jsonAsset);
+			var data       = JsonConvert.DeserializeObject<ArticyData>(jsonAsset.text);
+			
 			var storyNodes = new Dictionary<ulong, StoryNode>();
 
 			data.Packages[0].Models.ForEach(m => storyNodes.Add(m.Properties.Id.Value, m));
@@ -66,11 +73,17 @@ namespace Self.ArticyImporter
 
 			AssetDatabase.SaveAssets();
 		}
-
+		
 		private static Dictionary<HexValue, Character> CreateCharactersFromImport(ArticyData data, string path)
 		{
-			var characters = data.Packages[0].Models.Where(m => m.Type.Equals("DefaultMainCharacterTemplate")
-			                                                    || m.Type.Equals("DefaultSupportingCharacterTemplate"));
+			var entities = data.Hierarchy.Children.First(node => node.Type == "Entities");
+
+			if (entities == null)
+				throw new System.Exception("Node 'Entities' not foud in Aticy project hierarchy!");
+
+			HashSet<HexValue> characterIds = entities.Children.Select(node => node.Id).ToHashSet();
+			
+			var characters = data.Packages[0].Models.Where(node => characterIds.Contains(node.Properties.Id));
 
 			path = $"{path}/Characters/";
 
@@ -94,6 +107,9 @@ namespace Self.ArticyImporter
 
 			return characterList;
 		}
+		
+#endregion
+
 
 		private static Book CreateBookFromImport(ArticyData data, string path)
 		{
