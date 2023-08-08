@@ -13,17 +13,24 @@ namespace Self.ArticyImporter
 		public HierarchyNode            Hierarchy;
 
 		public Dictionary<HexValue, StoryNode> Assets;
+		public Dictionary<HexValue, StoryNode> Locations;
 
 		public void InitAssets()
 		{
-			Assets = new Dictionary<HexValue, StoryNode>();
+			Assets    = new Dictionary<HexValue, StoryNode>();
+			Locations = new Dictionary<HexValue, StoryNode>();
 
 			foreach (var package in Packages)
 			foreach (var node in package.Models)
+			{
 				if (node.Type == "Asset")
 					Assets.Add(node.Properties.Id, node);
-			
+				if (node.Type == "Location")
+					Locations.Add(node.Properties.Id, node);
+			}
+
 			Debug.Log($"Assets count: {Assets.Count}");
+			Debug.Log($"Locations count: {Locations.Count}");
 		}
 	}
 
@@ -95,7 +102,8 @@ namespace Self.ArticyImporter
 		public string        TechnicalName;
 		public HexValue      Id;
 		public HexValue      Parent;
-		public string[]      Attachments;
+		public HexValue      Target;
+		public HexValue[]    Attachments;
 		public string        MenuText;
 		public string        StageDirections;
 		public string        DisplayName;

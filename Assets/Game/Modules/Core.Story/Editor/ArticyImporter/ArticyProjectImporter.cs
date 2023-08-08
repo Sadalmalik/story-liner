@@ -41,14 +41,14 @@ namespace Self.ArticyImporter
 		private static void ImportFromArticy(string file)
 		{
 			if (string.IsNullOrEmpty(file))
-				throw new System.Exception("Could not open file, path is null or empty");
+				throw new System.Exception("Could not open file, chapFolder is null or empty");
 
 			//var relativeFilePath = Path.GetRelativePath(Application.dataPath, file);
 			var relativeFilePath = $"Assets/{file.Split("Assets/")[1]}";
 			var jsonAsset        = AssetDatabase.LoadAssetAtPath<TextAsset>(relativeFilePath);
 
 			if (jsonAsset == null)
-				throw new System.Exception($"Error loading asset at path {relativeFilePath}");
+				throw new System.Exception($"Error loading asset at chapFolder {relativeFilePath}");
 
 			ArticyStructureTool.ReorderArticyFolders(Path.Combine(relativeFilePath, "Assets"));
 
@@ -182,10 +182,10 @@ namespace Self.ArticyImporter
 			Dictionary<HexValue, Character> characters,
 			string                          path)
 		{
-			path = $"{path}/Chapters/";
+			var chapFolder = $"{path}/Chapters/";
 
-			if (!Directory.Exists(path))
-				Directory.CreateDirectory(path);
+			if (!Directory.Exists(chapFolder))
+				Directory.CreateDirectory(chapFolder);
 
 			var chapterList = new List<Chapter>();
 			var chapters = data.Packages[0].Models.Where(m => m.Type.Equals("Dialogue")
@@ -193,6 +193,7 @@ namespace Self.ArticyImporter
 
 			var chaptersDictionary = new Dictionary<HexValue, Chapter>();
 			var chapterNodes       = new Dictionary<HexValue, ChapterNode>();
+			var chapterJumps       = new Dictionary<HexValue, HexValue>();
 			var inputConnections   = new Dictionary<HexValue, Chapter>();
 
 			// create new chapter assets
@@ -200,7 +201,7 @@ namespace Self.ArticyImporter
 			{
 				var chapterName = chapter.Properties.DisplayName;
 				var nodesDic    = new Dictionary<HexValue, string>();
-				var newChapter  = ScriptableUtils.CreateAsset<Chapter>(path, $"Chapter_{chapterName}");
+				var newChapter  = ScriptableUtils.CreateAsset<Chapter>(chapFolder, $"Chapter_{chapterName}");
 
 				newChapter.chapterName = chapterName;
 
@@ -218,14 +219,26 @@ namespace Self.ArticyImporter
 
 				if (chapter.Properties.Attachments.Length > 0)
 				{
-					var assetId = (HexValue) chapter.Properties.Attachments[0];
-					if (data.Assets.TryGetValue(assetId, out var asset))
+					Debug.Log($"Handle attachment A: {chapter.Properties.Attachments[0]}");
+					var assetId = chapter.Properties.Attachments[0];
+					if (data.Locations.TryGetValue(assetId, out var location))
 					{
-						var assetPath = Path.Combine(path, "Assets/Locations", Path.GetFileName(asset.AssetRef));
-						backgroundNode = ScriptableUtils.AddToAsset<ActiveNode>(newChapter);
-						var setBackAction = ScriptableUtils.AddToAsset<BackgroundAction>(backgroundNode);
-						setBackAction.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
-						backgroundNode.actions.Add(setBackAction);
+						Debug.Log($"Handle attachment B: {location}");
+						if (data.Assets.TryGetValue(location.Properties.PreviewImage.Asset, out var asset))
+						{
+							Debug.Log($"Handle attachment C: {asset}");
+							
+							var assetPath = Path.Combine(path, "Assets/Locations", Path.GetFileName(asset.AssetRef));
+							Debug.Log($"Handle attachment D: {assetPath}");
+							
+							backgroundNode    = ScriptableUtils.AddToAsset<ActiveNode>(newChapter);
+							backgroundNode.id = GUID.Generate().ToString();
+							var setBackAction = ScriptableUtils.AddToAsset<BackgroundAction>(backgroundNode);
+							setBackAction.sprite   = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
+							backgroundNode.actions = new List<BaseAction> {setBackAction};
+
+							Debug.Log($"Handle attachment E: {setBackAction.sprite.name}");
+						}
 					}
 				}
 
@@ -252,7 +265,10 @@ namespace Self.ArticyImporter
 
 							chapterNodes.Add(node.Properties.Id, newNode as ChapterNode);
 							break;
-
+						case "Jump":
+							chapterJumps.Add(node.Properties.Id, node.Properties.Target);
+							break;
+							
 						default:
 							break;
 					}
@@ -304,6 +320,13 @@ namespace Self.ArticyImporter
 						{
 							connections.AddRange(node.Properties.OutputPins[0].Connections);
 						}
+					}
+
+					//  Apply jumps
+					for (int i = 0; i < connections.Count; i++)
+					{
+						if (chapterJumps.TryGetValue(connections[i].Target, out var newTarget))
+							connections[i].Target = newTarget;
 					}
 
 					foreach (var connection in connections)
@@ -367,7 +390,7 @@ namespace Self.ArticyImporter
 				}
 				else
 				{
-					entryNode.position       = leftMostNodePosition + new Vector2(-700f, 0f);
+					entryNode.position       = leftMostNodePosition + new Vector2(-900f, 0f);
 					entryNode.nextNodes      = new List<string> {backgroundNode.id};
 					backgroundNode.position  = leftMostNodePosition + new Vector2(-500f, 0f);
 					backgroundNode.nextNodes = new List<string> {leftMostNodeId};
