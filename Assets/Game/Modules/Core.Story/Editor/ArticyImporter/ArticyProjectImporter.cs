@@ -51,15 +51,14 @@ namespace Self.ArticyImporter
 				throw new System.Exception($"Error loading asset at path {relativeFilePath}");
 
 			ArticyStructureTool.ReorderArticyFolders(Path.Combine(relativeFilePath, "Assets"));
-			
+
 			var data = JsonConvert.DeserializeObject<ArticyData>(jsonAsset.text);
 			data.InitAssets();
 
-			var storyNodes = new Dictionary<ulong, StoryNode>();
+			//var storyNodes = new Dictionary<ulong, StoryNode>();
+			//data.Packages[0].Models.ForEach(m => storyNodes.Add(m.Properties.Id.Value, m));
 
-			data.Packages[0].Models.ForEach(m => storyNodes.Add(m.Properties.Id.Value, m));
-
-			var creationPath = System.IO.Path.GetDirectoryName(relativeFilePath);
+			var creationPath = Path.GetDirectoryName(relativeFilePath);
 			var characters   = CreateCharactersFromImport(data, creationPath);
 
 			var book = CreateBookFromImport(data, creationPath);
@@ -108,7 +107,7 @@ namespace Self.ArticyImporter
 					Debug.Log($"Set character: '{asset.AssetRef}' => '{assetPath}'");
 					newCharacter.characterIcon = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
 				}
-				
+
 				EditorUtility.SetDirty(newCharacter);
 				AssetDatabase.SaveAssets();
 
@@ -207,14 +206,28 @@ namespace Self.ArticyImporter
 
 				chaptersDictionary.Add(chapter.Properties.Id, newChapter);
 
-				var entryNode = ScriptableUtils.AddToAsset<EntryNode>(newChapter);
-				var exitNode  = ScriptableUtils.AddToAsset<ExitNode>(newChapter);
+				var entryNode      = ScriptableUtils.AddToAsset<EntryNode>(newChapter);
+				var exitNode       = ScriptableUtils.AddToAsset<ExitNode>(newChapter);
+				var backgroundNode = (ActiveNode) null;
 
 				entryNode.id = GUID.Generate().ToString();
 				exitNode.id  = GUID.Generate().ToString();
 				entryNode.UpdateName();
 				exitNode.UpdateName();
 				newChapter.startNodeID = entryNode.id;
+
+				if (chapter.Properties.Attachments.Length > 0)
+				{
+					var assetId = (HexValue) chapter.Properties.Attachments[0];
+					if (data.Assets.TryGetValue(assetId, out var asset))
+					{
+						var assetPath = Path.Combine(path, "Assets/Locations", Path.GetFileName(asset.AssetRef));
+						backgroundNode = ScriptableUtils.AddToAsset<ActiveNode>(newChapter);
+						var setBackAction = ScriptableUtils.AddToAsset<BackgroundAction>(backgroundNode);
+						setBackAction.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
+						backgroundNode.actions.Add(setBackAction);
+					}
+				}
 
 				var nodes = data.Packages[0].Models.Where(n => n.Properties.Parent.Equals(chapter.Properties.Id));
 
@@ -347,8 +360,18 @@ namespace Self.ArticyImporter
 					}
 				}
 
-				entryNode.position  = leftMostNodePosition + new Vector2(-500f, 0f);
-				entryNode.nextNodes = new List<string> {leftMostNodeId};
+				if (backgroundNode == null)
+				{
+					entryNode.position  = leftMostNodePosition + new Vector2(-500f, 0f);
+					entryNode.nextNodes = new List<string> {leftMostNodeId};
+				}
+				else
+				{
+					entryNode.position       = leftMostNodePosition + new Vector2(-700f, 0f);
+					entryNode.nextNodes      = new List<string> {backgroundNode.id};
+					backgroundNode.position  = leftMostNodePosition + new Vector2(-500f, 0f);
+					backgroundNode.nextNodes = new List<string> {leftMostNodeId};
+				}
 
 				// position entry node and exit node at the very ends of the chapter
 				var rightMostNodePosition = Vector2.zero;
@@ -362,6 +385,8 @@ namespace Self.ArticyImporter
 				exitNode.position = rightMostNodePosition + new Vector2(500f, 0f);
 
 				newChapter.AddNode(entryNode);
+				if (backgroundNode != null)
+					newChapter.AddNode(backgroundNode);
 				newChapter.AddNode(exitNode);
 
 				// fix choice nodes choices sorting
