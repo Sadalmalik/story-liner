@@ -1,0 +1,663 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8618942425164858316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Stat.Heretic
+  m_EditorClassIdentifier: 
+  id: Stat.Heretic
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &-8116113588032355519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Music.Stress
+  m_EditorClassIdentifier: 
+  id: Music.Stress
+  value: 0
+--- !u!114 &-8006636779855926618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Like.Damian
+  m_EditorClassIdentifier: 
+  id: Like.Damian
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &-7602249689636488429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Maid
+  m_EditorClassIdentifier: 
+  id: Name.Maid
+  value: "\u0421\u043B\u0443\u0436\u0430\u043D\u043A\u0430"
+--- !u!114 &-7544141296056856022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Narrator
+  m_EditorClassIdentifier: 
+  id: Name.Narrator
+  value: "\u0420\u0430\u0441\u0441\u043A\u0430\u0437\u0447\u0438\u043A"
+--- !u!114 &-7491909714023217550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Writer
+  m_EditorClassIdentifier: 
+  id: Name.Writer
+  value: "\u041B\u0435\u0442\u043E\u043F\u0438\u0441\u0435\u0446"
+--- !u!114 &-5940186896654032465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Stat.Bishop
+  m_EditorClassIdentifier: 
+  id: Stat.Bishop
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &-5563028843801174013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Music.Dangerous
+  m_EditorClassIdentifier: 
+  id: Music.Dangerous
+  value: 0
+--- !u!114 &-5031696702686813657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Money.DressMaide_gold
+  m_EditorClassIdentifier: 
+  id: Money.DressMaide_gold
+  value: 0
+--- !u!114 &-4881623784933920884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Music.MainTheme
+  m_EditorClassIdentifier: 
+  id: Music.MainTheme
+  value: 0
+--- !u!114 &-4808728303387878328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Lux
+  m_EditorClassIdentifier: 
+  id: Name.Lux
+  value: "\u041B\u044E\u043A\u0441"
+--- !u!114 &-4566163927061672499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Damian
+  m_EditorClassIdentifier: 
+  id: Name.Damian
+  value: "\u0414\u0430\u043C\u0438\u0430\u043D"
+--- !u!114 &-3732978719641044360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Like.Yasper
+  m_EditorClassIdentifier: 
+  id: Like.Yasper
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &-3487837292571220689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Music.Drama
+  m_EditorClassIdentifier: 
+  id: Music.Drama
+  value: 0
+--- !u!114 &-2103536094700771296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Sound.HeartBeat
+  m_EditorClassIdentifier: 
+  id: Sound.HeartBeat
+  value: 0
+--- !u!114 &-1979295946029693035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Maid2
+  m_EditorClassIdentifier: 
+  id: Name.Maid2
+  value: "\u041C\u043E\u043C\u043C\u0438"
+--- !u!114 &-992387905782110995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Aganazar
+  m_EditorClassIdentifier: 
+  id: Name.Aganazar
+  value: "\u0410\u0433\u0430\u043D\u0430\u0437\u0430\u0440"
+--- !u!114 &-714066050480216141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Music.Fight
+  m_EditorClassIdentifier: 
+  id: Music.Fight
+  value: 0
+--- !u!114 &-644674476970479901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Voice
+  m_EditorClassIdentifier: 
+  id: Name.Voice
+  value: "\u0413\u043E\u043B\u043E\u0441"
+--- !u!114 &-165041019237046346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Music.Romantic
+  m_EditorClassIdentifier: 
+  id: Music.Romantic
+  value: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410617834cbb469684228e563b4fa39c, type: 3}
+  m_Name: "Book_\u041F\u043B\u0430\u0447 \u041E \u0442\u044C\u043C\u0435"
+  m_EditorClassIdentifier: 
+  bookName: "\u041F\u043B\u0430\u0447 \u041E \u0442\u044C\u043C\u0435"
+  characters: []
+  variables: {fileID: 8021099995566814627}
+--- !u!114 &58283036832863194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Yasper
+  m_EditorClassIdentifier: 
+  id: Name.Yasper
+  value: "\u042F\u0441\u043F\u0435\u0440"
+--- !u!114 &88864944517315194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Sound.Rain
+  m_EditorClassIdentifier: 
+  id: Sound.Rain
+  value: 0
+--- !u!114 &447837248286307889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Emil
+  m_EditorClassIdentifier: 
+  id: Name.Emil
+  value: "\u042D\u043C\u0438\u043B\u044C"
+--- !u!114 &1486933809220302760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Tenebris
+  m_EditorClassIdentifier: 
+  id: Name.Tenebris
+  value: "\u0422\u0435\u043D\u0435\u0431\u0440\u0438\u0441"
+--- !u!114 &3183213501067430977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Sound.Wisper
+  m_EditorClassIdentifier: 
+  id: Sound.Wisper
+  value: 0
+--- !u!114 &3874440075735173419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Emby
+  m_EditorClassIdentifier: 
+  id: Name.Emby
+  value: "\u042D\u043C\u0431\u0438"
+--- !u!114 &3991605590995229307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Money.DressMaid_silver
+  m_EditorClassIdentifier: 
+  id: Money.DressMaid_silver
+  value: 0
+--- !u!114 &4966066127622277287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Sound.Tavern
+  m_EditorClassIdentifier: 
+  id: Sound.Tavern
+  value: 0
+--- !u!114 &5525365662247539259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Rider
+  m_EditorClassIdentifier: 
+  id: Name.Rider
+  value: "\u0412\u0441\u0430\u0434\u043D\u0438\u043A"
+--- !u!114 &5703653172750130622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Like.Emil
+  m_EditorClassIdentifier: 
+  id: Like.Emil
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &6237022775197306996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Sound.Scream
+  m_EditorClassIdentifier: 
+  id: Sound.Scream
+  value: 0
+--- !u!114 &6818336002101416705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Stat.Volition
+  m_EditorClassIdentifier: 
+  id: Stat.Volition
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &7036430557580703055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Dialogue.RazenTalk1_2
+  m_EditorClassIdentifier: 
+  id: Dialogue.RazenTalk1_2
+  value: 0
+--- !u!114 &7488224038532249880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Razen
+  m_EditorClassIdentifier: 
+  id: Name.Razen
+  value: "\u0420\u0430\u0439\u0437\u0435\u043D"
+--- !u!114 &7520132911252752076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Music.Wardrobe
+  m_EditorClassIdentifier: 
+  id: Music.Wardrobe
+  value: 0
+--- !u!114 &7584648360181808059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Stat.Madnesse
+  m_EditorClassIdentifier: 
+  id: Stat.Madnesse
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &7973590144025575086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Stat.Dark
+  m_EditorClassIdentifier: 
+  id: Stat.Dark
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &8021099995566814627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e398ad67f4742bb4eb3fb78a9bfe31cb, type: 3}
+  m_Name: .settings.variables
+  m_EditorClassIdentifier: 
+  _variables:
+  - {fileID: 7036430557580703055}
+  - {fileID: 8792854051327785442}
+  - {fileID: 8718251043964240276}
+  - {fileID: -4566163927061672499}
+  - {fileID: 447837248286307889}
+  - {fileID: -992387905782110995}
+  - {fileID: 7488224038532249880}
+  - {fileID: 1486933809220302760}
+  - {fileID: -4808728303387878328}
+  - {fileID: 58283036832863194}
+  - {fileID: -7602249689636488429}
+  - {fileID: -1979295946029693035}
+  - {fileID: -7491909714023217550}
+  - {fileID: -644674476970479901}
+  - {fileID: -7544141296056856022}
+  - {fileID: 5525365662247539259}
+  - {fileID: 3874440075735173419}
+  - {fileID: 9141102836269580518}
+  - {fileID: 7973590144025575086}
+  - {fileID: 6818336002101416705}
+  - {fileID: 7584648360181808059}
+  - {fileID: -8618942425164858316}
+  - {fileID: -5940186896654032465}
+  - {fileID: -8006636779855926618}
+  - {fileID: 5703653172750130622}
+  - {fileID: -3732978719641044360}
+  - {fileID: -4881623784933920884}
+  - {fileID: -3487837292571220689}
+  - {fileID: -8116113588032355519}
+  - {fileID: -714066050480216141}
+  - {fileID: -165041019237046346}
+  - {fileID: 7520132911252752076}
+  - {fileID: -5563028843801174013}
+  - {fileID: 6237022775197306996}
+  - {fileID: 3183213501067430977}
+  - {fileID: -2103536094700771296}
+  - {fileID: 4966066127622277287}
+  - {fileID: 88864944517315194}
+  - {fileID: -5031696702686813657}
+  - {fileID: 3991605590995229307}
+  - {fileID: 9072305189991841926}
+--- !u!114 &8718251043964240276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbab10c87a0703d46b639d9338ea96b1, type: 3}
+  m_Name: .Name.Ember
+  m_EditorClassIdentifier: 
+  id: Name.Ember
+  value: "\u042D\u043C\u0431\u0435\u0440"
+--- !u!114 &8792854051327785442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Dialogue.maidTalk1_3
+  m_EditorClassIdentifier: 
+  id: Dialogue.maidTalk1_3
+  value: 0
+--- !u!114 &9072305189991841926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Money.gossip_bronze
+  m_EditorClassIdentifier: 
+  id: Money.gossip_bronze
+  value: 0
+--- !u!114 &9141102836269580518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Stat.Light
+  m_EditorClassIdentifier: 
+  id: Stat.Light
+  value: 0
+  minValue: 0
+  maxValue: 100
