@@ -227,10 +227,10 @@ namespace Self.ArticyImporter
 						if (data.Assets.TryGetValue(location.Properties.PreviewImage.Asset, out var asset))
 						{
 							Debug.Log($"Handle attachment C: {asset}");
-							
+
 							var assetPath = Path.Combine(path, "Assets/Locations", Path.GetFileName(asset.AssetRef));
 							Debug.Log($"Handle attachment D: {assetPath}");
-							
+
 							backgroundNode    = ScriptableUtils.AddToAsset<ActiveNode>(newChapter);
 							backgroundNode.id = GUID.Generate().ToString();
 							var setBackAction = ScriptableUtils.AddToAsset<BackgroundAction>(backgroundNode);
@@ -258,7 +258,7 @@ namespace Self.ArticyImporter
 							newNode = ParseConditionNode(node, newChapter);
 							break;
 						case "Instruction":
-							newNode = ParseInstructionNode(node, newChapter);
+							newNode = ParseInstructionNode(data, node, newChapter, path);
 							break;
 						case "Dialogue":
 							newNode = ScriptableUtils.AddToAsset<ChapterNode>(newChapter);
@@ -268,7 +268,7 @@ namespace Self.ArticyImporter
 						case "Jump":
 							chapterJumps.Add(node.Properties.Id, node.Properties.Target);
 							break;
-							
+
 						default:
 							break;
 					}
@@ -537,18 +537,39 @@ namespace Self.ArticyImporter
 			return newNode;
 		}
 
+		private static readonly Regex _specialReg = new Regex(@"pause\(\""(?<assetName>[^""]+)""\);?");
+
 		private static BaseNode ParseInstructionNode(
-			StoryNode node,
-			Chapter   newChapter)
+			ArticyData data,
+			StoryNode  node,
+			Chapter    newChapter,
+			string     path)
 		{
 			BaseNode newNode;
 			newNode = ScriptableUtils.AddToAsset<ActiveNode>(newChapter);
 
 			var cond   = newNode as ActiveNode;
-			var action = ScriptableUtils.AddToAsset<SetVariableAction>(newChapter);
+			var action = ScriptableUtils.AddToAsset<SetVariableAction>(newNode);
 			action.rawExpression = node.Properties.Expression;
 
 			cond.actions = new List<BaseAction> {action};
+
+			var match = _specialReg.Match(action.rawExpression);
+			if (match.Success)
+			{
+				action.rawExpression.Remove(match.Index, match.Length);
+				var assetName = match.Groups["assetName"].Value;
+				foreach (var asset in data.Assets)
+				{
+					if (asset.Value.AssetRef.Contains(assetName))
+					{
+						var assetPath = Path.Combine(path, "Assets/Locations", Path.GetFileName(asset.Value.AssetRef));
+						var setBackAction = ScriptableUtils.AddToAsset<PauseAction>(newNode);
+						setBackAction.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
+						cond.actions.Add(setBackAction);
+					}
+				}
+			}
 
 			return newNode;
 		}

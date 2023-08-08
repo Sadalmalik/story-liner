@@ -35,7 +35,12 @@ namespace Self.Story
 		public void Awake()
 		{
 			if (button != null)
+			{
 				button.onClick.AddListener(HandleClick);
+				button.interactable = false;
+				// Внезапно мешает кликать по вышестоящим в иерархии объектам
+				button.gameObject.SetActive(false);
+			}
 		}
 
 		public virtual void Show(ReplicaNode node)
@@ -49,6 +54,12 @@ namespace Self.Story
 				.InsertCallback(showAnimation.Duration, HandleCompleteShow);
 			_tween.Play();
 			showAnimation.Play();
+
+			if (button != null)
+			{
+				button.interactable = true;
+				button.gameObject.SetActive(true);
+			}
 		}
 
 		private void SetupCharacter()
@@ -65,6 +76,12 @@ namespace Self.Story
 			_isHiding = true;
 			hideAnimation.Play();
 			hideAnimation.OnComplete += HandleCompleteHide;
+
+			if (button != null)
+			{
+				button.interactable = false;
+				button.gameObject.SetActive(false);
+			}
 		}
 
 		protected virtual void HandleCompleteShow()

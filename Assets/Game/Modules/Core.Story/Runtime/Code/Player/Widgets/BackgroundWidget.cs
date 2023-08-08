@@ -12,6 +12,8 @@ namespace Self.Story
 		public float duration = 0.6f;
 
 		private Sequence _sequence;
+
+		public Sprite CurrentSprite => background.sprite;
 		
 		public void Awake()
 		{

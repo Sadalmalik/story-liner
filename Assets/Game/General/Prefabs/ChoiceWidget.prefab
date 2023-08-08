@@ -649,10 +649,10 @@ RectTransform:
   m_Father: {fileID: 2578281132943150600}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 400}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2578281132536859870
 MonoBehaviour:
@@ -667,7 +667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 2
-  m_AspectRatio: 1
+  m_AspectRatio: 0.75
 --- !u!1 &2578281132716998839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,7 +1403,7 @@ RectTransform:
   - {fileID: 2578281133945825791}
   - {fileID: 2578281132196486987}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2174,8 +2174,8 @@ RectTransform:
   m_Father: {fileID: 2578281132179399644}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2192,7 +2192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 2
-  m_AspectRatio: 1
+  m_AspectRatio: 0.75
 --- !u!1 &2578281133945825784
 GameObject:
   m_ObjectHideFlags: 0
@@ -2444,6 +2444,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6680955102713261059}
     m_Modifications:
     - target: {fileID: 5767252682223086788, guid: 9cb64d44fe77a6140aacd9a65287f2b8, type: 3}
@@ -2535,6 +2536,9 @@ PrefabInstance:
       value: ChoiceButtonWidget (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cb64d44fe77a6140aacd9a65287f2b8, type: 3}
 --- !u!114 &6039761280694781664 stripped
 MonoBehaviour:
@@ -2557,6 +2561,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 9078595843749771982}
     m_Modifications:
     - target: {fileID: 5767252682223086788, guid: 9cb64d44fe77a6140aacd9a65287f2b8, type: 3}
@@ -2648,6 +2653,9 @@ PrefabInstance:
       value: ChoiceButtonWidget
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cb64d44fe77a6140aacd9a65287f2b8, type: 3}
 --- !u!224 &5172575756386718627 stripped
 RectTransform:
@@ -2670,6 +2678,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6680955102713261059}
     m_Modifications:
     - target: {fileID: 5767252682223086788, guid: 9cb64d44fe77a6140aacd9a65287f2b8, type: 3}
@@ -2761,6 +2770,9 @@ PrefabInstance:
       value: ChoiceButtonWidget (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cb64d44fe77a6140aacd9a65287f2b8, type: 3}
 --- !u!224 &9054542603277600033 stripped
 RectTransform:
@@ -2783,6 +2795,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 9078595843749771982}
     m_Modifications:
     - target: {fileID: 5767252682223086788, guid: 9cb64d44fe77a6140aacd9a65287f2b8, type: 3}
@@ -2874,6 +2887,9 @@ PrefabInstance:
       value: ChoiceButtonWidget (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cb64d44fe77a6140aacd9a65287f2b8, type: 3}
 --- !u!114 &2877344468133750119 stripped
 MonoBehaviour:

@@ -7,10 +7,11 @@ namespace Self.Story
 	{
 		[Header("General widgets")]
 		public BackgroundWidget backgroundWidget;
-		
+
 		[Header("Story widgets")]
+		public PauseWidget   pauseWidget;
 		public ReplicaWidget replicaWidget;
-		public ChoiceWidget choiceWidget;
+		public ChoiceWidget  choiceWidget;
 
 		[Header("Story widgets")]
 		public TMP_Text endMessage;
