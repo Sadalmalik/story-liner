@@ -2516,73 +2516,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
-                    },
-                    "Label": "",
-                    "TargetPin": "0x0100000000001688",
-                    "Target": "0x0100000000001685"
-                  }
-                ]
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x010000000000011F",
-                "Owner": "0x010000000000011B"
-              }
-            ]
-          }
-        },
-        {
-          "Type": "FlowFragment",
-          "Properties": {
-            "TechnicalName": "FFr_F1FBB251",
-            "Id": "0x0100000000000667",
-            "Parent": "0x0300000043CE43F7",
-            "Attachments": [],
-            "DisplayName": "Эпизод 0",
-            "PreviewImage": {
-              "ViewBox": {
-                "x": 0.0,
-                "y": 0.0,
-                "w": 0.0,
-                "h": 0.0
-              },
-              "Mode": "FromAsset",
-              "Asset": "0x0000000000000000"
-            },
-            "Color": {
-              "r": 0.577580452,
-              "g": 0.7605245,
-              "b": 0.7991027
-            },
-            "Text": "",
-            "ExternalId": "",
-            "Position": {
-              "x": -775.0,
-              "y": 25.0
-            },
-            "ZIndex": 11.0,
-            "Size": {
-              "w": 275.0,
-              "h": 200.0
-            },
-            "ShortId": 4059804241,
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x010000000000066A",
-                "Owner": "0x0100000000000667",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
+                      "r": 0.5764706,
+                      "g": 0.75686276,
+                      "b": 0.8
                     },
                     "Label": "",
                     "TargetPin": "0x010000000000027F",
@@ -2594,21 +2530,8 @@
             "OutputPins": [
               {
                 "Text": "",
-                "Id": "0x010000000000066B",
-                "Owner": "0x0100000000000667",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
-                    },
-                    "Label": "",
-                    "TargetPin": "0x010000000000011E",
-                    "Target": "0x010000000000011B"
-                  }
-                ]
+                "Id": "0x010000000000011F",
+                "Owner": "0x010000000000011B"
               }
             ]
           }
@@ -3566,8 +3489,10 @@
           "Properties": {
             "TechnicalName": "Dlg_20A73EAA",
             "Id": "0x010000000000027C",
-            "Parent": "0x0100000000000667",
-            "Attachments": [],
+            "Parent": "0x010000000000011B",
+            "Attachments": [
+              "0x01000000000001D9"
+            ],
             "DisplayName": "Вступление",
             "PreviewImage": {
               "ViewBox": {
@@ -3577,18 +3502,18 @@
                 "h": 0.0
               },
               "Mode": "FromAsset",
-              "Asset": "0x0100000000000197"
+              "Asset": "0x0000000000000000"
             },
             "Color": {
-              "r": 0.577580452,
-              "g": 0.7605245,
-              "b": 0.7991027
+              "r": 0.5764706,
+              "g": 0.75686276,
+              "b": 0.8
             },
             "Text": "",
             "ExternalId": "",
             "Position": {
-              "x": 92.0,
-              "y": 150.0
+              "x": -1183.0,
+              "y": 50.0
             },
             "ZIndex": 1.0,
             "Size": {
@@ -3605,9 +3530,9 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
+                      "r": 0.5764706,
+                      "g": 0.75686276,
+                      "b": 0.8
                     },
                     "Label": "",
                     "TargetPin": "0x0100000000001649",
@@ -3625,13 +3550,13 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
+                      "r": 0.5764706,
+                      "g": 0.75686276,
+                      "b": 0.8
                     },
                     "Label": "",
-                    "TargetPin": "0x010000000000066B",
-                    "Target": "0x0100000000000667"
+                    "TargetPin": "0x0100000000001688",
+                    "Target": "0x0100000000001685"
                   }
                 ]
               }
@@ -26647,286 +26572,6 @@
         {
           "Type": "DialogueFragment",
           "Properties": {
-            "TechnicalName": "DFr_71C23484",
-            "Id": "0x0100000000001646",
-            "Parent": "0x010000000000027C",
-            "MenuText": "",
-            "StageDirections": "",
-            "Speaker": "0x0100000000001672",
-            "SplitHeight": 64.0,
-            "Color": {
-              "r": 0.577580452,
-              "g": 0.7605245,
-              "b": 0.7991027
-            },
-            "Text": "Великий Мор ежедневно уносит тысячи человеческих жизней. Нгундо продвигается по планете и месть необузданной природы приходит вместе с ним.",
-            "ExternalId": "",
-            "Position": {
-              "x": 400.0,
-              "y": 200.0
-            },
-            "ZIndex": 0.0,
-            "Size": {
-              "w": 225.0,
-              "h": 225.0
-            },
-            "ShortId": 1908552836,
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000001649",
-                "Owner": "0x0100000000001646"
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x010000000000164A",
-                "Owner": "0x0100000000001646",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
-                    },
-                    "Label": "",
-                    "TargetPin": "0x010000000000164F",
-                    "Target": "0x010000000000164C"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "Type": "DialogueFragment",
-          "Properties": {
-            "TechnicalName": "DFr_4193CF2B",
-            "Id": "0x010000000000164C",
-            "Parent": "0x010000000000027C",
-            "MenuText": "",
-            "StageDirections": "",
-            "Speaker": "0x0100000000001672",
-            "SplitHeight": 64.0,
-            "Color": {
-              "r": 0.577580452,
-              "g": 0.7605245,
-              "b": 0.7991027
-            },
-            "Text": "Целые народы были вынуждены бежать из своих домов.",
-            "ExternalId": "",
-            "Position": {
-              "x": 700.0,
-              "y": 200.0
-            },
-            "ZIndex": 2.0,
-            "Size": {
-              "w": 225.0,
-              "h": 200.0
-            },
-            "ShortId": 1100205867,
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x010000000000164F",
-                "Owner": "0x010000000000164C"
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000001650",
-                "Owner": "0x010000000000164C",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
-                    },
-                    "Label": "",
-                    "TargetPin": "0x0100000000001655",
-                    "Target": "0x0100000000001652"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "Type": "DialogueFragment",
-          "Properties": {
-            "TechnicalName": "DFr_2B94BFDC",
-            "Id": "0x0100000000001652",
-            "Parent": "0x010000000000027C",
-            "MenuText": "",
-            "StageDirections": "",
-            "Speaker": "0x0100000000000147",
-            "SplitHeight": 64.0,
-            "Color": {
-              "r": 0.577580452,
-              "g": 0.7605245,
-              "b": 0.7991027
-            },
-            "Text": "Это мой мир... Моя семья тоже хотела спастись  от Нгундо, потому мой отец увел нас в горы.",
-            "ExternalId": "",
-            "Position": {
-              "x": 1000.0,
-              "y": 200.0
-            },
-            "ZIndex": 4.0,
-            "Size": {
-              "w": 225.0,
-              "h": 200.0
-            },
-            "ShortId": 731168732,
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000001655",
-                "Owner": "0x0100000000001652"
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x0100000000001656",
-                "Owner": "0x0100000000001652",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
-                    },
-                    "Label": "",
-                    "TargetPin": "0x010000000000165E",
-                    "Target": "0x010000000000165B"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "Type": "DialogueFragment",
-          "Properties": {
-            "TechnicalName": "DFr_13D5A425",
-            "Id": "0x010000000000165B",
-            "Parent": "0x010000000000027C",
-            "MenuText": "",
-            "StageDirections": "",
-            "Speaker": "0x0100000000000147",
-            "SplitHeight": 64.0,
-            "Color": {
-              "r": 0.577580452,
-              "g": 0.7605245,
-              "b": 0.7991027
-            },
-            "Text": "Он хотел спастись от жестокости и несправедливости, но, к сожалению, не смог распознать их в себе.",
-            "ExternalId": "",
-            "Position": {
-              "x": 1300.0,
-              "y": 200.0
-            },
-            "ZIndex": 6.0,
-            "Size": {
-              "w": 225.0,
-              "h": 200.0
-            },
-            "ShortId": 332768293,
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x010000000000165E",
-                "Owner": "0x010000000000165B"
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x010000000000165F",
-                "Owner": "0x010000000000165B",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
-                    },
-                    "Label": "",
-                    "TargetPin": "0x010000000000028D",
-                    "Target": "0x010000000000028A"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "Type": "DialogueFragment",
-          "Properties": {
-            "TechnicalName": "DFr_52A5DF1A",
-            "Id": "0x010000000000028A",
-            "Parent": "0x010000000000027C",
-            "MenuText": "",
-            "StageDirections": "",
-            "Speaker": "0x0100000000000147",
-            "SplitHeight": 64.0,
-            "Color": {
-              "r": 0.577580452,
-              "g": 0.7605245,
-              "b": 0.7991027
-            },
-            "Text": "Отец хотел стать ближе к народу Оукира, получить их покровительство в обмен на моего брата, которого они считали Избранным.",
-            "ExternalId": "",
-            "Position": {
-              "x": 1625.0,
-              "y": 200.0
-            },
-            "ZIndex": 4.0,
-            "Size": {
-              "w": 225.0,
-              "h": 250.0
-            },
-            "ShortId": 1386602266,
-            "InputPins": [
-              {
-                "Text": "",
-                "Id": "0x010000000000028D",
-                "Owner": "0x010000000000028A"
-              }
-            ],
-            "OutputPins": [
-              {
-                "Text": "",
-                "Id": "0x010000000000028E",
-                "Owner": "0x010000000000028A",
-                "Connections": [
-                  {
-                    "Color": {
-                      "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
-                    },
-                    "Label": "",
-                    "TargetPin": "0x010000000000166D",
-                    "Target": "0x010000000000166A"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "Type": "DialogueFragment",
-          "Properties": {
             "TechnicalName": "DFr_25D53136",
             "Id": "0x010000000000166A",
             "Parent": "0x010000000000027C",
@@ -26935,9 +26580,9 @@
             "Speaker": "0x0100000000000147",
             "SplitHeight": 64.0,
             "Color": {
-              "r": 0.577580452,
-              "g": 0.7605245,
-              "b": 0.7991027
+              "r": 0.5764706,
+              "g": 0.75686276,
+              "b": 0.8
             },
             "Text": "Мама не согласилась, за что и поплатилась жизнью.",
             "ExternalId": "",
@@ -26967,13 +26612,293 @@
                   {
                     "Color": {
                       "a": 1.0,
-                      "r": 0.577580452,
-                      "g": 0.7605245,
-                      "b": 0.7991027
+                      "r": 0.5764706,
+                      "g": 0.75686276,
+                      "b": 0.8
                     },
                     "Label": "",
                     "TargetPin": "0x0100000000000280",
                     "Target": "0x010000000000027C"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Type": "DialogueFragment",
+          "Properties": {
+            "TechnicalName": "DFr_52A5DF1A",
+            "Id": "0x010000000000028A",
+            "Parent": "0x010000000000027C",
+            "MenuText": "",
+            "StageDirections": "",
+            "Speaker": "0x0100000000000147",
+            "SplitHeight": 64.0,
+            "Color": {
+              "r": 0.5764706,
+              "g": 0.75686276,
+              "b": 0.8
+            },
+            "Text": "Отец хотел стать ближе к народу Оукира, получить их покровительство в обмен на моего брата, которого они считали Избранным.",
+            "ExternalId": "",
+            "Position": {
+              "x": 1625.0,
+              "y": 200.0
+            },
+            "ZIndex": 4.0,
+            "Size": {
+              "w": 225.0,
+              "h": 250.0
+            },
+            "ShortId": 1386602266,
+            "InputPins": [
+              {
+                "Text": "",
+                "Id": "0x010000000000028D",
+                "Owner": "0x010000000000028A"
+              }
+            ],
+            "OutputPins": [
+              {
+                "Text": "",
+                "Id": "0x010000000000028E",
+                "Owner": "0x010000000000028A",
+                "Connections": [
+                  {
+                    "Color": {
+                      "a": 1.0,
+                      "r": 0.5764706,
+                      "g": 0.75686276,
+                      "b": 0.8
+                    },
+                    "Label": "",
+                    "TargetPin": "0x010000000000166D",
+                    "Target": "0x010000000000166A"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Type": "DialogueFragment",
+          "Properties": {
+            "TechnicalName": "DFr_13D5A425",
+            "Id": "0x010000000000165B",
+            "Parent": "0x010000000000027C",
+            "MenuText": "",
+            "StageDirections": "",
+            "Speaker": "0x0100000000000147",
+            "SplitHeight": 64.0,
+            "Color": {
+              "r": 0.5764706,
+              "g": 0.75686276,
+              "b": 0.8
+            },
+            "Text": "Он хотел спастись от жестокости и несправедливости, но, к сожалению, не смог распознать их в себе.",
+            "ExternalId": "",
+            "Position": {
+              "x": 1300.0,
+              "y": 200.0
+            },
+            "ZIndex": 6.0,
+            "Size": {
+              "w": 225.0,
+              "h": 200.0
+            },
+            "ShortId": 332768293,
+            "InputPins": [
+              {
+                "Text": "",
+                "Id": "0x010000000000165E",
+                "Owner": "0x010000000000165B"
+              }
+            ],
+            "OutputPins": [
+              {
+                "Text": "",
+                "Id": "0x010000000000165F",
+                "Owner": "0x010000000000165B",
+                "Connections": [
+                  {
+                    "Color": {
+                      "a": 1.0,
+                      "r": 0.5764706,
+                      "g": 0.75686276,
+                      "b": 0.8
+                    },
+                    "Label": "",
+                    "TargetPin": "0x010000000000028D",
+                    "Target": "0x010000000000028A"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Type": "DialogueFragment",
+          "Properties": {
+            "TechnicalName": "DFr_2B94BFDC",
+            "Id": "0x0100000000001652",
+            "Parent": "0x010000000000027C",
+            "MenuText": "",
+            "StageDirections": "",
+            "Speaker": "0x0100000000000147",
+            "SplitHeight": 64.0,
+            "Color": {
+              "r": 0.5764706,
+              "g": 0.75686276,
+              "b": 0.8
+            },
+            "Text": "Это мой мир... Моя семья тоже хотела спастись  от Нгундо, потому мой отец увел нас в горы.",
+            "ExternalId": "",
+            "Position": {
+              "x": 1000.0,
+              "y": 200.0
+            },
+            "ZIndex": 4.0,
+            "Size": {
+              "w": 225.0,
+              "h": 200.0
+            },
+            "ShortId": 731168732,
+            "InputPins": [
+              {
+                "Text": "",
+                "Id": "0x0100000000001655",
+                "Owner": "0x0100000000001652"
+              }
+            ],
+            "OutputPins": [
+              {
+                "Text": "",
+                "Id": "0x0100000000001656",
+                "Owner": "0x0100000000001652",
+                "Connections": [
+                  {
+                    "Color": {
+                      "a": 1.0,
+                      "r": 0.5764706,
+                      "g": 0.75686276,
+                      "b": 0.8
+                    },
+                    "Label": "",
+                    "TargetPin": "0x010000000000165E",
+                    "Target": "0x010000000000165B"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Type": "DialogueFragment",
+          "Properties": {
+            "TechnicalName": "DFr_4193CF2B",
+            "Id": "0x010000000000164C",
+            "Parent": "0x010000000000027C",
+            "MenuText": "",
+            "StageDirections": "",
+            "Speaker": "0x0100000000001672",
+            "SplitHeight": 64.0,
+            "Color": {
+              "r": 0.5764706,
+              "g": 0.75686276,
+              "b": 0.8
+            },
+            "Text": "Целые народы были вынуждены бежать из своих домов.",
+            "ExternalId": "",
+            "Position": {
+              "x": 700.0,
+              "y": 200.0
+            },
+            "ZIndex": 2.0,
+            "Size": {
+              "w": 225.0,
+              "h": 200.0
+            },
+            "ShortId": 1100205867,
+            "InputPins": [
+              {
+                "Text": "",
+                "Id": "0x010000000000164F",
+                "Owner": "0x010000000000164C"
+              }
+            ],
+            "OutputPins": [
+              {
+                "Text": "",
+                "Id": "0x0100000000001650",
+                "Owner": "0x010000000000164C",
+                "Connections": [
+                  {
+                    "Color": {
+                      "a": 1.0,
+                      "r": 0.5764706,
+                      "g": 0.75686276,
+                      "b": 0.8
+                    },
+                    "Label": "",
+                    "TargetPin": "0x0100000000001655",
+                    "Target": "0x0100000000001652"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Type": "DialogueFragment",
+          "Properties": {
+            "TechnicalName": "DFr_71C23484",
+            "Id": "0x0100000000001646",
+            "Parent": "0x010000000000027C",
+            "MenuText": "",
+            "StageDirections": "",
+            "Speaker": "0x0100000000001672",
+            "SplitHeight": 64.0,
+            "Color": {
+              "r": 0.5764706,
+              "g": 0.75686276,
+              "b": 0.8
+            },
+            "Text": "Великий Мор ежедневно уносит тысячи человеческих жизней. Нгундо продвигается по планете и месть необузданной природы приходит вместе с ним.",
+            "ExternalId": "",
+            "Position": {
+              "x": 400.0,
+              "y": 200.0
+            },
+            "ZIndex": 0.0,
+            "Size": {
+              "w": 225.0,
+              "h": 225.0
+            },
+            "ShortId": 1908552836,
+            "InputPins": [
+              {
+                "Text": "",
+                "Id": "0x0100000000001649",
+                "Owner": "0x0100000000001646"
+              }
+            ],
+            "OutputPins": [
+              {
+                "Text": "",
+                "Id": "0x010000000000164A",
+                "Owner": "0x0100000000001646",
+                "Connections": [
+                  {
+                    "Color": {
+                      "a": 1.0,
+                      "r": 0.5764706,
+                      "g": 0.75686276,
+                      "b": 0.8
+                    },
+                    "Label": "",
+                    "TargetPin": "0x010000000000164F",
+                    "Target": "0x010000000000164C"
                   }
                 ]
               }
@@ -33417,7 +33342,7 @@
             "TechnicalName": "Ast_627EAC40",
             "Id": "0x010000000000016D",
             "Parent": "0x010000000000014D",
-            "DisplayName": "Лес_раненые_ж",
+            "DisplayName": "Лес_раненые_ж_2",
             "Filename": "animales(006D).png",
             "OriginalSource": "file:///C:/Users/Mamá/Desktop/finales/fondos/animales.png",
             "PreviewImage": {
@@ -34107,8 +34032,8 @@
         "Type": "Flow",
         "Children": [
           {
-            "Id": "0x0100000000000667",
-            "TechnicalName": "FFr_F1FBB251",
+            "Id": "0x010000000000011B",
+            "TechnicalName": "FFr_23C7F78B",
             "Type": "FlowFragment",
             "Children": [
               {
@@ -34147,33 +34072,6 @@
                     "Type": "DialogueFragment"
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "Id": "0x010000000000011B",
-            "TechnicalName": "FFr_23C7F78B",
-            "Type": "FlowFragment",
-            "Children": [
-              {
-                "Id": "0x0100000000000AAD",
-                "TechnicalName": "Cnd_3176DC1E",
-                "Type": "Condition"
-              },
-              {
-                "Id": "0x0100000000001388",
-                "TechnicalName": "Cnd_F1FA4606",
-                "Type": "Condition"
-              },
-              {
-                "Id": "0x01000000000015AC",
-                "TechnicalName": "Cnd_DE86A7C1",
-                "Type": "Condition"
-              },
-              {
-                "Id": "0x0100000000001B9B",
-                "TechnicalName": "",
-                "Type": "Comment"
               },
               {
                 "Id": "0x0100000000001685",
@@ -34970,6 +34868,11 @@
                     "Type": "Instruction"
                   }
                 ]
+              },
+              {
+                "Id": "0x0100000000000AAD",
+                "TechnicalName": "Cnd_3176DC1E",
+                "Type": "Condition"
               },
               {
                 "Id": "0x0100000000001A01",
@@ -35788,121 +35691,9 @@
                 ]
               },
               {
-                "Id": "0x0100000000001ACA",
-                "TechnicalName": "Dlg_FA89F5D9",
-                "Type": "Dialogue",
-                "Children": [
-                  {
-                    "Id": "0x0100000000001B4C",
-                    "TechnicalName": "",
-                    "Type": "Comment"
-                  },
-                  {
-                    "Id": "0x01000000000011AF",
-                    "TechnicalName": "DFr_B6760A25",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x01000000000011B6",
-                    "TechnicalName": "DFr_1645CAC4",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x01000000000011BD",
-                    "TechnicalName": "DFr_50C29EDC",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x0100000000001ADB",
-                    "TechnicalName": "DFr_F129FA90",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x01000000000011C4",
-                    "TechnicalName": "DFr_578B71E7",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x0100000000001AD3",
-                    "TechnicalName": "DFr_B7048BA0",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x01000000000011D6",
-                    "TechnicalName": "DFr_78DB3087",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x0100000000001AE3",
-                    "TechnicalName": "DFr_BF023AF3",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x0100000000001C22",
-                    "TechnicalName": "DFr_6858FADD",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x01000000000011E4",
-                    "TechnicalName": "DFr_A3B7EC09",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x01000000000011EB",
-                    "TechnicalName": "DFr_E68D6542",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x0100000000001AEB",
-                    "TechnicalName": "DFr_27D265A7",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x01000000000011F2",
-                    "TechnicalName": "DFr_A0D92AC2",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x01000000000011FA",
-                    "TechnicalName": "Ins_B6F995B9",
-                    "Type": "Instruction"
-                  },
-                  {
-                    "Id": "0x01000000000011D2",
-                    "TechnicalName": "Ins_E6613BB4",
-                    "Type": "Instruction"
-                  },
-                  {
-                    "Id": "0x0100000000001AF3",
-                    "TechnicalName": "DFr_96D30687",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x0100000000001C2A",
-                    "TechnicalName": "DFr_D4A05A7F",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x0100000000001208",
-                    "TechnicalName": "DFr_CF7EE9F3",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x010000000000120F",
-                    "TechnicalName": "DFr_5A04FFA5",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x0100000000001AFC",
-                    "TechnicalName": "DFr_871A93A5",
-                    "Type": "DialogueFragment"
-                  },
-                  {
-                    "Id": "0x0100000000001225",
-                    "TechnicalName": "DFr_696A23E0",
-                    "Type": "DialogueFragment"
-                  }
-                ]
+                "Id": "0x0100000000001388",
+                "TechnicalName": "Cnd_F1FA4606",
+                "Type": "Condition"
               },
               {
                 "Id": "0x0100000000001B06",
@@ -36062,6 +35853,133 @@
                   {
                     "Id": "0x0100000000001C6A",
                     "TechnicalName": "DFr_54D3A7B3",
+                    "Type": "DialogueFragment"
+                  }
+                ]
+              },
+              {
+                "Id": "0x01000000000015AC",
+                "TechnicalName": "Cnd_DE86A7C1",
+                "Type": "Condition"
+              },
+              {
+                "Id": "0x0100000000001B9B",
+                "TechnicalName": "",
+                "Type": "Comment"
+              },
+              {
+                "Id": "0x0100000000001ACA",
+                "TechnicalName": "Dlg_FA89F5D9",
+                "Type": "Dialogue",
+                "Children": [
+                  {
+                    "Id": "0x0100000000001B4C",
+                    "TechnicalName": "",
+                    "Type": "Comment"
+                  },
+                  {
+                    "Id": "0x01000000000011AF",
+                    "TechnicalName": "DFr_B6760A25",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x01000000000011B6",
+                    "TechnicalName": "DFr_1645CAC4",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x01000000000011BD",
+                    "TechnicalName": "DFr_50C29EDC",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x0100000000001ADB",
+                    "TechnicalName": "DFr_F129FA90",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x01000000000011C4",
+                    "TechnicalName": "DFr_578B71E7",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x0100000000001AD3",
+                    "TechnicalName": "DFr_B7048BA0",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x01000000000011D6",
+                    "TechnicalName": "DFr_78DB3087",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x0100000000001AE3",
+                    "TechnicalName": "DFr_BF023AF3",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x0100000000001C22",
+                    "TechnicalName": "DFr_6858FADD",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x01000000000011E4",
+                    "TechnicalName": "DFr_A3B7EC09",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x01000000000011EB",
+                    "TechnicalName": "DFr_E68D6542",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x0100000000001AEB",
+                    "TechnicalName": "DFr_27D265A7",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x01000000000011F2",
+                    "TechnicalName": "DFr_A0D92AC2",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x01000000000011FA",
+                    "TechnicalName": "Ins_B6F995B9",
+                    "Type": "Instruction"
+                  },
+                  {
+                    "Id": "0x01000000000011D2",
+                    "TechnicalName": "Ins_E6613BB4",
+                    "Type": "Instruction"
+                  },
+                  {
+                    "Id": "0x0100000000001AF3",
+                    "TechnicalName": "DFr_96D30687",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x0100000000001C2A",
+                    "TechnicalName": "DFr_D4A05A7F",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x0100000000001208",
+                    "TechnicalName": "DFr_CF7EE9F3",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x010000000000120F",
+                    "TechnicalName": "DFr_5A04FFA5",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x0100000000001AFC",
+                    "TechnicalName": "DFr_871A93A5",
+                    "Type": "DialogueFragment"
+                  },
+                  {
+                    "Id": "0x0100000000001225",
+                    "TechnicalName": "DFr_696A23E0",
                     "Type": "DialogueFragment"
                   }
                 ]
