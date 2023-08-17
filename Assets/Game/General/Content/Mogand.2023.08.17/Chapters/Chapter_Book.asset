@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8253797754292395696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bed892dd2fb54983b44b2f8535b39a1, type: 3}
+  m_Name: node.Chapter.ba1c8828
+  m_EditorClassIdentifier: 
+  id: ba1c8828d5b34c24c86533fa56dcd48a
+  position: {x: -1051.6195, y: 0.9999924}
+  nextNodes:
+  - 8c958b8f1dff5a34c98b4c337659faf4
+  chapter: {fileID: 11400000, guid: 63bce5399a4cf43489cec4a84fa829f3, type: 2}
+--- !u!114 &-711506339438106539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d3f003fe7946c39819a92296140114, type: 3}
+  m_Name: node.Exit.d0d31841
+  m_EditorClassIdentifier: 
+  id: d0d31841a6cd976488329eb0ed562094
+  position: {x: -147.94711, y: 0.9999771}
+  nextNodes: []
+  tag: 
+  TargetNode: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c243d6803f4918bd02822bc04dd036, type: 3}
+  m_Name: Chapter_Book
+  m_EditorClassIdentifier: 
+  book: {fileID: 11400000, guid: 4ff0c5cffdf68c342a18e601e8db00ad, type: 2}
+  chapterName: "\u042D\u043F\u0438\u0437\u043E\u04341"
+  startNodeID: 734397e7bcbe3d74181493be15dee751
+  parentChapter: {fileID: 0}
+  nodes:
+  - {fileID: -8253797754292395696}
+  - {fileID: 2531738130288036070}
+  - {fileID: 1012499094169492253}
+  - {fileID: -711506339438106539}
+--- !u!114 &1012499094169492253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49251e6351614c42a425c6b0c3fd897a, type: 3}
+  m_Name: node.Entry.734397e7
+  m_EditorClassIdentifier: 
+  id: 734397e7bcbe3d74181493be15dee751
+  position: {x: -1501.0791, y: 0.83950806}
+  nextNodes:
+  - ba1c8828d5b34c24c86533fa56dcd48a
+--- !u!114 &2531738130288036070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bed892dd2fb54983b44b2f8535b39a1, type: 3}
+  m_Name: node.Chapter.8c958b8f
+  m_EditorClassIdentifier: 
+  id: 8c958b8f1dff5a34c98b4c337659faf4
+  position: {x: -601.59045, y: 1.0000305}
+  nextNodes:
+  - d0d31841a6cd976488329eb0ed562094
+  chapter: {fileID: 11400000, guid: 099b0988280aa134bb09a3c9406ad6d8, type: 2}

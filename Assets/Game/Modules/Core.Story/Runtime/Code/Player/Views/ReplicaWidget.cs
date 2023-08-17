@@ -48,6 +48,7 @@ namespace Self.Story
 			_replica   = node;
 			_isShowing = true;
 			SetupCharacter();
+			_tween?.Kill();
 			text.SetText(string.Empty);
 			_tween = DOTween.Sequence()
 				.Join(text.DOText(_replica.localized, textDuration))
@@ -88,6 +89,7 @@ namespace Self.Story
 		{
 			_isShowing = false;
 
+			_tween?.Kill();
 			_tween = null;
 			text.SetText(_replica.localized);
 			OnShowComplete?.Invoke();
