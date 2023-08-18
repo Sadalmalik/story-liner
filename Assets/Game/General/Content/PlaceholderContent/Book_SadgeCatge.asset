@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410617834cbb469684228e563b4fa39c, type: 3}
+  m_Name: Book_SadgeCatge
+  m_EditorClassIdentifier: 
+  bookName: Sadge Catge
+  characters:
+  - {fileID: 11400000, guid: 67a9d5debe5d201409bbc2b9250571ec, type: 2}
+  - {fileID: 11400000, guid: 907c1f0f55435c34b91b47c2bbb466a1, type: 2}
+  - {fileID: 11400000, guid: c1a7bed1860f5a549933f865e54c8cc9, type: 2}
+  variables: {fileID: 7490229275020165945}
+--- !u!114 &7490229275020165945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e398ad67f4742bb4eb3fb78a9bfe31cb, type: 3}
+  m_Name: .settings.variables
+  m_EditorClassIdentifier: 
+  _variables: []
