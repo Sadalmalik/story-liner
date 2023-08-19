@@ -94,9 +94,9 @@ MonoBehaviour:
   m_Name: node.Replica.242f92e0
   m_EditorClassIdentifier: 
   id: 242f92e0de2aee448a332b0bc6ef7994
-  position: {x: -583.6669, y: -32.999992}
+  position: {x: -581.37646, y: 143.64963}
   nextNodes:
-  - 125c2ff5f34256044b2529ed3dcdfc72
+  - 
   actions: []
   character: {fileID: 11400000, guid: c1a7bed1860f5a549933f865e54c8cc9, type: 2}
   emotion:
@@ -413,7 +413,7 @@ MonoBehaviour:
   id: b94738943f498714fa218fa8a5a26145
   position: {x: 3772.8787, y: -88}
   nextNodes:
-  - 534941f712a69e74eb1ec6d6af32ee65
+  - e6cc653e152203b4cb09eaf26ec2de07
   actions: []
   character: {fileID: 11400000, guid: c1a7bed1860f5a549933f865e54c8cc9, type: 2}
   emotion:
@@ -487,6 +487,7 @@ MonoBehaviour:
   - 1c300ebd6c17d76498fa572022084a24
   actions:
   - {fileID: -2992204715379290088}
+  - {fileID: 6006643826394765020}
 --- !u!114 &5612164936905614848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,6 +519,20 @@ MonoBehaviour:
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: 
+--- !u!114 &6006643826394765020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c5efc9eeb07024da18c94096660f1a, type: 3}
+  m_Name: node.15f847.Active.PlayAnimation.1
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  AnimationName: Timeline_Soul_0_Disappeear
 --- !u!114 &6318494729126866593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,7 +593,7 @@ MonoBehaviour:
   id: b7279624f20364c4d9ae3f431512e94b
   position: {x: -1027, y: -65.5}
   nextNodes:
-  - 242f92e0de2aee448a332b0bc6ef7994
+  - 125c2ff5f34256044b2529ed3dcdfc72
   actions:
   - {fileID: 2487946519482312081}
 --- !u!114 &7986801187875089704
@@ -626,9 +641,9 @@ MonoBehaviour:
   m_Name: node.Replica.534941f7
   m_EditorClassIdentifier: 
   id: 534941f712a69e74eb1ec6d6af32ee65
-  position: {x: 4199, y: -32.994305}
+  position: {x: 4220.974, y: 86.122665}
   nextNodes:
-  - e6cc653e152203b4cb09eaf26ec2de07
+  - 
   actions:
   - {fileID: 6743384032241330196}
   character: {fileID: 11400000, guid: c1a7bed1860f5a549933f865e54c8cc9, type: 2}

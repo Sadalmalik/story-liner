@@ -9,7 +9,7 @@ namespace Self.Story
 
 		public abstract void Execute(BaseNode node);
 
-		public object Clone()
+		public virtual object Clone()
 		{
 			var clone = ScriptableObject.Instantiate(this);
 			clone.name = (string)this.name.Clone();

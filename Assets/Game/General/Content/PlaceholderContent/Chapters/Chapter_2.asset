@@ -51,7 +51,7 @@ MonoBehaviour:
   character: {fileID: 11400000, guid: 907c1f0f55435c34b91b47c2bbb466a1, type: 2}
   emotion:
     rid: 6158642127535865875
-  localized: "\u042F \u043F\u0435\u0440\u0435\u043F\u0438\u043B \u0411\u0430\u0440\u0434\u0438!
+  localized: "<color=#FF60C8>\u042F \u043F\u0435\u0440\u0435\u043F\u0438\u043B \u0411\u0430\u0440\u0434\u0438!
     \u041F\u043E\u0441\u043B\u0435 \u044D\u0442\u043E\u0433\u043E \u043C\u0435\u043D\u044F
     \u0441\u0442\u0430\u043B\u0438 \u0437\u0432\u0430\u0442\u044C \u0424\u0440\u043E\u0434\u0438
     \u0417\u0430\u043F\u043E\u0439\u043D\u044B\u0439!"
@@ -96,7 +96,7 @@ MonoBehaviour:
   character: {fileID: 11400000, guid: 907c1f0f55435c34b91b47c2bbb466a1, type: 2}
   emotion:
     rid: 6158642127535865873
-  localized: "\u0412\u041E \u0421\u041B\u0410\u0412\u0423 \u041E\u0414\u0418\u041D\u0410!"
+  localized: "<color=#FF60C8>\u0412\u041E \u0421\u041B\u0410\u0412\u0423 \u041E\u0414\u0418\u041D\u0410!"
   references:
     version: 2
     RefIds:
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: node.Entry.34800421
   m_EditorClassIdentifier: 
   id: 348004216072b8544a64c0c7ef84b9e2
-  position: {x: -752.68, y: -56.999977}
+  position: {x: -1150.7793, y: -36.06424}
   nextNodes:
   - 38c04fc4e57ce2d4a9b0cdef3e07d76e
 --- !u!114 &-2032228613956685250
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: node.Replica.95c06336
   m_EditorClassIdentifier: 
   id: 95c06336644545e4db493fcbdec6ea7b
-  position: {x: 1257.5869, y: -57.000023}
+  position: {x: 1300.4996, y: -56.99996}
   nextNodes:
   - 57eb47fabf8aea94487e1d6af11e7537
   actions: []
@@ -232,6 +232,7 @@ MonoBehaviour:
   - {fileID: -6065531766592368425}
   - {fileID: 1021785282198911006}
   - {fileID: -7090239439187520130}
+  - {fileID: 6070516134219465916}
 --- !u!114 &410417217887113841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,20 +246,15 @@ MonoBehaviour:
   m_Name: node.Replica.618f2dd2
   m_EditorClassIdentifier: 
   id: 618f2dd2cd2407e419fa0393901fde67
-  position: {x: 855.58685, y: -57.000023}
+  position: {x: 458.2208, y: -36.06424}
   nextNodes:
-  - 95c06336644545e4db493fcbdec6ea7b
+  - 0fb0fd2ec4f756a4f896f55c2b3f6049
   actions: []
   character: {fileID: 11400000, guid: c1a7bed1860f5a549933f865e54c8cc9, type: 2}
   emotion:
     rid: 6158642127535865878
   localized: "\u0414\u043E\u0431\u0440\u043E \u043F\u043E\u0436\u0430\u043B\u043E\u0432\u0430\u0442\u044C
-    \u0432 \u043E\u0444\u0438\u0441 \"\u0421\u043C\u0435\u0440\u0442\u044C \u0434\u0435\u043B\u0438\u0432\u0435\u0440\u0438\",
-    \u043C\u044B \u0433\u0430\u0440\u0430\u043D\u0442\u0438\u0440\u0443\u0435\u043C
-    \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u0443\u044E \u0438
-    \u043A\u043E\u043C\u0444\u043E\u0440\u0442\u043D\u0443\u044E \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0443
-    \u043F\u043E \u0432\u0441\u0435\u043C \u0437\u0430\u0433\u0440\u043E\u0431\u043D\u044B\u043C
-    \u043C\u0438\u0440\u0430\u043C. "
+    \u0432 \u043E\u0444\u0438\u0441 \"\u0421\u043C\u0435\u0440\u0442\u044C \u0434\u0435\u043B\u0438\u0432\u0435\u0440\u0438\""
   references:
     version: 2
     RefIds:
@@ -312,14 +308,15 @@ MonoBehaviour:
   m_Name: node.Replica.f868398c
   m_EditorClassIdentifier: 
   id: f868398c405717b469b7b52e372cab6e
-  position: {x: 439.1984, y: -57.00001}
+  position: {x: 41.220764, y: -36.06424}
   nextNodes:
   - 618f2dd2cd2407e419fa0393901fde67
   actions: []
   character: {fileID: 11400000, guid: 907c1f0f55435c34b91b47c2bbb466a1, type: 2}
   emotion:
     rid: 6158642108775530505
-  localized: "\u0413\u0414\u0415 \u041C\u041E\u0419 \u0422\u041E\u041F\u041E\u0420?!"
+  localized: "<material=\"PixelFont Shaky Angry\"><color=#FF60C8>\u0413\u0414\u0415
+    \u041C\u041E\u0419 \u0422\u041E\u041F\u041E\u0420?!"
   references:
     version: 2
     RefIds:
@@ -344,18 +341,32 @@ MonoBehaviour:
   nextNodes:
   - 0ec7c5f391d33df4bb612a4655ea9112
   actions:
-  - {fileID: 0}
+  - {fileID: 7132191626520740019}
   character: {fileID: 11400000, guid: 907c1f0f55435c34b91b47c2bbb466a1, type: 2}
   emotion:
-    rid: 6158642108775530517
-  localized: "\u0410\u0410\u0410\u0410\u0410\u0410\u0410!"
+    rid: 6158642127535865884
+  localized: "<material=\"PixelFont Shaky Angry\"><color=#FF0000>\u0410\u0410\u0410\u0410\u0410\u0410\u0410!"
   references:
     version: 2
     RefIds:
-    - rid: 6158642108775530517
+    - rid: 6158642127535865884
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: 
+--- !u!114 &3272479334191937926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c5efc9eeb07024da18c94096660f1a, type: 3}
+  m_Name: node.cdeebf.Replica.PlayAnimation.0
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  AnimationName: Timeline_Soul_Shakes
 --- !u!114 &3783837484855733732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,7 +380,7 @@ MonoBehaviour:
   m_Name: node.Active.86b70eff
   m_EditorClassIdentifier: 
   id: 86b70eff289f99249ac3188ae529863d
-  position: {x: 24.320034, y: -56.999977}
+  position: {x: -373.7793, y: -36.06424}
   nextNodes:
   - f868398c405717b469b7b52e372cab6e
   actions:
@@ -404,11 +415,13 @@ MonoBehaviour:
   position: {x: 2094.5942, y: -57.000027}
   nextNodes:
   - 53a691501d3007240ac84bf2303d8544
-  actions: []
+  actions:
+  - {fileID: 3272479334191937926}
   character: {fileID: 11400000, guid: 907c1f0f55435c34b91b47c2bbb466a1, type: 2}
   emotion:
     rid: 6158642108775530514
-  localized: "\u042F \u0412\u0421\u0401 \u0415\u0429\u0401 \u0411\u0415\u0417 \u0422\u041E\u041F\u041E\u0420\u0410!"
+  localized: "<material=\"PixelFont Shaky Angry\"><color=#FF60C8>\u042F \u0412\u0421\u0401
+    \u0415\u0429\u0401 \u0411\u0415\u0417 \u0422\u041E\u041F\u041E\u0420\u0410!"
   references:
     version: 2
     RefIds:
@@ -434,6 +447,52 @@ MonoBehaviour:
   - a19c0ab4835df8b4f908e369d5e3c76b
   actions:
   - {fileID: 4407037488704670056}
+--- !u!114 &5702969630161072960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c5efc9eeb07024da18c94096660f1a, type: 3}
+  m_Name: node.f039ff.Replica.PlayAnimation.2
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  AnimationName: 
+--- !u!114 &6070516134219465916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3946bdf431ef4a4a83aea9d3edada9e1, type: 3}
+  m_Name: node.Replica.0fb0fd2e
+  m_EditorClassIdentifier: 
+  id: 0fb0fd2ec4f756a4f896f55c2b3f6049
+  position: {x: 879.6805, y: 27.444672}
+  nextNodes:
+  - 95c06336644545e4db493fcbdec6ea7b
+  actions: []
+  character: {fileID: 11400000, guid: c1a7bed1860f5a549933f865e54c8cc9, type: 2}
+  emotion:
+    rid: 6158642127535865885
+  localized: "\u041C\u044B \u0433\u0430\u0440\u0430\u043D\u0442\u0438\u0440\u0443\u0435\u043C
+    \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u0443\u044E \u0438
+    \u043A\u043E\u043C\u0444\u043E\u0440\u0442\u043D\u0443\u044E \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0443
+    \u043F\u043E \u0432\u0441\u0435\u043C \u0437\u0430\u0433\u0440\u043E\u0431\u043D\u044B\u043C
+    \u043C\u0438\u0440\u0430\u043C"
+  references:
+    version: 2
+    RefIds:
+    - rid: 6158642127535865885
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: 
 --- !u!114 &6975700858330475888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +521,20 @@ MonoBehaviour:
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: 
+--- !u!114 &7132191626520740019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c5efc9eeb07024da18c94096660f1a, type: 3}
+  m_Name: node.f039ff.Replica.PlayAnimation.1
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  AnimationName: Timeline_Soul_Shakes
 --- !u!114 &7324801236838982743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,7 +579,7 @@ MonoBehaviour:
   m_Name: node.Active.38c04fc4
   m_EditorClassIdentifier: 
   id: 38c04fc4e57ce2d4a9b0cdef3e07d76e
-  position: {x: -351.68, y: -56.999977}
+  position: {x: -749.7793, y: -36.06424}
   nextNodes:
   - 86b70eff289f99249ac3188ae529863d
   actions:

@@ -1378,17 +1378,19 @@ MonoBehaviour:
   nextNodes:
   - 5982e218d98e2114ab78291019a5dc96
   actions: []
-  character: {fileID: 0}
+  character: {fileID: 11400000, guid: 093a00b6983362b4f9c9be95908ac7f2, type: 2}
   emotion:
-    rid: -2
+    rid: 6158641832749432832
   localized: "\u0412 \u0437\u0430\u043B \u0432\u043E\u0448\u0435\u043B \u0425\u0430\u043B\u0431\u0440\u0435\u0445\u0442.
     \u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u0438\u043D\u0436\u0435\u043D\u0435\u0440
     \u043A\u043E\u0440\u0430\u0431\u043B\u044F \u0431\u044B\u043B \u043F\u043E\u0434\u0430\u0432\u043B\u0435\u043D."
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6158641832749432832
+      type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
+      data:
+        emotion: 
 --- !u!114 &3931958802676113896
 MonoBehaviour:
   m_ObjectHideFlags: 0

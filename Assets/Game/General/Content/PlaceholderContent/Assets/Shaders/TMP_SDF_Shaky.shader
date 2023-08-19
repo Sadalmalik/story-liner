@@ -83,7 +83,9 @@ Properties {
 	_CullMode			("Cull Mode", Float) = 0
 	_ColorMask			("Color Mask", Float) = 15
 	_ShakinessX         ("Shakiness X", Range(0.00001, 0.004)) = 0.003
-    _ShakinessY         ("Shakiness Y", Range(0.00001, 0.04)) = 0.003
+    _ShakeAmpY          ("Shakiness Y", Range(0.00001, 0.04)) = 0.003
+    _ShakeFreqY         ("Shake Freq Y", Range(1.0, 32.0)) = 4.0
+    _ShakePeriodY       ("Shake T Y", Range(1.0, 32.0)) = 4.0
 }
 
 SubShader {
@@ -160,7 +162,9 @@ SubShader {
 		float4 _FaceTex_ST;
 		float4 _OutlineTex_ST;
         float _ShakinessX;
-        float _ShakinessY;
+        float _ShakeAmpY;
+        float _ShakeFreqY;
+        float _ShakePeriodY;
 
 		pixel_t VertShader(vertex_t input)
 		{
@@ -221,7 +225,7 @@ SubShader {
 			float2 outlineUV = TRANSFORM_TEX(textureUV, _OutlineTex);
 
 			float4 rPos = vPosition;
-			rPos.y += sin(0.5 + _Time.z * 8.0 + (vert.x * 4)) * _ShakinessY;
+			rPos.y += sin(0.5 + _Time.z * _ShakeFreqY + (vert.x * _ShakePeriodY)) * _ShakeAmpY;
 			rPos.x += sin(_Time.z * 16.0 + (vert.x * 2)) * _ShakinessX;
 
 			output.position = rPos;

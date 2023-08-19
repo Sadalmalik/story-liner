@@ -18,6 +18,7 @@ namespace Self.Architecture.Utils
 					x => target.text = x,
 					endValue, duration)
 				.SetOptions(richTextEnabled, scrambleMode, scrambleChars)
+				.SetEase(Ease.Linear)
 				.SetTarget(target);
 		}
 
@@ -34,6 +35,7 @@ namespace Self.Architecture.Utils
 					x => target.text = x,
 					endValue, duration)
 				.SetOptions(richTextEnabled, scrambleMode, scrambleChars)
+				.SetEase(Ease.Linear)
 				.SetTarget(target);
 		}
 	}
