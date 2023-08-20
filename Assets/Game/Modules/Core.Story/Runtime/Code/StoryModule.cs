@@ -20,6 +20,7 @@ namespace Self.Story
 			container.Add<NodeConditionController>();
 			container.Add<NodeEntryController>();
 			container.Add<NodeExitController>();
+			container.Add<NodeDragItemController>();
 		}
 
 		[Inject] private StoryController _storyController;
