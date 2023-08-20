@@ -194,6 +194,9 @@ namespace Self.Story.Editors
 				case "ChapterNode":
 					titleContainer.AddToClassList("chapter-node");
 					break;
+				case "DragItemNode":
+					titleContainer.AddToClassList("dragitem-node");
+					break;
 				default:
                     break;
             }

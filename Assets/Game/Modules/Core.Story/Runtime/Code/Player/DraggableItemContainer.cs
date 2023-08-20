@@ -49,12 +49,12 @@ namespace Self.Story
 			if (!widget.TryDrag(this))
 			{
 				RectTransform.anchoredPosition = initialPosition;
-				onDragSucceeded?.Invoke();
+				onDragFailed?.Invoke();
 			}
 			else
 			{
 				isDraggable = false;
-				onDragFailed?.Invoke();
+				onDragSucceeded?.Invoke();
 			}
 		}
 	}

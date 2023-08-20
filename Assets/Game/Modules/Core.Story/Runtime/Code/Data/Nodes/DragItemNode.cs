@@ -1,7 +1,7 @@
 namespace Self.Story
 {
 	[NodeMetadata()]
-	public class DragItemNode : BaseNode
+	public class DragItemNode : ActiveNode
 	{
 		public string ItemId;
 		public string TargetZoneId;

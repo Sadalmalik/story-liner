@@ -33,6 +33,7 @@ namespace Self.Story.Editors
 
 		protected override void CreateNodeGUI(VisualElement nodeGuiRoot)
 		{
+			CreatePlayButton(nodeGuiRoot);
 			CreateReplicaNodeGui(nodeGuiRoot);
 			CreateChoiceNodeGui(nodeGuiRoot);
 			CreateActionsContainerGUI(nodeGuiRoot);

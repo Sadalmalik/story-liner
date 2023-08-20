@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: node.Replica.68148661
   m_EditorClassIdentifier: 
   id: 68148661aa9d2344999581818e526207
-  position: {x: 4853, y: 190.50949}
+  position: {x: 5304.283, y: 244.50252}
   nextNodes:
   - 675c61cbef4f47b418a4a2f02ada1524
   actions: []
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: node.Replica.7db32f6b
   m_EditorClassIdentifier: 
   id: 7db32f6becd9ba948a0f9a1955ed36e6
-  position: {x: 4853.356, y: -160.50002}
+  position: {x: 5304.283, y: -106.49751}
   nextNodes:
   - 675c61cbef4f47b418a4a2f02ada1524
   actions: []
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: node.DragItem.0ec7c5f3
   m_EditorClassIdentifier: 
   id: 0ec7c5f391d33df4bb612a4655ea9112
-  position: {x: 3858.2812, y: 24.599442}
+  position: {x: 4234.5195, y: -57.000008}
   nextNodes:
   - 675c61cbef4f47b418a4a2f02ada1524
   ItemId: ch2-viking-helmet
@@ -233,6 +233,7 @@ MonoBehaviour:
   - {fileID: 1021785282198911006}
   - {fileID: -7090239439187520130}
   - {fileID: 6070516134219465916}
+  - {fileID: 5645213170099111593}
 --- !u!114 &410417217887113841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +263,20 @@ MonoBehaviour:
       type: {class: EmotionReference, ns: Self.Story, asm: Self.Core.Story}
       data:
         emotion: 
+--- !u!114 &469312660999416923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c5efc9eeb07024da18c94096660f1a, type: 3}
+  m_Name: node.cc31aa.Active.PlayAnimation.0
+  m_EditorClassIdentifier: 
+  executeOnce: 0
+  AnimationName: Timeline_Document_Shows_Viking
 --- !u!114 &1021785282198911006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,10 +290,10 @@ MonoBehaviour:
   m_Name: node.Choice.675c61cb
   m_EditorClassIdentifier: 
   id: 675c61cbef4f47b418a4a2f02ada1524
-  position: {x: 4262.0796, y: -32.005627}
+  position: {x: 4713.283, y: 21.502508}
   nextNodes:
-  - 
-  - 
+  - 7db32f6becd9ba948a0f9a1955ed36e6
+  - 68148661aa9d2344999581818e526207
   actions: []
   character: {fileID: 11400000, guid: c1a7bed1860f5a549933f865e54c8cc9, type: 2}
   emotion:
@@ -339,7 +354,7 @@ MonoBehaviour:
   id: f039fff79c283e9438681d8c94a1b334
   position: {x: 3399.7656, y: -57.000004}
   nextNodes:
-  - 0ec7c5f391d33df4bb612a4655ea9112
+  - cc31aaf4db2f4924b93ea13e066e101a
   actions:
   - {fileID: 7132191626520740019}
   character: {fileID: 11400000, guid: 907c1f0f55435c34b91b47c2bbb466a1, type: 2}
@@ -447,6 +462,24 @@ MonoBehaviour:
   - a19c0ab4835df8b4f908e369d5e3c76b
   actions:
   - {fileID: 4407037488704670056}
+--- !u!114 &5645213170099111593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbf2566a1734af290e22326dd834c0d, type: 3}
+  m_Name: node.Active.cc31aaf4
+  m_EditorClassIdentifier: 
+  id: cc31aaf4db2f4924b93ea13e066e101a
+  position: {x: 3833.4768, y: 4.0000076}
+  nextNodes:
+  - 0ec7c5f391d33df4bb612a4655ea9112
+  actions:
+  - {fileID: 469312660999416923}
 --- !u!114 &5702969630161072960
 MonoBehaviour:
   m_ObjectHideFlags: 0

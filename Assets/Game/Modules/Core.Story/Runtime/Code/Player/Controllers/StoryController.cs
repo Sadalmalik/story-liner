@@ -49,6 +49,20 @@ namespace Self.Story
 		{
 			CurrentChapter = chapter;
 			CurrentNodeID  = save?.currentNode ?? chapter.startNodeID;
+
+#if UNITY_EDITOR
+
+			if(UnityEditor.EditorPrefs.HasKey("starting-node-editor"))
+			{
+				var chapterPath = UnityEditor.EditorPrefs.GetString("starting-chapter-editor");
+				CurrentChapter = UnityEditor.AssetDatabase.LoadAssetAtPath<Chapter>(chapterPath);
+				CurrentNodeID = UnityEditor.EditorPrefs.GetString("starting-node-editor");
+
+				UnityEditor.EditorPrefs.DeleteKey("starting-node-editor");
+				UnityEditor.EditorPrefs.DeleteKey("starting-chapter-editor");
+			}
+#endif
+
 			CurrentNode    = CurrentChapter.TryGetNode(CurrentNodeID);
 
 			SetNode(CurrentNodeID);

@@ -5,13 +5,6 @@ using UnityEngine;
 namespace Self.Story
 {
 	[Serializable]
-	public class DraggableItem
-	{
-		public string Id;
-		public RectTransform Container;
-	}
-
-	[Serializable]
 	public class DragZone
 	{
 		public string Id;
@@ -22,7 +15,7 @@ namespace Self.Story
 	{
 		public event Action<string, string> OnItemDragged;
 
-		public DraggableItem[] Items;
+		public DraggableItemContainer[] Items;
 		public DragZone[] Zones;
 
 
@@ -31,7 +24,8 @@ namespace Self.Story
 		{
 			foreach (var item in Items)
 			{
-				item.Container.gameObject.SetActive(true);
+				item.gameObject.SetActive(true);
+				item.Init(this);
 			}
 
 			foreach (var zone in Zones)
@@ -58,7 +52,7 @@ namespace Self.Story
 
 		private bool IsWithinBounds(RectTransform container, Vector2 anchoredPosition)
 		{
-			throw new NotImplementedException();
+			return false;
 		}
 	}
 }
