@@ -60,7 +60,15 @@ namespace Self.Story
 							intVariable.value /= intValue;
 							break;
 						default:
-							intVariable.value = intValue;
+                            if (_val.StartsWith('+')) {
+                                intVariable.value += intValue;
+                            }
+                            else if (_val.StartsWith('-')) {
+                                intVariable.value -= intValue;
+                            }
+                            else {
+                                intVariable.value = intValue;
+                            }
 							break;
 					}
 				}

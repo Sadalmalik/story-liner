@@ -240,6 +240,9 @@ namespace Self.ArticyImporter
                             setBackAction.sprite   = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
                             backgroundNode.actions = new List<BaseAction> {setBackAction};
 
+                            if (setBackAction.sprite == null)
+                                throw new System.Exception("You need to copy assets into {json-file-folder-name}/Assets/ folder, you dummy");
+
                             Debug.Log($"Handle attachment E: {setBackAction.sprite.name}");
                         }
                     }
@@ -354,7 +357,7 @@ namespace Self.ArticyImporter
 
                                     choiceNode.choices.Add(new ChoiceNode.Choice
                                     {
-                                        localizedText = connectedNode.Properties.MenuText
+                                        localizedText = connectedNode.Properties.Text
                                     });
                                 }
                             }
