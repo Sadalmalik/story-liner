@@ -46,7 +46,18 @@ namespace Self.Story
 			StoryView = GameObject.FindObjectOfType<StoryView>();
 
 			SignalBus.Global.Invoke<SStoryModuleReady>(new SStoryModuleReady {view = StoryView});
-			
+
+
+            foreach (var variable in Settings.testChapter.book.variables.Variables) {
+                if (variable is BoolVariable boolVar) {
+                    boolVar.value = false;
+                }
+
+                if (variable is IntVariable intVar) {
+                    intVar.value = 0;
+                }
+            }
+
 			_storyController.SetChapter(Settings.testChapter, null);
 		}
 	}
