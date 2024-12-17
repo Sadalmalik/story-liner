@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5081221921398905086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Music.flower
+  m_EditorClassIdentifier: 
+  id: Music.flower
+  value: 0
+--- !u!114 &-3750354656797089833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Stats.Progress_Library
+  m_EditorClassIdentifier: 
+  id: Stats.Progress_Library
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &-3430380985757151372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Places.Visited_Library
+  m_EditorClassIdentifier: 
+  id: Places.Visited_Library
+  value: 0
+--- !u!114 &-2723111366112075205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Music.budlnk
+  m_EditorClassIdentifier: 
+  id: Music.budlnk
+  value: 0
+--- !u!114 &-2531223458622420828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Dialogue.Flowers_Help
+  m_EditorClassIdentifier: 
+  id: Dialogue.Flowers_Help
+  value: 0
+--- !u!114 &-606181034641459468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a05a8aa798a648b166e7424a27f64, type: 3}
+  m_Name: .Stats.Phone_Number
+  m_EditorClassIdentifier: 
+  id: Stats.Phone_Number
+  value: 0
+  minValue: 0
+  maxValue: 100
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410617834cbb469684228e563b4fa39c, type: 3}
+  m_Name: "Book_\u0422\u0435\u0440\u0430\u043F\u0438\u044F"
+  m_EditorClassIdentifier: 
+  bookName: "\u0422\u0435\u0440\u0430\u043F\u0438\u044F"
+  characters: []
+  variables: {fileID: 9090684655370528107}
+--- !u!114 &2248586677065007615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Music.library
+  m_EditorClassIdentifier: 
+  id: Music.library
+  value: 0
+--- !u!114 &6728491368472783185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Places.Visited_Flowers
+  m_EditorClassIdentifier: 
+  id: Places.Visited_Flowers
+  value: 0
+--- !u!114 &8821548799658295035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c45875866e60441a900704b735899a, type: 3}
+  m_Name: .Music.main_theme
+  m_EditorClassIdentifier: 
+  id: Music.main_theme
+  value: 0
+--- !u!114 &9090684655370528107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e398ad67f4742bb4eb3fb78a9bfe31cb, type: 3}
+  m_Name: .settings.variables
+  m_EditorClassIdentifier: 
+  _variables:
+  - {fileID: -2531223458622420828}
+  - {fileID: -3430380985757151372}
+  - {fileID: 6728491368472783185}
+  - {fileID: 8821548799658295035}
+  - {fileID: -2723111366112075205}
+  - {fileID: -5081221921398905086}
+  - {fileID: 2248586677065007615}
+  - {fileID: -3750354656797089833}
+  - {fileID: -606181034641459468}
