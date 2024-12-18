@@ -200,10 +200,11 @@ namespace Self.ArticyImporter
             // create new chapter assets
             foreach (var chapter in chapters)
             {
-                
+                var guid = System.Guid.NewGuid().ToString().Substring(0, 6);
+
                 var chapterName = chapter.Properties.DisplayName;
                 var nodesDic    = new Dictionary<HexValue, string>();
-                var newChapter  = ScriptableUtils.CreateAsset<Chapter>(chapFolder, $"Chapter_{chapterName}");
+                var newChapter  = ScriptableUtils.CreateAsset<Chapter>(chapFolder, $"Chapter_{chapterName}_{guid}");
 
                 newChapter.chapterName = chapterName;
 
@@ -448,8 +449,15 @@ namespace Self.ArticyImporter
                     }
                 }
 
+                if (chapterList.Any(ch => ch.name == newChapter.name)) {
+                    newChapter.name = $"{newChapter.name}_+";
+                }
+
                 EditorUtility.SetDirty(newChapter);
                 AssetDatabase.SaveAssets();
+
+                if (newChapter == null)
+                    continue;
 
                 chapterList.Add(newChapter);
             }
@@ -489,6 +497,9 @@ namespace Self.ArticyImporter
 
                     Debug.Log(
                         $"Assign parent '{parentChapter}' ({parentChapter != null}) for '{chapterAsset}' ({chapterAsset != null}) -- {chapter.Properties.Id}");
+
+                    if (chapterAsset == null)
+                        continue;
 
                     EditorUtility.SetDirty(chapterAsset);
                     AssetDatabase.SaveAssets();
