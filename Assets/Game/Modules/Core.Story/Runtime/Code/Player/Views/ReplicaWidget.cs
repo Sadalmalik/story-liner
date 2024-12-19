@@ -27,10 +27,10 @@ namespace Self.Story
 		public event Action OnHideComplete;
 		public event Action OnClick;
 
-		private ReplicaNode _replica;
-		private Tween       _tween;
-		private bool        _isHiding;
-		private bool        _isShowing;
+		protected ReplicaNode _replica;
+        protected Tween       _tween;
+        protected bool        _isHiding;
+        protected bool        _isShowing;
 
 		public void Awake()
 		{
@@ -63,7 +63,7 @@ namespace Self.Story
 			}
 		}
 
-		private void SetupCharacter()
+		protected void SetupCharacter()
 		{
 			var character = _replica.character;
 			characterImage.sprite = character.characterIcon;

@@ -11,8 +11,10 @@ namespace Self.Story
 {
 	public class ChoiceWidget : ReplicaWidget
 	{
-		[Space]
-		public ChoiceButtonWidget choicePrefab;
+		public TweenAnimator showAnimationMultipleChoice;
+		public TweenAnimator hideAnimationMultipleChoice;
+        [Space]
+        public ChoiceButtonWidget choicePrefab;
 		public RectTransform      choiceContainer;
 
 		public List<ChoiceButtonWidget> choices;
@@ -32,7 +34,26 @@ namespace Self.Story
 
 		public void Show(ChoiceNode node)
 		{
-			base.Show(node as ReplicaNode);
+			_replica   = node;
+			_isShowing = true;
+			SetupCharacter();
+			_tween?.Kill();
+			text.SetText(string.Empty);
+			_tween = DOTween.Sequence()
+				.Join(text.DOText(_replica.localized, textDuration))
+				.InsertCallback(showAnimation.Duration, HandleCompleteShow);
+			_tween.Play();
+
+            if (node.choices.Count > 2)
+                showAnimationMultipleChoice.Play();
+            else
+                showAnimation.Play();
+
+			if (button != null)
+			{
+				button.interactable = true;
+				button.gameObject.SetActive(true);
+			}
 
 			for (int i = 0; i < choices.Count; i++)
 			{
@@ -45,6 +66,29 @@ namespace Self.Story
 			
 			LayoutRebuilder.ForceRebuildLayoutImmediate(choiceContainer);
 		}
+
+        public override void Hide() 
+        {
+            _isHiding = true;
+
+            var choiceNode = _replica as ChoiceNode;
+
+            if (choiceNode.choices.Count > 2) 
+            {
+                hideAnimationMultipleChoice.Play();
+                hideAnimationMultipleChoice.OnComplete += HandleCompleteHide;
+            }
+            else 
+            {
+                hideAnimation.Play();
+                hideAnimation.OnComplete += HandleCompleteHide;
+            }
+
+            if (button != null) {
+                button.interactable = false;
+                button.gameObject.SetActive(false);
+            }
+        }
 
 		private void HandleSelect(int index)
 		{
